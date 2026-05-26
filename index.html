@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jay Kaneriya — Senior Web & Mobile App Developer</title>
-<meta name="description" content="Jay Kaneriya — Senior Web Application Developer with 8+ years of experience in Laravel, React Native, Vue.js, and React.js. Based in Rajkot, India.">
-<meta name="keywords" content="Jay Kaneriya, Laravel Developer, React Native Developer, Full Stack Developer, Web Developer, Mobile App Developer, Rajkot, India, Paperly">
+<title>Jay Kaneriya — Full Stack Developer</title>
+<meta name="description" content="Jay Kaneriya — Full Stack Developer with 8+ years of experience in Laravel, Vue.js, and React.js. Based in Rajkot, India.">
+<meta name="keywords" content="Jay Kaneriya, Laravel Developer, Vue.js Developer, Full Stack Developer, Web Developer, PHP Developer, Rajkot, India, Paperly">
 <meta name="author" content="Jay Kaneriya">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Jay Kaneriya — Senior Web & Mobile App Developer">
-<meta property="og:description" content="8+ years building scalable Laravel & React Native applications. Open to projects and collaborations.">
+<meta property="og:title" content="Jay Kaneriya — Full Stack Developer">
+<meta property="og:description" content="8+ years building scalable Laravel & Vue.js applications. Open to projects and collaborations.">
 <meta property="og:image" content="jay-photo.jpg">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Jay Kaneriya — Senior Developer">
-<meta name="twitter:description" content="Laravel & React Native specialist with 8+ years of experience.">
+<meta name="twitter:title" content="Jay Kaneriya — Full Stack Developer">
+<meta name="twitter:description" content="Laravel & Vue.js specialist with 8+ years of experience.">
 <meta name="twitter:image" content="jay-photo.jpg">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -154,21 +154,33 @@
   }
 
   .logo {
-    font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    color: #63e8b4;
-    letter-spacing: 2px;
-    font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: #c9d1e0;
+    letter-spacing: 2px;
+    font-weight: 700;
+    transition: opacity 0.2s;
   }
 
-  .logo-dot {
-    width: 8px; height: 8px;
-    background: #63e8b4;
+  .logo:hover { opacity: 0.85; }
+
+  .logo-img {
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
+    display: block;
+  }
+
+  .logo-text {
+    color: #c9d1e0;
+  }
+
+  @media (max-width: 480px) {
+    .logo-text { display: none; }
   }
 
   @keyframes pulse {
@@ -1263,10 +1275,10 @@
 <div class="container">
 
   <nav>
-    <div class="logo">
-      <span class="logo-dot"></span>
-      JK.DEV
-    </div>
+    <a href="#home" class="logo">
+      <img src="logo.png" alt="Jay Kaneriya logo" class="logo-img">
+      <span class="logo-text">KANERIYA</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#work">work</a></li>
       <li><a href="#stack">stack</a></li>
@@ -1282,20 +1294,19 @@
   <section class="hero" id="home">
     <div class="hero-content">
       <div class="hero-eyebrow">
-        <span class="status-dot"></span>
-        available for projects
+        portfolio · 2026
       </div>
       <h1>
         Jay<br>
         <span class="accent">Kaneriya.</span>
       </h1>
       <p class="hero-role">
-        Senior Web & Mobile Developer
+        Full Stack Developer
         <span class="separator">·</span>
-        <strong>Laravel & React Native</strong>
+        <strong>Laravel & Vue.js</strong>
       </p>
       <p class="hero-desc">
-        I build scalable web applications and hybrid mobile apps that solve real-world business problems. Currently shipping production-grade modules at Paperly, with 8+ years of experience across SaaS, eCommerce, fintech, and logistics platforms.
+        I build scalable web applications that solve real-world business problems. Currently shipping production-grade modules at Paperly, with 8+ years of experience across SaaS, eCommerce, and education platforms.
       </p>
       <div class="cta-row">
         <a href="#work" class="btn-primary">
@@ -1308,11 +1319,7 @@
     </div>
     <div class="hero-photo-wrap">
       <div class="hero-photo">
-        <img src="jay-photo.jpg" alt="Jay Kaneriya — Senior Web & Mobile App Developer" loading="eager">
-        <div class="photo-badge">
-          <span class="photo-badge-dot"></span>
-          Rajkot, IN · Open to work
-        </div>
+        <img src="jay-photo.jpg" alt="Jay Kaneriya — Full Stack Developer" loading="eager">
       </div>
     </div>
   </section>
@@ -1322,7 +1329,7 @@
     <h2 class="section-title">A developer who <span class="italic">ships.</span></h2>
     <div class="bio-card">
       <p class="bio-text">
-        I'm <strong>Jay Kaneriya</strong> — a Senior Web Application Developer based in <strong>Rajkot, India</strong>. With <strong>8+ years of experience</strong> across startups and product companies, I specialize in <strong>Laravel, React.js, Vue.js,</strong> and <strong>React Native</strong>. From multi-vendor eCommerce platforms and on-demand delivery apps to student management systems and real-time chat applications — I build systems that solve real problems with clean architecture, efficient code, and a focus on user experience.
+        I'm <strong>Jay Kaneriya</strong> — a Full Stack Developer based in <strong>Rajkot, India</strong>. With <strong>8+ years of experience</strong> across startups and product companies, I specialize in <strong>Laravel, Vue.js, React.js,</strong> and modern PHP. From multi-vendor eCommerce platforms to student management systems and real-time applications — I build systems that solve real problems with clean architecture, efficient code, and a focus on user experience.
       </p>
       <div class="bio-meta">
         <div class="bio-meta-item">
@@ -1355,9 +1362,9 @@
         <div class="stack-type">Backend framework · APIs · Admin panels</div>
       </div>
       <div class="stack-card">
-        <div class="stack-icon">RN</div>
-        <div class="stack-name">React Native</div>
-        <div class="stack-type">Hybrid iOS & Android apps</div>
+        <div class="stack-icon">V</div>
+        <div class="stack-name">Vue.js</div>
+        <div class="stack-type">Reactive frontend · Vuex · Composition API</div>
       </div>
       <div class="stack-card">
         <div class="stack-icon">R</div>
@@ -1365,49 +1372,49 @@
         <div class="stack-type">Modern UI · Redux · Hooks</div>
       </div>
       <div class="stack-card">
-        <div class="stack-icon">V</div>
-        <div class="stack-name">Vue.js</div>
-        <div class="stack-type">Reactive frontend · Vuex</div>
-      </div>
-      <div class="stack-card">
         <div class="stack-icon">JS</div>
         <div class="stack-name">JavaScript</div>
         <div class="stack-type">ES6+ · TypeScript · Node.js</div>
       </div>
       <div class="stack-card">
-        <div class="stack-icon">S</div>
-        <div class="stack-name">Sails.js</div>
-        <div class="stack-type">Node MVC framework</div>
-      </div>
-      <div class="stack-card">
         <div class="stack-icon">P</div>
         <div class="stack-name">PHP</div>
-        <div class="stack-type">Primary backend language</div>
+        <div class="stack-type">Modern PHP 8+ · OOP · Design patterns</div>
       </div>
       <div class="stack-card">
         <div class="stack-icon">DB</div>
         <div class="stack-name">MySQL</div>
-        <div class="stack-type">Relational databases · Design</div>
+        <div class="stack-type">Relational databases · Query optimization</div>
       </div>
       <div class="stack-card">
-        <div class="stack-icon">FB</div>
-        <div class="stack-name">Firebase</div>
-        <div class="stack-type">Real-time · Push · Auth</div>
+        <div class="stack-icon">S</div>
+        <div class="stack-name">Sails.js</div>
+        <div class="stack-type">Node.js MVC framework</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-icon">T</div>
+        <div class="stack-name">Tailwind</div>
+        <div class="stack-type">Utility-first CSS · Modern UI</div>
       </div>
       <div class="stack-card">
         <div class="stack-icon">AWS</div>
         <div class="stack-name">AWS</div>
-        <div class="stack-type">S3 · EC2 · Cloud services</div>
+        <div class="stack-type">S3 · EC2 · CloudFront</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-icon">G</div>
+        <div class="stack-name">Git</div>
+        <div class="stack-type">Version control · GitHub workflows</div>
       </div>
       <div class="stack-card">
         <div class="stack-icon">API</div>
         <div class="stack-name">REST APIs</div>
-        <div class="stack-type">Design · Integration · JWT</div>
+        <div class="stack-type">Design · Integration · JWT auth</div>
       </div>
       <div class="stack-card">
         <div class="stack-icon">SK</div>
         <div class="stack-name">Socket.io</div>
-        <div class="stack-type">Real-time chat & events</div>
+        <div class="stack-type">Real-time events · WebSockets</div>
       </div>
     </div>
   </section>
@@ -1450,32 +1457,27 @@
           <div>
             <div class="project-num">PROJECT 02 —</div>
             <h3 class="project-title">Megathy</h3>
-            <div class="project-meta"><strong>Full-stack & Mobile</strong> · On-demand Grocery Delivery · Saudi Arabia</div>
+            <div class="project-meta"><strong>Full-stack Developer</strong> · On-demand Grocery Delivery · Saudi Arabia</div>
           </div>
         </div>
         <p class="project-desc">
-          An advanced on-demand grocery delivery application serving the Eastern region of Saudi Arabia. Customers browse a wide product range, schedule deliveries, track orders in real-time, and pay via cash or card — all from a friendly mobile interface backed by a robust Laravel admin panel.
+          An advanced on-demand grocery delivery platform serving the Eastern region of Saudi Arabia. Built the complete backend, admin panel, and order management system using Laravel — handling real-time order tracking, scheduled deliveries, multi-payment processing, and a discount engine for thousands of customers.
         </p>
         <div class="project-features">
-          <div class="feature-item">Real-time order tracking on map</div>
-          <div class="feature-item">Scheduled delivery slots</div>
-          <div class="feature-item">Multiple payment methods</div>
-          <div class="feature-item">Weekly offers & discount engine</div>
+          <div class="feature-item">Real-time order tracking dashboard</div>
+          <div class="feature-item">Scheduled delivery slot management</div>
+          <div class="feature-item">Multi-vendor product catalog</div>
+          <div class="feature-item">Payment gateway integration</div>
           <div class="feature-item">Live chat customer support</div>
           <div class="feature-item">Reward & loyalty system</div>
         </div>
         <div class="tag-row">
           <span class="tag">Laravel</span>
-          <span class="tag">React Native</span>
-          <span class="tag">Firebase</span>
+          <span class="tag">Vue.js</span>
+          <span class="tag">MySQL</span>
           <span class="tag">jQuery</span>
           <span class="tag">SASS</span>
           <span class="tag">Bootstrap</span>
-        </div>
-        <div class="project-links">
-          <a href="https://megathykom.com/" target="_blank" class="project-link">WEBSITE ↗</a>
-          <a href="https://apps.apple.com/gb/app/megathy/id1227682497" target="_blank" class="project-link">iOS APP ↗</a>
-          <a href="https://play.google.com/store/apps/details?id=com.megathykom" target="_blank" class="project-link">ANDROID ↗</a>
         </div>
       </div>
 
@@ -1483,65 +1485,6 @@
         <div class="project-header">
           <div>
             <div class="project-num">PROJECT 03 —</div>
-            <h3 class="project-title">Hawkeye Legacy</h3>
-            <div class="project-meta"><strong>Mobile Developer</strong> · Alumni Network for Iowa Football</div>
-          </div>
-        </div>
-        <p class="project-desc">
-          A platform for Iowa Football alumni to maintain their bond, create friendships across decades of former players, and foster mentorship and job opportunities. Features real-time broadcasts, gameday chats, and a dedicated job board for athletes — built entirely with React Native and Socket.io for real-time interactions.
-        </p>
-        <div class="project-features">
-          <div class="feature-item">Real-time event broadcasting</div>
-          <div class="feature-item">Gameday chat with banter</div>
-          <div class="feature-item">Athlete-focused job board</div>
-          <div class="feature-item">Event creation & task assignment</div>
-          <div class="feature-item">Smart push notifications</div>
-          <div class="feature-item">Cross-decade member directory</div>
-        </div>
-        <div class="tag-row">
-          <span class="tag">React Native</span>
-          <span class="tag">Socket.io</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">REST API</span>
-          <span class="tag">JavaScript ES6</span>
-        </div>
-        <div class="project-links">
-          <a href="https://apps.apple.com/in/app/hawkeye-legacy/id1507922846" target="_blank" class="project-link">iOS APP ↗</a>
-          <a href="https://play.google.com/store/apps/details?id=com.nextplay.hawkeyelegacy" target="_blank" class="project-link">ANDROID ↗</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-header">
-          <div>
-            <div class="project-num">PROJECT 04 —</div>
-            <h3 class="project-title">Vector Rideshare</h3>
-            <div class="project-meta"><strong>Mobile Developer</strong> · University Carpooling Platform</div>
-          </div>
-        </div>
-        <p class="project-desc">
-          The safest carpooling app for college students and faculty. Any verified .edu user can create trips to earn money, or find existing trips matching their destination. Built with React Native and Firebase, with real-time chat between trip creators and riders, and a robust scheduling system.
-        </p>
-        <div class="project-features">
-          <div class="feature-item">.edu email verification</div>
-          <div class="feature-item">Create trips & earn money</div>
-          <div class="feature-item">Real-time chat with trip creator</div>
-          <div class="feature-item">Schedule trips in advance</div>
-          <div class="feature-item">Safe student-only network</div>
-          <div class="feature-item">Destination-based search</div>
-        </div>
-        <div class="tag-row">
-          <span class="tag">React Native</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">REST API</span>
-          <span class="tag">JavaScript ES6</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-header">
-          <div>
-            <div class="project-num">PROJECT 05 —</div>
             <h3 class="project-title">Zimdle</h3>
             <div class="project-meta"><strong>Full-stack Developer</strong> · Customer Feedback Platform</div>
           </div>
@@ -1552,10 +1495,10 @@
         <div class="project-features">
           <div class="feature-item">Instant feedback collection</div>
           <div class="feature-item">History stats & visual charts</div>
-          <div class="feature-item">Trend identification</div>
+          <div class="feature-item">Trend identification engine</div>
           <div class="feature-item">Automated reports & alerts</div>
           <div class="feature-item">Performance benchmarking</div>
-          <div class="feature-item">Private feedback channel</div>
+          <div class="feature-item">Private feedback channels</div>
         </div>
         <div class="tag-row">
           <span class="tag">Laravel</span>
@@ -1564,6 +1507,62 @@
           <span class="tag">AJAX</span>
           <span class="tag">SASS</span>
           <span class="tag">Bootstrap</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-num">PROJECT 04 —</div>
+            <h3 class="project-title">Multi-vendor eCommerce Suite</h3>
+            <div class="project-meta"><strong>Full-stack Developer</strong> · Logistic Infotech Client Project</div>
+          </div>
+        </div>
+        <p class="project-desc">
+          Built a complete multi-vendor marketplace platform with vendor onboarding, inventory management, order routing, and a powerful admin dashboard. Handled payment gateway integrations, shipping logistics APIs, and real-time inventory sync across multiple warehouses.
+        </p>
+        <div class="project-features">
+          <div class="feature-item">Multi-vendor onboarding flow</div>
+          <div class="feature-item">Centralized inventory system</div>
+          <div class="feature-item">Order routing automation</div>
+          <div class="feature-item">Multiple payment gateways</div>
+          <div class="feature-item">Shipping & logistics APIs</div>
+          <div class="feature-item">Powerful admin analytics</div>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Laravel</span>
+          <span class="tag">Vue.js</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">REST API</span>
+          <span class="tag">Payment Gateway</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <div class="project-num">PROJECT 05 —</div>
+            <h3 class="project-title">SaaS Dashboard Platform</h3>
+            <div class="project-meta"><strong>Full-stack Developer</strong> · Subscription Management System</div>
+          </div>
+        </div>
+        <p class="project-desc">
+          Architected a complete SaaS subscription management platform with role-based access control, team management, billing automation, and detailed analytics. Includes a powerful admin panel for managing tenants, plans, and feature toggles across multiple subscription tiers.
+        </p>
+        <div class="project-features">
+          <div class="feature-item">Multi-tenant architecture</div>
+          <div class="feature-item">Role-based permissions</div>
+          <div class="feature-item">Automated billing & invoicing</div>
+          <div class="feature-item">Real-time analytics dashboard</div>
+          <div class="feature-item">Feature flag management</div>
+          <div class="feature-item">Webhook integrations</div>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Laravel</span>
+          <span class="tag">Vue.js</span>
+          <span class="tag">Redis</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">Stripe</span>
         </div>
       </div>
 
@@ -1578,14 +1577,14 @@
       <div class="skill-block">
         <div class="skill-block-header">
           <div class="skill-block-icon">⌘</div>
-          <div class="skill-block-title">Web Development</div>
+          <div class="skill-block-title">Backend Development</div>
         </div>
         <ul class="skill-list">
-          <li>JavaScript ES6+ and modern syntax</li>
+          <li>Laravel framework expertise (5+ years)</li>
+          <li>RESTful API design and consumption</li>
           <li>Database design and architecture</li>
           <li>Payment gateway integrations</li>
-          <li>RESTful API design and consumption</li>
-          <li>HTML5, CSS3, SASS / Bootstrap</li>
+          <li>Authentication & authorization (JWT, OAuth)</li>
           <li>Dynamic admin panels with CRUD generators</li>
           <li>AWS Services (S3, EC2, CloudFront)</li>
         </ul>
@@ -1594,16 +1593,16 @@
       <div class="skill-block">
         <div class="skill-block-header">
           <div class="skill-block-icon">▤</div>
-          <div class="skill-block-title">Mobile Development</div>
+          <div class="skill-block-title">Frontend Development</div>
         </div>
         <ul class="skill-list">
-          <li>Hybrid apps for iOS & Android (React Native)</li>
-          <li>API integrations and offline-first design</li>
-          <li>Push notification handling (FCM, APNs)</li>
-          <li>Social SDK integrations (Apple, FB, Google)</li>
-          <li>Redux for state management</li>
-          <li>Debugging, testing, and crash analytics</li>
+          <li>Vue.js (Composition API, Vuex, Vue Router)</li>
+          <li>React.js with Hooks and Redux</li>
+          <li>Modern JavaScript ES6+ and TypeScript</li>
+          <li>HTML5, CSS3, SASS, Tailwind CSS</li>
+          <li>Responsive design and accessibility</li>
           <li>Performance optimization & profiling</li>
+          <li>Component-driven development</li>
         </ul>
       </div>
 
@@ -1637,8 +1636,8 @@
         <div class="stat-label">projects shipped</div>
       </div>
       <div class="stat-block">
-        <span class="stat-num">15+</span>
-        <div class="stat-label">mobile apps</div>
+        <span class="stat-num">30+</span>
+        <div class="stat-label">happy clients</div>
       </div>
       <div class="stat-block">
         <span class="stat-num">∞</span>
@@ -1666,7 +1665,7 @@
         <div class="timeline-title">Web Application Developer</div>
         <div class="timeline-company">@ <strong>Logistic Infotech Pvt Ltd</strong></div>
         <p class="timeline-desc">
-          Started my career here and grew into a full-stack developer working on 200+ client projects. Delivered web and mobile applications using Laravel, PHP, Node.js, React.js, React Native, Objective-C, Swift, and Android. Shipped Megathy, Hawkeye Legacy, Vector Rideshare, Zimdle and many more.
+          Started my career here and grew into a full-stack developer working on 200+ client projects. Delivered web applications using Laravel, PHP, Vue.js, React.js, and Node.js. Built eCommerce platforms, SaaS products, customer feedback systems, and complex admin dashboards for clients across the globe.
         </p>
       </div>
 
@@ -1687,7 +1686,7 @@
       <div class="section-label">// get in touch</div>
       <div class="contact-heading">Let's build<br><span class="italic">something.</span></div>
       <p class="contact-sub">
-        Open to freelance, full-time, or interesting collaborations. If it involves Laravel, React Native, or solving a hard problem — let's talk.
+        Open to freelance, full-time, or interesting collaborations. If it involves Laravel, Vue.js, or solving a hard problem — let's talk.
       </p>
       <a href="mailto:jay.kaneriya8@gmail.com" class="contact-email">
         📧 jay.kaneriya8@gmail.com
