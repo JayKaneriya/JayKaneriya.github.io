@@ -77,6 +77,7 @@
   }
   .contact b { color: var(--lime); font-weight: 700; }
   .contact a { color: #d6d6cf; text-decoration: none; }
+  .contact a b { text-decoration: underline; text-decoration-color: rgba(201,242,60,0.45); text-underline-offset: 2px; }
 
   /* ---------- LAYOUT ---------- */
   .cols { display: flex; gap: 14px; }
@@ -177,15 +178,20 @@
         <h1>Jay Kaneriya<span class="dot">.</span></h1>
         <div class="role">Senior Full Stack Developer · <strong>Laravel & Vue.js</strong></div>
       </div>
-      <div class="badge">8+<small>YEARS EXP</small></div>
+      <div style="display:flex;gap:10px;align-items:flex-start;">
+        <div class="badge">8+<small>YEARS EXP</small></div>
+        <a href="https://jaykaneriya.github.io" style="background:#fff;border-radius:8px;padding:4px;display:block;line-height:0;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&margin=0&data=https%3A%2F%2Fjaykaneriya.github.io" width="46" height="46" alt="QR code to jaykaneriya.github.io">
+        </a>
+      </div>
     </div>
     <div class="contact">
       <span>📍 Rajkot, Gujarat, India (IST, GMT+5:30)</span>
-      <span>✉ <b>jay.kaneriya8@gmail.com</b></span>
-      <span>📞 <b>+91 85300 78687</b></span>
-      <span>🌐 <b>jaykaneriya.github.io</b></span>
-      <span>in/ linkedin.com/in/jaykaneriya</span>
-      <span>gh/ github.com/JayKaneriya</span>
+      <span>✉ <a href="mailto:jay.kaneriya8@gmail.com"><b>jay.kaneriya8@gmail.com</b></a></span>
+      <span>📞 <a href="tel:+918530078687"><b>+91 85300 78687</b></a></span>
+      <span>🌐 <a href="https://jaykaneriya.github.io"><b>jaykaneriya.github.io</b></a></span>
+      <span>in/ <a href="https://www.linkedin.com/in/jaykaneriya/">linkedin.com/in/jaykaneriya</a></span>
+      <span>gh/ <a href="https://github.com/JayKaneriya">github.com/JayKaneriya</a></span>
     </div>
   </header>
 

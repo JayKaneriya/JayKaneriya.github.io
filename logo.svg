@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="0.5" stop-color="#1c1c26"/>
+      <stop offset="1" stop-color="#d4ff4f"/>
+    </linearGradient>
+  </defs>
+  <rect x="14" y="14" width="484" height="484" rx="118" fill="url(#edge)"/>
+  <rect x="18" y="18" width="476" height="476" rx="114" fill="#0e0e14"/>
+  <!-- J -->
+  <path d="M 210 152 L 210 308 Q 210 358 162 358 Q 126 358 117 327"
+        fill="none" stroke="#d4ff4f" stroke-width="54" stroke-linecap="round"/>
+  <!-- K -->
+  <path d="M 292 152 L 292 358" fill="none" stroke="#d4ff4f" stroke-width="54" stroke-linecap="round"/>
+  <path d="M 390 156 L 302 258" fill="none" stroke="#d4ff4f" stroke-width="50" stroke-linecap="round"/>
+  <path d="M 318 242 L 394 354" fill="none" stroke="#d4ff4f" stroke-width="50" stroke-linecap="round"/>
+  <!-- violet accent dot -->
+  <circle cx="144" cy="172" r="21" fill="#8b5cf6"/>
+</svg>
