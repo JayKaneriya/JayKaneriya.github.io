@@ -26,6 +26,7 @@
 <meta name="twitter:description" content="Senior Laravel and Vue.js developer with 8+ years of experience. Paperly, Perth AU (remote).">
 <meta name="twitter:image" content="https://jaykaneriya.github.io/og-image.jpg">
 
+<link rel="manifest" href="site.webmanifest">
 <link rel="icon" type="image/svg+xml" href="logo.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -1671,6 +1672,10 @@
 
   // Voice plays ONLY when the visitor clicks this button — no autoplay
   voiceBtn.addEventListener('click', () => {
+    if (!('speechSynthesis' in window)) {
+      vlabel.textContent = 'NOT SUPPORTED 😢';
+      return;
+    }
     if (speechSynthesis.speaking) { stopSpeaking(); return; }
     speakIntro();
   });
@@ -1958,6 +1963,19 @@
   // Duplicate marquee content so the loop is seamless
   const mTrack = document.getElementById('marqueeTrack');
   mTrack.innerHTML += mTrack.innerHTML;
+
+  // The project gallery layout (horizontal vs vertical) is decided at load.
+  // If the viewport crosses the 900px breakpoint (e.g. tablet rotation),
+  // reload so the correct layout and scroll behavior are rebuilt.
+  let wasDesktop = window.innerWidth > 900;
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const isDesktop = window.innerWidth > 900;
+      if (isDesktop !== wasDesktop) location.reload();
+    }, 250);
+  });
 </script>
 
 </body>
