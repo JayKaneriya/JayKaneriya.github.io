@@ -770,25 +770,24 @@
   }
   .stack-tile p { font-size: 12px; color: var(--dim); }
 
-  /* ---------- WORK (horizontal scroll) ---------- */
+  /* ---------- WORK ---------- */
   #work { overflow: hidden; }
-  .work-head { margin-bottom: 26px; }
+  .work-head { margin-bottom: 40px; }
   .work-track {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    width: max-content;
+    width: 100%;
     padding: 10px 0 30px;
-    will-change: transform;
   }
   .project {
-    width: min(620px, 86vw);
+    width: 100%;
     padding: 40px;
-    flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, transform 0.3s;
   }
-  .project:hover { border-color: rgba(212,255,79,0.35); }
+  .project:hover { border-color: rgba(212,255,79,0.35); transform: translateY(-4px); }
   @media (max-width: 640px) { .project { padding: 26px; } }
 
   .project .p-num {
@@ -837,7 +836,7 @@
   }
   .p-features div::before { content: '→'; color: var(--lime); flex-shrink: 0; }
 
-  .p-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .p-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; margin-top: auto; }
   .p-tags span {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
@@ -847,7 +846,7 @@
     padding: 5px 12px;
     border-radius: 100px;
   }
-  .p-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
+  .p-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 0; }
   .p-links a {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -860,19 +859,8 @@
   }
   .p-links a:hover { color: #0b0b0f; background: var(--lime); border-color: var(--lime); }
 
-  .work-hint {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--dim);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
   @media (max-width: 900px) {
-    .work-track { flex-direction: column; width: 100%; }
-    .project { width: 100%; }
-    .work-hint { display: none; }
+    .work-track { grid-template-columns: 1fr; }
   }
 
   /* ---------- SKILLS ---------- */
@@ -1096,10 +1084,7 @@
       transition-duration: 0.01ms !important;
     }
   }
-  /* When motion is reduced, projects stack vertically instead of scrolling sideways */
-  body.reduced .work-track { flex-direction: column; width: 100%; }
-  body.reduced .work-track .project { width: 100%; }
-  body.reduced .work-hint { display: none; }
+  /* Reduced motion handles grid reveals cleanly */
 </style>
 </head>
 <body>
@@ -1237,7 +1222,6 @@
   <div class="wrap work-head">
     <div class="eyebrow">03 — SELECTED WORK</div>
     <h2 class="heading">Things I've<br><span class="lime">built.</span></h2>
-    <div class="work-hint">DRAG YOUR SCROLL — PROJECTS MOVE SIDEWAYS →</div>
   </div>
   <div class="wrap">
     <div class="work-track" id="workTrack">
@@ -1850,30 +1834,13 @@
       scrollTrigger: { trigger: '.stack-bento', start: 'top 85%' }
     });
 
-    // Horizontal scroll for projects (desktop only)
-    const track = document.getElementById('workTrack');
-    if (window.innerWidth > 900 && track) {
-      const getDist = () => track.scrollWidth - document.querySelector('#work .wrap:last-child').offsetWidth;
-      gsap.to(track, {
-        x: () => -getDist(),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '#work',
-          start: 'top top',
-          end: () => '+=' + getDist(),
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true
-        }
+    // Scroll reveal animation for projects
+    gsap.utils.toArray('.project').forEach(card => {
+      gsap.fromTo(card, { y: 50, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+        scrollTrigger: { trigger: card, start: 'top 88%' }
       });
-    } else {
-      gsap.utils.toArray('.project').forEach(card => {
-        gsap.fromTo(card, { y: 50, opacity: 0 }, {
-          y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
-          scrollTrigger: { trigger: card, start: 'top 88%' }
-        });
-      });
-    }
+    });
 
     // Skill cards
     gsap.fromTo('.skill-card', { y: 40, opacity: 0 }, {
@@ -1964,18 +1931,7 @@
   const mTrack = document.getElementById('marqueeTrack');
   mTrack.innerHTML += mTrack.innerHTML;
 
-  // The project gallery layout (horizontal vs vertical) is decided at load.
-  // If the viewport crosses the 900px breakpoint (e.g. tablet rotation),
-  // reload so the correct layout and scroll behavior are rebuilt.
-  let wasDesktop = window.innerWidth > 900;
-  let resizeTimer = null;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      const isDesktop = window.innerWidth > 900;
-      if (isDesktop !== wasDesktop) location.reload();
-    }, 250);
-  });
+
 </script>
 
 </body>
