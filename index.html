@@ -101,13 +101,10 @@
 <!-- If JavaScript is unavailable, show all content immediately (also helps crawlers) -->
 <noscript>
 <style>
-  #preloader { display: none !important; }
   .reveal, .hero-role, .hero-cta, .avatar-stage, .speech-bubble { opacity: 1 !important; }
   .hero h1 .row span { transform: none !important; }
-  .work-track { flex-direction: column !important; width: 100% !important; }
-  .work-track .project { width: 100% !important; }
   body { cursor: auto !important; }
-  .cursor, .sound-toggle, .work-hint { display: none !important; }
+  .cursor, .sound-toggle { display: none !important; }
 </style>
 </noscript>
 
@@ -141,104 +138,7 @@
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: rgba(212,255,79,0.25); border-radius: 4px; }
 
-  /* ---------- PRELOADER ---------- */
-  #preloader {
-    position: fixed;
-    inset: 0;
-    background: var(--bg);
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .preloader-name {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 800;
-    font-size: clamp(28px, 5vw, 56px);
-    letter-spacing: -1px;
-  }
-  .preloader-name .lime { color: var(--lime); }
-  .preloader-count {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
-    color: var(--muted);
-  }
-  .pre-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
 
-  /* Intro scene: the character "video" moment */
-  .intro-stage {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(380px, 72vw);
-    opacity: 0;
-  }
-  .intro-blob {
-    position: absolute;
-    inset: 4%;
-    background: linear-gradient(135deg, var(--violet), var(--lime));
-    border-radius: 58% 42% 55% 45% / 50% 55% 45% 50%;
-    filter: blur(6px);
-    opacity: 0.55;
-    animation: blobMorph 9s ease-in-out infinite;
-  }
-  .intro-frame {
-    position: relative;
-    border-radius: 32px;
-    overflow: hidden;
-    border: 1px solid rgba(242,239,233,0.16);
-    background: #08080c;
-    box-shadow: 0 30px 90px rgba(0,0,0,0.6);
-  }
-  .intro-frame img { width: 100%; display: block; }
-  .intro-frame img.intro-mouth {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.1s ease;
-  }
-  .intro-frame img.intro-mouth.show { opacity: 1; }
-  .intro-bubble {
-    position: absolute;
-    top: -54px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
-    background: var(--ink);
-    color: #0b0b0f;
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 700;
-    font-size: 17px;
-    padding: 13px 22px;
-    border-radius: 18px 18px 18px 4px;
-    white-space: nowrap;
-    z-index: 5;
-    opacity: 0;
-  }
-  @media (max-width: 480px) { .intro-bubble { font-size: 14px; top: -48px; } }
-  .intro-skip {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    color: var(--muted);
-    background: transparent;
-    border: 1px solid var(--line);
-    border-radius: 100px;
-    padding: 11px 22px;
-    cursor: pointer;
-    transition: all 0.25s;
-    opacity: 0;
-  }
-  .intro-skip:hover { color: var(--lime); border-color: var(--lime); }
 
   /* ---------- BACKGROUND ---------- */
   .blob {
@@ -406,20 +306,235 @@
   .heading .lime { color: var(--lime); }
   .heading .word { display: inline-block; }
 
-  /* ---------- HERO ---------- */
+  /* ---------- HERO — SPLIT LAYOUT: TEXT LEFT, VIDEO RIGHT ---------- */
   .hero {
+    position: relative;
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    align-items: center;
-    gap: 40px;
+    width: 100%;
     padding-top: 120px;
     padding-bottom: 40px;
+    overflow: hidden;
   }
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; padding-top: 130px; text-align: center; }
-    .hero-left { order: 2; }
-    .hero-right { order: 1; }
+
+  .hero-left {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    max-width: 640px;
+    padding-left: max(40px, calc((100vw - 1280px) / 2 + 40px));
+    padding-right: 40px;
+  }
+
+  /* Right half: full-bleed video, edge to edge */
+  .hero-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    border: none;
+    outline: none;
+  }
+  .hero-right video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    border: none;
+    outline: none;
+    display: block;
+    background: var(--bg);
+  }
+  /* Soft left blend only — no frame on top/bottom/right */
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(to right,
+      rgba(11,11,15,1.0) 0%,
+      rgba(11,11,15,0.45) 12%,
+      rgba(11,11,15,0.0) 28%
+    );
+  }
+
+  @media (max-width: 1024px) {
+    .hero {
+      display: flex;
+      flex-direction: column;
+      min-height: auto;
+      padding-top: 88px;
+      padding-bottom: 40px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Stack: nav → video → text */
+    .hero-right {
+      order: 1;
+      position: relative;
+      width: 100%;
+      height: 48vh;
+      min-height: 260px;
+      max-height: 480px;
+      flex-shrink: 0;
+      margin: 0;
+      padding: 0;
+      border: none;
+      outline: none;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    .hero-right video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      border-radius: 0;
+      background: var(--bg);
+      -webkit-appearance: none;
+      appearance: none;
+      /* Fade video into exact site bg (#0b0b0f) */
+      -webkit-mask-image: linear-gradient(to bottom,
+        rgba(0,0,0,0.15) 0%,
+        #000 7%,
+        #000 40%,
+        rgba(0,0,0,0.75) 62%,
+        rgba(0,0,0,0.35) 78%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(to bottom,
+        rgba(0,0,0,0.15) 0%,
+        #000 7%,
+        #000 40%,
+        rgba(0,0,0,0.75) 62%,
+        rgba(0,0,0,0.35) 78%,
+        transparent 100%
+      );
+    }
+
+    /* Overlay uses exact --bg (#0b0b0f) for seamless page blend */
+    .hero-right::before {
+      display: block;
+      background: linear-gradient(to bottom,
+        var(--bg) 0%,
+        transparent 9%,
+        transparent 52%,
+        rgba(11,11,15,0.3) 68%,
+        rgba(11,11,15,0.7) 82%,
+        var(--bg) 100%
+      );
+    }
+
+    .hero-left {
+      order: 2;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: none;
+      margin: -64px 0 0;
+      padding: 72px 18px 0;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        var(--bg) 56px,
+        var(--bg) 100%
+      );
+    }
+
+    .scroll-hint {
+      display: none;
+    }
+  }
+
+  /* Tablet: taller video area + full character framing (not just face) */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .hero-right {
+      height: 62vh;
+      min-height: 440px;
+      max-height: none;
+    }
+
+    .hero-right video {
+      object-position: center 38%;
+    }
+  }
+
+  /* Phone: slightly higher crop to keep face visible in shorter box */
+  @media (max-width: 767px) {
+    .hero-right video {
+      object-position: center 28%;
+    }
+  }
+
+  /* Mute/unmute pill on the video */
+  .video-mute-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 10;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--ink);
+    background: rgba(11,11,15,0.55);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .video-mute-btn:hover { border-color: var(--lime); color: var(--lime); }
+  @media (max-width: 480px) {
+    .video-mute-btn { bottom: 16px; right: 12px; font-size: 10px; padding: 8px 14px; }
+    .hero-right { height: 44vh; min-height: 240px; }
+    .hero-left { margin-top: -56px; padding: 64px 18px 0; }
+  }
+
+  /* Shown only when browser blocks sound — one real tap enables audio */
+  .video-sound-gate {
+    position: absolute;
+    inset: 0;
+    z-index: 9;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 72px;
+  }
+  .video-sound-gate.show { display: flex; }
+  .video-sound-gate span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--ink);
+    background: rgba(11,11,15,0.72);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--lime);
+    border-radius: 100px;
+    padding: 10px 20px;
+    animation: soundPulse 1.6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes soundPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212,255,79,0.35); }
+    50% { box-shadow: 0 0 0 10px rgba(212,255,79,0); }
   }
 
   .hero-tag {
@@ -499,116 +614,6 @@
   .btn-fill:hover { box-shadow: 0 12px 40px rgba(212,255,79,0.3); }
   .btn-ghost { border-color: var(--line); color: var(--ink); background: rgba(18,18,24,0.5); }
   .btn-ghost:hover { border-color: var(--lime); color: var(--lime); }
-
-  /* ---------- AVATAR CHARACTER ---------- */
-  .hero-right {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    animation: sway 7s ease-in-out 3s infinite;
-    transform-origin: 50% 90%;
-  }
-  /* periodic "waving" wiggle, like the character is saying hi */
-  @keyframes sway {
-    0%, 78%, 100% { transform: rotate(0deg); }
-    82% { transform: rotate(-2.5deg); }
-    86% { transform: rotate(2.5deg); }
-    90% { transform: rotate(-1.8deg); }
-    94% { transform: rotate(1.2deg); }
-  }
-  .avatar-stage {
-    position: relative;
-    width: min(400px, 80vw);
-  }
-  .avatar-blob {
-    position: absolute;
-    inset: 6%;
-    background: linear-gradient(135deg, var(--violet), var(--lime));
-    border-radius: 58% 42% 55% 45% / 50% 55% 45% 50%;
-    filter: blur(4px);
-    opacity: 0.55;
-    animation: blobMorph 9s ease-in-out infinite;
-  }
-  @keyframes blobMorph {
-    0%,100% { border-radius: 58% 42% 55% 45% / 50% 55% 45% 50%; transform: rotate(0deg) scale(1); }
-    33% { border-radius: 45% 55% 48% 52% / 58% 44% 56% 42%; transform: rotate(4deg) scale(1.04); }
-    66% { border-radius: 52% 48% 42% 58% / 44% 56% 44% 56%; transform: rotate(-4deg) scale(0.98); }
-  }
-  .avatar-frame {
-    position: relative;
-    border-radius: 32px;
-    overflow: hidden;
-    border: 1px solid rgba(242,239,233,0.14);
-    background: #08080c;
-    animation: floatY 5s ease-in-out infinite;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
-  }
-  @keyframes floatY {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-16px); }
-  }
-  .avatar-frame img {
-    width: 100%;
-    display: block;
-    transform: scale(1.02);
-  }
-  /* Talking mouth: second frame crossfades on top while the voice plays */
-  .avatar-frame img.mouth-open {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.1s ease;
-  }
-  .avatar-frame img.mouth-open.show { opacity: 1; }
-
-  .speech-bubble {
-    position: absolute;
-    top: -26px;
-    right: -12px;
-    background: var(--ink);
-    color: #0b0b0f;
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    padding: 12px 20px;
-    border-radius: 18px 18px 18px 4px;
-    transform: rotate(3deg);
-    z-index: 5;
-    opacity: 0;
-    white-space: nowrap;
-  }
-  @media (max-width: 480px) { .speech-bubble { right: 0; font-size: 13px; } }
-
-  .voice-btn {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 6;
-    white-space: nowrap;
-  }
-  .voice-btn .bars {
-    display: none;
-    align-items: flex-end;
-    gap: 2.5px;
-    height: 14px;
-  }
-  .voice-btn .bars i {
-    width: 3px;
-    background: #0b0b0f;
-    border-radius: 2px;
-    animation: eq 0.7s ease-in-out infinite;
-  }
-  .voice-btn .bars i:nth-child(1) { height: 6px; animation-delay: 0s; }
-  .voice-btn .bars i:nth-child(2) { height: 12px; animation-delay: 0.15s; }
-  .voice-btn .bars i:nth-child(3) { height: 8px; animation-delay: 0.3s; }
-  .voice-btn .bars i:nth-child(4) { height: 13px; animation-delay: 0.45s; }
-  @keyframes eq {
-    0%,100% { transform: scaleY(0.5); }
-    50% { transform: scaleY(1.3); }
-  }
-  .voice-btn.speaking .bars { display: inline-flex; }
-  .voice-btn.speaking .mic { display: none; }
 
   .scroll-hint {
     position: absolute;
@@ -1089,21 +1094,7 @@
 </head>
 <body>
 
-<div id="preloader">
-  <div class="pre-center" id="preCenter">
-    <div class="preloader-name">JAY<span class="lime">.</span>K</div>
-    <div class="preloader-count" id="preCount">0%</div>
-  </div>
-  <div class="intro-stage" id="introStage">
-    <div class="intro-bubble" id="introBubble">Hi, I'm Jay! 👋</div>
-    <div class="intro-blob"></div>
-    <div class="intro-frame">
-      <img src="jay-avatar.jpg" alt="Jay Kaneriya animated character">
-      <img src="jay-avatar-talk.jpg" class="intro-mouth" id="introMouth" alt="" aria-hidden="true">
-    </div>
-  </div>
-  <button class="intro-skip" id="introSkip">SKIP INTRO →</button>
-</div>
+
 
 <div class="blob a"></div>
 <div class="blob b"></div>
@@ -1124,46 +1115,40 @@
   <a class="nav-link" href="#contact">contact</a>
 </nav>
 
-<div class="wrap">
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-left">
-      <div class="hero-tag"><span class="dot"></span> PORTFOLIO 2026 — SENIOR FULL STACK DEVELOPER</div>
-      <h1>
-        <span class="row"><span>JAY</span></span>
-        <span class="row"><span class="outline">KANERIYA</span></span>
-        <span class="row"><span class="lime">DEV.</span></span>
-      </h1>
-      <p class="hero-role">
-        Senior Full Stack Developer crafting with <strong>Laravel</strong>, <strong>Vue.js</strong> & <strong>React</strong> —
-        <em>8+ years</em> of shipping scalable web apps from Rajkot, India 🇮🇳
-      </p>
-      <div class="hero-cta">
-        <a href="#work" class="btn btn-fill">SEE MY WORK →</a>
-        <a href="Jay_Kaneriya_CV_2026.pdf" download class="btn btn-ghost">DOWNLOAD CV ↓</a>
-      </div>
+<!-- HERO: full-width — text left, video fills right half of viewport -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-tag"><span class="dot"></span> PORTFOLIO 2026 — SENIOR FULL STACK DEVELOPER</div>
+    <h1>
+      <span class="row"><span>JAY</span></span>
+      <span class="row"><span class="outline">KANERIYA</span></span>
+      <span class="row"><span class="lime">DEV.</span></span>
+    </h1>
+    <p class="hero-role">
+      Senior Full Stack Developer crafting with <strong>Laravel</strong>, <strong>Vue.js</strong> &amp; <strong>React</strong> —
+      <em>8+ years</em> of shipping scalable web apps from Rajkot, India 🇮🇳
+    </p>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-fill">SEE MY WORK →</a>
+      <a href="Jay_Kaneriya_CV_2026.pdf" download class="btn btn-ghost">DOWNLOAD CV ↓</a>
     </div>
+  </div>
 
-    <div class="hero-right">
-      <div class="avatar-stage" id="avatarStage">
-        <div class="speech-bubble" id="speechBubble">Hi, I'm Jay! 👋</div>
-        <div class="avatar-blob"></div>
-        <div class="avatar-frame">
-          <img src="jay-avatar.jpg" alt="Animated cartoon character of Jay Kaneriya waving">
-          <img src="jay-avatar-talk.jpg" class="mouth-open" id="mouthOpen" alt="" aria-hidden="true">
-        </div>
-        <button class="btn btn-fill voice-btn" id="voiceBtn">
-          <span class="mic">🔊</span>
-          <span class="bars"><i></i><i></i><i></i><i></i></span>
-          <span class="vlabel">PLAY MY INTRO</span>
-        </button>
-      </div>
-    </div>
+  <div class="hero-right">
+    <video id="introVideo" src="intro-video.mp4"
+           playsinline preload="auto"
+           aria-label="Animated character of Jay Kaneriya"></video>
+    <button type="button" class="video-sound-gate" id="soundGate" aria-label="Enable video sound" hidden>
+      <span>🔊 TAP FOR SOUND</span>
+    </button>
+    <button class="video-mute-btn" id="muteBtn" aria-label="Unmute video">
+      <span id="muteIcon">🔇</span>
+      <span id="muteLabel">UNMUTE</span>
+    </button>
+  </div>
 
-    <div class="scroll-hint">SCROLL</div>
-  </section>
-</div>
+  <div class="scroll-hint">SCROLL</div>
+</section>
 
 <!-- MARQUEE -->
 <div class="marquee">
@@ -1571,120 +1556,181 @@
     el.addEventListener('click', clickSound);
   });
 
-  /* ---------- VOICE INTRO (talking avatar) ---------- */
-  const voiceBtn = document.getElementById('voiceBtn');
-  const avatarStage = document.getElementById('avatarStage');
-  const vlabel = voiceBtn.querySelector('.vlabel');
-  const introText = "Hi! I'm Jay Kaneriya, a senior full stack developer from Rajkot, India. I've been building web apps with Laravel, Vue, and React for over eight years. Welcome to my portfolio — have a look around!";
+  /* ---------- VIDEO INTRO (max effort autoplay with sound) ---------- */
+  const introVideo = document.getElementById('introVideo');
+  const muteBtn = document.getElementById('muteBtn');
+  const muteIcon = document.getElementById('muteIcon');
+  const muteLabel = document.getElementById('muteLabel');
+  const soundGate = document.getElementById('soundGate');
+  const SOUND_ALLOWED_KEY = 'jayIntroSoundAllowed';
+  let introPlayed = false;
+  let playTimer = null;
 
-  /* Mouth animation: swap frames at a natural talking rhythm */
-  const mouthOpen = document.getElementById('mouthOpen');
-  let talkTimer = null;
-  function startMouth() {
-    stopMouth();
-    talkTimer = setInterval(() => {
-      mouthOpen.classList.toggle('show', Math.random() > 0.45);
-    }, 150);
-  }
-  function stopMouth() {
-    if (talkTimer) { clearInterval(talkTimer); talkTimer = null; }
-    mouthOpen.classList.remove('show');
+  function syncMuteUI() {
+    if (!introVideo || !muteIcon || !muteLabel || !muteBtn) return;
+    const isMuted = introVideo.muted;
+    muteIcon.textContent = isMuted ? '🔇' : '🔊';
+    muteLabel.textContent = isMuted ? 'UNMUTE' : 'MUTE';
+    muteBtn.setAttribute('aria-label', isMuted ? 'Unmute video' : 'Mute video');
   }
 
-  function stopSpeaking() {
-    speechSynthesis.cancel();
-    stopMouth();
-    avatarStage.classList.remove('talking');
-    voiceBtn.classList.remove('speaking');
-    vlabel.textContent = 'PLAY MY INTRO';
+  function showSoundGate() {
+    if (!soundGate) return;
+    soundGate.hidden = false;
+    soundGate.classList.add('show');
   }
 
-  /* Voice list loads asynchronously on phones — cache it and refresh when ready */
-  let cachedVoices = [];
-  function loadVoices() {
-    if ('speechSynthesis' in window) cachedVoices = speechSynthesis.getVoices() || [];
-  }
-  loadVoices();
-  if ('speechSynthesis' in window && speechSynthesis.addEventListener) {
-    speechSynthesis.addEventListener('voiceschanged', loadVoices);
+  function hideSoundGate() {
+    if (!soundGate) return;
+    soundGate.hidden = true;
+    soundGate.classList.remove('show');
   }
 
-  // Known male voice names across Windows/Android/iOS/macOS speech engines
-  const MALE_NAMES = /(david|mark|james|daniel|aaron|fred|alex|rishi|ravi|prabhat|madhur|ryan|guy|christopher|eric|andrew|brian|george|thomas|oliver)/i;
-
-  function pickMaleVoice() {
-    const all = cachedVoices.length ? cachedVoices : (speechSynthesis.getVoices() || []);
-    const en = all.filter(v => /^en/i.test(v.lang));
-    // "\bmale\b" so that "Female" can never match; then fall back to known male names
-    const findMale = list =>
-      list.find(v => /\bmale\b/i.test(v.name) && !/female/i.test(v.name)) ||
-      list.find(v => MALE_NAMES.test(v.name));
-    return findMale(en.filter(v => /en[-_]IN/i.test(v.lang)))
-        || findMale(en.filter(v => /en[-_](GB|US|AU)/i.test(v.lang)))
-        || findMale(en)
-        || null;
+  function markSoundAllowed() {
+    try { localStorage.setItem(SOUND_ALLOWED_KEY, '1'); } catch (_) {}
   }
 
-  function speakIntro() {
-    if (!('speechSynthesis' in window)) {
-      vlabel.textContent = 'NOT SUPPORTED 😢';
+  function hasSoundPermission() {
+    try { return localStorage.getItem(SOUND_ALLOWED_KEY) === '1'; } catch (_) { return false; }
+  }
+
+  /* Must run inside a real click/tap handler so the browser allows sound */
+  function playWithSoundNow() {
+    if (!introVideo) return false;
+    introVideo.muted = false;
+    introVideo.volume = 1;
+    syncMuteUI();
+    hideSoundGate();
+    const p = introVideo.play();
+    if (p && p.then) {
+      p.then(() => markSoundAllowed()).catch(() => {});
+    }
+    return true;
+  }
+
+  function startIntroFromGesture() {
+    if (!introVideo || introPlayed) return;
+    clearTimeout(playTimer);
+    introPlayed = true;
+    introVideo.loop = false;
+    introVideo.currentTime = 0;
+    introVideo.volume = 1;
+    introVideo.muted = false;
+    syncMuteUI();
+    hideSoundGate();
+    introVideo.play()
+      .then(() => markSoundAllowed())
+      .catch(() => {
+        introVideo.muted = true;
+        syncMuteUI();
+        introVideo.play().catch(() => {});
+        showSoundGate();
+      });
+  }
+
+  function unmuteFromGesture() {
+    if (!introVideo || !introVideo.muted) return;
+    playWithSoundNow();
+  }
+
+  function onUserGesture(e) {
+    if (e.target.closest('#muteBtn')) return;
+    if (!introVideo) return;
+    if (!introPlayed) {
+      startIntroFromGesture();
       return;
     }
-    const u = new SpeechSynthesisUtterance(introText);
-    u.rate = 1.0;
-    u.lang = 'en-IN';
-    const maleVoice = pickMaleVoice();
-    if (maleVoice) {
-      u.voice = maleVoice;
-      u.pitch = 1.0;
+    if (introVideo.muted) unmuteFromGesture();
+  }
+
+  async function scheduledAutoPlay() {
+    if (!introVideo || introPlayed) return;
+    introPlayed = true;
+    introVideo.loop = false;
+    introVideo.currentTime = 0;
+    introVideo.volume = 1;
+
+    // Returning visitor — browser often allows sound automatically
+    if (hasSoundPermission()) {
+      introVideo.muted = false;
+      syncMuteUI();
+      try {
+        await introVideo.play();
+        hideSoundGate();
+        return;
+      } catch (_) {}
+    }
+
+    // First visit — try with sound (MEI / permissive browsers)
+    introVideo.muted = false;
+    syncMuteUI();
+    try {
+      await introVideo.play();
+      markSoundAllowed();
+      hideSoundGate();
+      return;
+    } catch (_) {}
+
+    // Fallback: muted autoplay, then any real click enables sound
+    introVideo.muted = true;
+    syncMuteUI();
+    try {
+      await introVideo.play();
+      showSoundGate();
+    } catch (_) {
+      introPlayed = false;
+    }
+  }
+
+  function scheduleIntroVideo() {
+    playTimer = setTimeout(scheduledAutoPlay, 2000);
+  }
+
+  if (introVideo) {
+    introVideo.loop = false;
+    introVideo.muted = true;
+    introVideo.volume = 1;
+    syncMuteUI();
+
+    // Real gestures — play()/unmute must run inside these handlers
+    ['pointerdown', 'touchstart', 'keydown'].forEach(evt => {
+      document.addEventListener(evt, onUserGesture, { capture: true });
+    });
+
+    window.addEventListener('pageshow', (e) => {
+      if (!e.persisted || !introVideo || !hasSoundPermission()) return;
+      introVideo.muted = false;
+      syncMuteUI();
+      introVideo.play().catch(() => {});
+    });
+
+    if (document.readyState === 'complete') {
+      scheduleIntroVideo();
     } else {
-      // No male voice installed on this device: deepen the default voice instead
-      u.pitch = 0.7;
+      window.addEventListener('load', scheduleIntroVideo, { once: true });
     }
-
-    u.onstart = () => {
-      startMouth();
-      avatarStage.classList.add('talking');
-      voiceBtn.classList.add('speaking');
-      vlabel.textContent = 'TAP TO STOP';
-      document.getElementById('speechBubble').textContent = '🎙️ Hi there!';
-    };
-    u.onend = stopSpeaking;
-    u.onerror = stopSpeaking;
-    speechSynthesis.speak(u);
   }
 
-  // Voice plays ONLY when the visitor clicks this button — no autoplay
-  voiceBtn.addEventListener('click', () => {
-    if (!('speechSynthesis' in window)) {
-      vlabel.textContent = 'NOT SUPPORTED 😢';
-      return;
-    }
-    if (speechSynthesis.speaking) { stopSpeaking(); return; }
-    speakIntro();
-  });
+  if (soundGate) {
+    soundGate.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!introPlayed) startIntroFromGesture();
+      else unmuteFromGesture();
+    });
+  }
 
-  /* ---------- SPEECH BUBBLE: rotating messages ---------- */
-  const bubble = document.getElementById('speechBubble');
-  const bubbleMsgs = [
-    "Hi, I'm Jay! 👋",
-    "8+ years shipping code 🚀",
-    "Laravel · Vue · React 💚",
-    "Based in Rajkot, India 🇮🇳",
-    "Scroll down to explore ↓"
-  ];
-  let bubbleIdx = 0;
-  setInterval(() => {
-    if (avatarStage.classList.contains('talking')) return;
-    bubbleIdx = (bubbleIdx + 1) % bubbleMsgs.length;
-    gsap.to(bubble, {
-      opacity: 0, y: -2, duration: 0.25,
-      onComplete() {
-        bubble.textContent = bubbleMsgs[bubbleIdx];
-        gsap.to(bubble, { opacity: 1, y: -8, duration: 0.35, ease: 'back.out(2)' });
+  if (muteBtn && introVideo) {
+    muteBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (introVideo.muted) {
+        if (!introPlayed) startIntroFromGesture();
+        else unmuteFromGesture();
+      } else {
+        introVideo.muted = true;
+        syncMuteUI();
       }
     });
-  }, 3600);
+  }
 
   /* ---------- CURSOR ---------- */
   const cursor = document.getElementById('cursor');
@@ -1697,87 +1743,16 @@
   });
   gsap.set(cursor, { xPercent: -50, yPercent: -50 });
 
-  /* ---------- PRELOADER + INTRO SCENE ---------- */
-  const preCount = document.getElementById('preCount');
-  const introMouth = document.getElementById('introMouth');
-  const introBubble = document.getElementById('introBubble');
-  let introMouthTimer = null;
-  let introTl = null;
-  let introDone = false;
-
-  function startIntroMouth() {
-    introMouthTimer = setInterval(() => {
-      introMouth.classList.toggle('show', Math.random() > 0.45);
-    }, 150);
-  }
-  function stopIntroMouth() {
-    if (introMouthTimer) { clearInterval(introMouthTimer); introMouthTimer = null; }
-    introMouth.classList.remove('show');
-  }
-  function setIntroBubble(text) {
-    gsap.to(introBubble, {
-      opacity: 0, y: -4, duration: 0.2,
-      onComplete() {
-        introBubble.textContent = text;
-        gsap.to(introBubble, { opacity: 1, y: 0, duration: 0.3, ease: 'back.out(2)' });
-      }
-    });
-  }
-  function endIntro() {
-    if (introDone) return;
-    introDone = true;
-    stopIntroMouth();
-    document.getElementById('preloader').style.display = 'none';
-    heroIn();
-  }
-
-  function introSequence() {
-    introTl = gsap.timeline({ onComplete: endIntro });
-    introTl
-      .to('#preCenter', { opacity: 0, y: -30, duration: 0.45, ease: 'power2.in' })
-      .to('#introSkip', { opacity: 1, duration: 0.3 })
-      .fromTo('#introStage',
-        { opacity: 0, scale: 0.55, y: 70 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.85, ease: 'back.out(1.5)' }, '-=0.2')
-      .to('#introBubble', { opacity: 1, y: 0, duration: 0.4, ease: 'back.out(2)' }, '-=0.25')
-      // wave wiggle, like saying hello
-      .to('#introStage', { rotate: -2.5, duration: 0.12, yoyo: true, repeat: 5, ease: 'sine.inOut' })
-      .set('#introStage', { rotate: 0 })
-      .add(() => {
-        startIntroMouth();
-        setIntroBubble('Welcome to my portfolio!');
-      })
-      .to({}, { duration: 2.6 }) // hold while the character "speaks"
-      .add(stopIntroMouth)
-      .to('#introStage', { scale: 0.5, y: -30, opacity: 0, duration: 0.65, ease: 'power3.in' })
-      .to('#preloader', { yPercent: -100, duration: 0.8, ease: 'power4.inOut' }, '-=0.2');
-  }
-
-  document.getElementById('introSkip').addEventListener('click', () => {
-    if (introTl) introTl.progress(1);
-  });
-
-  // Reduced motion: skip the intro scene and show everything immediately
-  function staticReveal() {
+  // Since the preloader is removed, reveal the hero section immediately
+  if (reduceMotion) {
     document.body.classList.add('reduced');
-    document.getElementById('preloader').style.display = 'none';
-    introDone = true;
     gsap.set('.hero h1 .row span', { y: 0 });
     gsap.set(['.hero-role', '.hero-cta', '.avatar-stage', '#speechBubble'], { opacity: 1, y: 0, scale: 1 });
     document.querySelectorAll('.reveal').forEach(s => { s.style.opacity = 1; });
-  }
-
-  if (reduceMotion) {
-    staticReveal();
+    initScroll();
   } else {
-    const counterObj = { v: 0 };
-    gsap.to(counterObj, {
-      v: 100,
-      duration: 1.2,
-      ease: 'power2.inOut',
-      onUpdate: () => { preCount.textContent = Math.round(counterObj.v) + '%'; },
-      onComplete: introSequence
-    });
+    // A slight delay ensures the browser paints before running the entrance animation
+    setTimeout(heroIn, 100);
   }
 
   /* ---------- HERO ENTRANCE ---------- */
