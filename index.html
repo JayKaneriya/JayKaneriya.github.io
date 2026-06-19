@@ -32,9 +32,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-<!-- Preload character frames so the talking animation never flickers -->
-<link rel="preload" as="image" href="jay-avatar.jpg">
-<link rel="preload" as="image" href="jay-avatar-talk.jpg">
+<link rel="preload" as="video" href="intro-video.mp4" type="video/mp4">
 
 <script type="application/ld+json">
 {
@@ -101,7 +99,7 @@
 <!-- If JavaScript is unavailable, show all content immediately (also helps crawlers) -->
 <noscript>
 <style>
-  .reveal, .hero-role, .hero-cta, .avatar-stage, .speech-bubble { opacity: 1 !important; }
+  .reveal, .hero-role, .hero-cta, .hero-right { opacity: 1 !important; }
   .hero h1 .row span { transform: none !important; }
   body { cursor: auto !important; }
   .cursor, .sound-toggle { display: none !important; }
@@ -216,6 +214,7 @@
   }
   .sound-toggle:hover { border-color: var(--lime); transform: scale(1.08); }
   .sound-toggle.off { opacity: 0.5; }
+  @media (max-width: 1024px) { .sound-toggle { display: none; } }
 
   /* ---------- NAV ---------- */
   nav {
@@ -443,8 +442,8 @@
       z-index: 2;
       width: 100%;
       max-width: none;
-      margin: -64px 0 0;
-      padding: 72px 18px 0;
+      margin: -48px 0 0;
+      padding: 60px 18px 0;
       background: linear-gradient(to bottom,
         transparent 0%,
         var(--bg) 56px,
@@ -1101,7 +1100,7 @@
 <div class="grain"></div>
 <div class="cursor" id="cursor"></div>
 
-<button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">🔊</button>
+<button class="sound-toggle" id="soundToggle" aria-label="Toggle UI click sounds">🔊</button>
 
 <nav>
   <a href="#home" class="nav-logo">
@@ -1633,16 +1632,6 @@
     playWithSoundNow();
   }
 
-  function onUserGesture(e) {
-    if (e.target.closest('#muteBtn')) return;
-    if (!introVideo) return;
-    if (!introPlayed) {
-      startIntroFromGesture();
-      return;
-    }
-    if (introVideo.muted) unmuteFromGesture();
-  }
-
   async function scheduledAutoPlay() {
     if (!introVideo || introPlayed) return;
     introPlayed = true;
@@ -1650,7 +1639,6 @@
     introVideo.currentTime = 0;
     introVideo.volume = 1;
 
-    // Returning visitor — browser often allows sound automatically
     if (hasSoundPermission()) {
       introVideo.muted = false;
       syncMuteUI();
@@ -1661,17 +1649,6 @@
       } catch (_) {}
     }
 
-    // First visit — try with sound (MEI / permissive browsers)
-    introVideo.muted = false;
-    syncMuteUI();
-    try {
-      await introVideo.play();
-      markSoundAllowed();
-      hideSoundGate();
-      return;
-    } catch (_) {}
-
-    // Fallback: muted autoplay, then any real click enables sound
     introVideo.muted = true;
     syncMuteUI();
     try {
@@ -1691,11 +1668,6 @@
     introVideo.muted = true;
     introVideo.volume = 1;
     syncMuteUI();
-
-    // Real gestures — play()/unmute must run inside these handlers
-    ['pointerdown', 'touchstart', 'keydown'].forEach(evt => {
-      document.addEventListener(evt, onUserGesture, { capture: true });
-    });
 
     window.addEventListener('pageshow', (e) => {
       if (!e.persisted || !introVideo || !hasSoundPermission()) return;
@@ -1747,7 +1719,7 @@
   if (reduceMotion) {
     document.body.classList.add('reduced');
     gsap.set('.hero h1 .row span', { y: 0 });
-    gsap.set(['.hero-role', '.hero-cta', '.avatar-stage', '#speechBubble'], { opacity: 1, y: 0, scale: 1 });
+    gsap.set(['.hero-role', '.hero-cta', '.hero-right'], { opacity: 1, y: 0, scale: 1 });
     document.querySelectorAll('.reveal').forEach(s => { s.style.opacity = 1; });
     initScroll();
   } else {
@@ -1761,8 +1733,7 @@
     tl.to('.hero h1 .row span', { y: 0, duration: 1, stagger: 0.12, ease: 'power4.out' })
       .to('.hero-role', { opacity: 1, y: 0, duration: 0.7 }, '-=0.5')
       .to('.hero-cta', { opacity: 1, y: 0, duration: 0.7 }, '-=0.4')
-      .fromTo('.avatar-stage', { opacity: 0, scale: 0.85, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.9, ease: 'back.out(1.4)' }, '-=0.8')
-      .to('#speechBubble', { opacity: 1, y: -8, duration: 0.5, ease: 'back.out(2)' }, '-=0.2');
+      .fromTo('.hero-right', { opacity: 0, scale: 0.92, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.9, ease: 'back.out(1.4)' }, '-=0.8');
     initScroll();
   }
 
