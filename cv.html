@@ -8,165 +8,192 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --ink: #16161c;
-    --muted: #4d4d58;
-    --dim: #80808c;
-    --lime: #c9f23c;
-    --lime-dark: #5d7506;
-    --violet: #6d28d9;
-    --line: #e4e4ea;
+    --ink: #0e1110;
+    --muted: #4a4f4a;
+    --dim: #7a807a;
+    --accent: #ff5a1f;
+    --accent-soft: #fff1eb;
+    --line: #e6e8e4;
+    --paper: #f7f6f2;
   }
 
   body {
     font-family: 'Segoe UI', Arial, sans-serif;
     color: var(--ink);
-    font-size: 9.5pt;
-    line-height: 1.5;
+    font-size: 9.4pt;
+    line-height: 1.48;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
   .page { padding: 11mm 12mm; }
 
-  /* ---------- HEADER ---------- */
   .head {
-    background: var(--ink);
-    color: #f4f4ef;
-    border-radius: 10px;
-    padding: 18px 22px;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 14px;
     margin-bottom: 14px;
   }
   .head-top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 16px;
     margin-bottom: 10px;
   }
   .head h1 {
-    font-size: 23pt;
+    font-size: 24pt;
     font-weight: 800;
-    letter-spacing: -0.5px;
-    line-height: 1.1;
+    letter-spacing: -0.6px;
+    line-height: 1.05;
   }
-  .head h1 .dot { color: var(--lime); }
-  .head .role {
+  .head h1 span { color: var(--accent); }
+  .role {
+    margin-top: 4px;
     font-size: 10.5pt;
-    color: #c2c2bb;
-    margin-top: 2px;
+    color: var(--muted);
   }
-  .head .role strong { color: var(--lime); font-weight: 600; }
-  .badge {
-    background: var(--lime);
-    color: #16161c;
-    border-radius: 8px;
-    padding: 7px 13px;
-    text-align: center;
+  .role strong { color: var(--accent); font-weight: 700; }
+  .status {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 8pt;
     font-weight: 800;
-    font-size: 13pt;
-    line-height: 1.1;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
-  .badge small { display: block; font-size: 5.8pt; font-weight: 700; letter-spacing: 1px; }
   .contact {
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 14px;
+    gap: 5px 16px;
     font-size: 8pt;
-    color: #d6d6cf;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    padding-top: 9px;
+    color: var(--dim);
   }
-  .contact b { color: var(--lime); font-weight: 700; }
-  .contact a { color: #d6d6cf; text-decoration: none; }
-  .contact a b { text-decoration: underline; text-decoration-color: rgba(201,242,60,0.45); text-underline-offset: 2px; }
+  .contact a { color: var(--ink); text-decoration: none; font-weight: 600; }
+  .contact a:hover { color: var(--accent); }
 
-  /* ---------- LAYOUT ---------- */
-  .cols { display: flex; gap: 14px; }
-  .main { flex: 1.65; min-width: 0; }
+  .cols { display: flex; gap: 16px; }
+  .main { flex: 1.7; min-width: 0; }
   .side { flex: 1; min-width: 0; }
 
   h2 {
     font-size: 8.5pt;
-    letter-spacing: 2.5px;
+    letter-spacing: 1.8px;
     text-transform: uppercase;
     color: var(--ink);
-    margin: 14px 0 8px;
+    margin: 13px 0 7px;
     display: flex;
     align-items: center;
     gap: 8px;
   }
-  h2::before { content: ''; width: 16px; height: 3px; background: var(--lime); border-radius: 2px; }
+  h2::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
   h2:first-child { margin-top: 0; }
 
-  p.summary { color: var(--muted); }
+  .summary { color: var(--muted); font-size: 9.2pt; }
   .core {
     margin-top: 6px;
-    font-size: 8.2pt;
+    font-size: 8.1pt;
     color: var(--dim);
+    background: var(--paper);
+    border-left: 3px solid var(--accent);
+    padding: 7px 10px;
   }
   .core b { color: var(--ink); }
 
-  /* ---------- EXPERIENCE ---------- */
   .job { margin-bottom: 11px; page-break-inside: avoid; }
-  .job-head { display: flex; justify-content: space-between; align-items: baseline; }
-  .job h3 { font-size: 10.5pt; font-weight: 700; }
-  .job .when { font-size: 8pt; color: var(--violet); font-weight: 700; white-space: nowrap; }
-  .job .where { font-size: 8.5pt; color: var(--dim); margin-bottom: 4px; }
+  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .job h3 { font-size: 10.4pt; font-weight: 700; }
+  .job .when { font-size: 7.8pt; color: var(--accent); font-weight: 700; white-space: nowrap; }
+  .job .where { font-size: 8.3pt; color: var(--dim); margin-bottom: 3px; }
   .job ul { list-style: none; margin: 2px 0 5px; }
   .job li {
     color: var(--muted);
     padding-left: 12px;
     position: relative;
     margin-bottom: 1.5px;
-    font-size: 8.8pt;
+    font-size: 8.6pt;
   }
-  .job li::before { content: '▸'; color: var(--lime-dark); position: absolute; left: 0; }
+  .job li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+  }
 
   .tags { display: flex; flex-wrap: wrap; gap: 4px; }
   .tags span {
-    background: #f1f6dc;
-    border: 1px solid #d9e6ab;
-    color: var(--lime-dark);
-    font-size: 7.2pt;
+    background: var(--accent-soft);
+    color: #b33a0d;
+    font-size: 7pt;
     font-weight: 700;
-    padding: 1.5px 8px;
-    border-radius: 20px;
+    padding: 2px 8px;
+    border-radius: 999px;
   }
-  .tags span.v { background: #f0eafc; border-color: #d9c9f5; color: var(--violet); }
 
-  /* ---------- PROJECTS ---------- */
-  .proj { margin-bottom: 9px; page-break-inside: avoid; }
-  .proj h3 { font-size: 9.5pt; font-weight: 700; }
-  .proj .p-role { font-size: 7.8pt; color: var(--dim); margin-bottom: 2px; }
-  .proj p { font-size: 8.5pt; color: var(--muted); margin-bottom: 3px; }
+  .proj { margin-bottom: 8px; page-break-inside: avoid; }
+  .proj h3 { font-size: 9.3pt; font-weight: 700; }
+  .proj .p-role { font-size: 7.6pt; color: var(--dim); margin-bottom: 2px; }
+  .proj p { font-size: 8.3pt; color: var(--muted); margin-bottom: 3px; }
 
-  /* ---------- SIDEBAR ---------- */
   .panel {
-    background: #f7f7f3;
+    background: var(--paper);
     border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 12px 14px;
-    margin-bottom: 10px;
+    border-radius: 8px;
+    padding: 11px 12px;
+    margin-bottom: 9px;
     page-break-inside: avoid;
   }
-  .panel h2 { margin-top: 0; }
-  .skill-group { margin-bottom: 8px; }
+  .panel h2 { margin-top: 0; font-size: 8pt; }
+  .panel h2::before { width: 8px; height: 8px; }
+  .skill-group { margin-bottom: 7px; }
   .skill-group:last-child { margin-bottom: 0; }
-  .skill-group h4 { font-size: 8.2pt; font-weight: 700; color: var(--violet); margin-bottom: 1px; }
-  .skill-group p { font-size: 8.2pt; color: var(--muted); }
+  .skill-group h4 {
+    font-size: 8pt;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 1px;
+  }
+  .skill-group p { font-size: 8pt; color: var(--muted); }
 
   .plain-list { list-style: none; }
   .plain-list li {
-    font-size: 8.4pt;
+    font-size: 8.2pt;
     color: var(--muted);
-    padding-left: 12px;
+    padding-left: 11px;
     position: relative;
     margin-bottom: 2px;
   }
-  .plain-list li::before { content: '◆'; color: var(--lime-dark); font-size: 6pt; position: absolute; left: 0; top: 2px; }
+  .plain-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+  }
 
-  .edu h3 { font-size: 9pt; font-weight: 700; }
-  .edu p { font-size: 8.2pt; color: var(--muted); }
-  .edu .when { color: var(--violet); font-weight: 700; font-size: 8pt; }
+  .edu h3 { font-size: 8.8pt; font-weight: 700; }
+  .edu p { font-size: 8pt; color: var(--muted); }
+  .edu .when { color: var(--accent); font-weight: 700; font-size: 7.8pt; }
+
+  .note {
+    margin-top: 8px;
+    font-size: 7.2pt;
+    color: var(--dim);
+    text-align: center;
+  }
 </style>
 </head>
 <body>
@@ -175,51 +202,47 @@
   <header class="head">
     <div class="head-top">
       <div>
-        <h1>Jay Kaneriya<span class="dot">.</span></h1>
-        <div class="role">Senior Full Stack Developer · <strong>Laravel & Vue.js</strong></div>
+        <h1>Jay Kaneriya<span>.</span></h1>
+        <div class="role">Senior Full Stack Developer · Laravel · Vue.js · React · <strong>Open to Work</strong></div>
       </div>
-      <div style="display:flex;gap:10px;align-items:flex-start;">
-        <div class="badge">8+<small>YEARS EXP</small></div>
-        <a href="https://jaykaneriya.github.io" style="background:#fff;border-radius:8px;padding:4px;display:block;line-height:0;">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&margin=0&data=https%3A%2F%2Fjaykaneriya.github.io" width="46" height="46" alt="QR code to jaykaneriya.github.io">
-        </a>
-      </div>
+      <div class="status">Available · Remote</div>
     </div>
     <div class="contact">
-      <span>📍 Rajkot, Gujarat, India (IST, GMT+5:30)</span>
-      <span>✉ <a href="mailto:jay.kaneriya8@gmail.com"><b>jay.kaneriya8@gmail.com</b></a></span>
-      <span>📞 <a href="tel:+918530078687"><b>+91 85300 78687</b></a></span>
-      <span>🌐 <a href="https://jaykaneriya.github.io"><b>jaykaneriya.github.io</b></a></span>
-      <span>in/ <a href="https://www.linkedin.com/in/jaykaneriya/">linkedin.com/in/jaykaneriya</a></span>
-      <span>gh/ <a href="https://github.com/JayKaneriya">github.com/JayKaneriya</a></span>
+      <span>Rajkot, Gujarat, India (IST)</span>
+      <span><a href="mailto:jay.kaneriya8@gmail.com">jay.kaneriya8@gmail.com</a></span>
+      <span><a href="tel:+918530078687">+91 85300 78687</a></span>
+      <span><a href="https://jaykaneriya.github.io">jaykaneriya.github.io</a></span>
+      <span><a href="https://www.linkedin.com/in/jaykaneriya/">LinkedIn</a></span>
+      <span><a href="https://github.com/JayKaneriya">GitHub</a></span>
     </div>
   </header>
 
   <div class="cols">
     <div class="main">
 
-      <h2>Professional Summary</h2>
+      <h2>About</h2>
       <p class="summary">
-        Senior Full Stack Web Application Developer with 8+ years of experience building production web applications for education, eCommerce, and SaaS. Currently at Paperly (Perth, Australia, remote), developing Laravel and Vue.js school administration software used by thousands of teachers and parents. Experienced in REST APIs, MySQL, payment integrations (Stripe, PayPal, BPOINT), geolocation, workflow automation, and third-party integrations. Background includes large-scale client delivery at Logistic Infotech, Agile teams, code reviews, and mentoring.
+        Senior Full Stack Developer with 8+ years shipping production web apps for education, SaaS, and eCommerce.
+        Open to <b>full-time remote</b> roles and <b>freelance / contract</b> work. Most recently Senior Developer at Paperly (Australia),
+        building Laravel + Vue school software used by thousands of teachers and parents.
       </p>
-      <p class="core"><b>Core skills:</b> Laravel, Vue.js, React.js, PHP, JavaScript, MySQL, REST API, Redis, AWS, Stripe, PayPal, BPOINT, Git, Full Stack Development, Web Application Development.</p>
+      <p class="core"><b>Best at:</b> Laravel · Vue.js · React · PHP · REST APIs · MySQL · Redis · AWS · Stripe / PayPal · real-time &amp; workflow systems</p>
 
-      <h2>Work Experience</h2>
+      <h2>Experience</h2>
 
       <div class="job">
         <div class="job-head">
           <h3>Senior Web Application Developer</h3>
-          <span class="when">Jul 2022 – Present</span>
+          <span class="when">Jul 2022 – Aug 2026</span>
         </div>
         <div class="where">Paperly · Perth, Australia (Remote)</div>
         <ul>
-          <li>Develop and maintain school admin modules used daily by thousands of teachers and parents across Australia.</li>
-          <li>Built excursion management, sports coordination, music lessons, parent-teacher interviews, and assessment calendars.</li>
-          <li>Developed dynamic form builders, workflow automation, and multi-school integration layers.</li>
-          <li>Implemented geolocation for excursion tracking and student permission management.</li>
-          <li>Designed REST APIs and MySQL schemas; integrated third-party services in Agile production releases.</li>
+          <li>Shipped school admin modules used daily by thousands of teachers and parents across Australia.</li>
+          <li>Built excursion, sports, music, parent-teacher interview, and assessment calendar features.</li>
+          <li>Delivered dynamic forms, workflow automation, geolocation, and multi-school integrations.</li>
+          <li>Designed REST APIs and MySQL schemas; integrated third-party services in Agile releases.</li>
         </ul>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span class="v">Geolocation</span><span class="v">Workflows</span></div>
+        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Geolocation</span></div>
       </div>
 
       <div class="job">
@@ -229,57 +252,49 @@
         </div>
         <div class="where">Logistic Infotech Pvt Ltd · Rajkot, India</div>
         <ul>
-          <li>Delivered full stack web applications for global clients in eCommerce, SaaS, education, restaurant, and booking sectors.</li>
-          <li>Built Laravel backends with Vue.js and React.js frontends, including admin dashboards and role-based access control.</li>
-          <li>Integrated Stripe, PayPal, BPOINT, and custom payment APIs into production billing flows.</li>
-          <li>Developed RESTful APIs and real-time features using Socket.io and Firebase for chat, notifications, and live tracking.</li>
-          <li>Mentored junior developers; managed client requirements, estimates, and sprint planning.</li>
+          <li>Delivered 200+ full-stack projects worldwide — eCommerce, SaaS, education, restaurants, booking.</li>
+          <li>Built Laravel backends with Vue.js / React.js frontends, admin dashboards, and RBAC.</li>
+          <li>Integrated Stripe, PayPal, BPOINT, and custom payment APIs into production billing.</li>
+          <li>Shipped real-time features with Socket.io and Firebase; mentored juniors and led client delivery.</li>
         </ul>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>React</span><span>Node.js</span><span class="v">AWS</span><span class="v">Socket.io</span></div>
+        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>React</span><span>Node.js</span><span>AWS</span><span>Socket.io</span></div>
       </div>
 
-      <h2>Featured Projects</h2>
+      <h2>Selected work</h2>
 
       <div class="proj">
-        <h3>Paperly — School Management Platform</h3>
-        <div class="p-role">Senior Developer · 2022 – Present · Australia</div>
-        <p>School administration and extracurricular management for Australian schools at scale: excursions, sports, music, PT interviews, permission forms, workflow automation, geolocation.</p>
+        <h3>Exception Tracker</h3>
+        <div class="p-role">Personal project · Error monitoring · Recent</div>
+        <p>Capture, group, and triage application exceptions with searchable history, severity levels, and a production dashboard.</p>
         <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST</span></div>
       </div>
 
       <div class="proj">
-        <h3>Megathy — On-Demand Grocery Delivery</h3>
-        <div class="p-role">Full Stack Developer · Saudi Arabia · Live iOS & Android</div>
-        <p>Real-time order tracking, scheduled delivery, multi-payment, discount engine, loyalty, live chat. Multi-vendor catalog and admin panel for Eastern Saudi Arabia operations.</p>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span class="v">megathykom.com</span></div>
+        <h3>Resident App</h3>
+        <div class="p-role">Personal project · Housing community · Recent</div>
+        <p>Resident platform for notices, maintenance requests, member profiles, and society admin workflows.</p>
+        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST</span></div>
       </div>
 
       <div class="proj">
-        <h3>Multi-Vendor eCommerce Marketplace</h3>
-        <div class="p-role">Full Stack Developer · Logistic Infotech</div>
-        <p>Vendor onboarding, inventory sync, order routing, payment gateways, shipping APIs, admin analytics.</p>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span class="v">Payments</span></div>
+        <h3>Paperly — School Management</h3>
+        <div class="p-role">Senior Developer · 2022–2026 · Australia</div>
+        <p>Extracurricular and school admin at scale: excursions, sports, music, PT interviews, forms, workflows, geolocation.</p>
+        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div>
       </div>
 
       <div class="proj">
-        <h3>SaaS Subscription Management Platform</h3>
-        <div class="p-role">Full Stack Developer · Logistic Infotech</div>
-        <p>Multi-tenant SaaS with RBAC, Stripe billing, feature flags, webhooks, trials, and plan tiers.</p>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Redis</span><span class="v">Stripe</span></div>
+        <h3>Megathy — On-Demand Grocery</h3>
+        <div class="p-role">Full Stack · Saudi Arabia</div>
+        <p>Orders, real-time tracking, scheduled delivery, multi-payment, loyalty, and admin for Eastern Saudi Arabia.</p>
+        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Payments</span></div>
       </div>
 
       <div class="proj">
-        <h3>Zimdle — Customer Feedback Platform</h3>
-        <div class="p-role">Full Stack Developer</div>
-        <p>Real-time feedback, trend charts, automated alerts, and performance benchmarking.</p>
-        <div class="tags"><span>Laravel</span><span>CodeIgniter</span><span class="v">zimdle.com</span></div>
-      </div>
-
-      <div class="proj">
-        <h3>Vector Rideshare — University Carpooling</h3>
-        <div class="p-role">React Native Developer · Published Mobile App</div>
-        <p>Trip scheduling, real-time chat, verified .edu user network. iOS and Android app stores.</p>
-        <div class="tags"><span>React Native</span><span>Firebase</span><span>REST API</span></div>
+        <h3>Zimdle · Multi-vendor eCommerce · SaaS · Vector Rideshare</h3>
+        <div class="p-role">Full Stack / React Native · Client &amp; product work</div>
+        <p>Feedback analytics, marketplace logistics, multi-tenant Stripe SaaS, and .edu campus carpooling (iOS &amp; Android).</p>
+        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Redis</span><span>Stripe</span><span>React Native</span></div>
       </div>
 
     </div>
@@ -287,61 +302,47 @@
     <div class="side">
 
       <div class="panel">
-        <h2>Technical Skills</h2>
+        <h2>Skills</h2>
         <div class="skill-group">
           <h4>Backend</h4>
-          <p>Laravel, PHP 8+, REST APIs, MySQL, Redis, Node.js, Sails.js, CodeIgniter, Socket.io, JWT, OAuth</p>
+          <p>Laravel, PHP 8+, REST APIs, MySQL, Redis, Node.js, Socket.io, JWT, OAuth</p>
         </div>
         <div class="skill-group">
           <h4>Frontend</h4>
-          <p>Vue.js, Vuex, React.js, Redux, JavaScript, TypeScript, HTML5, CSS3, Sass, Tailwind, Bootstrap</p>
+          <p>Vue.js, React.js, TypeScript, Tailwind, Sass, responsive UI</p>
         </div>
         <div class="skill-group">
-          <h4>Cloud & Tools</h4>
-          <p>AWS S3, EC2, CloudFront, Git, GitHub, Bitbucket, Postman, JIRA, Firebase, Linux, cPanel</p>
+          <h4>Cloud &amp; tools</h4>
+          <p>AWS S3 / EC2 / CloudFront, Git, JIRA, Firebase, Linux</p>
         </div>
         <div class="skill-group">
           <h4>Payments</h4>
-          <p>Stripe, PayPal, BPOINT, custom payment APIs, webhooks</p>
+          <p>Stripe, PayPal, BPOINT, webhooks</p>
         </div>
       </div>
 
       <div class="panel">
-        <h2>What I Do</h2>
+        <h2>Looking for</h2>
         <ul class="plain-list">
-          <li>Full-stack web applications</li>
-          <li>REST API design & integration</li>
-          <li>Payment gateway setup</li>
-          <li>Admin panels & dashboards</li>
-          <li>Database design & optimization</li>
-          <li>Real-time & geolocation features</li>
+          <li>Full-time remote roles</li>
+          <li>Freelance / contract work</li>
+          <li>Laravel · Vue · React product teams</li>
         </ul>
       </div>
 
       <div class="panel">
-        <h2>Industries</h2>
-        <p style="font-size:8.4pt;color:var(--muted)">
-          Education & school management · SaaS · eCommerce · On-demand delivery · Restaurants & booking · Customer feedback · Geolocation · Workflow automation
+        <h2>Domains</h2>
+        <p style="font-size:8pt;color:var(--muted)">
+          Education · SaaS · eCommerce · On-demand delivery · Booking · Feedback analytics · Workflow automation
         </p>
       </div>
 
       <div class="panel edu">
         <h2>Education</h2>
-        <h3>B.E. Computer Science & Engineering</h3>
+        <h3>B.E. Computer Science</h3>
         <p>Gujarat Technological University</p>
-        <p>Shri Labhubhai Trivedi Institute, Rajkot</p>
+        <p>Rajkot, India</p>
         <p class="when">2013 – 2017</p>
-      </div>
-
-      <div class="panel">
-        <h2>Soft Skills</h2>
-        <ul class="plain-list">
-          <li>Client communication</li>
-          <li>Requirements analysis</li>
-          <li>Team mentoring</li>
-          <li>Code reviews</li>
-          <li>Agile / sprint planning</li>
-        </ul>
       </div>
 
       <div class="panel">
@@ -353,8 +354,20 @@
         </ul>
       </div>
 
+      <div class="panel">
+        <h2>Strengths</h2>
+        <ul class="plain-list">
+          <li>Reliable remote delivery</li>
+          <li>Clear client communication</li>
+          <li>Mentoring &amp; code reviews</li>
+          <li>Agile / sprint planning</li>
+        </ul>
+      </div>
+
     </div>
   </div>
+
+  <p class="note">User-friendly CV · For ATS / AI agents use Jay_Kaneriya_CV_AI.pdf</p>
 
 </div>
 </body>

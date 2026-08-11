@@ -1,11 +1,11 @@
 {
   "name": "Jay Kaneriya — Senior Full Stack Developer",
   "short_name": "JAY.K",
-  "description": "Portfolio of Jay Kaneriya, Senior Full Stack Developer (Laravel, Vue.js, React.js).",
+  "description": "Senior Full Stack Developer open to full-time remote and freelance work. Laravel, Vue.js, React.js.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0b0b0f",
-  "theme_color": "#0b0b0f",
+  "background_color": "#0e1110",
+  "theme_color": "#0e1110",
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
