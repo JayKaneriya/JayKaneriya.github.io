@@ -1,28 +1,33 @@
 # Jay Kaneriya — Portfolio
 
-Personal portfolio of **Jay Kaneriya**, Senior Full Stack Developer (Laravel · Vue.js · React.js), based in Rajkot, India. **Open to full-time remote roles and freelance work.**
+Senior Full Stack Developer (Laravel · Vue.js · React.js). **Open to full-time remote and freelance work.**
 
-**Live site:** https://jaykaneriya.github.io
+**Live:** https://jaykaneriya.github.io
 
-## Features
+## What's included
 
-- Cinematic full-bleed AI video hero and section media (`AI/` assets)
-- Job-hunt focused CTAs (full-time + freelance)
-- Clean single-page layout: About → Work → Experience → Craft → Hire
-- SEO: JSON-LD, Open Graph, sitemap, robots.txt
-- Respects `prefers-reduced-motion`; lazy-loads section videos
+- Cinematic portfolio with GSAP motion, icons, project visuals
+- Case studies: Paperly, Exception Tracker, Resident App
+- Contact form (FormSubmit) + hire CTAs
+- Engagement options (full-time / retainer / fixed project)
+- User CV + ATS/AI CV PDFs
+- Custom domain instructions in `DOMAIN.md`
+- LinkedIn Open to Work checklist in `LINKEDIN.md`
 
-## Files
+## Key files
 
-| File | Purpose |
-|---|---|
-| `index.html` | Live site |
-| `AI/*.mp4` | Short aliases + source AI videos |
-| `cv.html` / `Jay_Kaneriya_CV_2026.pdf` | User-friendly visual CV (site download) |
-| `cv-ai.html` / `cv-ai.md` / `Jay_Kaneriya_CV_AI.pdf` | ATS / AI-agent friendly CV |
+| Path | Purpose |
+|------|---------|
+| `index.html` | Main site |
+| `case-studies/` | Deep project pages |
+| `projects/` | Project visuals |
+| `cv.html` / `Jay_Kaneriya_CV_2026.pdf` | User-friendly CV |
+| `cv-ai.html` / `cv-ai.md` / `Jay_Kaneriya_CV_AI.pdf` | ATS / AI CV |
+| `AI/avatar.mp4` | Hero intro video |
+| `DOMAIN.md` | Custom domain DNS steps |
 
 ## Contact
 
-- **Email:** jay.kaneriya8@gmail.com
-- **LinkedIn:** [linkedin.com/in/jaykaneriya](https://www.linkedin.com/in/jaykaneriya/)
-- **GitHub:** [github.com/JayKaneriya](https://github.com/JayKaneriya)
+- Email: jay.kaneriya8@gmail.com
+- LinkedIn: https://www.linkedin.com/in/jaykaneriya/
+- GitHub: https://github.com/JayKaneriya

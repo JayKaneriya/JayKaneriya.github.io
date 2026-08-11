@@ -5,109 +5,51 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    width: 1200px;
-    height: 630px;
-    background: #0b0b0f;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    color: #f2efe9;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
+    width: 1200px; height: 630px;
+    background: #0e1110; color: #f3efe6;
+    font-family: Arial, sans-serif;
+    overflow: hidden; position: relative;
+    display: flex; align-items: center;
   }
-  .blob1 {
-    position: absolute;
-    width: 700px; height: 700px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(139,92,246,0.4), transparent 65%);
-    top: -300px; right: -150px;
-    filter: blur(60px);
+  .grid {
+    position: absolute; inset: 0; opacity: 0.08;
+    background-image:
+      linear-gradient(rgba(243,239,230,.4) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(243,239,230,.4) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
-  .blob2 {
-    position: absolute;
-    width: 500px; height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(212,255,79,0.22), transparent 65%);
-    bottom: -220px; left: -120px;
-    filter: blur(60px);
+  .glow {
+    position: absolute; width: 520px; height: 520px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,90,31,0.28), transparent 65%);
+    right: -80px; top: -120px; filter: blur(20px);
   }
-  .left {
-    padding-left: 80px;
-    position: relative;
-    z-index: 2;
-    flex: 1;
-  }
+  .left { padding-left: 72px; position: relative; z-index: 2; }
   .tag {
-    display: inline-block;
-    font-size: 18px;
-    letter-spacing: 4px;
-    color: #d4ff4f;
-    border: 2px solid rgba(212,255,79,0.4);
-    border-radius: 100px;
-    padding: 10px 26px;
-    margin-bottom: 34px;
-    font-weight: 600;
+    display: inline-block; font-size: 16px; letter-spacing: 3px;
+    color: #ff5a1f; border: 2px solid rgba(255,90,31,0.45);
+    border-radius: 100px; padding: 10px 22px; margin-bottom: 28px; font-weight: 700;
   }
   h1 {
-    font-size: 96px;
-    font-weight: 800;
-    line-height: 0.95;
-    letter-spacing: -3px;
-    text-transform: uppercase;
-    margin-bottom: 28px;
+    font-size: 92px; font-weight: 800; line-height: 0.95;
+    letter-spacing: -3px; text-transform: uppercase; margin-bottom: 22px;
   }
-  h1 .lime { color: #d4ff4f; }
-  .role {
-    font-size: 28px;
-    color: #9a9aa4;
-    margin-bottom: 36px;
-  }
-  .role b { color: #f2efe9; }
+  h1 span { color: #ff5a1f; }
+  .role { font-size: 26px; color: #9aa19a; margin-bottom: 32px; }
+  .role b { color: #f3efe6; }
   .site {
-    font-size: 24px;
-    color: #0b0b0f;
-    background: #d4ff4f;
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 100px;
-    font-weight: 700;
+    font-size: 22px; color: #0e1110; background: #ff5a1f;
+    display: inline-block; padding: 12px 28px; border-radius: 100px; font-weight: 700;
   }
-  .right {
-    position: relative;
-    z-index: 2;
-    width: 430px;
-    flex-shrink: 0;
-    margin-right: 70px;
-  }
-  .avatar-blob {
-    position: absolute;
-    inset: 2%;
-    background: linear-gradient(135deg, #8b5cf6, #d4ff4f);
-    border-radius: 58% 42% 55% 45% / 50% 55% 45% 50%;
-    filter: blur(6px);
-    opacity: 0.6;
-  }
-  .frame {
-    position: relative;
-    border-radius: 36px;
-    overflow: hidden;
-    border: 2px solid rgba(242,239,233,0.18);
-  }
-  .frame img { width: 100%; display: block; }
 </style>
 </head>
 <body>
-  <div class="blob1"></div>
-  <div class="blob2"></div>
+  <div class="grid"></div>
+  <div class="glow"></div>
   <div class="left">
-    <div class="tag">PORTFOLIO 2026</div>
-    <h1>Jay<br><span class="lime">Kaneriya</span></h1>
-    <div class="role">Senior Full Stack Developer · <b>Laravel & Vue.js</b> · 8+ years</div>
+    <div class="tag">OPEN TO WORK</div>
+    <h1>Jay<br>Kaneriya<span>.</span></h1>
+    <div class="role">Senior Full Stack Developer · <b>Laravel · Vue · React</b> · 8+ years</div>
     <div class="site">jaykaneriya.github.io</div>
-  </div>
-  <div class="right">
-    <div class="avatar-blob"></div>
-    <div class="frame"><img src="jay-avatar.jpg"></div>
   </div>
 </body>
 </html>
