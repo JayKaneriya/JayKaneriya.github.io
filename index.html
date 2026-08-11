@@ -228,26 +228,24 @@
   .hero {
     position: relative; min-height: 100vh; min-height: 100dvh;
     display: flex; align-items: flex-end; overflow: hidden;
+    background: var(--bg);
   }
-  .hero-media { position: absolute; inset: 0; z-index: 0; }
+  .hero-media {
+    position: absolute; inset: 0; z-index: 0;
+    background: #12151a;
+  }
   .hero-media video {
-    width: 100%; height: 100%; object-fit: cover; object-position: center 28%;
-    transform: scale(1.04);
+    width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+    background: #12151a;
+    transform: scale(1.02);
   }
   .hero-media::after {
     content: ''; position: absolute; inset: 0;
     background:
-      linear-gradient(180deg, rgba(14,17,16,0.4) 0%, rgba(14,17,16,0.22) 35%, rgba(14,17,16,0.78) 68%, rgba(14,17,16,0.97) 100%),
-      linear-gradient(90deg, rgba(14,17,16,0.6) 0%, transparent 55%);
+      linear-gradient(180deg, rgba(14,17,16,0.55) 0%, rgba(14,17,16,0.25) 32%, rgba(14,17,16,0.72) 68%, rgba(14,17,16,0.98) 100%),
+      linear-gradient(90deg, rgba(14,17,16,0.7) 0%, rgba(14,17,16,0.2) 45%, transparent 70%);
   }
-  .hero-grid {
-    position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0.08;
-    background-image:
-      linear-gradient(rgba(243,239,230,0.35) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(243,239,230,0.35) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: linear-gradient(180deg, transparent, #000 30%, #000 70%, transparent);
-  }
+  .hero-grid { display: none; }
   .hero-copy {
     position: relative; z-index: 2;
     width: min(100% - 40px, var(--max));
@@ -612,17 +610,18 @@
 
   /* CONTACT */
   .contact {
-    position: relative; padding: 120px 0 100px; overflow: hidden;
+    position: relative; padding: 120px 0 100px; overflow: visible;
     background:
       radial-gradient(ellipse 80% 60% at 80% 20%, rgba(255,90,31,0.14), transparent 55%),
       radial-gradient(ellipse 60% 50% at 10% 80%, rgba(255,90,31,0.07), transparent 50%),
       var(--bg);
   }
-  .contact-inner { position: relative; z-index: 2; }
+  .contact-inner { position: relative; z-index: 2; width: 100%; }
   .contact h2 {
     font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: clamp(48px, 10vw, 110px); line-height: 0.92;
-    letter-spacing: -0.04em; text-transform: uppercase; margin-bottom: 22px;
+    font-size: clamp(40px, 8vw, 96px); line-height: 0.95;
+    letter-spacing: -0.03em; text-transform: uppercase; margin-bottom: 22px;
+    max-width: 12ch; word-break: normal; overflow-wrap: normal;
   }
   .contact h2 span { color: var(--accent); }
   .contact-lead {
@@ -655,11 +654,11 @@
   .quote p {
     font-size: 16px; color: var(--ink); line-height: 1.65; margin-bottom: 18px;
   }
-  .quote footer {
+  .quote .who {
     border: 0; padding: 0; text-align: left; letter-spacing: 0;
     font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--dim);
   }
-  .quote footer strong { color: var(--accent); display: block; margin-bottom: 2px; font-weight: 600; }
+  .quote .who strong { color: var(--accent); display: block; margin-bottom: 2px; font-weight: 600; }
   .trust {
     margin-top: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 12px;
     color: var(--dim); letter-spacing: 0.06em;
@@ -697,22 +696,23 @@
 
   /* FORM */
   .contact-layout {
-    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: start;
+    display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px; align-items: start;
   }
   @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 32px; } }
   .hire-form {
     display: flex; flex-direction: column; gap: 12px;
     padding: 24px; border: 1px solid var(--line); border-radius: 16px;
     background: rgba(14,17,16,0.45);
+    min-width: 0; width: 100%;
   }
   .hire-form label {
     font-family: 'IBM Plex Mono', monospace; font-size: 11px;
     letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim);
   }
   .hire-form input, .hire-form select, .hire-form textarea {
-    width: 100%; background: var(--bg-lift); border: 1px solid var(--line);
+    width: 100%; max-width: 100%; background: var(--bg-lift); border: 1px solid var(--line);
     border-radius: 10px; color: var(--ink); font-family: 'Sora', sans-serif;
-    font-size: 15px; padding: 12px 14px; outline: none;
+    font-size: 16px; padding: 12px 14px; outline: none;
     transition: border-color 0.25s;
   }
   .hire-form input:focus, .hire-form select:focus, .hire-form textarea:focus {
@@ -753,6 +753,72 @@
   }
   .to-top.show { opacity: 1; pointer-events: auto; }
   .to-top:hover { transform: translateY(-3px); background: var(--accent); color: #0e1110; }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 768px) {
+    body { font-size: 16px; }
+    .nav { padding: 12px 14px; }
+    .hero {
+      min-height: auto;
+      min-height: 100svh;
+      align-items: flex-end;
+    }
+    .hero-media video { object-position: center 22%; }
+    .hero-copy {
+      width: min(100% - 24px, var(--max));
+      margin: 0 auto 36px;
+      padding-top: 96px;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 14vw, 64px);
+      max-width: none;
+      letter-spacing: -0.03em;
+    }
+    .hero-lead { font-size: 15px; margin-top: 16px; }
+    .hero-actions { gap: 10px; }
+    .hero-actions .btn { width: 100%; justify-content: center; padding: 14px 18px; }
+    .hero-stack span { font-size: 10px; padding: 7px 10px; }
+    .mute-btn { right: 12px; bottom: 12px; font-size: 10px; padding: 8px 12px; }
+    .status { font-size: 10px; padding: 8px 12px; max-width: 100%; }
+    section { padding: 64px 0; }
+    .section-title { font-size: clamp(32px, 10vw, 48px); margin-bottom: 14px; max-width: none; }
+    .section-lead { font-size: 15px; margin-bottom: 28px; }
+    .work-item {
+      grid-template-columns: 36px 1fr;
+      gap: 10px 12px;
+      padding: 24px 0;
+    }
+    .work-media { grid-column: 1 / -1; order: -1; margin-bottom: 4px; }
+    .work-num { padding-top: 4px; font-size: 11px; }
+    .work-item h3 { font-size: 22px; }
+    .work-desc { font-size: 14.5px; }
+    .t-item { padding-left: 28px; gap: 8px; }
+    .contact { padding: 72px 0 88px; }
+    .contact h2 {
+      font-size: clamp(36px, 11vw, 52px);
+      max-width: none;
+      margin-bottom: 16px;
+    }
+    .contact-lead { font-size: 15px; margin-bottom: 20px; }
+    .contact-actions { gap: 10px; }
+    .contact-actions .btn { width: 100%; justify-content: center; }
+    .socials { flex-direction: column; gap: 12px; }
+    .hire-form { padding: 18px; }
+    .float-hire {
+      bottom: 14px;
+      padding: 12px 16px;
+      font-size: 11px;
+      max-width: calc(100vw - 88px);
+    }
+    .to-top { right: 12px; bottom: 12px; width: 44px; height: 44px; }
+    .dev-icons { gap: 8px; }
+    .value-item, .rate, .quote { padding: 20px 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 40px; }
+    .ticker-track { gap: 28px; font-size: 11px; }
+  }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -813,7 +879,7 @@
 
 <section class="hero" id="home">
   <div class="hero-media">
-    <video id="heroVideo" poster="jay-avatar.jpg" muted playsinline autoplay preload="none" aria-label="AI character intro of Jay Kaneriya">
+    <video id="heroVideo" poster="hero-poster.jpg" muted playsinline autoplay preload="metadata" aria-label="Intro video of Jay Kaneriya">
       <source src="AI/hero-web.mp4" type="video/mp4">
     </video>
   </div>
@@ -1125,11 +1191,11 @@
     <div class="quotes">
       <blockquote class="quote reveal-item">
         <p>“Jay owned complex Laravel and Vue modules with calm remote communication. Releases were predictable and production-safe.”</p>
-        <footer><strong>Engineering lead</strong> Education SaaS · Australia (remote)</footer>
+        <p class="who"><strong>Engineering lead</strong> Education SaaS · Australia (remote)</p>
       </blockquote>
       <blockquote class="quote reveal-item">
         <p>“Reliable full-stack delivery across client projects — APIs, payments, and admin tooling without hand-holding.”</p>
-        <footer><strong>Project manager</strong> Agency / product delivery · India</footer>
+        <p class="who"><strong>Project manager</strong> Agency / product delivery · India</p>
       </blockquote>
     </div>
     <p class="trust reveal">Worked with <span>Paperly</span>·<span>Logistic Infotech</span>·<span>International product teams</span></p>
@@ -1385,7 +1451,7 @@
     .to('.hero-stack', { opacity: 1, y: 0, duration: 0.6 }, '-=0.35');
 
   gsap.to('.hero-media video', {
-    yPercent: 12, ease: 'none',
+    yPercent: 6, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
   });
 
