@@ -21,11 +21,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jaykaneriya.github.io/case-studies/vector-rideshare.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://jaykaneriya.github.io/case-studies/exception-tracker.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

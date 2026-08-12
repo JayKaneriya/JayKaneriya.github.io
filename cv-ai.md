@@ -59,7 +59,7 @@ Senior Full-Stack Laravel/PHP Developer with 8+ years of experience building pro
 ### Projects
 
 #### Paperly — School Management Platform
-- Role: Senior Developer | 2022–2026 | Australia
+- Role: Senior Web Application Developer | 2022–2026 | Australia
 - Stack: Laravel, Vue.js, MySQL, REST API, Geolocation
 
 #### Megathy — On-Demand Grocery Delivery
@@ -74,13 +74,6 @@ Senior Full-Stack Laravel/PHP Developer with 8+ years of experience building pro
 - Stack: Laravel, CodeIgniter, AJAX
 - Private real-time feedback with charts, trends, alerts, and benchmarking for business owners
 - Case study: https://jaykaneriya.github.io/case-studies/zimdle.html
-
-#### Vector Rideshare — University Carpooling
-- Role: React Native Developer
-- Stack: React Native, Firebase, REST API
-- Campus carpooling with .edu verification, trip create/join, scheduling, and real-time chat
-- Published on iOS and Android
-- Case study: https://jaykaneriya.github.io/case-studies/vector-rideshare.html
 
 #### Exception Tracker (Personal Project) — In progress
 - Type: Error monitoring and logging application

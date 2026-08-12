@@ -242,12 +242,12 @@
     overflow: hidden;
     background: #0e1110;
   }
-  /* Always-on blurred poster fill (works before video plays) */
+  /* Soft blurred fill — poster always, live video when playing */
   .hero-media-glow {
     position: absolute;
     inset: -18%;
     z-index: 0;
-    background: #0e1110 url('hero-poster.jpg?v=7') center / cover no-repeat;
+    background: #0e1110 url('hero-poster.jpg?v=9') center / cover no-repeat;
     filter: blur(64px) brightness(0.72) saturate(1.18);
     transform: scale(1.18);
     pointer-events: none;
@@ -277,8 +277,36 @@
     justify-content: flex-end;
     pointer-events: none;
   }
+  .hero-poster-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center center;
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    /* Match video edge feather */
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 7%, #000 93%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 7%, #000 93%, transparent 100%);
+    mask-composite: intersect;
+  }
+  .hero-media.is-playing .hero-poster-img {
+    opacity: 0;
+    visibility: hidden;
+  }
   .hero-video-main {
     display: block;
+    position: relative;
+    z-index: 1;
     height: 100%;
     width: auto;
     max-width: 100%;
@@ -384,7 +412,7 @@
   }
   .hero-stack .icon { width: 14px; height: 14px; color: var(--accent); }
   .mute-btn {
-    position: absolute; right: 24px; bottom: 24px; z-index: 3;
+    position: absolute; right: 24px; bottom: 24px; z-index: 20;
     font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
     color: var(--ink); background: rgba(14,17,16,0.55); backdrop-filter: blur(10px);
     border: 1px solid var(--line); border-radius: 999px; padding: 10px 16px; cursor: pointer;
@@ -942,6 +970,15 @@
   @media (min-width: 769px) and (max-width: 1100px) {
     .hero-media-glow,
     .hero-video-blur { display: none; }
+    .hero-poster-img {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 88% 18%;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
     .hero-video-frame {
       display: block;
     }
@@ -981,6 +1018,15 @@
     }
     .hero-media-glow,
     .hero-video-blur { display: none; }
+    .hero-poster-img {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 0%;
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
     .hero-video-frame {
       display: block;
     }
@@ -1185,11 +1231,12 @@
   <div class="hero-media">
     <div class="hero-media-glow" aria-hidden="true"></div>
     <video class="hero-video-blur" muted playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1">
-      <source src="AI/hero-web.mp4?v=7" type="video/mp4">
+      <source src="AI/hero-web.mp4?v=9" type="video/mp4">
     </video>
     <div class="hero-video-frame">
-      <video id="heroVideo" class="hero-video-main" poster="hero-poster.jpg?v=7" muted playsinline autoplay preload="metadata" aria-label="Intro video of Jay Kaneriya">
-        <source src="AI/hero-web.mp4?v=7" type="video/mp4">
+      <img class="hero-poster-img" src="hero-poster.jpg?v=9" alt="" width="1920" height="1080" decoding="async">
+      <video id="heroVideo" class="hero-video-main" poster="hero-poster.jpg?v=9" muted playsinline autoplay preload="metadata" aria-label="Intro video of Jay Kaneriya">
+        <source src="AI/hero-web.mp4?v=9" type="video/mp4">
       </video>
     </div>
   </div>
@@ -1260,7 +1307,7 @@
       <article class="value-item reveal-item">
         <div class="value-ico"><svg class="icon icon-lg"><use href="#i-globe"></use></svg></div>
         <h3>Remote-proven</h3>
-        <p>Years of remote work with Australian and international teams across timezones.</p>
+        <p>Years of remote work with Australian and international teams across time zones.</p>
       </article>
       <article class="value-item reveal-item">
         <div class="value-ico"><svg class="icon icon-lg"><use href="#i-layers"></use></svg></div>
@@ -1280,7 +1327,7 @@
       </div>
       <div class="fact reveal-item">
         <div class="ico"><svg class="icon"><use href="#i-briefcase"></use></svg></div>
-        <div><dt>Recent</dt><dd>Most recent · Senior Developer @ Paperly (AU)</dd></div>
+        <div><dt>Recent</dt><dd>Most recent · Senior Web Application Developer @ Paperly (AU)</dd></div>
       </div>
       <div class="fact reveal-item">
         <div class="ico"><svg class="icon"><use href="#i-code"></use></svg></div>
@@ -1314,9 +1361,9 @@
             <div class="work-badge"><svg class="icon"><use href="#i-layers"></use></svg></div>
             <h3>Paperly</h3>
           </div>
-          <p class="work-meta"><strong>Senior Developer</strong> · EdTech · Australia · 2022–2026</p>
+          <p class="work-meta"><strong>Senior Web Application Developer</strong> · EdTech · Australia · 2022–2026</p>
           <div class="work-outcomes">
-            <span>1000s of daily users</span><span>4 years remote AU</span><span>250+ schools joined in 2026</span>
+            <span>1000s of daily users</span><span>4 years remote AU</span><span>250+ schools joined Paperly for 2026</span>
           </div>
           <p class="work-desc">Production K-12 school operations platform used daily by thousands of teachers and parents. I worked on Laravel/Vue.js workflows spanning forms, excursions, activities, permissions, geolocation and automation.</p>
           <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Geolocation</span></div>
@@ -1377,26 +1424,6 @@
         <div class="work-num">04</div>
         <div>
           <div class="work-head">
-            <div class="work-badge"><svg class="icon"><use href="#i-smartphone"></use></svg></div>
-            <h3>Vector Rideshare</h3>
-          </div>
-          <p class="work-meta"><strong>React Native Developer</strong> · University carpooling</p>
-          <div class="work-outcomes">
-            <span>.edu network</span><span>Realtime chat</span><span>iOS &amp; Android</span>
-          </div>
-          <p class="work-desc">React Native iOS/Android campus carpooling with .edu-verified community, trip creation/joining, destination search, scheduled trips, realtime chat and Firebase/REST integration.</p>
-          <div class="tags"><span>React Native</span><span>Firebase</span><span>REST API</span><span>iOS</span><span>Android</span></div>
-          <a class="work-link" href="case-studies/vector-rideshare.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
-        </div>
-        <div class="work-media">
-          <img src="projects/vector.jpg" alt="Vector Rideshare campus carpooling app" width="800" height="500" loading="lazy">
-        </div>
-      </article>
-
-      <article class="work-item reveal-item">
-        <div class="work-num">05</div>
-        <div>
-          <div class="work-head">
             <div class="work-badge"><svg class="icon"><use href="#i-bug"></use></svg></div>
             <h3>Exception Tracker</h3>
           </div>
@@ -1414,7 +1441,7 @@
       </article>
 
       <article class="work-item reveal-item">
-        <div class="work-num">06</div>
+        <div class="work-num">05</div>
         <div>
           <div class="work-head">
             <div class="work-badge"><svg class="icon"><use href="#i-home"></use></svg></div>
@@ -1471,31 +1498,10 @@
   </div>
 </section>
 
-<section id="proof">
-  <div class="wrap">
-    <div class="reveal">
-      <p class="kicker">04 — Social proof</p>
-      <h2 class="section-title">Trusted to <em>deliver.</em></h2>
-      <p class="section-lead">Feedback from recent remote collaborations. Full references available on request.</p>
-    </div>
-    <div class="quotes">
-      <blockquote class="quote reveal-item">
-        <p>“Jay owned complex Laravel and Vue modules with calm remote communication. Releases were predictable and production-safe.”</p>
-        <p class="who"><strong>Engineering lead</strong> Education SaaS · Australia (remote)</p>
-      </blockquote>
-      <blockquote class="quote reveal-item">
-        <p>“Reliable full-stack delivery across client projects — APIs, payments, and admin tooling without hand-holding.”</p>
-        <p class="who"><strong>Project manager</strong> Agency / product delivery · India</p>
-      </blockquote>
-    </div>
-    <p class="trust reveal">Recent experience with <span>Paperly</span>·<span>Logistic Infotech</span>·<span>Australian EdTech</span></p>
-  </div>
-</section>
-
 <section id="engage">
   <div class="wrap">
     <div class="reveal">
-      <p class="kicker">05 — Work with me</p>
+      <p class="kicker">04 — Work with me</p>
       <h2 class="section-title">Ways to <em>work together.</em></h2>
       <p class="section-lead">Choose the engagement that fits your product, team or project. Scope and rates are confirmed after a short discovery call.</p>
     </div>
@@ -1537,7 +1543,7 @@
 <section class="ideas" id="ideas">
   <div class="wrap">
     <div class="reveal">
-      <p class="kicker">06 — Have a project in mind?</p>
+      <p class="kicker">05 — Have a project in mind?</p>
       <h2 class="section-title">Let's build your <em>idea.</em></h2>
     </div>
     <div class="ideas-copy reveal">
@@ -1593,7 +1599,7 @@
 <section id="craft">
   <div class="wrap">
     <div class="reveal">
-      <p class="kicker">07 — Craft</p>
+      <p class="kicker">06 — Craft</p>
       <h2 class="section-title">How I <em>build.</em></h2>
       <p class="section-lead">Backend-first product engineering with clean APIs, solid data models, and frontends that stay maintainable in production.</p>
     </div>
@@ -1660,7 +1666,7 @@
 <section class="contact" id="contact">
   <div class="wrap contact-inner">
     <div class="reveal">
-      <p class="kicker">08 — Hire me</p>
+      <p class="kicker">07 — Hire me</p>
       <div class="ideas-short">
         <h3>Have an idea? Let's <em>build it.</em></h3>
         <p>
@@ -1780,10 +1786,15 @@
   /* Hero video — try sound after full load; unlock on first gesture if blocked */
   const heroVideo = document.getElementById('heroVideo');
   const heroBlur = document.querySelector('.hero-video-blur');
+  const heroMedia = document.querySelector('.hero-media');
   const muteBtn = document.getElementById('muteBtn');
   if (heroVideo) {
     heroVideo.loop = false;
     heroVideo.muted = true;
+
+    const setPlaying = (on) => {
+      if (heroMedia) heroMedia.classList.toggle('is-playing', !!on);
+    };
 
     const syncBlur = () => {
       if (!heroBlur) return;
@@ -1806,6 +1817,14 @@
       playBlur();
     }
 
+    heroVideo.addEventListener('timeupdate', () => {
+      if (!heroVideo.paused && heroVideo.currentTime >= 0.2) setPlaying(true);
+    });
+    heroVideo.addEventListener('pause', () => {
+      if (heroVideo.ended || heroVideo.currentTime < 0.05) setPlaying(false);
+    });
+    heroVideo.addEventListener('ended', () => setPlaying(false));
+
     const syncMuteBtn = () => {
       if (!muteBtn || muteBtn.hidden) return;
       muteBtn.textContent = heroVideo.muted ? 'Unmute' : 'Mute';
@@ -1813,9 +1832,16 @@
     };
 
     const playWithSound = async () => {
+      heroVideo.volume = 1;
       heroVideo.muted = false;
       heroVideo.removeAttribute('muted');
       try {
+        if (heroVideo.ended || heroVideo.currentTime >= (heroVideo.duration || 0) - 0.15) {
+          heroVideo.currentTime = 0;
+          if (heroBlur) {
+            try { heroBlur.currentTime = 0; } catch (_) {}
+          }
+        }
         await heroVideo.play();
         syncMuteBtn();
         return true;
@@ -1829,7 +1855,6 @@
 
     const unlockSound = (e) => {
       if (!heroVideo.muted) return;
-      if (muteBtn && e && muteBtn.contains(e.target)) return;
       playWithSound().then((ok) => {
         if (ok) {
           document.removeEventListener('pointerdown', unlockSound);
@@ -1867,17 +1892,28 @@
       }
     }
 
-    heroVideo.addEventListener('ended', () => { if (muteBtn) muteBtn.hidden = true; });
+    heroVideo.addEventListener('ended', () => {
+      if (!muteBtn) return;
+      muteBtn.hidden = false;
+      muteBtn.textContent = 'Replay';
+      muteBtn.setAttribute('aria-label', 'Replay video with sound');
+    });
     if (muteBtn) {
-      muteBtn.addEventListener('click', (e) => {
+      muteBtn.addEventListener('click', async (e) => {
         e.stopPropagation();
-        heroVideo.muted = !heroVideo.muted;
-        if (heroVideo.muted) heroVideo.setAttribute('muted', '');
-        else heroVideo.removeAttribute('muted');
-        syncMuteBtn();
-        if (!heroVideo.muted && heroVideo.paused && heroVideo.currentTime < heroVideo.duration) {
-          heroVideo.play().catch(() => {});
+        e.preventDefault();
+        if (heroVideo.muted || heroVideo.ended || heroVideo.paused) {
+          const ok = await playWithSound();
+          if (ok) {
+            document.removeEventListener('pointerdown', unlockSound);
+            document.removeEventListener('keydown', unlockSound);
+            document.removeEventListener('touchstart', unlockSound);
+          }
+          return;
         }
+        heroVideo.muted = true;
+        heroVideo.setAttribute('muted', '');
+        syncMuteBtn();
       });
       syncMuteBtn();
     }
