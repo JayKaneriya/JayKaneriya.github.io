@@ -21,6 +21,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://jaykaneriya.github.io/case-studies/megathy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jaykaneriya.github.io/case-studies/vector-rideshare.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jaykaneriya.github.io/case-studies/zimdle.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://jaykaneriya.github.io/Jay_Kaneriya_CV_2026.pdf</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

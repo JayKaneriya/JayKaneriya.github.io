@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exception Tracker Case Study — Jay Kaneriya</title>
-<meta name="description" content="Case study: Exception Tracker personal project — Laravel/Vue error monitoring with grouping, severity, and triage dashboard.">
+<title>Megathy Case Study — Jay Kaneriya</title>
+<meta name="description" content="Case study: Megathy multi-vendor on-demand grocery delivery for Eastern Saudi Arabia — Laravel, Vue.js, order tracking, payments, and loyalty.">
 <meta name="theme-color" content="#0e1110">
 <link rel="icon" type="image/svg+xml" href="../logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +18,7 @@
   .wrap{width:min(100% - 40px,var(--max));margin:0 auto}
   nav{padding:20px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
   nav a{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--muted)}
+  nav a:hover{color:var(--ink)}
   .kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
   h1{font-family:Syne,sans-serif;font-size:clamp(36px,7vw,64px);line-height:1;letter-spacing:-.03em;margin-bottom:16px}
   .meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:28px}
@@ -34,6 +35,9 @@
   .stat span{font-size:13px;color:var(--muted)}
   .tags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 40px}
   .tags span{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:var(--muted)}
+  .ext{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 28px}
+  .ext a{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted)}
+  .ext a:hover{color:var(--ink);border-color:var(--accent)}
   .cta{display:inline-flex;gap:10px;flex-wrap:wrap;margin:30px 0 60px}
   .btn{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.06em;padding:14px 20px;border-radius:999px;border:1px solid var(--line);color:var(--ink)}
   .btn.fill{background:var(--accent);color:#0e1110;border-color:transparent}
@@ -43,40 +47,47 @@
 <body>
   <div class="wrap">
     <nav><a href="../index.html">← Back to portfolio</a></nav>
-    <p class="kicker">Personal product · In progress</p>
-    <h1>Exception Tracker — production error triage</h1>
-    <p class="meta">Personal project · Laravel · Vue.js · MySQL · REST API</p>
-    <img class="hero-img" src="../projects/exception.jpg" alt="Exception Tracker dashboard mockup" width="1200" height="675" loading="eager">
+    <p class="kicker">Case study · On-demand · Saudi Arabia</p>
+    <h1>Megathy — grocery delivery at regional scale</h1>
+    <p class="meta">Full-stack Developer · Multi-vendor · Laravel · Vue.js · MySQL · Payments</p>
+    <img class="hero-img" src="../projects/megathy.jpg" alt="Megathy grocery delivery ops dashboard" width="1200" height="675" loading="eager">
 
     <div class="stats">
-      <div class="stat"><b>Group</b><span>Similar exceptions collapsed for faster triage</span></div>
-      <div class="stat"><b>Severity</b><span>Critical / warning levels for priority work</span></div>
-      <div class="stat"><b>Search</b><span>History you can query when incidents hit</span></div>
+      <div class="stat"><b>Multi-vendor</b><span>Catalog &amp; order routing across sellers</span></div>
+      <div class="stat"><b>Live ops</b><span>Real-time tracking &amp; delivery slots</span></div>
+      <div class="stat"><b>KSA East</b><span>Production platform for Eastern SA</span></div>
+    </div>
+
+    <div class="ext">
+      <a href="https://megathykom.com/" target="_blank" rel="noopener">Website ↗</a>
+      <a href="https://apps.apple.com/gb/app/megathy/id1227682497" target="_blank" rel="noopener">iOS ↗</a>
+      <a href="https://play.google.com/store/apps/details?id=com.megathykom" target="_blank" rel="noopener">Android ↗</a>
     </div>
 
     <h2>Problem</h2>
-    <p>Production exceptions scatter across logs. Without grouping and a clear dashboard, developers waste time hunting the same bug twice.</p>
+    <p>Eastern Saudi Arabia needed on-demand grocery that could handle many vendors, scheduled slots, payments, and live delivery status — not a single-store checkout bolted onto a brochure site.</p>
 
     <h2>Approach</h2>
     <ul>
-      <li>Built a Laravel API to ingest and store exception events.</li>
-      <li>Vue dashboard for browsing, filtering, and severity-based prioritization.</li>
-      <li>Searchable history so recurring issues are visible across deploys.</li>
+      <li>Built the <strong>Laravel</strong> backend, admin panel, and order management used for day-to-day ops.</li>
+      <li>Shipped a <strong>multi-vendor product catalog</strong> with real-time order tracking and scheduled delivery slots.</li>
+      <li>Integrated <strong>multi-payment</strong> processing, discounts, live chat support, and a reward / loyalty layer.</li>
+      <li>Delivered Vue.js / jQuery admin UI on MySQL with Sass and Bootstrap for reliable ops workflows.</li>
     </ul>
 
     <h2>Outcome</h2>
-    <p>A personal full-stack monitoring tool that demonstrates production thinking — not just CRUD demos. Useful as a reference for SaaS ops and developer tooling work.</p>
+    <p>A production grocery platform serving thousands of customers across Eastern Saudi Arabia — web, iOS, and Android — with vendor catalogs, live tracking, and payment flows that hold up under real order volume.</p>
 
     <div class="tags">
-      <span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Observability</span>
+      <span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>Payments</span><span>Multi-vendor</span><span>On-demand</span><span>Loyalty</span>
     </div>
 
     <div class="cta">
-      <a class="btn fill" href="../index.html#contact">Discuss a build like this</a>
-      <a class="btn" href="resident-app.html">Next: Resident App →</a>
+      <a class="btn fill" href="../index.html#contact">Hire Jay for similar work</a>
+      <a class="btn" href="zimdle.html">Next: Zimdle →</a>
     </div>
 
-    <footer>© 2026 Jay Kaneriya · Personal project case study</footer>
+    <footer>© 2026 Jay Kaneriya · Case study for portfolio use</footer>
   </div>
 </body>
 </html>

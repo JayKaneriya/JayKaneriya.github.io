@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /backup/
 
 Sitemap: https://jaykaneriya.github.io/sitemap.xml

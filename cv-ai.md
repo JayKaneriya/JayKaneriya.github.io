@@ -15,14 +15,18 @@
 Open to full-time remote roles and freelance / contract engagements.
 
 ### Professional Summary
-Senior Full Stack Web Application Developer with 8+ years of experience building production web applications using Laravel, Vue.js, React.js, PHP, JavaScript, MySQL, and REST APIs. Most recent role: Senior Web Application Developer at Paperly (Perth, Australia, remote), delivering school administration software used by thousands of teachers and parents. Experienced in SaaS, eCommerce, on-demand delivery, payment integrations (Stripe, PayPal, BPOINT), Redis, AWS, geolocation, workflow automation, Agile delivery, mentoring, and client communication.
+Senior Full Stack Web Application Developer with 8+ years of experience building production web applications using Laravel, Vue.js, React.js, PHP, JavaScript, MySQL, and REST APIs. Most recent role: Senior Web Application Developer at Paperly (Perth, Australia, remote), delivering school administration software used by thousands of teachers and parents. Experienced in SaaS, eCommerce, on-demand delivery, payment integrations (Stripe, PayPal, BPOINT), Redis, geolocation, workflow automation, Agile delivery, mentoring, and client communication.
+
+<!-- deferred: AWS — -->
 
 ### Skills
 **Backend:** Laravel, PHP 8+, REST APIs, MySQL, Redis, Node.js, Sails.js, CodeIgniter, Socket.io, JWT, OAuth, multi-tenant architecture
 
 **Frontend:** Vue.js, Vuex, Composition API, React.js, Redux, JavaScript, TypeScript, HTML5, CSS3, Sass, Tailwind CSS, Bootstrap
 
-**Cloud and tools:** AWS S3, AWS EC2, AWS CloudFront, Git, GitHub, Bitbucket, Postman, JIRA, Firebase, Linux, cPanel, CI/CD
+**Cloud and tools:** Git, GitHub, Postman, JIRA, Firebase, Linux, cPanel, CI/CD
+
+<!-- deferred: AWS S3/EC2/CloudFront + Bitbucket — -->
 
 **Payments and integrations:** Stripe, PayPal, BPOINT, custom payment APIs, webhooks, shipping APIs, geolocation
 
@@ -44,7 +48,8 @@ Senior Full Stack Web Application Developer with 8+ years of experience building
 #### Web Application Developer — Logistic Infotech Pvt Ltd
 - Location: Rajkot, India
 - Dates: July 2017 – June 2022
-- Stack: Laravel, Vue.js, React.js, Node.js, Sails.js, AWS, Socket.io, Firebase
+- Stack: Laravel, Vue.js, React.js, Node.js, Sails.js, Socket.io, Firebase
+<!-- deferred: AWS in stack — -->
 - Delivered 200+ full-stack client projects worldwide across eCommerce, SaaS, education, restaurant, and booking domains
 - Built Laravel backends with Vue.js and React.js frontends, including admin dashboards and role-based access control
 - Integrated Stripe, PayPal, BPOINT, and custom payment APIs into production billing flows
@@ -53,39 +58,45 @@ Senior Full Stack Web Application Developer with 8+ years of experience building
 
 ### Projects
 
-#### Exception Tracker (Personal Project) — Recent
-- Type: Error monitoring and logging application
-- Stack: Laravel, Vue.js, MySQL, REST API
-- Captures, groups, and triages application exceptions with searchable history, severity levels, and a production dashboard
-
-#### Resident App (Personal Project) — Recent
-- Type: Residential community platform
-- Stack: Laravel, Vue.js, MySQL, REST API
-- Notices, maintenance / complaint requests, member profiles, and society workflows for residents and admins
-
 #### Paperly — School Management Platform
 - Role: Senior Developer | 2022–2026 | Australia
 - Stack: Laravel, Vue.js, MySQL, REST API, Geolocation
 
 #### Megathy — On-Demand Grocery Delivery
-- Role: Full Stack Developer | Saudi Arabia
+- Role: Full Stack Developer | Multi-vendor | Saudi Arabia
 - Stack: Laravel, Vue.js, MySQL, Payments
+- Built backend, admin, and order management for Eastern Saudi Arabia grocery delivery
+- Multi-vendor catalog, real-time tracking, scheduled slots, multi-payment, discounts, loyalty, live chat
+- Case study: https://jaykaneriya.github.io/case-studies/megathy.html
 
 #### Zimdle — Customer Feedback Platform
 - Role: Full Stack Developer
 - Stack: Laravel, CodeIgniter, AJAX
-
-#### Multi-Vendor eCommerce Marketplace
-- Role: Full Stack Developer | Logistic Infotech
-- Stack: Laravel, Vue.js, REST API, Payments
-
-#### SaaS Subscription Management Platform
-- Role: Full Stack Developer | Logistic Infotech
-- Stack: Laravel, Vue.js, Redis, Stripe
+- Private real-time feedback with charts, trends, alerts, and benchmarking for business owners
+- Case study: https://jaykaneriya.github.io/case-studies/zimdle.html
 
 #### Vector Rideshare — University Carpooling
 - Role: React Native Developer
 - Stack: React Native, Firebase, REST API
+- Campus carpooling with .edu verification, trip create/join, scheduling, and real-time chat
+- Published on iOS and Android
+- Case study: https://jaykaneriya.github.io/case-studies/vector-rideshare.html
+
+#### Exception Tracker (Personal Project) — In progress
+- Type: Error monitoring and logging application
+- Stack: Laravel, Vue.js, MySQL, REST API
+- Captures, groups, and triages application exceptions with searchable history, severity levels, and a production dashboard
+
+#### Resident App (Personal Project) — In progress
+- Type: Residential community platform
+- Stack: Laravel, Vue.js, MySQL, REST API
+- Notices, maintenance / complaint requests, member profiles, and society workflows for residents and admins
+
+<!--
+DEFERRED — Multi-Vendor eCommerce Marketplace + SaaS Subscription Management Platform
+Restore later when ready.
+(Megathy already covers multi-vendor marketplace work.)
+-->
 
 ### Education
 Bachelor of Engineering — Computer Science and Engineering  
@@ -98,4 +109,6 @@ July 2013 – May 2017
 - Gujarati: Native
 
 ### Keywords
-Senior Full Stack Developer, Full Stack Developer, Laravel Developer, Vue.js Developer, React Developer, PHP Developer, JavaScript Developer, REST API, MySQL, Redis, AWS, Stripe, PayPal, SaaS, eCommerce, EdTech, Remote Work, Freelance, Contract, Agile, Mentoring, React Native, Node.js, TypeScript, Web Application Development
+Senior Full Stack Developer, Full Stack Developer, Laravel Developer, Vue.js Developer, React Developer, PHP Developer, JavaScript Developer, REST API, MySQL, Redis, Stripe, PayPal, SaaS, eCommerce, EdTech, Remote Work, Freelance, Contract, Agile, Mentoring, React Native, Node.js, TypeScript, Web Application Development
+
+<!-- deferred: AWS keyword — -->

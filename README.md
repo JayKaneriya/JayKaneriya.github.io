@@ -7,12 +7,10 @@ Senior Full Stack Developer (Laravel · Vue.js · React.js). **Open to full-time
 ## What's included
 
 - Cinematic portfolio with GSAP motion, icons, project visuals
-- Case studies: Paperly, Exception Tracker, Resident App
+- Case studies: Paperly, Exception Tracker, Resident App, Megathy, Zimdle, Vector Rideshare
 - Contact form (FormSubmit) + hire CTAs
 - Engagement options (full-time / retainer / fixed project)
 - User CV + ATS/AI CV PDFs
-- Custom domain instructions in `DOMAIN.md`
-- LinkedIn Open to Work checklist in `LINKEDIN.md`
 
 ## Key files
 
@@ -23,8 +21,7 @@ Senior Full Stack Developer (Laravel · Vue.js · React.js). **Open to full-time
 | `projects/` | Project visuals |
 | `cv.html` / `Jay_Kaneriya_CV_2026.pdf` | User-friendly CV |
 | `cv-ai.html` / `cv-ai.md` / `Jay_Kaneriya_CV_AI.pdf` | ATS / AI CV |
-| `AI/avatar.mp4` | Hero intro video |
-| `DOMAIN.md` | Custom domain DNS steps |
+| `AI/hero-web.mp4` | Hero intro video |
 
 ## Contact
 

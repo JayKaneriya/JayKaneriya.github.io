@@ -53,7 +53,7 @@
         "addressCountry": "IN"
       },
       "alumniOf": { "@type": "CollegeOrUniversity", "name": "Gujarat Technological University" },
-      "knowsAbout": ["Laravel", "Vue.js", "React.js", "PHP", "JavaScript", "TypeScript", "MySQL", "Redis", "REST APIs", "AWS", "Stripe", "Node.js", "React Native"],
+      "knowsAbout": ["Laravel", "Vue.js", "React.js", "PHP", "JavaScript", "TypeScript", "MySQL", "Redis", "REST APIs", "Stripe", "Node.js", "React Native"],
       "knowsLanguage": ["English", "Hindi", "Gujarati"],
       "sameAs": [
         "https://www.linkedin.com/in/jaykaneriya/",
@@ -617,30 +617,32 @@
   }
   .dev-icons .icon { width: 15px; height: 15px; color: var(--accent); }
 
+  #craft { padding-bottom: 64px; }
+
   /* CONTACT */
   .contact {
-    position: relative; padding: 120px 0 100px; overflow: visible;
+    position: relative; padding: 64px 0 96px; overflow: visible;
     background:
-      radial-gradient(ellipse 80% 60% at 80% 20%, rgba(255,90,31,0.14), transparent 55%),
-      radial-gradient(ellipse 60% 50% at 10% 80%, rgba(255,90,31,0.07), transparent 50%),
+      radial-gradient(ellipse 70% 55% at 72% 18%, rgba(255,90,31,0.14), transparent 55%),
+      radial-gradient(ellipse 50% 45% at 12% 88%, rgba(255,90,31,0.07), transparent 50%),
       var(--bg);
   }
-  .contact-inner { position: relative; z-index: 2; width: 100%; }
+  .contact-inner { position: relative; z-index: 2; }
   .contact h2 {
     font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: clamp(40px, 8vw, 96px); line-height: 0.95;
-    letter-spacing: -0.03em; text-transform: uppercase; margin-bottom: 22px;
-    max-width: 12ch; word-break: normal; overflow-wrap: normal;
+    font-size: clamp(40px, 6.2vw, 72px); line-height: 0.95;
+    letter-spacing: -0.03em; text-transform: uppercase; margin-bottom: 20px;
+    max-width: 11ch; word-break: normal; overflow-wrap: normal;
   }
   .contact h2 span { color: var(--accent); }
   .contact-lead {
-    max-width: 36rem; color: var(--muted); font-size: 17px;
-    margin-bottom: 30px; line-height: 1.7;
+    max-width: 32rem; color: var(--muted); font-size: 17px;
+    margin-bottom: 26px; line-height: 1.7;
   }
   .contact-lead strong { color: var(--ink); font-weight: 600; }
-  .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+  .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
   .contact-alt {
-    display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 28px;
+    display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 22px;
   }
   .contact-alt a {
     font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em;
@@ -716,9 +718,14 @@
 
   /* FORM */
   .contact-layout {
-    display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 48px; align-items: start;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+    gap: clamp(28px, 4vw, 48px);
+    align-items: center;
   }
-  @media (max-width: 900px) { .contact-layout { grid-template-columns: 1fr; gap: 32px; } }
+  @media (max-width: 900px) {
+    .contact-layout { grid-template-columns: 1fr; gap: 28px; align-items: stretch; }
+  }
   .hire-form {
     display: flex; flex-direction: column; gap: 12px;
     padding: 24px; border: 1px solid var(--line); border-radius: 16px;
@@ -883,6 +890,7 @@
   <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
   <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.7 2.35a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.75.34 1.54.57 2.35.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.33.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.9 11.9 0 0 0 5.76 1.47h.01c6.55 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.16-3.45-8.44zM12.06 21.75h-.01a9.86 9.86 0 0 1-5.02-1.37l-.36-.21-3.74.98 1-3.65-.24-.37a9.83 9.83 0 0 1-1.5-5.23c0-5.43 4.42-9.85 9.86-9.85a9.8 9.8 0 0 1 6.97 2.89 9.8 9.8 0 0 1 2.88 6.97c0 5.43-4.42 9.84-9.84 9.84zm5.4-7.4c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.09 3.2 5.06 4.48.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></symbol>
 </svg>
 
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -903,8 +911,8 @@
 
 <section class="hero" id="home">
   <div class="hero-media">
-    <video id="heroVideo" poster="hero-poster.jpg" muted playsinline autoplay preload="metadata" aria-label="Intro video of Jay Kaneriya">
-      <source src="AI/hero-web.mp4" type="video/mp4">
+    <video id="heroVideo" poster="hero-poster.jpg?v=4" muted playsinline autoplay preload="metadata" aria-label="Intro video of Jay Kaneriya">
+      <source src="AI/hero-web.mp4?v=4" type="video/mp4">
     </video>
   </div>
   <div class="hero-grid" aria-hidden="true"></div>
@@ -931,7 +939,7 @@
       <span><svg class="icon"><use href="#i-server"></use></svg> Laravel</span>
       <span><svg class="icon"><use href="#i-layout"></use></svg> Vue.js</span>
       <span><svg class="icon"><use href="#i-code"></use></svg> React</span>
-      <span><svg class="icon"><use href="#i-cloud"></use></svg> AWS</span>
+      <!-- deferred: AWS — -->
       <span><svg class="icon"><use href="#i-zap"></use></svg> REST APIs</span>
     </div>
   </div>
@@ -943,7 +951,7 @@
   <div class="ticker-track" id="tickerTrack">
     <span><span class="dot">◆</span> Laravel</span><span><span class="dot">◆</span> Vue.js</span><span><span class="dot">◆</span> React</span>
     <span><span class="dot">◆</span> PHP 8+</span><span><span class="dot">◆</span> MySQL</span><span><span class="dot">◆</span> Redis</span>
-    <span><span class="dot">◆</span> Node.js</span><span><span class="dot">◆</span> REST APIs</span><span><span class="dot">◆</span> AWS</span>
+    <span><span class="dot">◆</span> Node.js</span><span><span class="dot">◆</span> REST APIs</span><!-- deferred: AWS — -->
     <span><span class="dot">◆</span> Stripe</span><span><span class="dot">◆</span> Socket.io</span><span><span class="dot">◆</span> Tailwind</span>
   </div>
 </div>
@@ -1018,52 +1026,12 @@
     <div class="reveal">
       <p class="kicker">02 — Selected work</p>
       <h2 class="section-title">Things I've <em>built.</em></h2>
-      <p class="section-lead">Recent personal builds plus product systems across education, delivery, SaaS, and marketplaces — focused on reliability at scale.</p>
+      <p class="section-lead">Product systems across education, delivery, SaaS, and marketplaces — plus personal builds still in progress.</p>
     </div>
 
     <div class="work-list">
       <article class="work-item reveal-item">
         <div class="work-num">01</div>
-        <div>
-          <div class="work-head">
-            <div class="work-badge"><svg class="icon"><use href="#i-bug"></use></svg></div>
-            <h3>Exception Tracker</h3>
-          </div>
-          <p class="work-meta"><strong>Personal project</strong> · Error monitoring · Recent</p>
-          <div class="work-outcomes">
-            <span>Grouped triage</span><span>Severity levels</span><span>Searchable history</span>
-          </div>
-          <p class="work-desc">Full-stack exception monitoring to capture, group, and prioritize production errors — so recurring issues are fixed once, not hunted repeatedly in raw logs.</p>
-          <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span></div>
-          <a class="work-link" href="case-studies/exception-tracker.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
-        </div>
-        <div class="work-media">
-          <img src="projects/exception.jpg" alt="Exception Tracker dashboard" width="800" height="500" loading="lazy">
-        </div>
-      </article>
-
-      <article class="work-item reveal-item">
-        <div class="work-num">02</div>
-        <div>
-          <div class="work-head">
-            <div class="work-badge"><svg class="icon"><use href="#i-home"></use></svg></div>
-            <h3>Resident App</h3>
-          </div>
-          <p class="work-meta"><strong>Personal project</strong> · Housing community · Recent</p>
-          <div class="work-outcomes">
-            <span>Notices feed</span><span>Maintenance requests</span><span>Member workflows</span>
-          </div>
-          <p class="work-desc">Resident-facing community platform that replaces WhatsApp chaos with notices, complaint / maintenance tracking, and admin workflows for housing societies.</p>
-          <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span></div>
-          <a class="work-link" href="case-studies/resident-app.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
-        </div>
-        <div class="work-media">
-          <img src="projects/resident.jpg" alt="Resident App interface" width="800" height="500" loading="lazy">
-        </div>
-      </article>
-
-      <article class="work-item reveal-item">
-        <div class="work-num">03</div>
         <div>
           <div class="work-head">
             <div class="work-badge"><svg class="icon"><use href="#i-layers"></use></svg></div>
@@ -1083,18 +1051,19 @@
       </article>
 
       <article class="work-item reveal-item">
-        <div class="work-num">04</div>
+        <div class="work-num">02</div>
         <div>
           <div class="work-head">
             <div class="work-badge"><svg class="icon"><use href="#i-zap"></use></svg></div>
             <h3>Megathy</h3>
           </div>
-          <p class="work-meta"><strong>Full-stack Developer</strong> · On-demand grocery · Saudi Arabia</p>
+          <p class="work-meta"><strong>Full-stack Developer</strong> · Multi-vendor on-demand grocery · Saudi Arabia</p>
           <div class="work-outcomes">
-            <span>Live order ops</span><span>Multi-payment</span><span>Loyalty engine</span>
+            <span>Multi-vendor catalog</span><span>Live order ops</span><span>Multi-payment</span>
           </div>
-          <p class="work-desc">Complete Laravel backend and admin for Eastern Saudi Arabia grocery delivery — real-time tracking, scheduled slots, payments, discounts, and loyalty at customer scale.</p>
+          <p class="work-desc">Multi-vendor grocery delivery for Eastern Saudi Arabia — vendor catalog, real-time tracking, scheduled slots, payments, discounts, and loyalty at customer scale.</p>
           <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>Payments</span></div>
+          <a class="work-link" href="case-studies/megathy.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
         </div>
         <div class="work-media">
           <img src="projects/megathy.jpg" alt="Megathy delivery admin UI" width="800" height="500" loading="lazy">
@@ -1102,7 +1071,7 @@
       </article>
 
       <article class="work-item reveal-item">
-        <div class="work-num">05</div>
+        <div class="work-num">03</div>
         <div>
           <div class="work-head">
             <div class="work-badge"><svg class="icon"><use href="#i-check"></use></svg></div>
@@ -1114,43 +1083,21 @@
           </div>
           <p class="work-desc">Private real-time feedback and performance monitoring — structured insights for owners without public social blowback.</p>
           <div class="tags"><span>Laravel</span><span>CodeIgniter</span><span>AJAX</span><span>Analytics</span></div>
+          <a class="work-link" href="case-studies/zimdle.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
+        </div>
+        <div class="work-media">
+          <img src="projects/zimdle.jpg" alt="Zimdle feedback analytics dashboard" width="800" height="500" loading="lazy">
         </div>
       </article>
 
-      <article class="work-item reveal-item">
-        <div class="work-num">06</div>
-        <div>
-          <div class="work-head">
-            <div class="work-badge"><svg class="icon"><use href="#i-briefcase"></use></svg></div>
-            <h3>Multi-vendor eCommerce</h3>
-          </div>
-          <p class="work-meta"><strong>Full-stack Developer</strong> · Logistic Infotech</p>
-          <div class="work-outcomes">
-            <span>Vendor onboarding</span><span>Inventory sync</span><span>Payment gateways</span>
-          </div>
-          <p class="work-desc">Marketplace with vendor onboarding, inventory sync, order routing, payment gateways, shipping APIs, and admin analytics.</p>
-          <div class="tags"><span>Laravel</span><span>Vue.js</span><span>REST API</span><span>Payments</span></div>
-        </div>
-      </article>
+      <!--
+        DEFERRED — Multi-vendor eCommerce + SaaS Dashboard Platform
+        Restore later when ready.
+        (Megathy already covers multi-vendor marketplace work.)
+      -->
 
       <article class="work-item reveal-item">
-        <div class="work-num">07</div>
-        <div>
-          <div class="work-head">
-            <div class="work-badge"><svg class="icon"><use href="#i-cloud"></use></svg></div>
-            <h3>SaaS Dashboard Platform</h3>
-          </div>
-          <p class="work-meta"><strong>Full-stack Developer</strong> · Subscription management</p>
-          <div class="work-outcomes">
-            <span>Multi-tenant</span><span>Stripe billing</span><span>Feature flags</span>
-          </div>
-          <p class="work-desc">Multi-tenant SaaS with RBAC, team management, Stripe billing, analytics, and feature-flag tooling.</p>
-          <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Redis</span><span>Stripe</span></div>
-        </div>
-      </article>
-
-      <article class="work-item reveal-item">
-        <div class="work-num">08</div>
+        <div class="work-num">04</div>
         <div>
           <div class="work-head">
             <div class="work-badge"><svg class="icon"><use href="#i-smartphone"></use></svg></div>
@@ -1162,6 +1109,50 @@
           </div>
           <p class="work-desc">Campus carpooling with .edu verification, trip scheduling, and real-time chat — published for iOS and Android.</p>
           <div class="tags"><span>React Native</span><span>Firebase</span><span>REST API</span></div>
+          <a class="work-link" href="case-studies/vector-rideshare.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
+        </div>
+        <div class="work-media">
+          <img src="projects/vector.jpg" alt="Vector Rideshare campus carpooling app" width="800" height="500" loading="lazy">
+        </div>
+      </article>
+
+      <article class="work-item reveal-item">
+        <div class="work-num">05</div>
+        <div>
+          <div class="work-head">
+            <div class="work-badge"><svg class="icon"><use href="#i-bug"></use></svg></div>
+            <h3>Exception Tracker</h3>
+          </div>
+          <p class="work-meta"><strong>Personal project</strong> · Error monitoring · In progress</p>
+          <div class="work-outcomes">
+            <span>Grouped triage</span><span>Severity levels</span><span>Searchable history</span>
+          </div>
+          <p class="work-desc">Full-stack exception monitoring to capture, group, and prioritize production errors — so recurring issues are fixed once, not hunted repeatedly in raw logs.</p>
+          <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span></div>
+          <a class="work-link" href="case-studies/exception-tracker.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
+        </div>
+        <div class="work-media">
+          <img src="projects/exception.jpg" alt="Exception Tracker dashboard" width="800" height="500" loading="lazy">
+        </div>
+      </article>
+
+      <article class="work-item reveal-item">
+        <div class="work-num">06</div>
+        <div>
+          <div class="work-head">
+            <div class="work-badge"><svg class="icon"><use href="#i-home"></use></svg></div>
+            <h3>Resident App</h3>
+          </div>
+          <p class="work-meta"><strong>Personal project</strong> · Housing community · In progress</p>
+          <div class="work-outcomes">
+            <span>Notices feed</span><span>Maintenance requests</span><span>Member workflows</span>
+          </div>
+          <p class="work-desc">Resident-facing community platform that replaces WhatsApp chaos with notices, complaint / maintenance tracking, and admin workflows for housing societies.</p>
+          <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span></div>
+          <a class="work-link" href="case-studies/resident-app.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
+        </div>
+        <div class="work-media">
+          <img src="projects/resident.jpg" alt="Resident App interface" width="800" height="500" loading="lazy">
         </div>
       </article>
     </div>
@@ -1201,8 +1192,6 @@
       </article>
     </div>
   </div>
-</section>
-
 </section>
 
 <section id="proof">
@@ -1304,8 +1293,8 @@
         <div class="ico"><svg class="icon icon-lg"><use href="#i-git"></use></svg></div>
         <h3>Delivery</h3>
         <ul>
-          <li>Git · GitHub · Bitbucket</li>
-          <li>AWS S3 · EC2 · CloudFront</li>
+          <li>Git · GitHub</li>
+          <!-- deferred: Bitbucket + AWS S3/EC2/CloudFront — -->
           <li>Agile · JIRA · mentoring</li>
           <li>CI/CD · Linux deploys</li>
         </ul>
@@ -1328,7 +1317,7 @@
       <span><svg class="icon"><use href="#i-cpu"></use></svg> PHP 8+</span>
       <span><svg class="icon"><use href="#i-layers"></use></svg> MySQL</span>
       <span><svg class="icon"><use href="#i-zap"></use></svg> Redis</span>
-      <span><svg class="icon"><use href="#i-cloud"></use></svg> AWS</span>
+      <!-- deferred: AWS — -->
       <span><svg class="icon"><use href="#i-git"></use></svg> Git</span>
       <span><svg class="icon"><use href="#i-smartphone"></use></svg> React Native</span>
     </div>
@@ -1357,14 +1346,14 @@
           <div class="contact-alt">
             <a href="Jay_Kaneriya_CV_AI.pdf" download>ATS / AI CV ↓</a>
             <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20role%20or%20project." target="_blank" rel="noopener">
-              <svg class="icon"><use href="#i-phone"></use></svg> WhatsApp
+              <svg class="icon"><use href="#i-whatsapp"></use></svg> WhatsApp
             </a>
           </div>
           <div class="socials">
             <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-linkedin"></use></svg> LinkedIn</a>
             <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"></use></svg> GitHub</a>
             <a href="mailto:jay.kaneriya8@gmail.com"><svg class="icon"><use href="#i-mail"></use></svg> jay.kaneriya8@gmail.com</a>
-            <a href="tel:+918530078687"><svg class="icon"><use href="#i-phone"></use></svg> +91 85300 78687</a>
+            <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20role%20or%20project." target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"></use></svg> +91 85300 78687</a>
           </div>
         </div>
 
@@ -1428,29 +1417,83 @@
     window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   });
 
-  /* Hero video */
+  /* Hero video — try sound after full load; unlock on first gesture if blocked */
   const heroVideo = document.getElementById('heroVideo');
   const muteBtn = document.getElementById('muteBtn');
   if (heroVideo) {
     heroVideo.loop = false;
     heroVideo.muted = true;
+
+    const syncMuteBtn = () => {
+      if (!muteBtn || muteBtn.hidden) return;
+      muteBtn.textContent = heroVideo.muted ? 'Unmute' : 'Mute';
+      muteBtn.setAttribute('aria-label', heroVideo.muted ? 'Unmute video' : 'Mute video');
+    };
+
+    const playWithSound = async () => {
+      heroVideo.muted = false;
+      heroVideo.removeAttribute('muted');
+      try {
+        await heroVideo.play();
+        syncMuteBtn();
+        return true;
+      } catch {
+        heroVideo.muted = true;
+        heroVideo.setAttribute('muted', '');
+        syncMuteBtn();
+        return false;
+      }
+    };
+
+    const unlockSound = (e) => {
+      if (!heroVideo.muted) return;
+      if (muteBtn && e && muteBtn.contains(e.target)) return;
+      playWithSound().then((ok) => {
+        if (ok) {
+          document.removeEventListener('pointerdown', unlockSound);
+          document.removeEventListener('keydown', unlockSound);
+          document.removeEventListener('touchstart', unlockSound);
+        }
+      });
+    };
+
     if (reduceMotion) {
       heroVideo.removeAttribute('autoplay');
       heroVideo.pause();
       if (muteBtn) muteBtn.hidden = true;
     } else {
       heroVideo.play().catch(() => {});
+
+      const startWhenReady = () => {
+        playWithSound().then((ok) => {
+          if (!ok) {
+            document.addEventListener('pointerdown', unlockSound, { passive: true });
+            document.addEventListener('keydown', unlockSound);
+            document.addEventListener('touchstart', unlockSound, { passive: true });
+          }
+        });
+      };
+
+      if (document.readyState === 'complete') {
+        startWhenReady();
+      } else {
+        window.addEventListener('load', startWhenReady, { once: true });
+      }
     }
+
     heroVideo.addEventListener('ended', () => { if (muteBtn) muteBtn.hidden = true; });
     if (muteBtn) {
-      muteBtn.addEventListener('click', () => {
+      muteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         heroVideo.muted = !heroVideo.muted;
-        muteBtn.textContent = heroVideo.muted ? 'Unmute' : 'Mute';
-        muteBtn.setAttribute('aria-label', heroVideo.muted ? 'Unmute video' : 'Mute video');
+        if (heroVideo.muted) heroVideo.setAttribute('muted', '');
+        else heroVideo.removeAttribute('muted');
+        syncMuteBtn();
         if (!heroVideo.muted && heroVideo.paused && heroVideo.currentTime < heroVideo.duration) {
           heroVideo.play().catch(() => {});
         }
       });
+      syncMuteBtn();
     }
   }
 
