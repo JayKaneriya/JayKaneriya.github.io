@@ -235,45 +235,92 @@
   .hero {
     position: relative; min-height: 100vh; min-height: 100dvh;
     display: flex; align-items: flex-end; overflow: hidden;
-    background: var(--bg);
+    background: #0e1110;
   }
   .hero-media {
     position: absolute; inset: 0; z-index: 0;
     overflow: hidden;
-    background: #12151a;
+    background: #0e1110;
   }
-  .hero-media video {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
+  /* Always-on blurred poster fill (works before video plays) */
+  .hero-media-glow {
+    position: absolute;
+    inset: -18%;
+    z-index: 0;
+    background: #0e1110 url('hero-poster.jpg?v=7') center / cover no-repeat;
+    filter: blur(64px) brightness(0.72) saturate(1.18);
+    transform: scale(1.18);
+    pointer-events: none;
+  }
+  /* Live blurred video fill (synced with main) */
+  .hero-video-blur {
+    position: absolute;
+    inset: -10%;
+    z-index: 0;
+    width: 120%;
+    height: 120%;
     max-width: none;
     object-fit: cover;
-    object-position: 84% 20%;
-    background: #12151a;
-    transform: scale(1.12);
-    transform-origin: 84% 20%;
+    object-position: 68% 28%;
+    filter: blur(48px) brightness(0.7) saturate(1.15);
+    transform: scale(1.2);
+    pointer-events: none;
+    opacity: 0.9;
+  }
+  /* Frame sizes to the real video box so edge fade hits the hard border */
+  .hero-video-frame {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    pointer-events: none;
+  }
+  .hero-video-main {
+    display: block;
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center center;
+    background: transparent;
+    transform: none;
+    transform-origin: center center;
+    pointer-events: none;
+    /* Feather the actual video frame into the blur */
+    -webkit-mask-image:
+      linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 7%, #000 93%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, #000 7%, #000 93%, transparent 100%);
+    mask-composite: intersect;
   }
   .hero-media::after {
-    content: ''; position: absolute; inset: 0;
+    content: ''; position: absolute; inset: 0; z-index: 2;
+    pointer-events: none;
     background:
       linear-gradient(180deg,
-        rgba(14,17,16,0.5) 0%,
-        rgba(14,17,16,0.18) 24%,
-        rgba(14,17,16,0.28) 48%,
-        rgba(14,17,16,0.78) 76%,
+        rgba(14,17,16,0.45) 0%,
+        rgba(14,17,16,0.1) 18%,
+        rgba(14,17,16,0.14) 48%,
+        rgba(14,17,16,0.7) 78%,
         rgba(14,17,16,0.96) 100%),
       linear-gradient(90deg,
-        rgba(14,17,16,0.94) 0%,
-        rgba(14,17,16,0.78) 26%,
-        rgba(14,17,16,0.35) 46%,
-        rgba(14,17,16,0.08) 64%,
-        transparent 82%);
+        rgba(14,17,16,0.55) 0%,
+        rgba(14,17,16,0.28) 16%,
+        rgba(14,17,16,0.08) 34%,
+        transparent 55%);
   }
   .hero-grid { display: none; }
   .hero-copy {
-    position: relative; z-index: 2;
-    width: min(100% - 48px, 34rem);
-    margin: 0 auto 80px 0;
+    position: relative; z-index: 3;
+    width: min(100% - 64px, 52rem);
+    margin: 0 auto 44px 0;
     margin-left: max(24px, calc((100vw - var(--max)) / 2));
+    padding-top: 18vh;
   }
   @media (max-width: 640px) {
     .hero-copy {
@@ -300,7 +347,7 @@
   }
   .hero h1 {
     font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: clamp(48px, 8.5vw, 96px);
+    font-size: clamp(48px, 7.5vw, 92px);
     line-height: 0.9; letter-spacing: -0.04em; text-transform: uppercase;
     max-width: 9.5ch; overflow: hidden;
   }
@@ -310,9 +357,9 @@
   }
   .hero h1 .accent { color: var(--accent); }
   .hero-lead {
-    margin-top: 22px; max-width: 28rem;
-    font-size: clamp(15px, 1.7vw, 18px);
-    color: var(--muted); font-weight: 300; line-height: 1.65;
+    margin-top: 18px; max-width: 48rem;
+    font-size: clamp(15px, 1.55vw, 18px);
+    color: var(--muted); font-weight: 300; line-height: 1.6;
     opacity: 0; transform: translateY(18px);
   }
   .hero-lead strong { color: var(--ink); font-weight: 500; }
@@ -893,14 +940,32 @@
   .to-top:hover { transform: translateY(-3px); background: var(--accent); color: #0e1110; }
 
   @media (min-width: 769px) and (max-width: 1100px) {
-    .hero-media video {
+    .hero-media-glow,
+    .hero-video-blur { display: none; }
+    .hero-video-frame {
+      display: block;
+    }
+    .hero-video-main {
+      position: absolute; inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
       object-position: 88% 18%;
       transform: scale(1.16);
       transform-origin: 88% 18%;
+      -webkit-mask-image: none;
+      mask-image: none;
+      background: #0e1110;
     }
     .hero-copy {
       width: min(100% - 40px, 30rem);
       margin-left: 24px;
+      margin-bottom: 72px;
+      padding-top: 0;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 8.5vw, 84px);
     }
     .hero-lead { max-width: 26rem; }
   }
@@ -914,10 +979,23 @@
       min-height: 100svh;
       align-items: flex-end;
     }
-    .hero-media video {
+    .hero-media-glow,
+    .hero-video-blur { display: none; }
+    .hero-video-frame {
+      display: block;
+    }
+    .hero-video-main {
+      position: absolute; inset: 0;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
       object-position: 50% 0%;
       transform: scale(1.22);
       transform-origin: 50% 0%;
+      -webkit-mask-image: none;
+      mask-image: none;
+      background: #0e1110;
     }
     .hero-media::after {
       background:
@@ -932,7 +1010,8 @@
     .hero-copy {
       width: min(100% - 24px, var(--max));
       margin: 0 auto 20px;
-      padding-top: 0;
+      /* Clear face; keep a little text in the first viewport */
+      padding-top: 46vh;
       padding-bottom: env(safe-area-inset-bottom, 0);
     }
     .hero h1 {
@@ -1034,7 +1113,7 @@
     .hero h1 { font-size: clamp(30px, 9.5vw, 38px); line-height: 0.92; }
     .hero-lead { font-size: 13.5px; }
     .hero-actions .btn { font-size: 10.5px; padding: 11px 10px; }
-    .hero-media video {
+    .hero-video-main {
       object-position: 50% 0%;
       transform: scale(1.28);
       transform-origin: 50% 0%;
@@ -1104,9 +1183,15 @@
 
 <section class="hero" id="home">
   <div class="hero-media">
-    <video id="heroVideo" poster="hero-poster.jpg?v=5" muted playsinline autoplay preload="metadata" aria-label="Intro video of Jay Kaneriya">
-      <source src="AI/hero-web.mp4?v=5" type="video/mp4">
+    <div class="hero-media-glow" aria-hidden="true"></div>
+    <video class="hero-video-blur" muted playsinline autoplay preload="auto" aria-hidden="true" tabindex="-1">
+      <source src="AI/hero-web.mp4?v=7" type="video/mp4">
     </video>
+    <div class="hero-video-frame">
+      <video id="heroVideo" class="hero-video-main" poster="hero-poster.jpg?v=7" muted playsinline autoplay preload="metadata" aria-label="Intro video of Jay Kaneriya">
+        <source src="AI/hero-web.mp4?v=7" type="video/mp4">
+      </video>
+    </div>
   </div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-copy" id="heroCopy">
@@ -1694,10 +1779,32 @@
 
   /* Hero video — try sound after full load; unlock on first gesture if blocked */
   const heroVideo = document.getElementById('heroVideo');
+  const heroBlur = document.querySelector('.hero-video-blur');
   const muteBtn = document.getElementById('muteBtn');
   if (heroVideo) {
     heroVideo.loop = false;
     heroVideo.muted = true;
+
+    const syncBlur = () => {
+      if (!heroBlur) return;
+      try {
+        if (Math.abs(heroBlur.currentTime - heroVideo.currentTime) > 0.25) {
+          heroBlur.currentTime = heroVideo.currentTime;
+        }
+      } catch (_) {}
+    };
+    if (heroBlur) {
+      heroBlur.muted = true;
+      heroBlur.loop = false;
+      heroBlur.playsInline = true;
+      const playBlur = () => heroBlur.play().catch(() => {});
+      heroVideo.addEventListener('play', playBlur);
+      heroVideo.addEventListener('pause', () => heroBlur.pause());
+      heroVideo.addEventListener('seeked', syncBlur);
+      heroVideo.addEventListener('timeupdate', syncBlur);
+      heroVideo.addEventListener('ended', () => { heroBlur.pause(); });
+      playBlur();
+    }
 
     const syncMuteBtn = () => {
       if (!muteBtn || muteBtn.hidden) return;
@@ -1735,6 +1842,10 @@
     if (reduceMotion) {
       heroVideo.removeAttribute('autoplay');
       heroVideo.pause();
+      if (heroBlur) {
+        heroBlur.removeAttribute('autoplay');
+        heroBlur.pause();
+      }
       if (muteBtn) muteBtn.hidden = true;
     } else {
       heroVideo.play().catch(() => {});
@@ -1797,12 +1908,12 @@
   const heroWidth = window.innerWidth;
   const heroMobile = heroWidth <= 768;
   const heroTablet = !heroMobile && heroWidth <= 1100;
-  gsap.set('.hero-media video', {
-    scale: heroMobile ? 1.22 : heroTablet ? 1.16 : 1.12,
-    transformOrigin: heroMobile ? '50% 0%' : heroTablet ? '88% 18%' : '84% 20%'
+  gsap.set('.hero-video-main', {
+    scale: heroMobile ? 1.22 : heroTablet ? 1.16 : 1,
+    transformOrigin: heroMobile ? '50% 0%' : heroTablet ? '88% 18%' : '50% 50%'
   });
-  gsap.to('.hero-media video', {
-    yPercent: heroMobile ? 4 : 5, ease: 'none',
+  gsap.to('.hero-video-main', {
+    yPercent: heroMobile ? 4 : heroTablet ? 5 : 2, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
   });
 
