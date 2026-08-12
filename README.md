@@ -8,6 +8,7 @@ Senior Full-Stack Laravel/PHP Developer (Vue.js · React · React Native). **Ava
 
 - Cinematic portfolio with GSAP motion, icons, project visuals
 - Case studies: Paperly (featured #1), Megathy, Zimdle, Vector Rideshare, Exception Tracker, Resident App
+- Project ideas section: “Have a project in mind?” with expanded contact form
 - Contact form (FormSubmit) + hire CTAs
 - Engagement options (full-time / retainer / fixed project)
 - User CV + ATS/AI CV sources (`cv.html`, `cv-ai.html`, `cv-ai.md`)

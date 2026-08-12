@@ -239,12 +239,18 @@
   }
   .hero-media {
     position: absolute; inset: 0; z-index: 0;
+    overflow: hidden;
     background: #12151a;
   }
   .hero-media video {
-    width: 100%; height: 100%; object-fit: cover; object-position: 68% 18%;
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: 68% 18%;
     background: #12151a;
-    transform: scale(1.02);
+    transform: scale(1.04);
+    transform-origin: 68% 18%;
   }
   .hero-media::after {
     content: ''; position: absolute; inset: 0;
@@ -723,12 +729,104 @@
     width: 5px; height: 5px; background: var(--accent);
   }
 
-  /* FORM */
+  /* IDEAS / CUSTOM PROJECTS */
+  .ideas {
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 20%, rgba(255,90,31,0.1), transparent 55%),
+      radial-gradient(ellipse 45% 40% at 8% 90%, rgba(255,90,31,0.05), transparent 50%),
+      var(--bg);
+  }
+  .ideas-brand {
+    margin: 8px 0 28px;
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(20px, 2.6vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .ideas-brand span { color: var(--accent); }
+  .ideas-copy p {
+    color: var(--muted); font-size: 17px; margin-bottom: 16px; max-width: 46rem;
+  }
+  .ideas-copy p strong { color: var(--ink); font-weight: 600; }
+  .ideas-actions {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin: 28px 0 40px;
+  }
+  .ideas-support {
+    max-width: 46rem;
+    padding: 22px 0 8px;
+    border-top: 1px solid var(--line);
+  }
+  .ideas-support h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .ideas-support p { color: var(--muted); font-size: 15.5px; line-height: 1.7; }
+  .ideas-examples {
+    margin-top: 36px;
+  }
+  .ideas-examples .lbl {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--dim); margin-bottom: 14px;
+  }
+  .ideas-chips {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .ideas-chips span {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+    letter-spacing: 0.04em; color: var(--muted);
+    border: 1px solid var(--line); padding: 7px 12px; border-radius: 999px;
+    transition: border-color 0.25s, color 0.25s, background 0.25s;
+  }
+  .ideas-chips span:hover {
+    border-color: rgba(255,90,31,0.35); color: var(--ink);
+    background: rgba(255,90,31,0.06);
+  }
+  .ideas-close {
+    margin-top: 22px;
+    font-size: 15px; color: var(--ink); font-weight: 500;
+  }
+  .ideas-close em { font-style: normal; color: var(--accent); }
+  .ideas-short {
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--line);
+  }
+  .ideas-short h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(24px, 3.4vw, 34px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .ideas-short h3 em { font-style: normal; color: var(--accent); }
+  .ideas-short p {
+    color: var(--muted); font-size: 15.5px; max-width: 40rem; line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .ideas-short .ideas-brand {
+    margin: 0 0 4px;
+    font-size: clamp(18px, 2.2vw, 22px);
+  }
+  .form-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .form-row > div {
+    display: flex; flex-direction: column; gap: 12px; min-width: 0;
+  }
+  @media (max-width: 560px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
   .contact-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
     gap: clamp(28px, 4vw, 48px);
-    align-items: center;
+    align-items: start;
   }
   @media (max-width: 900px) {
     .contact-layout { grid-template-columns: 1fr; gap: 28px; align-items: stretch; }
@@ -797,7 +895,7 @@
       min-height: 100svh;
       align-items: flex-end;
     }
-    .hero-media video { object-position: 55% 16%; }
+    .hero-media video { object-position: 55% 16%; transform-origin: 55% 16%; }
     .hero-copy {
       width: min(100% - 24px, var(--max));
       margin: 0 auto 36px;
@@ -910,7 +1008,7 @@
   <nav class="nav-links" aria-label="Primary">
     <a href="#about">about</a>
     <a href="#work">work</a>
-    <a href="#engage">engage</a>
+    <a href="#ideas">ideas</a>
     <a href="#craft">craft</a>
     <a class="nav-hire" href="#contact">Hire me</a>
   </nav>
@@ -918,8 +1016,8 @@
 
 <section class="hero" id="home">
   <div class="hero-media">
-    <video id="heroVideo" poster="hero-poster.jpg?v=4" muted playsinline autoplay preload="metadata" aria-label="Intro video of Jay Kaneriya">
-      <source src="AI/hero-web.mp4?v=4" type="video/mp4">
+    <video id="heroVideo" poster="hero-poster.jpg?v=5" muted playsinline autoplay preload="metadata" aria-label="Intro video of Jay Kaneriya">
+      <source src="AI/hero-web.mp4?v=5" type="video/mp4">
     </video>
   </div>
   <div class="hero-grid" aria-hidden="true"></div>
@@ -1263,10 +1361,66 @@
   </div>
 </section>
 
+<section class="ideas" id="ideas">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">06 — Have a project in mind?</p>
+      <h2 class="section-title">Let's build your <em>idea.</em></h2>
+    </div>
+    <p class="ideas-brand reveal">You bring the idea. <span>I bring the engineering.</span></p>
+    <div class="ideas-copy reveal">
+      <p>
+        Whether you have a complete product specification, a rough idea, an existing application that needs improvement, or simply a problem that needs solving — <strong>let's talk</strong>.
+      </p>
+      <p>
+        I can help turn your idea into a production-ready web or mobile application, from planning and database design to development, integrations and deployment.
+      </p>
+      <p>
+        You don't need to know exactly what technology you need. Just tell me what you want to build, and we can figure out the right approach together.
+      </p>
+    </div>
+    <div class="ideas-actions reveal">
+      <a class="btn btn-fill" href="#contact">
+        <svg class="icon"><use href="#i-arrow"></use></svg> Tell me about your project
+      </a>
+      <a class="btn btn-ghost" href="#work">View my work</a>
+    </div>
+    <div class="ideas-support reveal">
+      <h3>Not sure where to start? That's okay.</h3>
+      <p>
+        You don't need a finished specification or a technical architecture before contacting me. Start with the problem you want to solve, the idea you have, or the application you want to improve. We'll discuss the requirements, suggest a practical technical approach, and define the next step.
+      </p>
+    </div>
+    <div class="ideas-examples reveal">
+      <p class="lbl">Examples of what you can contact me about</p>
+      <div class="ideas-chips" aria-label="Project examples">
+        <span>SaaS platforms</span>
+        <span>Business management systems</span>
+        <span>ERP applications</span>
+        <span>School / education platforms</span>
+        <span>Web applications</span>
+        <span>Mobile applications</span>
+        <span>eCommerce platforms</span>
+        <span>Admin dashboards</span>
+        <span>REST APIs</span>
+        <span>Third-party integrations</span>
+        <span>Payment integrations</span>
+        <span>Real-time / chat apps</span>
+        <span>Location-based apps</span>
+        <span>Laravel app improvements</span>
+        <span>Bug fixing &amp; performance</span>
+        <span>MVP development</span>
+        <span>Custom software ideas</span>
+      </div>
+      <p class="ideas-close">Have something different in mind? <em>That's exactly why you can contact me.</em></p>
+    </div>
+  </div>
+</section>
+
 <section id="craft">
   <div class="wrap">
     <div class="reveal">
-      <p class="kicker">06 — Craft</p>
+      <p class="kicker">07 — Craft</p>
       <h2 class="section-title">How I <em>build.</em></h2>
       <p class="section-lead">Backend-first product engineering with clean APIs, solid data models, and frontends that stay maintainable in production.</p>
     </div>
@@ -1333,16 +1487,23 @@
 <section class="contact" id="contact">
   <div class="wrap contact-inner">
     <div class="reveal">
-      <p class="kicker">07 — Hire me</p>
+      <p class="kicker">08 — Hire me</p>
+      <div class="ideas-short">
+        <h3>Have an idea? Let's <em>build it.</em></h3>
+        <p>
+          Whether you're starting from an idea, a business problem, or an existing application, I can help turn it into reliable web or mobile software. Tell me what you want to build — you don't need to know the technology yet.
+        </p>
+        <p class="ideas-brand">From idea to production — <span>let's build it together.</span></p>
+      </div>
       <div class="contact-layout">
         <div>
           <h2>Let's build<br>something<span>.</span></h2>
           <p class="contact-lead">
             Available now for <strong>full-time remote</strong> roles and <strong>freelance / contract</strong> work.
-            Proven remote delivery for Australian and international teams. Based in Rajkot, India (IST).
+            If you have an idea, a business problem, or an existing application, let's discuss what you want to build and find the right technical approach.
           </p>
           <div class="contact-actions">
-            <a class="btn btn-fill" href="mailto:jay.kaneriya8@gmail.com?subject=Opportunity%20for%20Jay%20Kaneriya&body=Hi%20Jay%2C%0A%0AI%27d%20like%20to%20discuss%20a%20role%20%2F%20project%20with%20you.">
+            <a class="btn btn-fill" href="mailto:jay.kaneriya8@gmail.com?subject=Project%20inquiry%20for%20Jay%20Kaneriya&body=Hi%20Jay%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project%20%2F%20role%20with%20you.%0A%0AWhat%20I%20want%20to%20build%3A%0A">
               <svg class="icon"><use href="#i-mail"></use></svg> Email me
             </a>
             <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download>
@@ -1351,7 +1512,7 @@
           </div>
           <div class="contact-alt">
             <a href="Jay_Kaneriya_CV_AI.pdf" download>ATS / AI CV ↓</a>
-            <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20role%20or%20project." target="_blank" rel="noopener">
+            <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20project%20or%20role." target="_blank" rel="noopener">
               <svg class="icon"><use href="#i-whatsapp"></use></svg> WhatsApp
             </a>
           </div>
@@ -1359,12 +1520,12 @@
             <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-linkedin"></use></svg> LinkedIn</a>
             <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"></use></svg> GitHub</a>
             <a href="mailto:jay.kaneriya8@gmail.com"><svg class="icon"><use href="#i-mail"></use></svg> jay.kaneriya8@gmail.com</a>
-            <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20role%20or%20project." target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"></use></svg> +91 85300 78687</a>
+            <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20project%20or%20role." target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"></use></svg> +91 85300 78687</a>
           </div>
         </div>
 
         <form class="hire-form" action="https://formsubmit.co/jay.kaneriya8@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="New hire inquiry — jaykaneriya.github.io">
+          <input type="hidden" name="_subject" value="New project inquiry — jaykaneriya.github.io">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -1372,17 +1533,37 @@
           <input id="name" name="name" type="text" required placeholder="Your name" autocomplete="name">
           <label for="email">Email</label>
           <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
-          <label for="type">I need</label>
-          <select id="type" name="engagement" required>
+          <label for="build">What do you want to build?</label>
+          <input id="build" name="what_to_build" type="text" required placeholder="e.g. school admin portal, delivery app, SaaS MVP…">
+          <label for="project-type">Project type</label>
+          <select id="project-type" name="project_type" required>
+            <option value="" disabled selected>Select a type</option>
+            <option value="New web application">New web application</option>
+            <option value="New mobile application">New mobile application</option>
+            <option value="SaaS / startup product">SaaS / startup product</option>
+            <option value="Business / ERP system">Business / ERP system</option>
+            <option value="eCommerce">eCommerce</option>
+            <option value="API / integration">API / integration</option>
+            <option value="Existing application">Existing application</option>
+            <option value="Bug fixing / optimization">Bug fixing / optimization</option>
             <option value="Full-time remote role">Full-time remote role</option>
-            <option value="Freelance / contract" selected>Freelance / contract</option>
-            <option value="Monthly retainer">Monthly retainer</option>
-            <option value="Fixed project">Fixed project</option>
+            <option value="Not sure yet">Not sure yet</option>
+            <option value="Something else">Something else</option>
           </select>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="Role, timeline, stack, budget range…"></textarea>
+          <label for="message">Brief project description</label>
+          <textarea id="message" name="message" required placeholder="Problem, goals, current stack (if any), users…"></textarea>
+          <div class="form-row">
+            <div>
+              <label for="budget">Budget range (optional)</label>
+              <input id="budget" name="budget" type="text" placeholder="e.g. $2k–$5k / open">
+            </div>
+            <div>
+              <label for="timeline">Timeline (optional)</label>
+              <input id="timeline" name="timeline" type="text" placeholder="e.g. 4–8 weeks">
+            </div>
+          </div>
           <button class="btn btn-fill" type="submit">
-            <svg class="icon"><use href="#i-arrow"></use></svg> Send inquiry
+            <svg class="icon"><use href="#i-arrow"></use></svg> Tell me about your project
           </button>
           <p class="hint">Sent securely to my inbox. Prefer WhatsApp or email? Use the links on the left.</p>
         </form>
@@ -1525,6 +1706,7 @@
     .to('.hero-actions .btn', { opacity: 1, y: 0, duration: 0.55, stagger: 0.08 }, '-=0.45')
     .to('.hero-stack', { opacity: 1, y: 0, duration: 0.6 }, '-=0.35');
 
+  gsap.set('.hero-media video', { scale: 1.04, transformOrigin: '68% 18%' });
   gsap.to('.hero-media video', {
     yPercent: 6, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
