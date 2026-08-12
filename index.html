@@ -737,7 +737,7 @@
       var(--bg);
   }
   .ideas-brand {
-    margin: 8px 0 28px;
+    margin: 8px 0 32px;
     font-family: 'Syne', sans-serif;
     font-size: clamp(20px, 2.6vw, 28px);
     font-weight: 700;
@@ -751,11 +751,12 @@
   .ideas-copy p strong { color: var(--ink); font-weight: 600; }
   .ideas-actions {
     display: flex; flex-wrap: wrap; gap: 12px;
-    margin: 28px 0 40px;
+    margin: 36px 0 0;
   }
   .ideas-support {
     max-width: 46rem;
-    padding: 22px 0 8px;
+    margin-top: 36px;
+    padding: 22px 0 0;
     border-top: 1px solid var(--line);
   }
   .ideas-support h3 {
@@ -937,6 +938,10 @@
     .contact-alt { margin-bottom: 22px; }
     .socials { flex-direction: column; gap: 12px; }
     .hire-form { padding: 18px; }
+    .ideas-actions { flex-direction: column; }
+    .ideas-actions .btn { width: 100%; justify-content: center; }
+    .ideas-copy p { font-size: 15.5px; }
+    .ideas-chips span { font-size: 10.5px; padding: 7px 10px; }
     .float-hire {
       bottom: 14px;
       padding: 12px 16px;
@@ -1367,7 +1372,6 @@
       <p class="kicker">06 — Have a project in mind?</p>
       <h2 class="section-title">Let's build your <em>idea.</em></h2>
     </div>
-    <p class="ideas-brand reveal">You bring the idea. <span>I bring the engineering.</span></p>
     <div class="ideas-copy reveal">
       <p>
         Whether you have a complete product specification, a rough idea, an existing application that needs improvement, or simply a problem that needs solving — <strong>let's talk</strong>.
@@ -1379,11 +1383,29 @@
         You don't need to know exactly what technology you need. Just tell me what you want to build, and we can figure out the right approach together.
       </p>
     </div>
-    <div class="ideas-actions reveal">
-      <a class="btn btn-fill" href="#contact">
-        <svg class="icon"><use href="#i-arrow"></use></svg> Tell me about your project
-      </a>
-      <a class="btn btn-ghost" href="#work">View my work</a>
+    <p class="ideas-brand reveal">You bring the idea. <span>I bring the engineering.</span></p>
+    <div class="ideas-examples reveal">
+      <p class="lbl">Examples — not limitations</p>
+      <div class="ideas-chips" aria-label="Project examples">
+        <span>SaaS platforms</span>
+        <span>Business management systems</span>
+        <span>ERP applications</span>
+        <span>Education platforms</span>
+        <span>Web applications</span>
+        <span>Mobile applications</span>
+        <span>eCommerce</span>
+        <span>Admin dashboards</span>
+        <span>REST APIs</span>
+        <span>Third-party integrations</span>
+        <span>Payment integrations</span>
+        <span>Real-time / chat applications</span>
+        <span>Location-based applications</span>
+        <span>Existing application improvements</span>
+        <span>Bug fixing and optimization</span>
+        <span>MVP development</span>
+        <span>Custom software ideas</span>
+      </div>
+      <p class="ideas-close">Have something different in mind? <em>That's exactly why you can contact me.</em></p>
     </div>
     <div class="ideas-support reveal">
       <h3>Not sure where to start? That's okay.</h3>
@@ -1391,28 +1413,11 @@
         You don't need a finished specification or a technical architecture before contacting me. Start with the problem you want to solve, the idea you have, or the application you want to improve. We'll discuss the requirements, suggest a practical technical approach, and define the next step.
       </p>
     </div>
-    <div class="ideas-examples reveal">
-      <p class="lbl">Examples of what you can contact me about</p>
-      <div class="ideas-chips" aria-label="Project examples">
-        <span>SaaS platforms</span>
-        <span>Business management systems</span>
-        <span>ERP applications</span>
-        <span>School / education platforms</span>
-        <span>Web applications</span>
-        <span>Mobile applications</span>
-        <span>eCommerce platforms</span>
-        <span>Admin dashboards</span>
-        <span>REST APIs</span>
-        <span>Third-party integrations</span>
-        <span>Payment integrations</span>
-        <span>Real-time / chat apps</span>
-        <span>Location-based apps</span>
-        <span>Laravel app improvements</span>
-        <span>Bug fixing &amp; performance</span>
-        <span>MVP development</span>
-        <span>Custom software ideas</span>
-      </div>
-      <p class="ideas-close">Have something different in mind? <em>That's exactly why you can contact me.</em></p>
+    <div class="ideas-actions reveal">
+      <a class="btn btn-fill" href="#contact">
+        <svg class="icon"><use href="#i-arrow"></use></svg> Tell Me About Your Project
+      </a>
+      <a class="btn btn-ghost" href="#work">View My Work</a>
     </div>
   </div>
 </section>
