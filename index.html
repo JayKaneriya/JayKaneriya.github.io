@@ -247,34 +247,39 @@
     width: 100%; height: 100%;
     max-width: none;
     object-fit: cover;
-    object-position: 68% 18%;
+    object-position: 84% 20%;
     background: #12151a;
-    transform: scale(1.04);
-    transform-origin: 68% 18%;
+    transform: scale(1.12);
+    transform-origin: 84% 20%;
   }
   .hero-media::after {
     content: ''; position: absolute; inset: 0;
     background:
       linear-gradient(180deg,
-        rgba(14,17,16,0.45) 0%,
-        rgba(14,17,16,0.12) 28%,
-        rgba(14,17,16,0.35) 52%,
-        rgba(14,17,16,0.82) 78%,
-        rgba(14,17,16,0.98) 100%),
+        rgba(14,17,16,0.5) 0%,
+        rgba(14,17,16,0.18) 24%,
+        rgba(14,17,16,0.28) 48%,
+        rgba(14,17,16,0.78) 76%,
+        rgba(14,17,16,0.96) 100%),
       linear-gradient(90deg,
-        rgba(14,17,16,0.82) 0%,
-        rgba(14,17,16,0.35) 38%,
-        rgba(14,17,16,0.08) 62%,
-        transparent 100%);
+        rgba(14,17,16,0.94) 0%,
+        rgba(14,17,16,0.78) 26%,
+        rgba(14,17,16,0.35) 46%,
+        rgba(14,17,16,0.08) 64%,
+        transparent 82%);
   }
   .hero-grid { display: none; }
   .hero-copy {
     position: relative; z-index: 2;
-    width: min(100% - 40px, var(--max));
-    margin: 0 auto 80px;
+    width: min(100% - 48px, 34rem);
+    margin: 0 auto 80px 0;
+    margin-left: max(24px, calc((100vw - var(--max)) / 2));
   }
   @media (max-width: 640px) {
-    .hero-copy { width: min(100% - 28px, var(--max)); margin-bottom: 56px; }
+    .hero-copy {
+      width: min(100% - 28px, var(--max));
+      margin: 0 auto 56px;
+    }
   }
   .status {
     display: inline-flex; align-items: center; gap: 10px;
@@ -295,7 +300,7 @@
   }
   .hero h1 {
     font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: clamp(48px, 9.5vw, 108px);
+    font-size: clamp(48px, 8.5vw, 96px);
     line-height: 0.9; letter-spacing: -0.04em; text-transform: uppercase;
     max-width: 9.5ch; overflow: hidden;
   }
@@ -305,8 +310,8 @@
   }
   .hero h1 .accent { color: var(--accent); }
   .hero-lead {
-    margin-top: 24px; max-width: 36rem;
-    font-size: clamp(16px, 2vw, 19px);
+    margin-top: 22px; max-width: 28rem;
+    font-size: clamp(15px, 1.7vw, 18px);
     color: var(--muted); font-weight: 300; line-height: 1.65;
     opacity: 0; transform: translateY(18px);
   }
@@ -887,6 +892,19 @@
   .to-top.show { opacity: 1; pointer-events: auto; }
   .to-top:hover { transform: translateY(-3px); background: var(--accent); color: #0e1110; }
 
+  @media (min-width: 769px) and (max-width: 1100px) {
+    .hero-media video {
+      object-position: 88% 18%;
+      transform: scale(1.16);
+      transform-origin: 88% 18%;
+    }
+    .hero-copy {
+      width: min(100% - 40px, 30rem);
+      margin-left: 24px;
+    }
+    .hero-lead { max-width: 26rem; }
+  }
+
   /* ---------- MOBILE ---------- */
   @media (max-width: 768px) {
     body { font-size: 16px; }
@@ -896,23 +914,58 @@
       min-height: 100svh;
       align-items: flex-end;
     }
-    .hero-media video { object-position: 55% 16%; transform-origin: 55% 16%; }
+    .hero-media video {
+      object-position: 50% 0%;
+      transform: scale(1.22);
+      transform-origin: 50% 0%;
+    }
+    .hero-media::after {
+      background:
+        linear-gradient(180deg,
+          rgba(14,17,16,0.42) 0%,
+          rgba(14,17,16,0.12) 18%,
+          rgba(14,17,16,0.2) 36%,
+          rgba(14,17,16,0.72) 54%,
+          rgba(14,17,16,0.94) 72%,
+          rgba(14,17,16,0.99) 100%);
+    }
     .hero-copy {
       width: min(100% - 24px, var(--max));
-      margin: 0 auto 36px;
-      padding-top: 96px;
+      margin: 0 auto 20px;
+      padding-top: 0;
+      padding-bottom: env(safe-area-inset-bottom, 0);
     }
     .hero h1 {
-      font-size: clamp(36px, 12vw, 52px);
+      font-size: clamp(32px, 10vw, 44px);
       max-width: none;
       letter-spacing: -0.03em;
+      line-height: 0.92;
     }
-    .hero-lead { font-size: 15px; margin-top: 16px; }
-    .hero-actions { gap: 10px; }
-    .hero-actions .btn { width: 100%; justify-content: center; padding: 14px 18px; }
-    .hero-stack span { font-size: 10px; padding: 7px 10px; }
+    .status { font-size: 10px; padding: 7px 11px; max-width: 100%; margin-bottom: 12px; }
+    .hero-lead {
+      font-size: 14px;
+      margin-top: 12px;
+      line-height: 1.55;
+    }
+    .hero-actions {
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .hero-actions .btn {
+      flex: 1 1 calc(50% - 8px);
+      width: auto;
+      min-width: 0;
+      justify-content: center;
+      padding: 12px 12px;
+      font-size: 11px;
+    }
+    .hero-actions .btn-fill {
+      flex: 1 1 100%;
+    }
+    .hero-stack { margin-top: 12px; gap: 6px; }
+    .hero-stack span { font-size: 10px; padding: 6px 9px; }
     .mute-btn { right: 12px; bottom: 12px; font-size: 10px; padding: 8px 12px; }
-    .status { font-size: 10px; padding: 8px 12px; max-width: 100%; }
+    .scroll-cue { display: none; }
     section { padding: 64px 0; }
     .section-title { font-size: clamp(32px, 10vw, 48px); margin-bottom: 14px; max-width: none; }
     .section-lead { font-size: 15px; margin-bottom: 28px; }
@@ -928,15 +981,39 @@
     .t-item { padding-left: 28px; gap: 8px; }
     .contact { padding: 72px 0 88px; }
     .contact h2 {
-      font-size: clamp(36px, 11vw, 52px);
+      font-size: clamp(28px, 8.2vw, 40px);
       max-width: none;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      line-height: 0.98;
     }
-    .contact-lead { font-size: 15px; margin-bottom: 20px; }
-    .contact-actions { gap: 10px; }
-    .contact-actions .btn { flex: 1 1 auto; min-width: calc(50% - 10px); justify-content: center; }
-    .contact-alt { margin-bottom: 22px; }
-    .socials { flex-direction: column; gap: 12px; }
+    .contact-lead { font-size: 15px; margin-bottom: 18px; }
+    .contact-actions { gap: 10px; margin-bottom: 14px; }
+    .contact-actions .btn {
+      flex: 1 1 calc(50% - 10px);
+      min-width: 0;
+      justify-content: center;
+      padding: 13px 14px;
+      font-size: 11px;
+    }
+    .contact-alt {
+      margin-bottom: 14px;
+      gap: 8px 14px;
+    }
+    .socials {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-bottom: 4px;
+    }
+    .socials a {
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      gap: 6px;
+    }
+    .socials a:hover { transform: none; }
+    .ideas-short { margin-bottom: 28px; padding-bottom: 22px; }
+    .ideas-short h3 { font-size: clamp(22px, 6.5vw, 28px); }
+    .ideas-short p { font-size: 14.5px; margin-bottom: 12px; }
     .hire-form { padding: 18px; }
     .ideas-actions { flex-direction: column; }
     .ideas-actions .btn { width: 100%; justify-content: center; }
@@ -954,10 +1031,16 @@
   }
 
   @media (max-width: 480px) {
-    .hero h1 { font-size: clamp(34px, 11vw, 40px); line-height: 0.92; }
-    .hero-lead { font-size: 14.5px; }
-    .hero-actions .btn { font-size: 11px; padding: 13px 14px; }
-    .contact-actions .btn { min-width: 100%; }
+    .hero h1 { font-size: clamp(30px, 9.5vw, 38px); line-height: 0.92; }
+    .hero-lead { font-size: 13.5px; }
+    .hero-actions .btn { font-size: 10.5px; padding: 11px 10px; }
+    .hero-media video {
+      object-position: 50% 0%;
+      transform: scale(1.28);
+      transform-origin: 50% 0%;
+    }
+    .contact h2 { font-size: clamp(26px, 8vw, 34px); }
+    .contact-actions .btn { padding: 12px 10px; font-size: 10.5px; }
     .ticker-track { gap: 28px; font-size: 11px; }
   }
 
@@ -1711,9 +1794,15 @@
     .to('.hero-actions .btn', { opacity: 1, y: 0, duration: 0.55, stagger: 0.08 }, '-=0.45')
     .to('.hero-stack', { opacity: 1, y: 0, duration: 0.6 }, '-=0.35');
 
-  gsap.set('.hero-media video', { scale: 1.04, transformOrigin: '68% 18%' });
+  const heroWidth = window.innerWidth;
+  const heroMobile = heroWidth <= 768;
+  const heroTablet = !heroMobile && heroWidth <= 1100;
+  gsap.set('.hero-media video', {
+    scale: heroMobile ? 1.22 : heroTablet ? 1.16 : 1.12,
+    transformOrigin: heroMobile ? '50% 0%' : heroTablet ? '88% 18%' : '84% 20%'
+  });
   gsap.to('.hero-media video', {
-    yPercent: 6, ease: 'none',
+    yPercent: heroMobile ? 4 : 5, ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
   });
 
