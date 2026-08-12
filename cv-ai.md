@@ -1,5 +1,5 @@
 # JAY KANERIYA
-## Senior Full Stack Developer | Laravel | Vue.js | React.js | Open to Work
+## Senior Full-Stack Laravel Developer | PHP | Vue.js | React | Available now
 
 ### Contact
 - Email: jay.kaneriya8@gmail.com
@@ -12,10 +12,10 @@
 - GitHub: https://github.com/JayKaneriya
 
 ### Availability
-Open to full-time remote roles and freelance / contract engagements.
+Currently available for full-time remote roles and freelance / contract engagements.
 
 ### Professional Summary
-Senior Full Stack Web Application Developer with 8+ years of experience building production web applications using Laravel, Vue.js, React.js, PHP, JavaScript, MySQL, and REST APIs. Most recent role: Senior Web Application Developer at Paperly (Perth, Australia, remote), delivering school administration software used by thousands of teachers and parents. Experienced in SaaS, eCommerce, on-demand delivery, payment integrations (Stripe, PayPal, BPOINT), Redis, geolocation, workflow automation, Agile delivery, mentoring, and client communication.
+Senior Full-Stack Laravel/PHP Developer with 8+ years of experience building production web applications using Laravel, PHP, Vue.js, React, MySQL, and REST APIs. Available now for full-time remote and freelance / contract engagements. Most recent role: Senior Web Application Developer at Paperly (Perth, Australia, remote, July 2022 – August 2026), delivering school administration software used by thousands of teachers and parents. Experienced in SaaS, eCommerce, on-demand delivery, payment integrations (Stripe, PayPal, BPOINT), Redis, geolocation, workflow automation, Agile delivery, mentoring, and client communication.
 
 <!-- deferred: AWS — -->
 
@@ -64,7 +64,7 @@ Senior Full Stack Web Application Developer with 8+ years of experience building
 
 #### Megathy — On-Demand Grocery Delivery
 - Role: Full Stack Developer | Multi-vendor | Saudi Arabia
-- Stack: Laravel, Vue.js, MySQL, Payments
+- Stack: Laravel, React Native, Vue.js, MySQL, Firebase, Payments
 - Built backend, admin, and order management for Eastern Saudi Arabia grocery delivery
 - Multi-vendor catalog, real-time tracking, scheduled slots, multi-payment, discounts, loyalty, live chat
 - Case study: https://jaykaneriya.github.io/case-studies/megathy.html
@@ -109,6 +109,6 @@ July 2013 – May 2017
 - Gujarati: Native
 
 ### Keywords
-Senior Full Stack Developer, Full Stack Developer, Laravel Developer, Vue.js Developer, React Developer, PHP Developer, JavaScript Developer, REST API, MySQL, Redis, Stripe, PayPal, SaaS, eCommerce, EdTech, Remote Work, Freelance, Contract, Agile, Mentoring, React Native, Node.js, TypeScript, Web Application Development
+Senior Full-Stack Laravel Developer, Full-Stack PHP Developer, Laravel Developer, Vue.js Developer, React Developer, PHP Developer, JavaScript Developer, REST API, MySQL, Redis, Stripe, PayPal, SaaS, eCommerce, EdTech, Remote Work, Freelance, Contract, Agile, Mentoring, React Native, Node.js, TypeScript, Web Application Development, Available now
 
 <!-- deferred: AWS keyword — -->
