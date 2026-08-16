@@ -42,8 +42,9 @@
   --max:1120px;--ease:cubic-bezier(.22,1,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
 body{background:var(--bg);color:var(--ink);font-family:var(--font-t);font-size:17px;line-height:1.47;letter-spacing:-.374px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+section[id],#overview,#experience,#work,#expertise,#education,#engage,#contact,#home{scroll-margin-top:64px}
 ::selection{background:var(--purple);color:#fff}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#3a3a42;border-radius:4px}
 img{max-width:100%;display:block}
@@ -53,6 +54,7 @@ a{color:inherit;text-decoration:none}
 @media(max-width:640px){.wrap{width:min(100% - 24px,var(--max))}}
 .icon{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .icon-lg{width:26px;height:26px}
+.icon-fill{fill:currentColor;stroke:none}
 
 .scroll-progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--grad);z-index:200;pointer-events:none}
 
@@ -132,7 +134,7 @@ section{padding:88px 0;position:relative}
 .console-chips span:nth-child(4){animation-delay:1.2s}.console-chips span:nth-child(5){animation-delay:1.6s}
 @keyframes floaty{50%{transform:translateY(-3px)}}
 .console-chips .icon{width:12px;height:12px;color:var(--blue)}
-@media(max-width:960px){.console{order:-1;max-width:560px}}
+@media(max-width:960px){.console{max-width:560px;margin-inline:auto}}
 
 /* CREDIBILITY */
 .cred{border-block:1px solid var(--line);background:var(--bg-2);padding:0}
@@ -166,6 +168,11 @@ section{padding:88px 0;position:relative}
 .t-co{font-size:14px;color:var(--dim);margin-bottom:10px}
 .t-co strong{color:var(--ink);font-weight:600}
 .t-desc{color:var(--muted);font-size:15px;line-height:1.55;margin-bottom:12px}
+.t-list{list-style:none;display:grid;gap:8px;margin:0 0 14px}
+.t-list li{position:relative;padding-left:14px;font-size:14px;color:var(--muted);line-height:1.45}
+.t-list li::before{content:'';position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--blue)}
+.t-impact{font-size:13px;color:var(--ink);margin-bottom:12px;padding:10px 12px;border-radius:12px;background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.2)}
+.t-impact strong{color:var(--purple);font-weight:600;margin-right:6px}
 @media(max-width:800px){.t-item{grid-template-columns:1fr;gap:8px}}
 
 /* WORK */
@@ -181,6 +188,9 @@ section{padding:88px 0;position:relative}
 .flag-grid{display:grid;gap:12px;margin-bottom:16px}
 .flag-grid h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--dim);margin-bottom:4px}
 .flag-grid p{color:var(--muted);font-size:15px;line-height:1.5}
+.flag-contrib{list-style:none;display:grid;gap:8px;margin:0 0 16px}
+.flag-contrib li{position:relative;padding-left:14px;font-size:14px;color:var(--muted);line-height:1.45}
+.flag-contrib li::before{content:'';position:absolute;left:0;top:.55em;width:5px;height:5px;border-radius:50%;background:var(--purple)}
 .flag-media{border-radius:14px;overflow:hidden;aspect-ratio:16/11;border:1px solid var(--line);align-self:center}
 .flag-media img{width:100%;height:100%;object-fit:cover}
 .work-link{display:inline-flex;align-items:center;gap:6px;margin-top:10px;color:var(--blue);font-size:15px}
@@ -197,15 +207,23 @@ section{padding:88px 0;position:relative}
 
 /* EXPERTISE */
 .expertise{background:var(--bg-2)}
-.exp-map{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-@media(max-width:900px){.exp-map{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.exp-map{grid-template-columns:1fr}}
-.exp-card{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--card);transition:border-color .25s,box-shadow .25s,transform .25s var(--ease)}
-.exp-card:hover,.exp-card:focus-within{border-color:rgba(59,130,246,.45);box-shadow:0 0 28px rgba(59,130,246,.12);transform:translateY(-3px)}
-.exp-card .ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;margin-bottom:12px;background:rgba(59,130,246,.12);color:var(--blue);transition:transform .3s var(--ease)}
-.exp-card:hover .ico{transform:translateY(-2px) scale(1.05);color:var(--purple);background:var(--accent-soft)}
-.exp-card h3{font-size:16px;font-weight:600;margin-bottom:6px}
-.exp-card p{font-size:13px;color:var(--dim);line-height:1.45}
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:700px){.skill-grid{grid-template-columns:1fr}}
+.skill-group{padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--card);transition:border-color .25s,box-shadow .25s}
+.skill-group:hover,.skill-group:focus-within{border-color:rgba(59,130,246,.45);box-shadow:0 0 28px rgba(59,130,246,.12)}
+.skill-group h3{font-size:14px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.skill-chips{display:flex;flex-wrap:wrap;gap:8px}
+.skill-chips span{font-size:13px;letter-spacing:-.12px;color:var(--muted);border:1px solid var(--line);padding:7px 12px;border-radius:980px;background:rgba(255,255,255,.03)}
+.skill-chips span.primary{color:var(--ink);border-color:rgba(139,92,246,.45);background:var(--accent-soft)}
+.skill-note{margin-top:16px;font-size:13px;color:var(--dim)}
+.skill-note strong{color:var(--purple);font-weight:600}
+
+/* EDUCATION */
+.education{background:var(--bg)}
+.edu-card{padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--card);max-width:640px}
+.edu-card h3{font-family:var(--font-d);font-size:21px;font-weight:600;margin-bottom:6px}
+.edu-card .where{font-size:14px;color:var(--muted);margin-bottom:4px}
+.edu-card .when{font-size:13px;color:var(--purple);font-weight:600}
 
 /* ENGAGE */
 .engage{background:var(--bg)}
@@ -295,7 +313,7 @@ footer{text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)
     <a href="#experience" data-nav>Experience</a>
     <a href="#work" data-nav>Work</a>
     <a href="#expertise" data-nav>Expertise</a>
-    <a class="nav-hire" href="#contact">Hire Jay</a>
+    <a class="nav-hire" href="#contact" data-nav>Hire Jay</a>
   </nav>
 </header>
 
@@ -315,6 +333,7 @@ footer{text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)
         <a class="btn btn-fill" href="#work"><svg class="icon"><use href="#i-arrow"></use></svg> View selected work</a>
         <a class="btn btn-ghost" href="#contact">Discuss a role</a>
         <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download><svg class="icon"><use href="#i-download"></use></svg> Download CV</a>
+        <a class="btn btn-ghost" href="cv.html">View CV online</a>
       </div>
       <div class="hero-chips hero-anim" aria-label="Core stack">
         <span><svg class="icon"><use href="#i-server"></use></svg> Laravel</span>
@@ -349,7 +368,7 @@ footer{text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)
   <div class="wrap cred-inner">
     <div class="cred-item"><strong>8+ years</strong><span>Production experience</span></div>
     <div class="cred-item"><strong>4 yrs AU remote</strong><span>Paperly · Perth team</span></div>
-    <div class="cred-item"><strong>200+ projects</strong><span>Logistic Infotech era</span></div>
+    <div class="cred-item"><strong>5 yrs agency</strong><span>Logistic Infotech</span></div>
     <div class="cred-item"><strong>Laravel · Vue · React</strong><span>Primary stack</span></div>
   </div>
 </div>
@@ -394,8 +413,14 @@ footer{text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)
         <div class="t-card">
           <h3 class="t-title">Senior Web Application Developer</h3>
           <p class="t-co">@ <strong>Paperly</strong> · Education SaaS</p>
-          <p class="t-desc">Owned school administration modules used daily by thousands of teachers and parents — excursions, sports, music, parent-teacher interviews, dynamic forms, geolocation, permissions and workflow automation. Stack: Laravel, Vue.js, MySQL, REST APIs.</p>
-          <div class="tags"><span>Laravel</span><span>Vue.js</span><span>REST API</span><span>Workflows</span></div>
+          <ul class="t-list">
+            <li>Developed and maintained school administration modules used daily by thousands of teachers and parents.</li>
+            <li>Built excursion, sports, music, parent-teacher interview, and assessment calendar features.</li>
+            <li>Implemented dynamic form builders, workflow automation, multi-school integrations, geolocation, and permissions.</li>
+            <li>Designed REST APIs and MySQL schemas; integrated third-party services in Agile production releases.</li>
+          </ul>
+          <p class="t-impact"><strong>Impact</strong> Stable remote delivery on a live multi-school platform used daily at production scale.</p>
+          <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Workflows</span></div>
         </div>
       </article>
       <article class="t-item reveal-item">
@@ -403,15 +428,21 @@ footer{text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)
         <div class="t-card">
           <h3 class="t-title">Web Application Developer</h3>
           <p class="t-co">@ <strong>Logistic Infotech Pvt Ltd</strong></p>
-          <p class="t-desc">Full-stack delivery across 200+ client projects — eCommerce, SaaS, restaurants, booking and feedback systems. Laravel backends with Vue/React UIs; Stripe, PayPal and BPOINT; realtime with Socket.io and Firebase. Mentored juniors and led Agile client delivery.</p>
-          <div class="tags"><span>Laravel</span><span>React</span><span>Payments</span><span>Realtime</span></div>
+          <ul class="t-list">
+            <li>Delivered full-stack client projects worldwide across eCommerce, SaaS, education, restaurant, and booking domains.</li>
+            <li>Built Laravel backends with Vue.js and React.js frontends, including admin dashboards and RBAC.</li>
+            <li>Integrated Stripe, PayPal, BPOINT, and custom payment APIs into production billing flows.</li>
+            <li>Shipped realtime features with Socket.io and Firebase; mentored juniors and led Agile client delivery.</li>
+          </ul>
+          <p class="t-impact"><strong>Impact</strong> End-to-end client delivery across payments, realtime ops, and mentoring on production teams.</p>
+          <div class="tags"><span>Laravel</span><span>React</span><span>Vue.js</span><span>Payments</span><span>Realtime</span></div>
         </div>
       </article>
       <article class="t-item reveal-item">
         <div class="t-when">Jul 2013 — May 2017<br>Rajkot, India</div>
         <div class="t-card">
           <h3 class="t-title">B.E. Computer Science &amp; Engineering</h3>
-          <p class="t-co">@ <strong>Gujarat Technological University</strong></p>
+          <p class="t-co">@ <strong>Gujarat Technological University</strong> · Shri Labhubhai Trivedi Institute of Engineering and Technology, Rajkot</p>
           <p class="t-desc">Algorithms, data structures, databases and software engineering foundations used every day in production work.</p>
         </div>
       </article>
@@ -437,6 +468,13 @@ footer{text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)
           <div><h4>Ownership</h4><p>Full-stack modules: Laravel backends, Vue.js UIs, REST APIs, geolocation, multi-school permissions and workflow automation.</p></div>
           <div><h4>Outcome</h4><p>Stable multi-school delivery over 4 years remote; platforms used by thousands daily. Paperly states 250+ schools joined for 2026.</p></div>
         </div>
+        <h4 class="flag-label" style="margin-top:4px">Contribution</h4>
+        <ul class="flag-contrib">
+          <li>Excursion, sports, music, parent-teacher interview, and assessment calendar features.</li>
+          <li>Dynamic form builders and workflow automation for school operations.</li>
+          <li>Geolocation-enabled workflows and multi-school permission management.</li>
+          <li>REST APIs, MySQL schemas, and third-party integrations in Agile releases.</li>
+        </ul>
         <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Geolocation</span></div>
         <a class="work-link" href="case-studies/paperly.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </div>
@@ -484,19 +522,74 @@ footer{text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)
   <div class="wrap">
     <div class="reveal">
       <p class="kicker">04 — Expertise</p>
-      <h2 class="section-title">Engineering <em>system map.</em></h2>
-      <p class="section-lead">How I connect backend, APIs, frontend and delivery into one coherent product stack.</p>
+      <h2 class="section-title">Technical <em>toolkit.</em></h2>
+      <p class="section-lead">Grouped by where it sits in the stack. Highlighted items are what I reach for first.</p>
     </div>
-    <div class="exp-map">
-      <article class="exp-card reveal-item" tabindex="0"><div class="ico"><svg class="icon"><use href="#i-server"></use></svg></div><h3>Backend</h3><p>Laravel, PHP 8+, Redis queues, multi-tenant patterns</p></article>
-      <article class="exp-card reveal-item" tabindex="0"><div class="ico"><svg class="icon"><use href="#i-api"></use></svg></div><h3>APIs</h3><p>REST design, JWT/OAuth, webhooks, third-party sync</p></article>
-      <article class="exp-card reveal-item" tabindex="0"><div class="ico"><svg class="icon"><use href="#i-layout"></use></svg></div><h3>Frontend</h3><p>Vue.js, React, TypeScript, maintainable UI systems</p></article>
-      <article class="exp-card reveal-item" tabindex="0"><div class="ico"><svg class="icon"><use href="#i-db"></use></svg></div><h3>Data</h3><p>MySQL architecture, schema design, query performance</p></article>
-      <article class="exp-card reveal-item" tabindex="0"><div class="ico"><svg class="icon"><use href="#i-shield"></use></svg></div><h3>Payments</h3><p>Stripe, PayPal, BPOINT, custom billing flows</p></article>
-      <article class="exp-card reveal-item" tabindex="0"><div class="ico"><svg class="icon"><use href="#i-zap"></use></svg></div><h3>Realtime</h3><p>Socket.io, Firebase, live ops and chat features</p></article>
-      <article class="exp-card reveal-item" tabindex="0"><div class="ico"><svg class="icon"><use href="#i-smartphone"></use></svg></div><h3>Mobile</h3><p>React Native for iOS and Android product surfaces</p></article>
-      <article class="exp-card reveal-item" tabindex="0"><div class="ico"><svg class="icon"><use href="#i-git"></use></svg></div><h3>Delivery</h3><p>Git, Agile, mentoring, CI/CD-minded releases</p></article>
+    <div class="skill-grid">
+      <article class="skill-group reveal-item">
+        <h3>Backend</h3>
+        <div class="skill-chips">
+          <span class="primary">Laravel</span><span class="primary">PHP 8+</span><span>Node.js</span><span>Sails.js</span><span>CodeIgniter</span><span>Redis</span><span>Socket.io</span>
+        </div>
+      </article>
+      <article class="skill-group reveal-item">
+        <h3>Frontend</h3>
+        <div class="skill-chips">
+          <span class="primary">Vue.js</span><span class="primary">React</span><span>TypeScript</span><span>JavaScript</span><span>Vuex</span><span>Redux</span><span>Sass</span><span>Tailwind CSS</span><span>Bootstrap</span>
+        </div>
+      </article>
+      <article class="skill-group reveal-item">
+        <h3>Architecture &amp; APIs</h3>
+        <div class="skill-chips">
+          <span class="primary">REST API</span><span>JWT</span><span>OAuth</span><span>Webhooks</span><span>Multi-tenant</span><span>System architecture</span>
+        </div>
+      </article>
+      <article class="skill-group reveal-item">
+        <h3>Databases</h3>
+        <div class="skill-chips">
+          <span class="primary">MySQL</span><span>Schema design</span><span>Query performance</span>
+        </div>
+      </article>
+      <article class="skill-group reveal-item">
+        <h3>Payments &amp; realtime</h3>
+        <div class="skill-chips">
+          <span class="primary">Stripe</span><span>PayPal</span><span>BPOINT</span><span>Firebase</span><span>Socket.io</span><span>Geolocation</span>
+        </div>
+      </article>
+      <article class="skill-group reveal-item">
+        <h3>Mobile</h3>
+        <div class="skill-chips">
+          <span class="primary">React Native</span><span>iOS</span><span>Android</span>
+        </div>
+      </article>
+      <article class="skill-group reveal-item">
+        <h3>Tools &amp; delivery</h3>
+        <div class="skill-chips">
+          <span class="primary">Git</span><span>CI/CD</span><span>Postman</span><span>JIRA</span><span>Linux</span><span>cPanel</span>
+        </div>
+      </article>
+      <article class="skill-group reveal-item">
+        <h3>Practices</h3>
+        <div class="skill-chips">
+          <span class="primary">Agile</span><span>Mentoring</span><span>Code reviews</span><span>Sprint planning</span><span>Client communication</span>
+        </div>
+      </article>
     </div>
+    <p class="skill-note reveal"><strong>Highlighted</strong> = primary day-to-day stack</p>
+  </div>
+</section>
+
+<section class="education" id="education">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">Education</p>
+      <h2 class="section-title">Foundations that still <em>ship.</em></h2>
+    </div>
+    <article class="edu-card reveal-item">
+      <h3>Bachelor of Engineering — Computer Science &amp; Engineering</h3>
+      <p class="where">Gujarat Technological University · Shri Labhubhai Trivedi Institute of Engineering and Technology, Rajkot</p>
+      <p class="when">July 2013 – May 2017</p>
+    </article>
   </div>
 </section>
 
@@ -541,14 +634,16 @@ footer{text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)
           <div class="contact-actions">
             <a class="btn btn-fill" href="mailto:jay.kaneriya8@gmail.com?subject=Role%20or%20project%20for%20Jay%20Kaneriya"><svg class="icon"><use href="#i-mail"></use></svg> Email me</a>
             <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download><svg class="icon"><use href="#i-download"></use></svg> CV</a>
+            <a class="btn btn-ghost" href="cv.html">View CV online</a>
           </div>
           <div class="contact-alt">
             <a href="Jay_Kaneriya_CV_AI.pdf" download>ATS / AI CV ↓</a>
-            <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20role%20or%20project." target="_blank" rel="noopener"><svg class="icon"><use href="#i-whatsapp"></use></svg> WhatsApp</a>
+            <a href="cv-ai.html">View ATS CV online</a>
+            <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20role%20or%20project." target="_blank" rel="noopener"><svg class="icon icon-fill"><use href="#i-whatsapp"></use></svg> WhatsApp</a>
           </div>
           <div class="socials">
-            <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-linkedin"></use></svg> LinkedIn</a>
-            <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"></use></svg> GitHub</a>
+            <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener"><svg class="icon icon-fill"><use href="#i-linkedin"></use></svg> LinkedIn</a>
+            <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener"><svg class="icon icon-fill"><use href="#i-github"></use></svg> GitHub</a>
             <a href="mailto:jay.kaneriya8@gmail.com"><svg class="icon"><use href="#i-mail"></use></svg> jay.kaneriya8@gmail.com</a>
           </div>
         </div>
@@ -599,7 +694,6 @@ footer{text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)
   onScroll();
   toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
 
-  const sections=[...document.querySelectorAll('section[id], #overview, #experience, #work, #expertise, #contact')];
   const links=[...document.querySelectorAll('[data-nav]')];
   const io=new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
@@ -613,26 +707,30 @@ footer{text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)
     if(el) io.observe(el);
   });
 
+  const forceVisible=(els)=>{
+    els.forEach(el=>{el.style.opacity='1';el.style.transform='none';});
+  };
+
   if(reduce){
-    document.querySelectorAll('.reveal,.reveal-item,.hero-anim').forEach(el=>{el.style.opacity='1';el.style.transform='none';});
+    forceVisible(document.querySelectorAll('.reveal,.reveal-item,.hero-anim'));
     return;
   }
-  const show=(els,delay=0)=>{
-    const obs=new IntersectionObserver((entries)=>{
-      entries.forEach((e,i)=>{
-        if(!e.isIntersecting) return;
-        e.target.style.transition=`opacity .7s ${delay}s var(--ease,ease), transform .7s ${delay}s ease`;
-        e.target.style.opacity='1';
-        e.target.style.transform='none';
-        obs.unobserve(e.target);
-      });
-    },{threshold:.12});
-    els.forEach(el=>obs.observe(el));
-  };
+
   document.querySelectorAll('.hero-anim').forEach((el,i)=>{
     setTimeout(()=>{el.style.transition='opacity .65s ease, transform .65s ease';el.style.opacity='1';el.style.transform='none';},120+i*90);
   });
-  show(document.querySelectorAll('.reveal'));
+
+  const revealObs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      e.target.style.transition='opacity .7s ease, transform .7s ease';
+      e.target.style.opacity='1';
+      e.target.style.transform='none';
+      revealObs.unobserve(e.target);
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
   document.querySelectorAll('.reveal-item').forEach((el,i)=>{
     const obs=new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
@@ -645,6 +743,15 @@ footer{text-align:center;padding:28px 16px 40px;border-top:1px solid var(--line)
     },{threshold:.1});
     obs.observe(el);
   });
+
+  setTimeout(()=>{
+    document.querySelectorAll('.reveal,.reveal-item,.hero-anim').forEach(el=>{
+      if(getComputedStyle(el).opacity==='0'){
+        el.style.opacity='1';
+        el.style.transform='none';
+      }
+    });
+  },1200);
 })();
 </script>
 </body>

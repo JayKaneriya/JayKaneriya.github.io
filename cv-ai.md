@@ -50,7 +50,7 @@ Senior Full-Stack Laravel/PHP Developer with 8+ years of experience building pro
 - Dates: July 2017 – June 2022
 - Stack: Laravel, Vue.js, React.js, Node.js, Sails.js, Socket.io, Firebase
 <!-- deferred: AWS in stack — -->
-- Delivered 200+ full-stack client projects worldwide across eCommerce, SaaS, education, restaurant, and booking domains
+- Delivered full-stack client projects worldwide across eCommerce, SaaS, education, restaurant, and booking domains
 - Built Laravel backends with Vue.js and React.js frontends, including admin dashboards and role-based access control
 - Integrated Stripe, PayPal, BPOINT, and custom payment APIs into production billing flows
 - Developed REST APIs and real-time features using Socket.io and Firebase
