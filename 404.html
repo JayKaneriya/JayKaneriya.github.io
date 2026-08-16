@@ -5,35 +5,67 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>404 — Page Not Found | Jay Kaneriya</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#07060b">
+<meta name="theme-color" content="#000000">
 <link rel="icon" type="image/svg+xml" href="logo.svg">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Syne:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background: #07060b; color: #f5f2fa; min-height: 100vh;
+    background: #000; color: #f5f5f7; min-height: 100vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 18px; font-family: 'IBM Plex Mono', monospace; text-align: center; padding: 24px;
+    gap: 18px; font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, sans-serif;
+    text-align: center; padding: 24px;
     background-image:
-      radial-gradient(ellipse 50% 40% at 50% 30%, rgba(155,92,255,0.18), transparent 55%);
+      radial-gradient(ellipse 50% 40% at 50% 0%, rgba(139,92,246,.2), transparent 55%),
+      radial-gradient(ellipse 40% 35% at 80% 100%, rgba(59,130,246,.12), transparent 50%);
   }
   h1 {
-    font-family: Syne, sans-serif; font-size: clamp(72px, 16vw, 140px);
-    font-weight: 800; line-height: 1; color: #9b5cff; letter-spacing: -4px;
-    text-shadow: 0 0 40px rgba(155,92,255,0.45);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, sans-serif;
+    font-size: clamp(72px, 16vw, 120px);
+    font-weight: 600; line-height: 1.07;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    letter-spacing: -0.28px;
   }
-  p { color: #a8a0b8; font-size: 14px; max-width: 28rem; line-height: 1.6; }
+  p { color: #a1a1a6; font-size: 17px; max-width: 28rem; line-height: 1.47; letter-spacing: -0.374px; }
+  .term {
+    width: min(100%, 420px); text-align: left;
+    border: 1px solid rgba(255,255,255,.12); border-radius: 14px;
+    background: #1a1a22; overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px; box-shadow: 0 0 40px rgba(139,92,246,.15);
+  }
+  .term-bar { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); }
+  .term-bar i { width: 9px; height: 9px; border-radius: 50%; }
+  .term-bar i:nth-child(1){background:#ff5f57}.term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
+  .term-body { padding: 14px 16px; color: #a1a1a6; line-height: 1.7; }
+  .term-body .err { color: #f87171; }
+  .term-body .ok { color: #34d399; }
+  .cursor { display: inline-block; width: 8px; height: 13px; background: #8b5cf6; vertical-align: middle; margin-left: 2px; animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
   a {
-    color: #fff; background: #9b5cff; text-decoration: none; font-weight: 700;
-    font-size: 12px; letter-spacing: 1.5px; padding: 14px 28px; border-radius: 100px;
-    box-shadow: 0 8px 28px rgba(155,92,255,0.4);
+    color: #fff; background: linear-gradient(135deg, #8b5cf6, #3b82f6); text-decoration: none; font-weight: 400;
+    font-size: 17px; letter-spacing: -0.374px; padding: 11px 22px; border-radius: 980px; min-height: 44px;
+    display: inline-flex; align-items: center;
   }
-  a:hover { filter: brightness(1.08); }
+  a:active { transform: scale(0.95); }
+  a:focus-visible { outline: 2px solid #3b82f6; outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+  }
 </style>
 </head>
 <body>
   <h1>404</h1>
   <p>This page doesn't exist — but the portfolio does. Let's get you back.</p>
-  <a href="/">TAKE ME HOME →</a>
+  <div class="term" aria-hidden="true">
+    <div class="term-bar"><i></i><i></i><i></i></div>
+    <div class="term-body">
+      <div>$ open requested.route</div>
+      <div class="err">× error: path not found</div>
+      <div class="ok">✓ redirect → /</div>
+      <div>$ cd ~<span class="cursor"></span></div>
+    </div>
+  </div>
+  <a href="/">Take me home</a>
 </body>
 </html>

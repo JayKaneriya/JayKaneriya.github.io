@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
 <title>Jay Kaneriya — CV (ATS / AI Agent)</title>
 <meta name="description" content="ATS and AI-agent friendly resume for Jay Kaneriya, Senior Full-Stack Laravel/PHP Developer. Plain single-column layout optimized for parsing.">
 <style>
@@ -9,9 +11,13 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: Arial, Helvetica, sans-serif;
-    color: #111;
+    color: #f5f5f7;
+    background: #000000;
     font-size: 10.5pt;
     line-height: 1.45;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 28px 20px 48px;
   }
   h1 {
     font-size: 18pt;
@@ -22,11 +28,14 @@
     font-size: 11pt;
     font-weight: 700;
     margin-bottom: 8px;
+    color: #c4b5fd;
   }
   .contact-line {
     font-size: 9.5pt;
     margin-bottom: 2px;
+    color: #a1a1a6;
   }
+  .contact-line a { color: #93c5fd; }
   h2 {
     font-size: 11pt;
     font-weight: 700;
@@ -34,17 +43,36 @@
     letter-spacing: 0.5px;
     margin: 14px 0 6px;
     padding-bottom: 3px;
-    border-bottom: 2px solid #7c3aed;
-    color: #7c3aed;
+    border-bottom: 2px solid #8b5cf6;
+    color: #a78bfa;
   }
   p { margin-bottom: 6px; }
   .job { margin-bottom: 10px; }
   .job-title { font-weight: 700; font-size: 10.5pt; }
-  .job-meta { font-size: 9.5pt; margin-bottom: 3px; }
+  .job-meta { font-size: 9.5pt; margin-bottom: 3px; color: #a1a1a6; }
   ul { margin: 0 0 4px 18px; }
-  li { margin-bottom: 2px; }
-  .skills p { margin-bottom: 3px; }
-  .label { font-weight: 700; }
+  li { margin-bottom: 2px; color: #d2d2d7; }
+  .skills p { margin-bottom: 3px; color: #d2d2d7; }
+  .label { font-weight: 700; color: #f5f5f7; }
+
+  @media print {
+    body {
+      color: #111;
+      background: #fff;
+      max-width: none;
+      padding: 0;
+    }
+    .subtitle { color: #111; }
+    .contact-line { color: #111; }
+    .contact-line a { color: #111; }
+    h2 {
+      border-bottom: 2px solid #5b3fd4;
+      color: #5b3fd4;
+    }
+    .job-meta { color: #333; }
+    li, .skills p { color: #111; }
+    .label { color: #111; }
+  }
 </style>
 </head>
 <body>
