@@ -4,8 +4,8 @@
   "description": "Senior Full-Stack Laravel/PHP Developer available now for full-time remote and freelance work. Laravel, Vue.js, React.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0e1110",
-  "theme_color": "#0e1110",
+  "background_color": "#07060b",
+  "theme_color": "#07060b",
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
