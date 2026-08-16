@@ -6,7 +6,7 @@
 <title>Zimdle Case Study — Jay Kaneriya</title>
 <meta name="description" content="Zimdle case study — SaaS customer feedback and business performance monitoring. Laravel, CodeIgniter, AJAX analytics, charts, reports and alerts.">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0e1110">
+<meta name="theme-color" content="#07060b">
 <link rel="canonical" href="https://jaykaneriya.github.io/case-studies/zimdle.html">
 <link rel="icon" type="image/svg+xml" href="../logo.svg">
 
@@ -25,19 +25,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Sora:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#0e1110; --ink:#f3efe6; --muted:#9aa19a; --accent:#ff5a1f; --line:rgba(243,239,230,.1); --max:920px; }
+  :root { --bg:#07060b; --ink:#f5f2fa; --muted:#a8a0b8; --accent:#9b5cff; --accent-bright:#b57bff; --line:rgba(245,242,250,.1); --max:920px; }
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--ink);font-family:Sora,sans-serif;line-height:1.7;font-size:17px}
-  a{color:var(--accent);text-decoration:none}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  a{color:var(--accent-bright);text-decoration:none}
+  :focus-visible{outline:2px solid var(--accent-bright);outline-offset:3px}
   .wrap{width:min(100% - 40px,var(--max));margin:0 auto}
   nav{padding:20px 0;border-bottom:1px solid var(--line);margin-bottom:40px}
   nav a{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--muted)}
   nav a:hover{color:var(--ink)}
-  .kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-bright);margin-bottom:14px}
   h1{font-family:Syne,sans-serif;font-size:clamp(36px,7vw,64px);line-height:1;letter-spacing:-.03em;margin-bottom:16px}
   .meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:28px}
-  .hero-img{width:100%;border-radius:16px;border:1px solid var(--line);margin:28px 0 40px;display:block}
+  .hero-img{width:100%;border-radius:16px;border:1px solid rgba(155,92,255,.35);margin:28px 0 40px;display:block;box-shadow:0 0 40px rgba(155,92,255,.12)}
   h2{font-family:Syne,sans-serif;font-size:28px;margin:36px 0 12px}
   p{color:var(--muted);margin-bottom:14px}
   p strong{color:var(--ink);font-weight:600}
@@ -45,17 +45,17 @@
   li{margin-bottom:8px}
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
   @media(max-width:640px){.stats{grid-template-columns:1fr}}
-  .stat{border:1px solid var(--line);border-radius:14px;padding:18px;background:rgba(22,26,24,.5)}
-  .stat b{display:block;font-family:Syne,sans-serif;font-size:28px;color:var(--accent);margin-bottom:4px}
+  .stat{border:1px solid rgba(155,92,255,.3);border-radius:14px;padding:18px;background:rgba(22,19,31,.65)}
+  .stat b{display:block;font-family:Syne,sans-serif;font-size:28px;color:var(--accent-bright);margin-bottom:4px}
   .stat span{font-size:13px;color:var(--muted)}
   .tags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 40px}
   .tags span{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:var(--muted)}
   .ext{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 28px}
   .ext a{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;border:1px solid var(--line);padding:8px 12px;border-radius:999px;color:var(--muted)}
-  .ext a:hover{color:var(--ink);border-color:var(--accent)}
+  .ext a:hover{color:var(--ink);border-color:var(--accent-bright)}
   .cta{display:inline-flex;gap:10px;flex-wrap:wrap;margin:30px 0 60px}
-  .btn{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.06em;padding:14px 20px;border-radius:999px;border:1px solid var(--line);color:var(--ink)}
-  .btn.fill{background:var(--accent);color:#0e1110;border-color:transparent}
+  .btn{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.06em;padding:14px 20px;border-radius:999px;border:1px solid rgba(155,92,255,.35);color:var(--ink)}
+  .btn.fill{background:var(--accent);color:#fff;border-color:transparent;box-shadow:0 8px 28px rgba(155,92,255,.35)}
   footer{border-top:1px solid var(--line);padding:24px 0 40px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
 </style>
 </head>
