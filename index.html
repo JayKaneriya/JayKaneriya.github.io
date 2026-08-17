@@ -1147,17 +1147,19 @@ footer a:hover{color:var(--purple)}
     }, {threshold:.1});
     $$('.reveal').forEach(el => revealObs.observe(el));
 
+    const revealItemObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(!e.isIntersecting) return;
+        const i = Number(e.target.dataset.revealIndex || 0);
+        e.target.style.transition = `opacity .65s ${(i%4)*0.07}s ease, transform .65s ${(i%4)*0.07}s ease`;
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'none';
+        revealItemObs.unobserve(e.target);
+      });
+    }, {threshold:.08});
     $$('.reveal-item').forEach((el,i) => {
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if(!e.isIntersecting) return;
-          e.target.style.transition = `opacity .65s ${(i%4)*0.07}s ease, transform .65s ${(i%4)*0.07}s ease`;
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'none';
-          obs.unobserve(e.target);
-        });
-      }, {threshold:.08});
-      obs.observe(el);
+      el.dataset.revealIndex = String(i);
+      revealItemObs.observe(el);
     });
 
     // Safety fallback
