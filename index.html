@@ -80,7 +80,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <noscript><style>.reveal,.reveal-item,.hero-anim{opacity:1!important;transform:none!important}.scroll-progress,.particles-canvas{display:none!important}.typing-text::after{display:none}</style></noscript>
 <style>
 /* ==========================================================================
@@ -467,6 +468,9 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .contact-alt a,.socials a{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--muted);transition:color .2s}
 .contact-alt a:hover,.socials a:hover{color:var(--blue)}
 .contact-alt .icon,.socials .icon{width:15px;height:15px}
+.contact-alt details{flex-basis:100%;font-size:14px;color:var(--muted)}
+.contact-alt summary{cursor:pointer;color:var(--muted)}
+.contact-alt summary:hover{color:var(--blue)}
 .contact-note{flex-basis:100%;font-size:12px;color:var(--faint);margin-top:-6px}
 .hire-form{display:flex;flex-direction:column;gap:14px;padding:24px;border:1px solid rgba(139,92,246,.25);border-radius:var(--r-lg);background:var(--card);box-shadow:var(--glow)}
 .hire-form label{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)}
@@ -483,7 +487,7 @@ section[id]{scroll-margin-top:var(--nav-h)}
    16. Footer & Back-to-top
    ========================================================================== */
 footer{text-align:center;padding:32px 16px 44px;border-top:1px solid var(--line);font-size:12px;color:var(--faint);background:var(--bg)}
-footer a{color:var(--muted);transition:color .2s}
+footer a{color:var(--muted);text-decoration:underline;text-underline-offset:2px;transition:color .2s}
 footer a:hover{color:var(--purple)}
 .to-top{position:fixed;right:20px;bottom:20px;z-index:90;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .3s,background .2s,border-color .2s,transform .2s}
 .to-top.show{opacity:1;pointer-events:auto}
@@ -562,7 +566,7 @@ footer a:hover{color:var(--purple)}
 <!-- ===== NAVIGATION ===== -->
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a class="brand" href="#home" aria-label="Jay Kaneriya — home">
+    <a class="brand" href="#home">
       <span class="brand-mark" aria-hidden="true">JK</span>
       <span class="brand-name">Jay Kaneriya <span>· dev</span></span>
     </a>
@@ -595,7 +599,7 @@ footer a:hover{color:var(--purple)}
       <div class="typing-wrap hero-anim">
         <p class="typing-text">I build <span class="typed" id="typedText">production-grade Laravel systems</span></p>
       </div>
-      <p class="hero-proof hero-anim"><strong>4+ years at Paperly</strong> · production workflows for a platform serving <strong>250+ schools in 2026</strong>.</p>
+      <p class="hero-proof hero-anim"><strong>4+ years at Paperly (AU)</strong> · shipped workflows for <strong>250+ schools in 2026</strong> · available immediately.</p>
       <p class="hero-lead hero-anim">
         <strong>9+ years</strong> shipping SaaS, education, eCommerce and delivery platforms.
         Most recently a Senior Web Application Developer at <strong>Paperly (Australia, remote)</strong>,
@@ -603,8 +607,9 @@ footer a:hover{color:var(--purple)}
       </p>
       <div class="hero-actions hero-anim">
         <a class="btn btn-fill magnetic" href="#work"><svg class="icon"><use href="#i-arrow"></use></svg> View selected work</a>
-        <a class="btn btn-ghost" href="#contact" data-contact-type="Full-time remote role">Discuss a role</a>
-        <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download><svg class="icon"><use href="#i-download"></use></svg> Download CV</a>
+        <a class="btn btn-ghost" href="?type=fulltime#contact" data-contact-type="Full-time remote role">Discuss a role</a>
+        <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download><svg class="icon"><use href="#i-download"></use></svg> Download CV (PDF)</a>
+        <a class="btn btn-ghost" href="cv.html">View online</a>
       </div>
       <div class="hero-chips hero-anim" aria-label="Core stack">
         <span><svg class="icon"><use href="#i-server"></use></svg> Laravel</span>
@@ -963,11 +968,14 @@ footer a:hover{color:var(--purple)}
           <p class="contact-lead">Tell me about the role or product. I'll respond with a clear next step — and whether I'm the right fit.</p>
           <div class="contact-actions">
             <a class="btn btn-fill magnetic" href="mailto:jay.kaneriya8@gmail.com?subject=Role%20or%20project%20for%20Jay%20Kaneriya"><svg class="icon"><use href="#i-mail"></use></svg> Email me</a>
-            <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download><svg class="icon"><use href="#i-download"></use></svg> CV</a>
+            <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download><svg class="icon"><use href="#i-download"></use></svg> Download CV (PDF)</a>
+            <a class="btn btn-ghost" href="cv.html">View online</a>
           </div>
           <div class="contact-alt">
-            <a href="Jay_Kaneriya_CV_AI.pdf" download>ATS-optimized CV ↓</a>
-            <span class="contact-note">Same experience, structured for applicant tracking systems.</span>
+            <details>
+              <summary>Applying through an ATS?</summary>
+              <p class="contact-note">Use the <a href="Jay_Kaneriya_CV_AI.pdf" download>plain-format CV</a> — same content, optimized for automated parsing.</p>
+            </details>
             <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20role%20or%20project." target="_blank" rel="noopener"><svg class="icon icon-fill"><use href="#i-whatsapp"></use></svg> WhatsApp</a>
           </div>
           <div class="socials">
@@ -1095,6 +1103,15 @@ footer a:hover{color:var(--purple)}
   $$('[data-contact-type]').forEach(cta => cta.addEventListener('click', () => {
     if(projectType) projectType.value = cta.dataset.contactType;
   }));
+  const contactType = new URLSearchParams(window.location.search).get('type');
+  const contactTypeMap = {
+    fulltime: 'Full-time remote role',
+    retainer: 'Contract / retainer',
+    project: 'Fixed-scope project'
+  };
+  if(projectType && contactTypeMap[contactType]){
+    projectType.value = contactTypeMap[contactType];
+  }
 
   /* ──────────────────────────── Reveal animations (IO fallback) ──────────────────────────── */
   const supportsViewTimeline = CSS.supports('animation-timeline','view()');
