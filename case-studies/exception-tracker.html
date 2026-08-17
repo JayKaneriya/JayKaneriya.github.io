@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Exception Tracker Case Study — Jay Kaneriya</title>
-<meta name="description" content="Exception Tracker case study — personal Laravel/Vue error monitoring with grouping, severity and triage dashboard.">
+<meta name="description" content="Exception Tracker case study — multi-tenant observability SaaS for exceptions, traces, uptime and session replay. Laravel, Sanctum, Horizon, Stripe, multi-language SDKs.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://jaykaneriya.github.io/case-studies/exception-tracker.html">
@@ -12,11 +12,11 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jaykaneriya.github.io/case-studies/exception-tracker.html">
 <meta property="og:title" content="Exception Tracker Case Study — Jay Kaneriya">
-<meta property="og:description" content="Personal Laravel/Vue exception monitoring with grouping, severity and searchable history.">
+<meta property="og:description" content="Personal observability SaaS — ingest, group, triage, alert. Laravel, Horizon, Stripe and official SDKs.">
 <meta property="og:image" content="https://jaykaneriya.github.io/projects/exception.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Exception Tracker Case Study — Jay Kaneriya">
-<meta name="twitter:description" content="Laravel/Vue production error triage dashboard — personal project.">
+<meta name="twitter:description" content="Multi-tenant exception monitoring with SDKs, triage dashboard and alerts.">
 <meta name="twitter:image" content="https://jaykaneriya.github.io/projects/exception.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,10 +40,19 @@ a{color:var(--blue);text-decoration:none}
 .kicker{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
 h1{font-family:var(--font-d);font-size:clamp(34px,6vw,52px);font-weight:600;line-height:1.07;letter-spacing:-.02em;margin-bottom:14px}
 .meta{font-size:14px;color:var(--muted);margin-bottom:20px}
-.hero-img{width:100%;border-radius:18px;margin:20px 0 32px;display:block;border:1px solid var(--line);box-shadow:0 0 40px rgba(139,92,246,.15)}
+.hero-img,.shot-img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px;display:block;border:1px solid var(--line);background:var(--card)}
+.hero-img{margin:20px 0 32px;box-shadow:0 0 40px rgba(139,92,246,.15)}
+.shot{margin:18px 0 8px}
+.shot-img{box-shadow:0 0 28px rgba(59,130,246,.12)}
+.shot-cap,.diagram-cap{font-size:13px;color:var(--dim);margin:8px 0 18px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:20px 0 8px}
+.gallery figure{margin:0}
+.gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid var(--line);display:block;background:var(--card)}
+.gallery figcaption{font-size:12px;color:var(--dim);margin-top:8px}
 .section{margin:36px 0;padding-left:16px;border-left:2px solid transparent;border-image:var(--grad) 1}
 .section h2{font-family:var(--font-d);font-size:22px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:10px}
 .section h2 .n{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--purple)}
+.section h3{font-family:var(--font-d);font-size:16px;font-weight:600;margin:18px 0 8px;color:var(--ink)}
 p{color:var(--ink80);margin-bottom:14px}
 p strong{color:var(--ink);font-weight:600}
 ul{margin:0 0 18px 1.2rem;color:var(--ink80)}
@@ -58,10 +67,16 @@ li{margin-bottom:8px}
 .btn{min-height:44px;font-size:15px;padding:11px 22px;border-radius:980px;border:1px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center}
 .btn.fill{background:var(--grad);color:#fff;border-color:transparent}
 .btn:hover{border-color:rgba(139,92,246,.5)}
+.diagram{margin:18px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:16px;overflow:auto}
+.diagram svg{display:block;width:100%;height:auto;min-width:520px}
+.cap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0 8px}
+.cap{border:1px solid var(--line);border-radius:12px;padding:14px;background:rgba(255,255,255,.02)}
+.cap b{display:block;font-size:14px;color:var(--ink);margin-bottom:4px}
+.cap span{font-size:13px;color:var(--dim)}
 footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color:var(--dim);background:var(--bg-2);margin:0 -20px;padding-left:20px;padding-right:20px}
 @media(max-width:640px){
   .wrap{width:min(100% - 24px,var(--max))}
-  .stats{grid-template-columns:1fr}
+  .stats,.cap-grid,.gallery{grid-template-columns:1fr}
   .cta{flex-direction:column}.btn{width:100%}
   .cs-nav{margin:0 -12px 28px;padding:12px}
   footer{margin:0 -12px}
@@ -82,60 +97,132 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       </div>
     </nav>
 
-    <p class="kicker">Personal product · In progress</p>
-    <h1>Exception Tracker — production error triage</h1>
-    <p class="meta">Personal project · Laravel · Vue.js · MySQL · REST API</p>
-    <img class="hero-img" src="../projects/exception.jpg" alt="Exception Tracker dashboard mockup" width="1200" height="675" loading="eager">
+    <p class="kicker">Case study · 04 · Observability · Personal</p>
+    <h1>Exception Tracker — production error triage &amp; monitoring</h1>
+    <p class="meta">Personal project · Laravel · Sanctum · Horizon · PostgreSQL · Redis · Stripe · Multi-language SDKs</p>
+    <img class="hero-img" src="../projects/exception-hero.jpg" alt="Exception Tracker triage dashboard mockup" width="1200" height="900" loading="eager">
 
     <div class="stats">
-      <div class="stat"><b>Group</b><span>Similar exceptions collapsed for faster triage</span></div>
-      <div class="stat"><b>Severity</b><span>Critical / warning levels for priority work</span></div>
-      <div class="stat"><b>Search</b><span>History you can query when incidents hit</span></div>
+      <div class="stat"><b>Group</b><span>Similar exceptions collapsed into issues for faster triage</span></div>
+      <div class="stat"><b>Signals</b><span>Exceptions, traces, uptime checks &amp; session replay</span></div>
+      <div class="stat"><b>SDKs</b><span>Official clients for JS, PHP, Laravel, Python, Rust &amp; more</span></div>
     </div>
 
-    <section class="section">
+    <section class="section" id="context">
       <h2><span class="n">01</span> Context</h2>
-      <p>Production exceptions scatter across logs. Without grouping and a clear dashboard, developers waste time hunting the same bug twice.</p>
+      <p>Exception Tracker is a personal <strong>multi-tenant observability SaaS</strong> for developers and DevOps teams — ingest production errors, group them into issues, set alerts, and debug with traces, uptime monitors and session replay in one place.</p>
+      <p>The local codebase is a <strong>Laravel</strong> monolith with Sanctum auth, Redis/Horizon queues, Stripe billing, tenant-scoped data, Blade customer dashboards and official SDKs under <code>platform/sdk/</code>.</p>
     </section>
 
-    <section class="section">
-      <h2><span class="n">02</span> Responsibility</h2>
-      <p>Personal full-stack ownership — product design, Laravel API, Vue dashboard and data model for triage workflows.</p>
+    <section class="section" id="gallery">
+      <h2><span class="n">02</span> Product visuals</h2>
+      <p>Illustrative 4:3 mockups of the triage surfaces verified in the codebase — dashboard, volume charts and ingest-to-alert flow.</p>
+      <div class="gallery">
+        <figure>
+          <img src="../projects/exception-chart.jpg" alt="Exception volume and severity chart mockup" width="800" height="600" loading="lazy">
+          <figcaption>Error volume — trend lines and severity breakdown (sample data)</figcaption>
+        </figure>
+        <figure>
+          <img src="../projects/exception-flow.jpg" alt="Exception Tracker ingest to alert flow diagram" width="800" height="600" loading="lazy">
+          <figcaption>SDKs → ingest → group issues → triage → alerts, plus billing</figcaption>
+        </figure>
+      </div>
     </section>
 
-    <section class="section">
-      <h2><span class="n">03</span> Challenges</h2>
+    <section class="section" id="responsibility">
+      <h2><span class="n">03</span> Responsibility</h2>
       <ul>
-        <li>Collapsing similar exceptions so triage stays focused.</li>
-        <li>Severity levels that make priority work obvious.</li>
-        <li>Searchable history useful when incidents hit across deploys.</li>
+        <li>Designed and built a <strong>full observability product</strong> — ingest protocol, issue grouping, triage UI and alert workflows.</li>
+        <li>Implemented <strong>tenant isolation</strong> so organizations keep projects, issues, monitors and billing scoped per tenant.</li>
+        <li>Shipped <strong>official SDKs</strong> (JavaScript, Node, PHP, Laravel, Python, Rust, plus native iOS/Android MVPs) for capture and flush.</li>
+        <li>Added monitoring surfaces: HTTP uptime checks, cron heartbeats, charted HTTP/SQL/queue signals and session replay capture.</li>
+        <li>Wired <strong>Stripe</strong> subscriptions / usage-oriented billing and admin/customer dashboards for ops and revenue views.</li>
       </ul>
     </section>
 
-    <section class="section">
-      <h2><span class="n">04</span> Solution</h2>
+    <section class="section" id="challenges">
+      <h2><span class="n">04</span> Challenges</h2>
       <ul>
-        <li>Built a Laravel API to ingest and store exception events.</li>
-        <li>Vue dashboard for browsing, filtering, and severity-based prioritization.</li>
-        <li>Searchable history so recurring issues are visible across deploys.</li>
+        <li>Collapsing noisy exception events into actionable issues without losing searchable history.</li>
+        <li>Keeping multi-tenant isolation correct across ingest, queries, alerts and billing.</li>
+        <li>Packaging one product surface for exceptions, traces, uptime and replay — without Datadog-level complexity.</li>
       </ul>
     </section>
 
-    <section class="section">
-      <h2><span class="n">05</span> Outcomes</h2>
-      <p>A personal full-stack monitoring tool that demonstrates production thinking — not just CRUD demos. Useful as a reference for SaaS ops and developer tooling work.</p>
+    <section class="section" id="solution">
+      <h2><span class="n">05</span> Solution</h2>
+      <p>SDK ingest into a Laravel API, intelligent issue grouping, severity-aware triage dashboards, Horizon-backed jobs, Stripe plans and optional enterprise auth hooks (SAML/SCIM foundations) — so production debugging stays in one workflow.</p>
+
+      <figure class="shot">
+        <img class="shot-img" src="../projects/exception-chart.jpg" alt="Exception Tracker analytics charts" width="1200" height="900" loading="lazy">
+        <figcaption class="shot-cap">Illustrative analytics surface — charts represent product capability, not live KPIs.</figcaption>
+      </figure>
+
+      <h3>Triage loop</h3>
+      <div class="diagram" role="img" aria-label="Exception Tracker capture to alert loop">
+        <svg viewBox="0 0 840 180" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
+          <defs>
+            <linearGradient id="eg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
+          </defs>
+          <rect width="840" height="180" rx="12" fill="#121218"/>
+          <g fill="#1f1f2a" stroke="url(#eg)" stroke-width="1.5">
+            <rect x="24" y="58" width="140" height="64" rx="12"/>
+            <rect x="208" y="58" width="140" height="64" rx="12"/>
+            <rect x="392" y="58" width="140" height="64" rx="12"/>
+            <rect x="576" y="58" width="140" height="64" rx="12"/>
+          </g>
+          <g fill="#f5f5f7" font-size="13" font-weight="600" text-anchor="middle">
+            <text x="94" y="88">Capture</text>
+            <text x="278" y="88">Group</text>
+            <text x="462" y="88">Triage</text>
+            <text x="646" y="88">Alert</text>
+          </g>
+          <g fill="#a1a1a6" font-size="11" text-anchor="middle">
+            <text x="94" y="108">SDK / OTLP</text>
+            <text x="278" y="108">issues + severity</text>
+            <text x="462" y="108">dashboard</text>
+            <text x="646" y="108">email / rules</text>
+          </g>
+          <g stroke="#8b5cf6" stroke-width="2" fill="none">
+            <path d="M164 90 H208"/><path d="M348 90 H392"/><path d="M532 90 H576"/>
+          </g>
+          <g fill="#8b5cf6">
+            <polygon points="204,90 194,85 194,95"/><polygon points="388,90 378,85 378,95"/><polygon points="572,90 562,85 562,95"/>
+          </g>
+        </svg>
+      </div>
+      <p class="diagram-cap">Verified product loop from ExceptionCaptureService, issue models, monitoring dashboards and report/alert jobs.</p>
+
+      <h3>Capability map</h3>
+      <div class="cap-grid">
+        <div class="cap"><b>Issue triage</b><span>Group, filter unresolved, assign, tag and resolve</span></div>
+        <div class="cap"><b>Monitoring</b><span>HTTP uptime, cron check-ins, HTTP/SQL/queue charts</span></div>
+        <div class="cap"><b>Session replay</b><span>DOM snapshot + network/console capture for debug context</span></div>
+        <div class="cap"><b>SaaS billing</b><span>Stripe plans with tenant-scoped usage and admin revenue views</span></div>
+      </div>
+
+      <figure class="shot">
+        <img class="shot-img" src="../projects/exception-flow.jpg" alt="Exception Tracker architecture flow including SDKs and billing" width="1200" height="900" loading="lazy">
+        <figcaption class="shot-cap">Capability flow covering SDKs, ingest, triage and alerts.</figcaption>
+      </figure>
     </section>
 
-    <section class="section">
-      <h2><span class="n">06</span> Technology</h2>
+    <section class="section" id="outcomes">
+      <h2><span class="n">06</span> Outcomes</h2>
+      <p>A personal full-stack observability product that demonstrates production SaaS thinking — tenant isolation, ingest SDKs, triage UX and billing — focused on problem, contribution and implementation rather than unverified metrics.</p>
+    </section>
+
+    <section class="section" id="technology">
+      <h2><span class="n">07</span> Technology</h2>
       <ul>
-        <li><strong>Stack:</strong> Laravel, Vue.js, MySQL, REST API</li>
-        <li><strong>Focus:</strong> observability, grouping, severity, searchable history</li>
+        <li><strong>Stack:</strong> Laravel, Sanctum, Horizon, PostgreSQL, Redis, Blade dashboards, OpenAPI / Swagger</li>
+        <li><strong>Integrations:</strong> Stripe Cashier, OAuth (GitHub/Google), SAML/SCIM foundations, OTLP traces</li>
+        <li><strong>Product surface:</strong> exceptions, issues, traces, uptime, session replay, SDK ingest, alerts, billing</li>
       </ul>
     </section>
 
     <div class="tags">
-      <span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Observability</span>
+      <span>Laravel</span><span>Sanctum</span><span>Horizon</span><span>Redis</span><span>PostgreSQL</span><span>Stripe</span><span>SDKs</span><span>Observability</span><span>SaaS</span>
     </div>
 
     <div class="cta">

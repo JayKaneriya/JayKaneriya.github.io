@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resident App Case Study — Jay Kaneriya</title>
-<meta name="description" content="Resident App case study — personal housing community platform for notices, maintenance requests and member workflows. Laravel, Vue.js, MySQL.">
+<meta name="description" content="Resident App case study — multi-tenant housing society platform. Laravel, Inertia/React, Expo mobile, notices, complaints, billing, visitors and admin workflows.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://jaykaneriya.github.io/case-studies/resident-app.html">
@@ -12,11 +12,11 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jaykaneriya.github.io/case-studies/resident-app.html">
 <meta property="og:title" content="Resident App Case Study — Jay Kaneriya">
-<meta property="og:description" content="Personal Laravel/Vue housing community platform for notices, maintenance and member workflows.">
+<meta property="og:description" content="Personal society management SaaS — Laravel, React, Expo, multi-tenancy, billing and resident workflows.">
 <meta property="og:image" content="https://jaykaneriya.github.io/projects/resident.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Resident App Case Study — Jay Kaneriya">
-<meta name="twitter:description" content="Housing society workflows — notices, maintenance requests and admin tools.">
+<meta name="twitter:description" content="Housing society ops — notices, maintenance, visitors, billing and mobile apps.">
 <meta name="twitter:image" content="https://jaykaneriya.github.io/projects/resident.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,10 +40,19 @@ a{color:var(--blue);text-decoration:none}
 .kicker{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
 h1{font-family:var(--font-d);font-size:clamp(34px,6vw,52px);font-weight:600;line-height:1.07;letter-spacing:-.02em;margin-bottom:14px}
 .meta{font-size:14px;color:var(--muted);margin-bottom:20px}
-.hero-img{width:100%;border-radius:18px;margin:20px 0 32px;display:block;border:1px solid var(--line);box-shadow:0 0 40px rgba(139,92,246,.15)}
+.hero-img,.shot-img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px;display:block;border:1px solid var(--line);background:var(--card)}
+.hero-img{margin:20px 0 32px;box-shadow:0 0 40px rgba(139,92,246,.15)}
+.shot{margin:18px 0 8px}
+.shot-img{box-shadow:0 0 28px rgba(59,130,246,.12)}
+.shot-cap,.diagram-cap{font-size:13px;color:var(--dim);margin:8px 0 18px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:20px 0 8px}
+.gallery figure{margin:0}
+.gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid var(--line);display:block;background:var(--card)}
+.gallery figcaption{font-size:12px;color:var(--dim);margin-top:8px}
 .section{margin:36px 0;padding-left:16px;border-left:2px solid transparent;border-image:var(--grad) 1}
 .section h2{font-family:var(--font-d);font-size:22px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:10px}
 .section h2 .n{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--purple)}
+.section h3{font-family:var(--font-d);font-size:16px;font-weight:600;margin:18px 0 8px;color:var(--ink)}
 p{color:var(--ink80);margin-bottom:14px}
 p strong{color:var(--ink);font-weight:600}
 ul{margin:0 0 18px 1.2rem;color:var(--ink80)}
@@ -58,10 +67,16 @@ li{margin-bottom:8px}
 .btn{min-height:44px;font-size:15px;padding:11px 22px;border-radius:980px;border:1px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center}
 .btn.fill{background:var(--grad);color:#fff;border-color:transparent}
 .btn:hover{border-color:rgba(139,92,246,.5)}
+.diagram{margin:18px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:16px;overflow:auto}
+.diagram svg{display:block;width:100%;height:auto;min-width:520px}
+.cap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0 8px}
+.cap{border:1px solid var(--line);border-radius:12px;padding:14px;background:rgba(255,255,255,.02)}
+.cap b{display:block;font-size:14px;color:var(--ink);margin-bottom:4px}
+.cap span{font-size:13px;color:var(--dim)}
 footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color:var(--dim);background:var(--bg-2);margin:0 -20px;padding-left:20px;padding-right:20px}
 @media(max-width:640px){
   .wrap{width:min(100% - 24px,var(--max))}
-  .stats{grid-template-columns:1fr}
+  .stats,.cap-grid,.gallery{grid-template-columns:1fr}
   .cta{flex-direction:column}.btn{width:100%}
   .cs-nav{margin:0 -12px 28px;padding:12px}
   footer{margin:0 -12px}
@@ -82,60 +97,132 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       </div>
     </nav>
 
-    <p class="kicker">Personal product · In progress</p>
-    <h1>Resident App — housing community workflows</h1>
-    <p class="meta">Personal project · Laravel · Vue.js · MySQL · REST API</p>
-    <img class="hero-img" src="../projects/resident.jpg" alt="Resident App UI mockup" width="1200" height="675" loading="eager">
+    <p class="kicker">Case study · 05 · PropTech · Personal</p>
+    <h1>Resident App — housing society ops platform</h1>
+    <p class="meta">Personal project · Laravel 11 · Inertia / React · Expo · Multi-tenancy · Razorpay · Stripe</p>
+    <img class="hero-img" src="../projects/resident-hero.jpg" alt="Resident App society admin dashboard mockup" width="1200" height="900" loading="eager">
 
     <div class="stats">
-      <div class="stat"><b>Notices</b><span>Society updates in one feed</span></div>
-      <div class="stat"><b>Requests</b><span>Maintenance / complaint tracking</span></div>
-      <div class="stat"><b>Members</b><span>Profiles for residents &amp; admins</span></div>
+      <div class="stat"><b>Omni-channel</b><span>Admin web, resident web &amp; Expo mobile apps</span></div>
+      <div class="stat"><b>Ops</b><span>Notices, complaints, visitors, amenities &amp; billing</span></div>
+      <div class="stat"><b>Tenants</b><span>Per-society isolation with roles for staff &amp; residents</span></div>
     </div>
 
-    <section class="section">
+    <section class="section" id="context">
       <h2><span class="n">01</span> Context</h2>
-      <p>Residential societies still run on WhatsApp groups and paper registers. Residents need a simple place for notices, complaints, and everyday community tasks.</p>
+      <p>Resident App is a personal <strong>multi-tenant society management platform</strong> — replacing WhatsApp groups and paper registers with structured notices, maintenance requests, visitor flows, amenity booking and billing for residents, guards and society admins.</p>
+      <p>The local codebase is <strong>Laravel 11</strong> with Inertia/React web panels, Sanctum APIs, <code>stancl/tenancy</code>, Stripe Cashier + Razorpay, Spatie permissions and an Expo React Native mobile app for residents and guards.</p>
     </section>
 
-    <section class="section">
-      <h2><span class="n">02</span> Responsibility</h2>
-      <p>Personal product ownership — domain modeling, Laravel APIs, Vue interfaces and admin workflows for housing communities.</p>
+    <section class="section" id="gallery">
+      <h2><span class="n">02</span> Product visuals</h2>
+      <p>Illustrative 4:3 mockups of the society surfaces verified in the codebase — admin ops, mobile/web parity and platform flow.</p>
+      <div class="gallery">
+        <figure>
+          <img src="../projects/resident-mobile.jpg" alt="Resident mobile and admin web mockup" width="800" height="600" loading="lazy">
+          <figcaption>Resident mobile + admin web — notices, requests and status updates</figcaption>
+        </figure>
+        <figure>
+          <img src="../projects/resident-flow.jpg" alt="Resident App architecture flow diagram" width="800" height="600" loading="lazy">
+          <figcaption>Mobile → notices &amp; requests → admin ops → billing &amp; visitors</figcaption>
+        </figure>
+      </div>
     </section>
 
-    <section class="section">
-      <h2><span class="n">03</span> Challenges</h2>
+    <section class="section" id="responsibility">
+      <h2><span class="n">03</span> Responsibility</h2>
       <ul>
-        <li>Replacing chat chaos with structured notices and request tracking.</li>
-        <li>Clear roles for residents and society admins.</li>
-        <li>Keeping the product simple enough for non-technical users.</li>
+        <li>Owned the full product surface — domain modeling, Laravel APIs, Inertia/React admin &amp; resident panels and Expo mobile.</li>
+        <li>Built <strong>resident workflows</strong> for notices, maintenance/complaints, amenity slots, invoices and AI support Q&amp;A.</li>
+        <li>Shipped <strong>ops tooling</strong> for society staff: assignment, status updates, visitor QR scanning, SOS alerts and audit logging.</li>
+        <li>Implemented <strong>multi-tenancy</strong>, role permissions, notification routing (push → SMS → email) and payment integrations.</li>
+        <li>Added enterprise-leaning foundations: SAML SSO config hooks, workflow engine, late-fee jobs and global search.</li>
       </ul>
     </section>
 
-    <section class="section">
-      <h2><span class="n">04</span> Solution</h2>
+    <section class="section" id="challenges">
+      <h2><span class="n">04</span> Challenges</h2>
       <ul>
-        <li>Resident-facing flows for notices and maintenance requests.</li>
-        <li>Admin tools for assignment and status updates.</li>
-        <li>Laravel + Vue stack for fast iteration and clean API boundaries.</li>
+        <li>Replacing chat chaos with structured notices and request tracking that non-technical users will actually use.</li>
+        <li>Keeping resident, guard and admin experiences role-appropriate across web and mobile.</li>
+        <li>Hardening multi-tenant isolation, PII handling and payment/billing correctness for high-trust society ops.</li>
       </ul>
     </section>
 
-    <section class="section">
-      <h2><span class="n">05</span> Outcomes</h2>
-      <p>A personal product that shows real-world domain modeling — roles, requests, and community communication — useful for proptech and local SaaS conversations.</p>
+    <section class="section" id="solution">
+      <h2><span class="n">05</span> Solution</h2>
+      <p>Tenant-scoped societies with clear roles, omni-channel parity for resident features, queued notifications and payment rails — so community ops stay auditable and mobile-first.</p>
+
+      <figure class="shot">
+        <img class="shot-img" src="../projects/resident-mobile.jpg" alt="Resident App mobile and admin surfaces" width="1200" height="900" loading="lazy">
+        <figcaption class="shot-cap">Illustrative product surfaces — UI represents capability, not a live deployment.</figcaption>
+      </figure>
+
+      <h3>Society loop</h3>
+      <div class="diagram" role="img" aria-label="Resident App request to resolution loop">
+        <svg viewBox="0 0 840 180" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
+          <defs>
+            <linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
+          </defs>
+          <rect width="840" height="180" rx="12" fill="#121218"/>
+          <g fill="#1f1f2a" stroke="url(#rg)" stroke-width="1.5">
+            <rect x="24" y="58" width="140" height="64" rx="12"/>
+            <rect x="208" y="58" width="140" height="64" rx="12"/>
+            <rect x="392" y="58" width="140" height="64" rx="12"/>
+            <rect x="576" y="58" width="140" height="64" rx="12"/>
+          </g>
+          <g fill="#f5f5f7" font-size="13" font-weight="600" text-anchor="middle">
+            <text x="94" y="88">Request</text>
+            <text x="278" y="88">Route</text>
+            <text x="462" y="88">Resolve</text>
+            <text x="646" y="88">Notify</text>
+          </g>
+          <g fill="#a1a1a6" font-size="11" text-anchor="middle">
+            <text x="94" y="108">notice / ticket</text>
+            <text x="278" y="108">admin assign</text>
+            <text x="462" y="108">status update</text>
+            <text x="646" y="108">push / SMS</text>
+          </g>
+          <g stroke="#8b5cf6" stroke-width="2" fill="none">
+            <path d="M164 90 H208"/><path d="M348 90 H392"/><path d="M532 90 H576"/>
+          </g>
+          <g fill="#8b5cf6">
+            <polygon points="204,90 194,85 194,95"/><polygon points="388,90 378,85 378,95"/><polygon points="572,90 562,85 562,95"/>
+          </g>
+        </svg>
+      </div>
+      <p class="diagram-cap">Verified ops loop from resident APIs, complaint listeners, notification routing and admin controllers.</p>
+
+      <h3>Capability map</h3>
+      <div class="cap-grid">
+        <div class="cap"><b>Community feed</b><span>Notices, urgent broadcasts and member profiles</span></div>
+        <div class="cap"><b>Maintenance</b><span>Complaints / requests with assignment and status</span></div>
+        <div class="cap"><b>Gate &amp; amenities</b><span>Visitor QR, SOS alerts, amenity slot booking</span></div>
+        <div class="cap"><b>Billing</b><span>Invoices, late fees, Razorpay / Stripe payment flows</span></div>
+      </div>
+
+      <figure class="shot">
+        <img class="shot-img" src="../projects/resident-flow.jpg" alt="Resident App platform flow including multi-tenancy and payments" width="1200" height="900" loading="lazy">
+        <figcaption class="shot-cap">Capability flow covering mobile, admin ops, billing and visitors.</figcaption>
+      </figure>
     </section>
 
-    <section class="section">
-      <h2><span class="n">06</span> Technology</h2>
+    <section class="section" id="outcomes">
+      <h2><span class="n">06</span> Outcomes</h2>
+      <p>A personal PropTech SaaS that shows real-world domain modeling — roles, tenancy, payments and omni-channel community ops — useful for housing-tech and local SaaS conversations without inventing adoption metrics.</p>
+    </section>
+
+    <section class="section" id="technology">
+      <h2><span class="n">07</span> Technology</h2>
       <ul>
-        <li><strong>Stack:</strong> Laravel, Vue.js, MySQL, REST API</li>
-        <li><strong>Focus:</strong> notices, maintenance requests, member profiles, admin workflows</li>
+        <li><strong>Stack:</strong> Laravel 11, Inertia.js / React, Sanctum, MySQL, stancl/tenancy, Spatie Permission</li>
+        <li><strong>Mobile:</strong> Expo / React Native (resident &amp; guard), camera QR, notifications</li>
+        <li><strong>Integrations:</strong> Razorpay, Stripe Cashier, OpenAI (receipt OCR / AI support), DomPDF / Excel exports</li>
       </ul>
     </section>
 
     <div class="tags">
-      <span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>PropTech</span>
+      <span>Laravel</span><span>Inertia</span><span>React</span><span>Expo</span><span>Multi-tenancy</span><span>Razorpay</span><span>Stripe</span><span>PropTech</span><span>SaaS</span>
     </div>
 
     <div class="cta">

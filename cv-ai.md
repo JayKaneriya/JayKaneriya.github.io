@@ -76,14 +76,16 @@ Senior Full-Stack Laravel/PHP Developer with 8+ years of experience building pro
 - Case study: https://jaykaneriya.github.io/case-studies/zimdle.html
 
 #### Exception Tracker (Personal Project) — In progress
-- Type: Error monitoring and logging application
-- Stack: Laravel, Vue.js, MySQL, REST API
-- Captures, groups, and triages application exceptions with searchable history, severity levels, and a production dashboard
+- Type: Multi-tenant observability SaaS
+- Stack: Laravel, Sanctum, Horizon, PostgreSQL, Redis, Stripe, multi-language SDKs
+- Ingests, groups, and triages exceptions with uptime monitors, session replay, alerts, and billing
+- Case study: https://jaykaneriya.github.io/case-studies/exception-tracker.html
 
 #### Resident App (Personal Project) — In progress
-- Type: Residential community platform
-- Stack: Laravel, Vue.js, MySQL, REST API
-- Notices, maintenance / complaint requests, member profiles, and society workflows for residents and admins
+- Type: Multi-tenant housing society platform
+- Stack: Laravel 11, Inertia/React, Expo, stancl/tenancy, Razorpay, Stripe
+- Notices, maintenance / complaints, visitors, amenities, billing, and admin/resident/guard workflows across web and mobile
+- Case study: https://jaykaneriya.github.io/case-studies/resident-app.html
 
 <!--
 DEFERRED — Multi-Vendor eCommerce Marketplace + SaaS Subscription Management Platform

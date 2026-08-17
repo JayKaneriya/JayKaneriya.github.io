@@ -267,42 +267,62 @@ section[id]{scroll-margin-top:var(--nav-h)}
    10. Experience Timeline
    ========================================================================== */
 .journey{background:var(--bg-1)}
-.timeline{position:relative;padding-left:8px}
-.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line-2)}
-.timeline-fill{position:absolute;left:7px;top:8px;width:2px;height:0;background:var(--grad);transition:height .1s linear;border-radius:1px}
-.t-item{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:24px 0 24px 40px;position:relative}
-.t-item::before{content:'';position:absolute;left:0;top:34px;width:16px;height:16px;border-radius:50%;background:var(--bg-1);border:2px solid var(--purple);box-shadow:0 0 0 4px rgba(139,92,246,.12);transition:box-shadow .3s,border-color .3s,background .3s}
-.t-item:hover::before{background:var(--purple);border-color:var(--purple);box-shadow:0 0 0 8px rgba(139,92,246,.2)}
-.t-when{font-size:12px;color:var(--purple);line-height:1.5;padding-top:8px;font-weight:500}
+.timeline{position:relative;margin-top:8px}
+.timeline::before{content:'';position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:linear-gradient(180deg,rgba(139,92,246,.55),rgba(255,255,255,.1))}
+.timeline-fill{position:absolute;left:7px;top:10px;width:2px;height:0;background:var(--grad);border-radius:1px;pointer-events:none;will-change:height}
+.t-item{position:relative;padding:0 0 36px 44px}
+.t-item:last-child{padding-bottom:0}
+.t-item::before{content:'';position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg-1);border:2px solid rgba(167,139,250,.85);box-shadow:0 0 0 4px rgba(139,92,246,.14);z-index:1;transition:background .25s,border-color .25s,box-shadow .25s}
+.t-item.is-current::before{background:var(--purple);border-color:var(--purple);box-shadow:0 0 0 5px rgba(139,92,246,.22),0 0 18px rgba(139,92,246,.35)}
+.t-item:hover::before{border-color:var(--purple);box-shadow:0 0 0 6px rgba(139,92,246,.2)}
+.t-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:14px;padding-top:2px}
+.t-meta time{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:-.01em;color:var(--ink)}
+.t-meta .t-loc{font-size:13px;color:var(--faint)}
+.t-meta .t-loc::before{content:"·";margin-right:14px;color:var(--line-2)}
 .t-card{padding:24px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);transition:border-color .3s,box-shadow .3s,transform .3s var(--ease)}
-.t-item:hover .t-card{border-color:rgba(59,130,246,.4);box-shadow:var(--glow-blue);transform:translateY(-3px)}
+.t-item:hover .t-card{border-color:rgba(59,130,246,.4);box-shadow:var(--glow-blue);transform:translateY(-2px)}
 .t-title{font-family:var(--font);font-size:21px;font-weight:650;margin-bottom:4px}
 .t-co{font-size:14px;color:var(--faint);margin-bottom:12px}
 .t-co strong{color:var(--ink);font-weight:600}
+.t-heading{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--faint);margin:0 0 12px}
+.t-heading + .t-heading,.t-list + .t-heading{margin-top:20px}
 .t-desc{color:var(--muted);font-size:15px;line-height:1.55;margin-bottom:14px}
 .t-list{display:grid;gap:8px;margin:0 0 16px}
+.t-list:last-of-type{margin-bottom:0}
 .t-list li{position:relative;padding-left:16px;font-size:14px;color:var(--muted);line-height:1.5}
 .t-list li::before{content:'';position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--blue)}
 .t-impact{font-size:13px;color:var(--ink);margin-bottom:14px;padding:12px 14px;border-radius:var(--r-md);background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.18)}
 .t-impact strong{color:var(--purple);font-weight:600;margin-right:6px}
-@media(max-width:800px){.t-item{grid-template-columns:1fr;gap:8px}}
+@media(max-width:600px){
+  .t-item{padding-left:36px;padding-bottom:28px}
+  .t-meta{flex-direction:column;gap:4px}
+  .t-meta .t-loc::before{display:none}
+}
 
 /* ==========================================================================
    11. Projects / Work
    ========================================================================== */
 .work{background:var(--bg)}
-.flagship{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;padding:30px;border:1px solid rgba(139,92,246,.3);border-radius:20px;background:radial-gradient(ellipse 60% 50% at 100% 0%,rgba(139,92,246,.14),transparent 55%),var(--card);margin-bottom:20px;box-shadow:var(--glow)}
-@media(max-width:900px){.flagship{grid-template-columns:1fr}}
+.flagship{padding:30px;border:1px solid rgba(139,92,246,.3);border-radius:20px;background:radial-gradient(ellipse 60% 50% at 100% 0%,rgba(139,92,246,.14),transparent 55%),var(--card);margin-bottom:20px;box-shadow:var(--glow)}
+.flag-top{display:grid;grid-template-columns:1.02fr .98fr;gap:32px;align-items:center}
+@media(max-width:900px){.flagship{padding:22px}.flag-top{grid-template-columns:1fr;gap:22px}}
 .flag-label{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
 .flagship h3{font-family:var(--font);font-size:clamp(28px,4vw,36px);font-weight:700;margin-bottom:8px}
-.flag-meta{font-size:13px;color:var(--faint);margin-bottom:18px}
+.flag-meta{font-size:13px;color:var(--faint);margin-bottom:16px}
 .flag-meta strong{color:var(--purple);font-weight:600}
-.flag-grid{display:grid;gap:14px;margin-bottom:18px}
-.flag-grid h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--faint);margin-bottom:4px}
-.flag-grid p{color:var(--muted);font-size:15px;line-height:1.5}
-.flag-contrib{display:grid;gap:8px;margin:0 0 16px}
+.flag-lead{color:var(--muted);font-size:16px;line-height:1.6}
+.flag-sub{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);margin:28px 0 16px}
+.flag-sub::after{content:"";flex:1;height:1px;background:var(--line)}
+.flag-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px 26px}
+.flag-grid>div{padding-left:14px;border-left:1px solid var(--line)}
+.flag-grid h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--faint);margin-bottom:5px}
+.flag-grid p{color:var(--muted);font-size:15px;line-height:1.55}
+.flag-contrib{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px 26px;margin:0}
 .flag-contrib li{position:relative;padding-left:16px;font-size:14px;color:var(--muted);line-height:1.5}
 .flag-contrib li::before{content:'';position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--purple)}
+.flag-arch{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;font-weight:500;padding:18px;border:1px solid var(--line);border-radius:var(--r-md);background:rgba(255,255,255,.03)}
+.flag-arch b{font-weight:500;color:var(--ink);padding:7px 13px;border:1px solid var(--line);border-radius:var(--r-pill);background:rgba(255,255,255,.04)}
+.flag-arch i{font-style:normal;color:var(--purple)}
 .flag-media{border-radius:14px;overflow:hidden;aspect-ratio:16/11;border:1px solid var(--line);align-self:center}
 .flag-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
 .flag-media:hover img{transform:scale(1.05)}
@@ -618,44 +638,50 @@ footer a:hover{color:var(--purple)}
     </div>
     <div class="timeline" id="timeline">
       <div class="timeline-fill" id="timelineFill"></div>
-      <article class="t-item reveal-item">
-        <div class="t-when">Jul 2022 — Aug 2026<br>Perth, AU · Remote</div>
+      <article class="t-item is-current reveal-item">
+        <div class="t-meta">
+          <time datetime="2022-07">Jul 2022 — Aug 2026</time>
+          <span class="t-loc">Perth, AU · Remote</span>
+        </div>
         <div class="t-card">
           <h3 class="t-title">Senior Web Application Developer</h3>
           <p class="t-co">@ <strong>Paperly</strong> · Education SaaS</p>
-          <h4 style="font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--faint); margin-bottom:12px;">Responsibilities</h4>
+          <h4 class="t-heading">Responsibilities</h4>
           <ul class="t-list">
             <li>Developed and maintained school administration modules used daily by thousands of teachers and parents.</li>
             <li>Built excursion, sports, music, parent-teacher interview, and assessment calendar features.</li>
             <li>Implemented dynamic form builders, workflow automation, multi-school integrations, geolocation, and permissions.</li>
             <li>Designed REST APIs and MySQL schemas; integrated third-party services in Agile production releases.</li>
           </ul>
-          <h4 style="font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--faint); margin-bottom:12px; margin-top:20px;">Impact</h4>
-          <ul class="t-list" style="margin-bottom:0;">
-             <li>Replaced manual processes with trackable digital approvals.</li>
-             <li>Removed manual data re-entry across multiple systems.</li>
-             <li>Increased operational visibility for school administrators.</li>
+          <h4 class="t-heading">Impact</h4>
+          <ul class="t-list">
+            <li>Replaced manual processes with trackable digital approvals.</li>
+            <li>Removed manual data re-entry across multiple systems.</li>
+            <li>Increased operational visibility for school administrators.</li>
           </ul>
           <div class="tags" style="margin-top:20px;"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Workflows</span></div>
         </div>
       </article>
       <article class="t-item reveal-item">
-        <div class="t-when">Jul 2017 — Jun 2022<br>Rajkot, India</div>
+        <div class="t-meta">
+          <time datetime="2017-07">Jul 2017 — Jun 2022</time>
+          <span class="t-loc">Rajkot, India</span>
+        </div>
         <div class="t-card">
           <h3 class="t-title">Web Application Developer</h3>
           <p class="t-co">@ <strong>Logistic Infotech Pvt Ltd</strong></p>
-          <h4 style="font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--faint); margin-bottom:12px;">Responsibilities</h4>
+          <h4 class="t-heading">Responsibilities</h4>
           <ul class="t-list">
             <li>Delivered full-stack client projects worldwide across eCommerce, SaaS, education, restaurant, and booking domains.</li>
             <li>Built Laravel backends with Vue.js and React.js frontends, including admin dashboards and RBAC.</li>
             <li>Integrated Stripe, PayPal, BPOINT, and custom payment APIs into production billing flows.</li>
             <li>Shipped realtime features with Socket.io and Firebase; mentored juniors and led Agile client delivery.</li>
           </ul>
-          <h4 style="font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--faint); margin-bottom:12px; margin-top:20px;">Impact</h4>
-          <ul class="t-list" style="margin-bottom:0;">
-             <li>Delivered reliable end-to-end products that enabled clients to launch and scale their businesses.</li>
-             <li>Streamlined payment and booking flows, directly driving client revenue.</li>
-             <li>Elevated team code quality through continuous mentoring and code reviews.</li>
+          <h4 class="t-heading">Impact</h4>
+          <ul class="t-list">
+            <li>Delivered reliable end-to-end products that enabled clients to launch and scale their businesses.</li>
+            <li>Streamlined payment and booking flows, directly driving client revenue.</li>
+            <li>Elevated team code quality through continuous mentoring and code reviews.</li>
           </ul>
           <div class="tags" style="margin-top:20px;"><span>Laravel</span><span>React</span><span>Vue.js</span><span>Payments</span><span>Realtime</span></div>
         </div>
@@ -675,53 +701,51 @@ footer a:hover{color:var(--purple)}
 
     <h3 style="font-family:var(--font); font-size:24px; font-weight:700; margin:0 0 24px; border-bottom:1px solid var(--line); padding-bottom:12px;">Professional / Production Work</h3>
     <article class="flagship reveal">
-      <div>
-        <p class="flag-label">★ Flagship</p>
-        <h3>Paperly</h3>
-        <p class="flag-meta"><strong>Senior Web Application Developer</strong> · EdTech · Australia · 2022–2026</p>
-        <div class="flag-grid">
-          <div><h4>Problem</h4><p>Schools needed reliable digital workflows for excursions, activities, forms, interviews and permissions — used daily at scale.</p></div>
-          <div><h4>Role</h4><p>Senior Web Application Developer leading end-to-end module development over 4 years.</p></div>
-          <div><h4>Business Value</h4><p>Replaced manual processes and paper forms with trackable digital approvals, saving administrative time and increasing visibility.</p></div>
-          <div><h4>Outcome</h4><p>Stable multi-school delivery; platforms used by thousands daily. Paperly states 250+ schools joined for 2026.</p></div>
+      <div class="flag-top">
+        <div>
+          <p class="flag-label">★ Flagship</p>
+          <h3>Paperly</h3>
+          <p class="flag-meta"><strong>Senior Web Application Developer</strong> · EdTech · Australia · 2022–2026</p>
+          <p class="flag-lead">Schools needed reliable digital workflows for excursions, activities, forms, interviews and permissions — used daily at scale.</p>
+          <div class="tags" style="margin-top:18px"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Geolocation</span></div>
+          <a class="work-link" href="case-studies/paperly.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
         </div>
-        
-        <h4 class="flag-label" style="margin-top:20px; margin-bottom:8px">Contribution</h4>
-        <ul class="flag-contrib">
-          <li>Excursion, sports, music, parent-teacher interview, and assessment calendar features.</li>
-          <li>Dynamic form builders and workflow automation for school operations.</li>
-          <li>Geolocation-enabled workflows and multi-school permission management.</li>
-          <li>REST APIs, MySQL schemas, and third-party integrations in Agile releases.</li>
-        </ul>
-
-        <h4 class="flag-label" style="margin-top:20px; margin-bottom:12px">Engineering Challenges</h4>
-        <div class="flag-grid" style="margin-bottom: 24px;">
-          <div><h4>Dynamic Workflows</h4><p>Designing reusable workflow logic that could support different school processes and approval requirements.</p></div>
-          <div><h4>Complex Permissions</h4><p>Managing different capabilities across administrators, teachers, parents and other users.</p></div>
-          <div><h4>Third-party Integrations</h4><p>Keeping application data synchronized with external systems while maintaining data accuracy.</p></div>
-          <div><h4>Geolocation</h4><p>Supporting location-dependent workflows and school activities.</p></div>
-          <div><h4>Production Reliability</h4><p>Maintaining a live multi-school platform while continuously adding functionality.</p></div>
-        </div>
-
-        <h4 class="flag-label" style="margin-top:20px; margin-bottom:12px">Architecture</h4>
-        <div style="font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--muted); background: rgba(255,255,255,0.03); padding: 18px; border-radius: var(--r-md); border: 1px solid var(--line); margin-bottom: 24px; text-align: center; line-height: 1.8;">
-          <div style="color:var(--ink)">Parents / Teachers / Administrators</div>
-          <div style="color:var(--purple); margin: 4px 0;">↓</div>
-          <div style="color:var(--ink)">Vue.js</div>
-          <div style="color:var(--purple); margin: 4px 0;">↓</div>
-          <div style="color:var(--ink)">Laravel / REST APIs</div>
-          <div style="color:var(--purple); margin: 4px 0;">↓</div>
-          <div style="color:var(--ink)">MySQL</div>
-          <div style="color:var(--purple); margin: 4px 0;">↓</div>
-          <div style="color:var(--ink)">Forms / Permissions / Workflows / Geolocation</div>
-          <div style="color:var(--purple); margin: 4px 0;">↓</div>
-          <div style="color:var(--ink)">Third-party integrations</div>
-        </div>
-
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Geolocation</span></div>
-        <a class="work-link" style="margin-top:16px;" href="case-studies/paperly.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
+        <div class="flag-media"><img src="projects/paperly.jpg" alt="Paperly school management UI" width="800" height="500" loading="lazy"></div>
       </div>
-      <div class="flag-media"><img src="projects/paperly.jpg" alt="Paperly school management UI" width="800" height="500" loading="lazy"></div>
+
+      <h4 class="flag-sub">Role &amp; outcome</h4>
+      <div class="flag-grid">
+        <div><h4>Role</h4><p>Senior Web Application Developer leading end-to-end module development over 4 years.</p></div>
+        <div><h4>Business Value</h4><p>Replaced manual processes and paper forms with trackable digital approvals, saving administrative time and increasing visibility.</p></div>
+        <div><h4>Outcome</h4><p>Stable multi-school delivery; platforms used by thousands daily. Paperly states 250+ schools joined for 2026.</p></div>
+      </div>
+
+      <h4 class="flag-sub">Contribution</h4>
+      <ul class="flag-contrib">
+        <li>Excursion, sports, music, parent-teacher interview, and assessment calendar features.</li>
+        <li>Dynamic form builders and workflow automation for school operations.</li>
+        <li>Geolocation-enabled workflows and multi-school permission management.</li>
+        <li>REST APIs, MySQL schemas, and third-party integrations in Agile releases.</li>
+      </ul>
+
+      <h4 class="flag-sub">Engineering Challenges</h4>
+      <div class="flag-grid">
+        <div><h4>Dynamic Workflows</h4><p>Designing reusable workflow logic that could support different school processes and approval requirements.</p></div>
+        <div><h4>Complex Permissions</h4><p>Managing different capabilities across administrators, teachers, parents and other users.</p></div>
+        <div><h4>Third-party Integrations</h4><p>Keeping application data synchronized with external systems while maintaining data accuracy.</p></div>
+        <div><h4>Geolocation</h4><p>Supporting location-dependent workflows and school activities.</p></div>
+        <div><h4>Production Reliability</h4><p>Maintaining a live multi-school platform while continuously adding functionality.</p></div>
+      </div>
+
+      <h4 class="flag-sub">Architecture</h4>
+      <div class="flag-arch">
+        <b>Parents / Teachers / Administrators</b><i>→</i>
+        <b>Vue.js</b><i>→</i>
+        <b>Laravel / REST APIs</b><i>→</i>
+        <b>MySQL</b><i>→</i>
+        <b>Forms / Permissions / Workflows / Geolocation</b><i>→</i>
+        <b>Third-party integrations</b>
+      </div>
     </article>
 
     <div class="work-list" style="margin-bottom: 60px;">
@@ -748,17 +772,17 @@ footer a:hover{color:var(--purple)}
       <article class="work-card reveal-item glow-card">
         <div class="media"><img src="projects/exception.jpg" alt="Exception Tracker" width="640" height="400" loading="lazy"></div>
         <h3>Exception Tracker</h3>
-        <p class="meta">Personal · Error monitoring · In progress</p>
-        <p>Capture, group and prioritize production exceptions with searchable history and severity levels.</p>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>REST API</span></div>
+        <p class="meta">Personal · Observability SaaS · In progress</p>
+        <p>Ingest, group and triage production exceptions with SDKs, uptime monitors, session replay and Stripe billing.</p>
+        <div class="tags"><span>Laravel</span><span>Horizon</span><span>Stripe</span></div>
         <a class="work-link" href="case-studies/exception-tracker.html">Case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
       <article class="work-card reveal-item glow-card">
         <div class="media"><img src="projects/resident.jpg" alt="Resident App" width="640" height="400" loading="lazy"></div>
         <h3>Resident App</h3>
-        <p class="meta">Personal · Housing community · In progress</p>
-        <p>Notices, maintenance requests and admin workflows — structured ops instead of chat chaos.</p>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div>
+        <p class="meta">Personal · Housing society SaaS · In progress</p>
+        <p>Notices, maintenance, visitors and billing across admin web, resident web and Expo mobile — multi-tenant society ops.</p>
+        <div class="tags"><span>Laravel</span><span>React</span><span>Expo</span></div>
         <a class="work-link" href="case-studies/resident-app.html">Case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
     </div>
@@ -1237,15 +1261,35 @@ footer a:hover{color:var(--purple)}
   const timeline = $('#timeline');
   const timelineFill = $('#timelineFill');
   if(timeline && timelineFill && !reduce){
+    const items = $$('.t-item', timeline);
     const tlObs = () => {
       const rect = timeline.getBoundingClientRect();
-      const tlTop = rect.top;
-      const tlHeight = rect.height;
       const winH = window.innerHeight;
-      const scrolled = Math.max(0, Math.min(1, (winH * 0.5 - tlTop) / tlHeight));
-      timelineFill.style.height = (scrolled * 100) + '%';
+      const focusY = winH * 0.45;
+      let fillPx = 0;
+      items.forEach((item, i) => {
+        const ir = item.getBoundingClientRect();
+        const nodeY = ir.top + 14; /* align to node center */
+        if(nodeY <= focusY){
+          const next = items[i + 1];
+          if(next){
+            const nr = next.getBoundingClientRect();
+            const nextNodeY = nr.top + 14;
+            const span = nextNodeY - nodeY;
+            const progress = Math.max(0, Math.min(1, (focusY - nodeY) / Math.max(span, 1)));
+            fillPx = (nodeY - rect.top - 10) + span * progress;
+          } else {
+            fillPx = rect.height - 20;
+          }
+        }
+      });
+      if(items.length && items[0].getBoundingClientRect().top + 14 > focusY){
+        fillPx = 0;
+      }
+      timelineFill.style.height = Math.max(0, Math.min(rect.height - 20, fillPx)) + 'px';
     };
     window.addEventListener('scroll', tlObs, {passive:true});
+    window.addEventListener('resize', tlObs, {passive:true});
     tlObs();
   }
 
