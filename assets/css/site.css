@@ -106,8 +106,9 @@ main,footer,.nav{position:relative;z-index:1}
   .nav-links a{padding:.45rem .5rem;font-size:.8125rem}
 }
 @media(max-width:900px){
-  .nav-links{position:fixed;inset:0;top:var(--nav-h);background:rgba(8,9,12,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);flex-direction:column;align-items:stretch;padding:2rem var(--gutter);gap:.25rem;transform:translateX(100%);transition:transform .35s var(--ease);z-index:99}
+  .nav-links{position:fixed;inset:var(--nav-h) 0 0;background:var(--bg);flex-direction:column;align-items:stretch;padding:2rem var(--gutter);padding-bottom:max(2rem,env(safe-area-inset-bottom));gap:.25rem;overflow-y:auto;overscroll-behavior:contain;transform:translateX(100%);transition:transform .35s var(--ease);z-index:99}
   body.nav-open .nav-links{transform:translateX(0)}
+  body.nav-open .nav{background:var(--bg);border-bottom-color:var(--line);backdrop-filter:none;-webkit-backdrop-filter:none}
   .nav-links a{padding:.8rem 1rem;font-size:1.05rem;border-radius:var(--r-md)}
   .nav-hire{margin-top:1rem;text-align:center;justify-content:center}
   .menu-toggle{display:flex}
@@ -312,9 +313,9 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .skill-chips span{font-size:13px;letter-spacing:-.12px;color:var(--muted);border:1px solid var(--line);padding:7px 13px;border-radius:var(--r-pill);background:rgba(255,255,255,.02);transition:border-color .2s,background .2s,transform .2s}
 .skill-chips span:hover{transform:translateY(-2px)}
 .skill-chips span.primary{color:var(--ink);border-color:rgba(139,92,246,.4);background:var(--accent-soft)}
-.skill-note{margin:-24px 0 20px;font-size:13px;color:var(--faint)}
+.skill-note{margin:0 0 24px;font-size:13px;color:var(--faint)}
 .skill-note strong{color:var(--purple);font-weight:600}
-.skill-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 28px}
+.skill-tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 28px}
 @media(max-width:800px){.skill-tiers{grid-template-columns:1fr}}
 .skill-tier{padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card)}
 .skill-tier h3{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#c4b5fd;margin:0 0 8px}
@@ -482,7 +483,7 @@ footer a:hover{color:var(--purple)}
 .final-cta .hero-actions{justify-content:center}
 
 .cs-shell{padding-top:var(--nav-h)}
-.cs-shell .wrap{width:min(100% - 40px,920px);margin:0 auto;padding:32px 0 0}
+.cs-shell .wrap{width:min(var(--max),calc(100% - (var(--gutter) * 2)));margin:0 auto;padding:32px 0 0}
 .cs-shell .cs-nav{position:sticky;top:var(--nav-h);z-index:50;background:rgba(8,9,12,.9);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);margin:0 -20px 32px;padding:14px 20px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
 .cs-shell .cs-nav a{font-size:12px;color:var(--muted)}
 .cs-shell .cs-nav a:hover,.cs-shell .cs-nav a.active{color:var(--ink)}
@@ -497,9 +498,11 @@ footer a:hover{color:var(--purple)}
 .cs-shell .gallery figure{margin:0}
 .cs-shell .gallery img{width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;border-radius:14px;border:1px solid var(--line);display:block;background:var(--card)}
 .cs-shell .gallery figcaption{font-size:12px;color:var(--faint);margin-top:8px}
-.cs-shell .section{margin:36px 0;padding-left:16px;border-left:2px solid transparent;border-image:var(--grad) 1}
-.cs-shell .section h2{font-size:22px;font-weight:650;margin:0 0 10px;display:flex;align-items:center;gap:10px}
-.cs-shell .section h2 .n{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--purple)}
+.cs-shell .section{margin:44px 0 0;padding:44px 0 0;border-top:1px solid var(--line)}
+.cs-shell .section:first-of-type{margin-top:36px;padding-top:0;border-top:0}
+.cs-shell .section h2{position:relative;font-size:22px;font-weight:650;margin:0 0 18px;padding:2px 0 2px 18px;display:flex;align-items:center;gap:10px}
+.cs-shell .section h2::before{content:"";position:absolute;left:0;top:.2em;bottom:.2em;width:3px;border-radius:2px;background:var(--grad)}
+.cs-shell .section h2 .n{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--purple);flex:none;padding:4px 7px;border-radius:6px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.22)}
 .cs-shell .section h3{font-size:16px;font-weight:650;margin:18px 0 8px}
 .cs-shell .section p{color:var(--muted);margin-bottom:14px}
 .cs-shell .section p strong{color:var(--ink);font-weight:600}
@@ -561,4 +564,7 @@ footer a:hover{color:var(--purple)}
   .cs-shell .cta{flex-direction:column}
   .cs-shell .cta .btn{width:100%}
   .cs-shell .cs-nav{margin:0 -12px 28px;padding:12px}
+  .cs-shell .section{margin-top:36px;padding-top:36px}
+  .cs-shell .section:first-of-type{margin-top:28px}
+  .cs-shell .section h2{font-size:20px;padding-left:16px;gap:8px}
 }
