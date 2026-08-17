@@ -405,13 +405,6 @@ section[id]{scroll-margin-top:var(--nav-h)}
    ========================================================================== */
 .expertise{background:var(--bg-1)}
 
-/* Skill tiers (experience bands — no % bars) */
-.skill-tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:0 0 28px}
-@media(max-width:700px){.skill-tiers{grid-template-columns:1fr}}
-.skill-tiers .tier{padding:22px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);transition:border-color .3s,box-shadow .3s}
-.skill-tiers .tier:hover{border-color:rgba(139,92,246,.4);box-shadow:var(--glow)}
-.skill-tiers .tier h4{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
-
 /* Skill grid */
 .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 @media(max-width:700px){.skill-grid{grid-template-columns:1fr}}
@@ -423,7 +416,7 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .skill-chips span{font-size:13px;letter-spacing:-.12px;color:var(--muted);border:1px solid var(--line);padding:7px 13px;border-radius:var(--r-pill);background:rgba(255,255,255,.02);transition:border-color .2s,background .2s,transform .2s}
 .skill-chips span:hover{transform:translateY(-2px)}
 .skill-chips span.primary{color:var(--ink);border-color:rgba(139,92,246,.4);background:var(--accent-soft)}
-.skill-note{margin-top:20px;font-size:13px;color:var(--faint)}
+.skill-note{margin:-24px 0 28px;font-size:13px;color:var(--faint)}
 .skill-note strong{color:var(--purple);font-weight:600}
 /* AI tools chip style */
 .skill-chips span.ai{color:#34d399;border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.08)}
@@ -505,7 +498,6 @@ footer a:hover{color:var(--purple)}
   .hero-actions .btn,.contact-actions .btn{flex:1 1 100%;width:100%}
   .section-lead{font-size:16px}
   .to-top{right:14px;bottom:max(14px,env(safe-area-inset-bottom))}
-  .skill-tiers .tier{padding:18px}
 }
 @media(max-width:480px){
   .hero-chips{gap:6px}
@@ -849,21 +841,7 @@ footer a:hover{color:var(--purple)}
       <p class="kicker">04 — Expertise</p>
       <h2 class="section-title">Technical <em>toolkit.</em></h2>
       <p class="section-lead">Primary stack visualized by experience tier, full toolkit grouped by layer.</p>
-    </div>
-
-    <div class="skill-tiers reveal" aria-label="Skill experience tiers">
-      <div class="tier">
-        <h4>Core (daily, 5+ yrs)</h4>
-        <div class="tags">
-          <span>Laravel</span><span>PHP 8+</span><span>MySQL</span><span>REST APIs</span>
-        </div>
-      </div>
-      <div class="tier">
-        <h4>Frontend (daily, 3–5 yrs)</h4>
-        <div class="tags">
-          <span>Vue.js</span><span>React</span>
-        </div>
-      </div>
+      <p class="skill-note"><strong>Highlighted</strong> = daily use, 5+ yrs (core) or 3–5 yrs (frontend)</p>
     </div>
 
     <div class="skill-grid">
@@ -922,7 +900,6 @@ footer a:hover{color:var(--purple)}
         </div>
       </article>
     </div>
-    <p class="skill-note reveal"><strong>Tiers</strong> = years of daily use · remaining tools below are grouped by layer.</p>
   </div>
 </section>
 
