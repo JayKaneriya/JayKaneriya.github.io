@@ -70,6 +70,16 @@
   const projectType = $('#project-type');
   const freelanceFields = $('#freelanceFields');
   const messageField = $('#message');
+  const formStatus = $('#formStatus');
+  const contactTypeMap = {
+    fulltime: 'Full-time remote role',
+    retainer: 'Freelance / contract work',
+    project: 'New Laravel application',
+    existing: 'Existing Laravel application',
+    api: 'API & payment integration',
+    mobile: 'React Native application',
+    freelance: 'Freelance / contract work'
+  };
   const syncContactForm = () => {
     if(!projectType) return;
     const isFullTime = projectType.value === 'Full-time remote role';
@@ -85,28 +95,24 @@
         : 'Application, issue or idea…';
     }
   };
-  $$('[data-contact-type]').forEach(cta => cta.addEventListener('click', () => {
-    if(projectType){
-      projectType.value = cta.dataset.contactType;
-      syncContactForm();
-    }
-  }));
-  const contactType = new URLSearchParams(window.location.search).get('type');
-  const contactTypeMap = {
-    fulltime: 'Full-time remote role',
-    retainer: 'Freelance / contract work',
-    project: 'New Laravel application',
-    existing: 'Existing Laravel application',
-    api: 'API & payment integration',
-    mobile: 'React Native application',
-    freelance: 'Freelance / contract work'
+  const setProjectType = (value) => {
+    if(!projectType || !value) return;
+    const option = [...projectType.options].find(opt => opt.value === value);
+    if(option) projectType.value = value;
+    syncContactForm();
   };
-  if(projectType && contactTypeMap[contactType]){
-    projectType.value = contactTypeMap[contactType];
-  }
+  $$('[data-contact-type]').forEach(cta => cta.addEventListener('click', () => {
+    setProjectType(cta.dataset.contactType);
+  }));
+  const params = new URLSearchParams(window.location.search);
+  const contactType = params.get('type');
+  if(contactTypeMap[contactType]) setProjectType(contactTypeMap[contactType]);
   if(projectType){
     projectType.addEventListener('change', syncContactForm);
     syncContactForm();
+  }
+  if(formStatus && params.get('sent') === '1'){
+    formStatus.hidden = false;
   }
 
   /* ──────────────────────────── Reveal animations (IO fallback) ──────────────────────────── */
@@ -157,44 +163,6 @@
       el.style.opacity = '1';
       el.style.transform = 'none';
     });
-  }
-
-  /* ──────────────────────────── Typing effect ──────────────────────────── */
-  if(!reduce){
-    const phrases = [
-      'production-grade Laravel systems',
-      'SaaS and business platforms',
-      'REST APIs and payment integrations',
-      'React Native products'
-    ];
-    const typedEl = $('#typedText');
-    if(typedEl){
-      let pIdx = 0, cIdx = 0, deleting = false;
-      const type = () => {
-        const current = phrases[pIdx];
-        if(!deleting){
-          typedEl.textContent = current.substring(0, cIdx + 1);
-          cIdx++;
-          if(cIdx === current.length){
-            deleting = true;
-            setTimeout(type, 2200);
-            return;
-          }
-          setTimeout(type, 60);
-        } else {
-          typedEl.textContent = current.substring(0, cIdx - 1);
-          cIdx--;
-          if(cIdx === 0){
-            deleting = false;
-            pIdx = (pIdx + 1) % phrases.length;
-            setTimeout(type, 400);
-            return;
-          }
-          setTimeout(type, 30);
-        }
-      };
-      setTimeout(type, 1800);
-    }
   }
 
   /* ──────────────────────────── Counter animation ──────────────────────────── */
@@ -266,110 +234,6 @@
     window.addEventListener('scroll', tlObs, {passive:true});
     window.addEventListener('resize', tlObs, {passive:true});
     tlObs();
-  }
-
-  /* ──────────────────────────── Glow card (mouse follow) ──────────────────────────── */
-  $$('.glow-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
-      card.style.setProperty('--my', (e.clientY - rect.top) + 'px');
-    });
-  });
-
-  /* ──────────────────────────── Magnetic buttons ──────────────────────────── */
-  if(!reduce){
-    $$('.magnetic').forEach(btn => {
-      btn.addEventListener('mousemove', e => {
-        const rect = btn.getBoundingClientRect();
-        const dx = e.clientX - (rect.left + rect.width/2);
-        const dy = e.clientY - (rect.top + rect.height/2);
-        btn.style.transform = `translate(${dx*0.15}px, ${dy*0.15}px)`;
-      });
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = '';
-      });
-    });
-  }
-
-  /* ──────────────────────────── Particle constellation ──────────────────────────── */
-  if(!reduce && window.innerWidth >= 768 && !window.matchMedia('(pointer: coarse)').matches){
-    const canvas = $('#particles');
-    if(canvas){
-      const ctx = canvas.getContext('2d', {alpha:true});
-      let w, h, particles = [], running = false, raf = 0;
-      const count = 28;
-      const maxDist = 110;
-
-      const resize = () => {
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-      };
-      resize();
-      window.addEventListener('resize', resize, {passive:true});
-
-      for(let i = 0; i < count; i++){
-        particles.push({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.35,
-          vy: (Math.random() - 0.5) * 0.35,
-          r: Math.random() * 1.6 + 0.4
-        });
-      }
-
-      const draw = () => {
-        if(!running) return;
-        ctx.clearRect(0, 0, w, h);
-        for(let i = 0; i < particles.length; i++){
-          const p = particles[i];
-          p.x += p.vx;
-          p.y += p.vy;
-          if(p.x < 0) p.x = w;
-          if(p.x > w) p.x = 0;
-          if(p.y < 0) p.y = h;
-          if(p.y > h) p.y = 0;
-
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(139,92,246,.35)';
-          ctx.fill();
-
-          for(let j = i + 1; j < particles.length; j++){
-            const q = particles[j];
-            const dx = p.x - q.x;
-            const dy = p.y - q.y;
-            const dist = Math.sqrt(dx*dx + dy*dy);
-            if(dist < maxDist){
-              ctx.beginPath();
-              ctx.moveTo(p.x, p.y);
-              ctx.lineTo(q.x, q.y);
-              ctx.strokeStyle = `rgba(59,130,246,${0.12 * (1 - dist/maxDist)})`;
-              ctx.lineWidth = 0.6;
-              ctx.stroke();
-            }
-          }
-        }
-        raf = requestAnimationFrame(draw);
-      };
-
-      const start = () => {
-        if(running) return;
-        running = true;
-        raf = requestAnimationFrame(draw);
-      };
-      const stop = () => {
-        running = false;
-        cancelAnimationFrame(raf);
-      };
-
-      document.addEventListener('visibilitychange', () => {
-        if(document.hidden) stop();
-        else start();
-      });
-      const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 400));
-      idle(start);
-    }
   }
 
 })();

@@ -71,7 +71,7 @@ const siteFooter = `<footer class="site-footer">
     </div>
     <div class="footer-bottom">
       <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="../contact.html">Hire me for Laravel development</a></div>
+      <div class="footer-social"><a href="../contact.html">Discuss a role or project</a></div>
     </div>
   </div>
 </footer>

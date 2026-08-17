@@ -1,6 +1,6 @@
 # Jay Kaneriya — Portfolio
 
-Senior Full-Stack Laravel/PHP Developer. Laravel applications, APIs, SaaS platforms and React Native products — from existing-system improvements to production builds. Available for remote full-time roles and freelance Laravel projects.
+Senior Full-Stack Laravel/PHP Developer. Laravel applications, APIs, SaaS platforms and payment-backed business systems — from existing-system improvements to production builds. Available for remote full-time roles and freelance Laravel projects.
 
 **Live:** https://jaykaneriya.github.io
 

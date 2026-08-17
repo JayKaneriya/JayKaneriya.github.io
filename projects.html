@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="assets/css/site.css">
-<noscript><style>.reveal,.reveal-item,.hero-anim{opacity:1!important;transform:none!important}.scroll-progress,.particles-canvas{display:none!important}</style></noscript>
+<noscript><style>.reveal,.reveal-item,.hero-anim{opacity:1!important;transform:none!important}.scroll-progress{display:none!important}</style></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jaykaneriya.github.io/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://jaykaneriya.github.io/projects.html"}]}
 </script>
@@ -61,7 +61,6 @@
   <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.5 13.9 9l5.6 2-5.6 2-1.9 5.5L10.1 13l-5.6-2 5.6-2 1.9-5.5Z"/><path d="M18.5 3.5v3M20 5h-3"/></symbol>
 </svg>
 <div class="backdrop" aria-hidden="true"></div>
-<canvas class="particles-canvas" id="particles" aria-hidden="true"></canvas>
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
@@ -114,23 +113,24 @@
           <div class="tags" style="margin-top:18px"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span></div>
           <a class="work-link" href="case-studies/paperly.html">View case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
         </div>
-        <div class="flag-media"><img src="projects/paperly.jpg" alt="Paperly school operations dashboard" width="800" height="500" loading="lazy"></div>
+        <div class="flag-media"><img src="projects/paperly.jpg" alt="Illustrative Paperly school operations dashboard" width="800" height="500" loading="lazy"></div>
       </div>
     </article>
 
     <div class="work-list" style="margin-bottom:60px">
-      <article class="work-card reveal-item glow-card">
+      <article class="work-card reveal-item">
         <span class="proj-badge prod">Professional Project</span>
-        <div class="media"><img src="projects/megathy.jpg" alt="Megathy multi-vendor grocery and restaurant delivery" width="640" height="400" loading="lazy"></div>
+        <div class="media"><img src="projects/megathy.jpg" alt="Illustrative Megathy multi-vendor grocery and restaurant delivery" width="640" height="400" loading="lazy"></div>
         <h3>02 · Megathy</h3>
         <p class="meta">Full-stack · Multi-vendor grocery &amp; food · Saudi Arabia</p>
         <p>Laravel APIs and Vue admin powering grocery and restaurant orders, ops roles, Payfort payments and companion mobile apps.</p>
         <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Payfort</span><span>Mobile APIs</span></div>
+        <p class="ext-links"><a href="https://apps.apple.com/gb/app/megathy/id1227682497" target="_blank" rel="noopener">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.megathykom" target="_blank" rel="noopener">Play Store</a></p>
         <a class="work-link" href="case-studies/megathy.html">View case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
-      <article class="work-card reveal-item glow-card">
+      <article class="work-card reveal-item">
         <span class="proj-badge prod">Professional Project</span>
-        <div class="media"><img src="projects/zimdle.jpg" alt="Zimdle private customer feedback analytics" width="640" height="400" loading="lazy"></div>
+        <div class="media"><img src="projects/zimdle.jpg" alt="Illustrative Zimdle private customer feedback analytics" width="640" height="400" loading="lazy"></div>
         <h3>03 · Zimdle</h3>
         <p class="meta">Full-stack · Customer feedback SaaS</p>
         <p>Legacy Laravel 5.3 SaaS with Stripe subscriptions, scheduled jobs, PDF reports and Twilio alerts.</p>
@@ -141,27 +141,27 @@
 
     <div class="reveal">
       <p class="kicker">Independent builds</p>
-      <h2 class="section-title">04–05 · Personal products in <em>progress.</em></h2>
-      <p class="section-lead">Independent projects demonstrating architecture depth — not equivalent to multi-year client production systems.</p>
+      <h2 class="section-title">Architecture experiments — <em>not client production.</em></h2>
+      <p class="section-lead">These personal products are in progress. They show how I model a problem; they are not equivalent to the multi-year production systems above.</p>
     </div>
     <div class="work-list">
-      <article class="work-card reveal-item glow-card">
-        <span class="proj-badge personal">Independent Project — In Progress</span>
-        <div class="media"><img src="projects/exception.jpg" alt="Exception Tracker dashboard" width="640" height="400" loading="lazy"></div>
-        <h3>04 · Exception Tracker</h3>
-        <p class="meta">Observability SaaS</p>
-        <p>Ingest, group and triage production exceptions with SDKs, uptime monitors, session replay and Stripe billing.</p>
-        <div class="tags"><span>Laravel</span><span>Horizon</span><span>Stripe</span></div>
-        <a class="work-link" href="case-studies/exception-tracker.html">View case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
-      </article>
-      <article class="work-card reveal-item glow-card">
-        <span class="proj-badge personal">Independent Project — In Progress</span>
-        <div class="media"><img src="projects/resident.jpg" alt="Resident App society admin" width="640" height="400" loading="lazy"></div>
-        <h3>05 · Resident App</h3>
-        <p class="meta">Housing society SaaS · React Native</p>
-        <p>Notices, maintenance, visitors and billing across admin web, resident web and Expo / React Native mobile.</p>
+      <article class="work-card reveal-item">
+        <span class="proj-badge personal">Independent · In progress · Secondary mobile</span>
+        <div class="media"><img src="projects/resident.jpg" alt="Illustrative Resident App society admin" width="640" height="400" loading="lazy"></div>
+        <h3>Resident App</h3>
+        <p class="meta">Housing society SaaS · Laravel + Expo</p>
+        <p>Notices, maintenance, visitors and billing across admin web, resident web and Expo / React Native mobile. This is the current React Native evidence — not a live client product.</p>
         <div class="tags"><span>Laravel</span><span>React</span><span>React Native</span><span>Expo</span></div>
         <a class="work-link" href="case-studies/resident-app.html">View case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
+      </article>
+      <article class="work-card reveal-item muted-card">
+        <span class="proj-badge personal">Independent · In progress</span>
+        <div class="media"><img src="projects/exception.jpg" alt="Illustrative Exception Tracker dashboard" width="640" height="400" loading="lazy"></div>
+        <h3>Exception Tracker</h3>
+        <p class="meta">Observability SaaS · architecture sample</p>
+        <p>Personal multi-tenant error tracking with Sanctum, Horizon, Stripe and SDKs. Useful as a systems sketch — not a production reference for hiring decisions.</p>
+        <div class="tags"><span>Laravel</span><span>Horizon</span><span>Stripe</span></div>
+        <a class="work-link" href="case-studies/exception-tracker.html">View case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
     </div>
   </div>
@@ -170,10 +170,10 @@
 <section class="final-cta">
   <div class="wrap reveal">
     <h2>Need this kind of production engineering?</h2>
-    <p>Available for remote full-time roles and freelance Laravel, API, payment and React Native work.</p>
+    <p>Available for remote full-time Laravel roles and freelance project work.</p>
     <div class="hero-actions">
-      <a class="btn btn-fill" href="contact.html">Hire Me for Laravel Development</a>
-      <a class="btn btn-ghost" href="services.html">View services</a>
+      <a class="btn btn-fill" href="contact.html?type=fulltime">Discuss a full-time role</a>
+      <a class="btn btn-ghost" href="contact.html?type=project">Start a Laravel project</a>
     </div>
   </div>
 </section>
@@ -212,7 +212,7 @@
     </div>
     <div class="footer-bottom">
       <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="contact.html">Hire me for Laravel development</a></div>
+      <div class="footer-social"><a href="contact.html">Discuss a role or project</a></div>
     </div>
   </div>
 </footer>

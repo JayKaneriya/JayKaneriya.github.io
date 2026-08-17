@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Jay Kaneriya | Laravel Developer</title>
-<meta name="description" content="Contact Jay Kaneriya about existing Laravel applications, new SaaS builds, API and payment integrations, React Native work, or remote full-time roles.">
+<meta name="description" content="Contact Jay Kaneriya about existing Laravel applications, new SaaS builds, API and payment integrations, or remote full-time roles.">
 <meta name="author" content="Jay Kaneriya">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#08090c">
@@ -13,12 +13,12 @@
 <meta property="og:url" content="https://jaykaneriya.github.io/contact.html">
 <meta property="og:site_name" content="Jay Kaneriya">
 <meta property="og:title" content="Contact Jay Kaneriya | Laravel Developer">
-<meta property="og:description" content="Contact Jay Kaneriya about existing Laravel applications, new SaaS builds, API and payment integrations, React Native work, or remote full-time roles.">
+<meta property="og:description" content="Contact Jay Kaneriya about existing Laravel applications, new SaaS builds, API and payment integrations, or remote full-time roles.">
 <meta property="og:image" content="https://jaykaneriya.github.io/og-image.jpg">
 <meta property="og:image:alt" content="Jay Kaneriya — Senior Full-Stack Developer Portfolio">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact Jay Kaneriya | Laravel Developer">
-<meta name="twitter:description" content="Contact Jay Kaneriya about existing Laravel applications, new SaaS builds, API and payment integrations, React Native work, or remote full-time roles.">
+<meta name="twitter:description" content="Contact Jay Kaneriya about existing Laravel applications, new SaaS builds, API and payment integrations, or remote full-time roles.">
 <meta name="twitter:image" content="https://jaykaneriya.github.io/og-image.jpg">
 <link rel="manifest" href="site.webmanifest">
 <link rel="icon" type="image/svg+xml" href="logo.svg">
@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="assets/css/site.css">
-<noscript><style>.reveal,.reveal-item,.hero-anim{opacity:1!important;transform:none!important}.scroll-progress,.particles-canvas{display:none!important}</style></noscript>
+<noscript><style>.reveal,.reveal-item,.hero-anim{opacity:1!important;transform:none!important}.scroll-progress{display:none!important}</style></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jaykaneriya.github.io/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://jaykaneriya.github.io/contact.html"}]}
 </script>
@@ -61,7 +61,6 @@
   <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.5 13.9 9l5.6 2-5.6 2-1.9 5.5L10.1 13l-5.6-2 5.6-2 1.9-5.5Z"/><path d="M18.5 3.5v3M20 5h-3"/></symbol>
 </svg>
 <div class="backdrop" aria-hidden="true"></div>
-<canvas class="particles-canvas" id="particles" aria-hidden="true"></canvas>
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
@@ -91,21 +90,22 @@
     <div class="reveal">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></nav>
       <p class="kicker">Contact</p>
+      <p class="form-status" id="formStatus" hidden>Thanks — your message was submitted. I will reply by email.</p>
       <div class="contact-layout">
         <div>
-          <h1>What can you contact me <em>about?</em></h1>
-          <p class="scan-facts">Senior Laravel/PHP developer · 9+ years · Rajkot, India (IST) · Open to Work</p>
-          <p class="contact-lead">Tell me about the application, issue or idea. I work with startups, businesses, agencies and existing software teams — freelance, contract or remote full-time.</p>
+          <h1>A Laravel project or a <em>full-time role.</em></h1>
+          <p class="scan-facts">Senior Laravel/PHP developer · 9+ years · Rajkot, India (IST)</p>
+          <p class="contact-lead">Tell me about the application, issue or idea. I work with startups, businesses, agencies and product teams — freelance, contract or remote full-time.</p>
           <div class="need-list" aria-label="What you can contact Jay about">
-            <a href="#contactForm">Existing Laravel application</a>
-            <a href="#contactForm">New Laravel application / SaaS</a>
-            <a href="#contactForm">API integration</a>
-            <a href="#contactForm">Payment gateway</a>
-            <a href="#contactForm">React Native application</a>
-            <a href="#contactForm">Full-stack or freelance / contract work</a>
+            <a href="#contactForm" data-contact-type="Existing Laravel application">Existing Laravel application</a>
+            <a href="#contactForm" data-contact-type="New Laravel application">New Laravel application / SaaS</a>
+            <a href="#contactForm" data-contact-type="API & payment integration">API &amp; payment integration</a>
+            <a href="#contactForm" data-contact-type="React Native application">Laravel-backed mobile</a>
+            <a href="#contactForm" data-contact-type="Freelance / contract work">Freelance / contract work</a>
+            <a href="#contactForm" data-contact-type="Full-time remote role">Full-time remote role</a>
           </div>
           <div class="contact-actions">
-            <a class="btn btn-fill magnetic" href="mailto:jay.kaneriya8@gmail.com?subject=Laravel%20project%20for%20Jay%20Kaneriya"><svg class="icon"><use href="#i-mail"></use></svg> Email me</a>
+            <a class="btn btn-fill" href="mailto:jay.kaneriya8@gmail.com?subject=Laravel%20project%20for%20Jay%20Kaneriya"><svg class="icon"><use href="#i-mail"></use></svg> Email me</a>
             <a class="btn btn-ghost" href="tel:+918530078687"><svg class="icon"><use href="#i-phone"></use></svg> +91 85300 78687</a>
             <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download><svg class="icon"><use href="#i-download"></use></svg> Download CV</a>
             <a class="btn btn-ghost" href="cv.html">View online CV</a>
@@ -119,7 +119,6 @@
           </div>
           <div class="socials">
             <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener"><svg class="icon icon-fill"><use href="#i-linkedin"></use></svg> LinkedIn</a>
-            <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener"><svg class="icon icon-fill"><use href="#i-github"></use></svg> GitHub</a>
             <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
             <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
             <a href="mailto:jay.kaneriya8@gmail.com"><svg class="icon"><use href="#i-mail"></use></svg> jay.kaneriya8@gmail.com</a>
@@ -146,8 +145,9 @@
         </div>
         <form class="hire-form" action="https://formsubmit.co/jay.kaneriya8@gmail.com" method="POST" id="contactForm">
           <input type="hidden" name="_subject" value="New inquiry — jaykaneriya.github.io">
-          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_captcha" value="true">
           <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://jaykaneriya.github.io/contact.html?sent=1">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-row">
             <div>
@@ -164,7 +164,7 @@
             <option value="Existing Laravel application">Existing Laravel application</option>
             <option value="New Laravel application">New Laravel application / SaaS</option>
             <option value="API & payment integration">API &amp; payment integration</option>
-            <option value="React Native application">React Native application</option>
+            <option value="React Native application">Laravel-backed mobile</option>
             <option value="Full-stack project">Full-stack project</option>
             <option value="Freelance / contract work">Freelance / contract work</option>
             <option value="Full-time remote role">Full-time remote role</option>
@@ -173,7 +173,7 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" required placeholder="Application, issue or idea…"></textarea>
           <button class="btn btn-fill" type="submit"><svg class="icon"><use href="#i-arrow"></use></svg> Send inquiry</button>
-          <p class="hint">Sent securely to my inbox.</p>
+          <p class="hint">The form is delivered to my inbox via FormSubmit. A CAPTCHA step may appear before send.</p>
         </form>
       </div>
     </div>
@@ -214,7 +214,7 @@
     </div>
     <div class="footer-bottom">
       <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="contact.html">Hire me for Laravel development</a></div>
+      <div class="footer-social"><a href="contact.html">Discuss a role or project</a></div>
     </div>
   </div>
 </footer>
