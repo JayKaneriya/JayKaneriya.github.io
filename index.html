@@ -80,7 +80,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <noscript><style>.reveal,.reveal-item,.hero-anim{opacity:1!important;transform:none!important}.scroll-progress,.particles-canvas{display:none!important}.typing-text::after{display:none}</style></noscript>
 <style>
@@ -423,7 +423,7 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .skill-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 28px}
 @media(max-width:800px){.skill-tiers{grid-template-columns:1fr}}
 .skill-tier{padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card)}
-.skill-tier h4{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--purple);margin:0 0 8px}
+.skill-tier h3{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#c4b5fd;margin:0 0 8px}
 .skill-tier p{color:var(--muted);font-size:14px;line-height:1.5}
 /* AI tools chip style */
 .skill-chips span.ai{color:#34d399;border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.08)}
@@ -856,9 +856,9 @@ footer a:hover{color:var(--purple)}
     </div>
 
     <div class="skill-tiers">
-      <div class="skill-tier"><h4>Core — daily use</h4><p>Laravel · PHP 8+ · MySQL · REST APIs</p></div>
-      <div class="skill-tier"><h4>Proficient</h4><p>Vue.js · React · TypeScript</p></div>
-      <div class="skill-tier"><h4>Familiar</h4><p>React Native · GraphQL · Redux</p></div>
+      <div class="skill-tier"><h3>Core — daily use</h3><p>Laravel · PHP 8+ · MySQL · REST APIs</p></div>
+      <div class="skill-tier"><h3>Proficient</h3><p>Vue.js · React · TypeScript</p></div>
+      <div class="skill-tier"><h3>Familiar</h3><p>React Native · GraphQL · Redux</p></div>
     </div>
 
     <div class="skill-grid">
@@ -1135,10 +1135,7 @@ footer a:hover{color:var(--purple)}
       el.style.transform = 'none';
     };
 
-    // Hero entrance
-    $$('.hero-anim').forEach((el,i) => {
-      setTimeout(() => forceShow(el), 150 + i * 100);
-    });
+    // Hero is visible without JS; only below-the-fold blocks fade in.
 
     // Section reveals
     const revealObs = new IntersectionObserver(entries => {
@@ -1170,18 +1167,9 @@ footer a:hover{color:var(--purple)}
       });
     }, 2000);
   } else if(reduce){
-    $$('.reveal,.reveal-item,.hero-anim').forEach(el => {
+    $$('.reveal,.reveal-item').forEach(el => {
       el.style.opacity = '1';
       el.style.transform = 'none';
-    });
-  } else {
-    // CSS view() is supported — hero items still need initial entrance
-    $$('.hero-anim').forEach((el,i) => {
-      setTimeout(() => {
-        el.style.transition = 'opacity .7s ease, transform .7s ease';
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-      }, 150 + i * 100);
     });
   }
 
