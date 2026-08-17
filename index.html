@@ -55,7 +55,7 @@
   },
   "knowsAbout": [
     "Laravel", "PHP", "Vue.js", "React", "MySQL", "REST APIs",
-    "TypeScript", "AWS", "Docker", "CI/CD", "System Architecture",
+    "TypeScript", "AWS", "GitHub Actions", "System Architecture",
     "React Native", "JavaScript", "Redis", "Agile"
   ]
 }
@@ -405,14 +405,12 @@ section[id]{scroll-margin-top:var(--nav-h)}
    ========================================================================== */
 .expertise{background:var(--bg-1)}
 
-/* Skill tiers (replaces numeric % bars) */
+/* Skill tiers (experience bands — no % bars) */
 .skill-tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:0 0 28px}
 @media(max-width:700px){.skill-tiers{grid-template-columns:1fr}}
 .skill-tiers .tier{padding:22px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);transition:border-color .3s,box-shadow .3s}
 .skill-tiers .tier:hover{border-color:rgba(139,92,246,.4);box-shadow:var(--glow)}
 .skill-tiers .tier h4{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
-.skill-tiers .tier ul{display:flex;flex-wrap:wrap;gap:8px}
-.skill-tiers .tier li{font-size:13px;letter-spacing:-.12px;color:var(--ink);border:1px solid rgba(139,92,246,.4);padding:7px 13px;border-radius:var(--r-pill);background:var(--accent-soft);font-weight:600}
 
 /* Skill grid */
 .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
@@ -508,7 +506,6 @@ footer a:hover{color:var(--purple)}
   .section-lead{font-size:16px}
   .to-top{right:14px;bottom:max(14px,env(safe-area-inset-bottom))}
   .skill-tiers .tier{padding:18px}
-  .skill-tiers .tier li{font-size:12px;padding:6px 11px}
 }
 @media(max-width:480px){
   .hero-chips{gap:6px}
@@ -694,9 +691,9 @@ footer a:hover{color:var(--purple)}
     </div>
     <div class="timeline" id="timeline">
       <div class="timeline-fill" id="timelineFill"></div>
-      <article class="t-item is-current reveal-item">
+      <article class="t-item reveal-item">
         <div class="t-meta">
-          <time datetime="2022-07">Jul 2022 — Present</time>
+          <time datetime="2022-07">Jul 2022 — Aug 2026</time>
           <span class="t-loc">Perth, AU · Remote</span>
         </div>
         <div class="t-card">
@@ -761,7 +758,7 @@ footer a:hover{color:var(--purple)}
         <div>
           <p class="flag-label">★ Flagship</p>
           <h3>Paperly</h3>
-          <p class="flag-meta"><strong>Senior Web Application Developer</strong> · EdTech · Australia · 2022–Present</p>
+          <p class="flag-meta"><strong>Senior Web Application Developer</strong> · EdTech · Australia · 2022–2026</p>
           <p class="flag-lead">Schools needed reliable digital workflows for excursions, activities, forms, interviews and permissions — used daily at scale.</p>
           <div class="tags" style="margin-top:18px"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Geolocation</span></div>
           <a class="work-link" href="case-studies/paperly.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
@@ -809,7 +806,7 @@ footer a:hover{color:var(--purple)}
         <div class="media"><img src="projects/megathy.jpg" alt="Megathy delivery platform" width="640" height="400" loading="lazy"></div>
         <h3>Megathy</h3>
         <p class="meta">Full-stack · Multi-vendor grocery &amp; food · Saudi Arabia</p>
-        <p>Laravel APIs &amp; Vue admin — multi-store catalogue, restaurants, scheduled slots, collectors/drivers, Payfort payments, rewards and live chat. Shipped production APIs for 5 ops roles with companion iOS &amp; Android apps for Eastern Saudi Arabia.</p>
+        <p>Laravel APIs &amp; Vue admin — multi-store catalogue, restaurants, scheduled slots, collectors/drivers, Payfort payments, rewards and live chat. One Laravel core powering live grocery and restaurant orders across multiple vendor stores, with companion iOS and Android apps live on the App Store and Play Store.</p>
         <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Payfort</span><span>FCM</span></div>
         <a class="work-link" href="case-studies/megathy.html">Case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
@@ -817,7 +814,7 @@ footer a:hover{color:var(--purple)}
         <div class="media"><img src="projects/zimdle.jpg" alt="Zimdle feedback platform" width="640" height="400" loading="lazy"></div>
         <h3>Zimdle</h3>
         <p class="meta">Full-stack · Customer feedback SaaS</p>
-        <p>Private feedback, AJAX charts, Stripe plans, PDF reports and Twilio alerts so owners can act on customer signal. Delivered full SaaS loop including 4 Stripe subscription lifecycle actions (subscribe, change, resume, cancel).</p>
+        <p>Private feedback, AJAX charts, Stripe plans, PDF reports and Twilio alerts so owners can act on customer signal. 4 Stripe subscription lifecycle actions gated behind plan middleware, with trend charts, PDF reports and Twilio/email alerts replacing reliance on public reviews.</p>
         <div class="tags"><span>Laravel</span><span>Stripe</span><span>Analytics</span></div>
         <a class="work-link" href="case-studies/zimdle.html">Case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
@@ -851,25 +848,21 @@ footer a:hover{color:var(--purple)}
     <div class="reveal">
       <p class="kicker">04 — Expertise</p>
       <h2 class="section-title">Technical <em>toolkit.</em></h2>
-      <p class="section-lead">Experience-tiered core stack first, with the rest grouped by the work they support.</p>
+      <p class="section-lead">Primary stack visualized by experience tier, full toolkit grouped by layer.</p>
     </div>
 
     <div class="skill-tiers reveal" aria-label="Skill experience tiers">
       <div class="tier">
-        <h4>Primary stack (daily, 5+ yrs)</h4>
-        <ul>
-          <li>Laravel</li>
-          <li>PHP 8+</li>
-          <li>MySQL</li>
-          <li>REST APIs</li>
-        </ul>
+        <h4>Core (daily, 5+ yrs)</h4>
+        <div class="tags">
+          <span>Laravel</span><span>PHP 8+</span><span>MySQL</span><span>REST APIs</span>
+        </div>
       </div>
       <div class="tier">
         <h4>Frontend (daily, 3–5 yrs)</h4>
-        <ul>
-          <li>Vue.js</li>
-          <li>React</li>
-        </ul>
+        <div class="tags">
+          <span>Vue.js</span><span>React</span>
+        </div>
       </div>
     </div>
 
@@ -913,7 +906,7 @@ footer a:hover{color:var(--purple)}
       <article class="skill-group reveal-item">
         <h3><svg class="icon"><use href="#i-terminal"></use></svg> Tools &amp; Delivery</h3>
         <div class="skill-chips">
-          <span>Git</span><span>GitHub Actions</span><span>Docker</span><span>AWS</span><span>Postman</span><span>JIRA</span><span>Linux</span><span>cPanel</span>
+          <span>Git</span><span>GitHub Actions</span><span>AWS</span><span>Postman</span><span>JIRA</span><span>Linux</span><span>cPanel</span>
         </div>
       </article>
       <article class="skill-group reveal-item">
@@ -929,7 +922,7 @@ footer a:hover{color:var(--purple)}
         </div>
       </article>
     </div>
-    <p class="skill-note reveal"><strong>Tiers</strong> = years of daily use · chip highlights in groups below = core day-to-day stack.</p>
+    <p class="skill-note reveal"><strong>Tiers</strong> = years of daily use · remaining tools below are grouped by layer.</p>
   </div>
 </section>
 

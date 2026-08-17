@@ -15,18 +15,14 @@
 Currently available for full-time remote roles and freelance / contract engagements.
 
 ### Professional Summary
-Senior Full-Stack Laravel/PHP Developer with 8+ years of experience building production web applications using Laravel, PHP, Vue.js, React, MySQL, and REST APIs. Available now for full-time remote and freelance / contract engagements. Most recent role: Senior Web Application Developer at Paperly (Perth, Australia, remote, July 2022 – August 2026), delivering school administration software used by thousands of teachers and parents. Experienced in SaaS, eCommerce, on-demand delivery, payment integrations (Stripe, PayPal, BPOINT), Redis, geolocation, workflow automation, Agile delivery, mentoring, and client communication.
-
-<!-- deferred: AWS — -->
+Senior Full-Stack Laravel/PHP Developer with 9+ years of experience building production web applications using Laravel, PHP, Vue.js, React, MySQL, and REST APIs. Available now for full-time remote and freelance / contract engagements. Most recent role: Senior Web Application Developer at Paperly (Perth, Australia, remote, July 2022 – August 2026), delivering school administration software used by thousands of teachers and parents. Experienced in SaaS, eCommerce, on-demand delivery, payment integrations (Stripe, PayPal, BPOINT), Redis, AWS, geolocation, workflow automation, Agile delivery, mentoring, and client communication.
 
 ### Skills
 **Backend:** Laravel, PHP 8+, REST APIs, MySQL, Redis, Node.js, Sails.js, CodeIgniter, Socket.io, JWT, OAuth, multi-tenant architecture
 
 **Frontend:** Vue.js, Vuex, Composition API, React.js, Redux, JavaScript, TypeScript, HTML5, CSS3, Sass, Tailwind CSS, Bootstrap
 
-**Cloud and tools:** Git, GitHub, Postman, JIRA, Firebase, Linux, cPanel, CI/CD
-
-<!-- deferred: AWS S3/EC2/CloudFront + Bitbucket — -->
+**Cloud and tools:** Git, GitHub, GitHub Actions, AWS, Postman, JIRA, Firebase, Linux, cPanel
 
 **Payments and integrations:** Stripe, PayPal, BPOINT, custom payment APIs, webhooks, shipping APIs, geolocation
 
@@ -48,8 +44,7 @@ Senior Full-Stack Laravel/PHP Developer with 8+ years of experience building pro
 #### Web Application Developer — Logistic Infotech Pvt Ltd
 - Location: Rajkot, India
 - Dates: July 2017 – June 2022
-- Stack: Laravel, Vue.js, React.js, Node.js, Sails.js, Socket.io, Firebase
-<!-- deferred: AWS in stack — -->
+- Stack: Laravel, Vue.js, React.js, Node.js, Sails.js, Socket.io, Firebase, AWS
 - Delivered full-stack client projects worldwide across eCommerce, SaaS, education, restaurant, and booking domains
 - Built Laravel backends with Vue.js and React.js frontends, including admin dashboards and role-based access control
 - Integrated Stripe, PayPal, BPOINT, and custom payment APIs into production billing flows
@@ -104,6 +99,4 @@ July 2013 – May 2017
 - Gujarati: Native
 
 ### Keywords
-Senior Full-Stack Laravel Developer, Full-Stack PHP Developer, Laravel Developer, Vue.js Developer, React Developer, PHP Developer, JavaScript Developer, REST API, MySQL, Redis, Stripe, PayPal, SaaS, eCommerce, EdTech, Remote Work, Freelance, Contract, Agile, Mentoring, React Native, Node.js, TypeScript, Web Application Development, Available now
-
-<!-- deferred: AWS keyword — -->
+Senior Full-Stack Laravel Developer, Full-Stack PHP Developer, Laravel Developer, Vue.js Developer, React Developer, PHP Developer, JavaScript Developer, REST API, MySQL, Redis, Stripe, PayPal, AWS, GitHub Actions, SaaS, eCommerce, EdTech, Remote Work, Freelance, Contract, Agile, Mentoring, React Native, Node.js, TypeScript, Web Application Development, Available now
