@@ -14,6 +14,7 @@
 <meta property="og:title" content="Exception Tracker Case Study — Jay Kaneriya, Senior Laravel Developer">
 <meta property="og:description" content="How Jay Kaneriya designed Exception Tracker — a multi-tenant observability SaaS for ingesting, grouping and triaging production exceptions with SDKs and Stripe billing.">
 <meta property="og:image" content="https://jaykaneriya.github.io/projects/exception.jpg">
+<meta property="og:image:alt" content="Exception Tracker triage dashboard">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Exception Tracker Case Study — Jay Kaneriya, Senior Laravel Developer">
 <meta name="twitter:description" content="Multi-tenant exception monitoring with SDKs, triage dashboard and alerts.">
@@ -27,6 +28,9 @@ body{font-size:17px}
 .cs-shell .section{padding:0;margin:36px 0}
 .cs-shell .kicker{margin-bottom:12px}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jaykaneriya.github.io/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://jaykaneriya.github.io/projects.html"},{"@type":"ListItem","position":3,"name":"Exception Tracker","item":"https://jaykaneriya.github.io/case-studies/exception-tracker.html"}]}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -50,7 +54,8 @@ body{font-size:17px}
       <a href="../skills.html" data-nav>Skills</a>
       <a href="../projects.html" data-nav>Projects</a>
       <a href="../services.html" data-nav>Services</a>
-      <a href="../contact.html?type=fulltime" data-nav class="nav-hire">Hire Me</a>
+      <a href="../cv.html" data-nav>CV</a>
+      <a href="../contact.html" data-nav class="nav-hire">Contact</a>
     </nav>
     <div class="nav-actions">
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -78,9 +83,10 @@ body{font-size:17px}
       </div>
     </nav>
 
-    <p class="kicker">Case study · 04 · Observability · Personal</p>
+    <p class="kicker">Case study · 04 · Observability · Independent</p>
+    <span class="proj-badge personal">Independent Project — In Progress</span>
     <h1>Exception Tracker — production error triage &amp; monitoring</h1>
-    <p class="meta">Personal project · Laravel · Sanctum · Horizon · PostgreSQL · Redis · Stripe · Multi-language SDKs</p>
+    <p class="meta">Independent project · In progress · Laravel · Sanctum · Horizon · PostgreSQL · Redis · Stripe · Multi-language SDKs</p>
     <img class="hero-img" src="../projects/exception-hero.jpg" alt="Exception Tracker triage dashboard mockup" width="1200" height="900" loading="eager">
 
     <div class="stats">
@@ -91,23 +97,12 @@ body{font-size:17px}
 
     <section class="section" id="context">
       <h2><span class="n">01</span> Overview</h2>
-      <p>Exception Tracker is a personal <strong>multi-tenant observability SaaS</strong> for developers and DevOps teams — ingest production errors, group them into issues, set alerts, and debug with traces, uptime monitors and session replay in one place.</p>
-      <p>The local codebase is a <strong>Laravel</strong> monolith with Sanctum auth, Redis/Horizon queues, Stripe billing, tenant-scoped data, Blade customer dashboards and official SDKs under <code>platform/sdk/</code>.</p>
+      <p>Exception Tracker is an independent <strong>multi-tenant observability SaaS</strong> for developers and DevOps teams — ingest production errors, group them into issues, set alerts, and debug with traces, uptime monitors and session replay in one place. It is in progress and has no commercial adoption to claim.</p>
     </section>
 
-    <section class="section" id="gallery">
-      <h2><span class="n">02</span> Screenshots</h2>
-      <p>Illustrative 4:3 mockups of the triage surfaces verified in the codebase — dashboard, volume charts and ingest-to-alert flow.</p>
-      <div class="gallery">
-        <figure>
-          <img src="../projects/exception-chart.jpg" alt="Exception volume and severity chart mockup" width="800" height="600" loading="lazy">
-          <figcaption>Error volume — trend lines and severity breakdown (sample data)</figcaption>
-        </figure>
-        <figure>
-          <img src="../projects/exception-flow.jpg" alt="Exception Tracker ingest to alert flow diagram" width="800" height="600" loading="lazy">
-          <figcaption>SDKs → ingest → group issues → triage → alerts, plus billing</figcaption>
-        </figure>
-      </div>
+    <section class="section" id="project-context">
+      <h2><span class="n">02</span> Project Context</h2>
+      <p>The local codebase is a <strong>Laravel</strong> monolith with Sanctum auth, Redis/Horizon queues, Stripe billing, tenant-scoped data, Blade customer dashboards and official SDKs under <code>platform/sdk/</code>.</p>
     </section>
 
     <section class="section" id="responsibility">
@@ -122,7 +117,7 @@ body{font-size:17px}
     </section>
 
     <section class="section" id="challenges">
-      <h2><span class="n">04</span> Engineering Challenges</h2>
+      <h2><span class="n">04</span> Technical Challenges</h2>
       <ul>
         <li>Collapsing noisy exception events into actionable issues without losing searchable history.</li>
         <li>Keeping multi-tenant isolation correct across ingest, queries, alerts and billing.</li>
@@ -132,7 +127,14 @@ body{font-size:17px}
 
     <section class="section" id="solution">
       <h2><span class="n">05</span> What I Built</h2>
+      <h3>Backend</h3>
       <p>SDK ingest into a Laravel API, intelligent issue grouping, severity-aware triage dashboards, Horizon-backed jobs, Stripe plans and optional enterprise auth hooks (SAML/SCIM foundations) — so production debugging stays in one workflow.</p>
+      <h3>Authentication &amp; Permissions</h3>
+      <p>Sanctum authentication with tenant isolation so organizations keep projects, issues, monitors and billing scoped per tenant.</p>
+      <h3>Payments</h3>
+      <p>Stripe subscriptions / usage-oriented billing with admin and customer dashboards.</p>
+      <h3>Performance</h3>
+      <p>Redis and Horizon queues absorb ingest and alert work so the dashboard stays a triage surface rather than a processing bottleneck.</p>
 
       <figure class="shot">
         <img class="shot-img" src="../projects/exception-chart.jpg" alt="Exception Tracker analytics charts" width="1200" height="900" loading="lazy">
@@ -189,7 +191,7 @@ body{font-size:17px}
     </section>
 
     <section class="section" id="outcomes">
-      <h2><span class="n">06</span> Business / Product Impact</h2>
+      <h2><span class="n">06</span> Results / Impact</h2>
       <p>A personal full-stack observability product with <strong>eight SDKs and native MVPs</strong>, demonstrating tenant isolation, ingest design, triage UX and billing. It is in progress and has no production-adoption metrics yet; the count reflects implemented product scope, not an estimate.</p>
       <ul>
         <li>Implemented eight SDK / ingest surfaces in the current codebase.</li>
@@ -198,8 +200,23 @@ body{font-size:17px}
       </ul>
     </section>
 
+    <section class="section" id="gallery">
+      <h2><span class="n">07</span> Screenshots</h2>
+      <p>Illustrative 4:3 mockups of the triage surfaces verified in the codebase — dashboard, volume charts and ingest-to-alert flow.</p>
+      <div class="gallery">
+        <figure>
+          <img src="../projects/exception-chart.jpg" alt="Exception volume and severity chart" width="800" height="600" loading="lazy">
+          <figcaption>Illustrative interface — trend lines and severity breakdown (sample data)</figcaption>
+        </figure>
+        <figure>
+          <img src="../projects/exception-flow.jpg" alt="Exception Tracker ingest to alert flow diagram" width="800" height="600" loading="lazy">
+          <figcaption>SDKs → ingest → group issues → triage → alerts, plus billing</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="section" id="technology">
-      <h2><span class="n">07</span> Technology</h2>
+      <h2><span class="n">08</span> Technology</h2>
       <ul>
         <li><strong>Stack:</strong> Laravel, Sanctum, Horizon, PostgreSQL, Redis, Blade dashboards, OpenAPI / Swagger</li>
         <li><strong>Integrations:</strong> Stripe Cashier, OAuth (GitHub/Google), SAML/SCIM foundations, OTLP traces</li>
@@ -207,15 +224,19 @@ body{font-size:17px}
       </ul>
     </section>
 
+    <section class="section" id="links">
+      <h2><span class="n">09</span> Links</h2>
+      <p>Independent project — in progress. No public production repository linked.</p>
+    </section>
+
     <div class="tags">
       <span>Laravel</span><span>Sanctum</span><span>Horizon</span><span>Redis</span><span>PostgreSQL</span><span>Stripe</span><span>SDKs</span><span>Observability</span><span>SaaS</span>
     </div>
 
     <div class="cta">
-      <a class="btn btn-fill" href="../contact.html?type=fulltime">Discuss a role</a>
       <a class="btn btn-ghost" href="zimdle.html">← Zimdle</a>
       <a class="btn btn-ghost" href="resident-app.html">Next: Resident App →</a>
-</div>
+    </div>
 
     </div>
 </main>
@@ -225,7 +246,7 @@ body{font-size:17px}
       <div>
         <p class="footer-brand">Jay Kaneriya</p>
         <p class="footer-role">Senior Full-Stack Laravel/PHP Developer</p>
-        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available now for remote full-time roles from Rajkot, India (IST).</p>
+        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available for remote roles and freelance Laravel projects from Rajkot, India (IST).</p>
       </div>
       <div class="footer-col">
         <h4>Navigate</h4>
@@ -235,6 +256,7 @@ body{font-size:17px}
           <a href="../skills.html">Skills</a>
           <a href="../projects.html">Projects</a>
           <a href="../services.html">Services</a>
+          <a href="../cv.html">CV</a>
           <a href="../contact.html">Contact</a>
         </div>
       </div>
@@ -243,13 +265,16 @@ body{font-size:17px}
         <div class="footer-links">
           <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
+          <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
           <a href="mailto:jay.kaneriya8@gmail.com">Email</a>
+          <a href="../cv.html">CV</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="../contact.html?type=fulltime">Open to remote roles</a></div>
+      <div class="footer-social"><a href="../contact.html">Hire me for Laravel development</a></div>
     </div>
   </div>
 </footer>

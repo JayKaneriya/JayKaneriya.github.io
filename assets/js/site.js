@@ -82,7 +82,7 @@
     if(messageField){
       messageField.placeholder = isFullTime
         ? 'Role, team, stack, start date…'
-        : 'Product, problem, stack, goals…';
+        : 'Application, issue or idea…';
     }
   };
   $$('[data-contact-type]').forEach(cta => cta.addEventListener('click', () => {
@@ -94,8 +94,12 @@
   const contactType = new URLSearchParams(window.location.search).get('type');
   const contactTypeMap = {
     fulltime: 'Full-time remote role',
-    retainer: 'Contract / retainer',
-    project: 'Fixed-scope project'
+    retainer: 'Freelance / contract work',
+    project: 'New Laravel application',
+    existing: 'Existing Laravel application',
+    api: 'API & payment integration',
+    mobile: 'React Native application',
+    freelance: 'Freelance / contract work'
   };
   if(projectType && contactTypeMap[contactType]){
     projectType.value = contactTypeMap[contactType];
@@ -159,10 +163,9 @@
   if(!reduce){
     const phrases = [
       'production-grade Laravel systems',
-      'scalable Vue.js interfaces',
-      'robust REST APIs',
-      'real-time SaaS platforms',
-      'systems recruiters can trust'
+      'SaaS and business platforms',
+      'REST APIs and payment integrations',
+      'React Native products'
     ];
     const typedEl = $('#typedText');
     if(typedEl){

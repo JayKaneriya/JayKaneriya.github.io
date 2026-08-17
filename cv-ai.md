@@ -1,21 +1,21 @@
 # JAY KANERIYA
-## Senior Full-Stack Laravel Developer | PHP | Vue.js | React | Available now
+## Senior Full-Stack Laravel/PHP Developer | PHP | Vue.js | React Native | Available now
 
 ### Contact
 - Email: jay.kaneriya8@gmail.com
 - Phone: +91 85300 78687
 - Location: Rajkot, Gujarat, India
-- Work preference: Remote full-time (priority); contract available if a better fit
+- Work preference: Remote full-time and freelance / contract Laravel work
 - Timezone: IST (GMT+5:30); available for AU / EU / US overlap
 - Portfolio: https://jaykaneriya.github.io
 - LinkedIn: https://www.linkedin.com/in/jaykaneriya/
 - GitHub: https://github.com/JayKaneriya
 
 ### Availability
-Currently available for remote full-time roles. Contract work remains available if that is a better fit.
+Currently available for remote full-time roles and freelance Laravel projects.
 
 ### Professional Summary
-Senior Full-Stack Laravel/PHP Developer with 9+ years of experience building production web applications using Laravel, PHP, Vue.js, React, MySQL, and REST APIs. Available now for remote full-time roles. Contract work remains available if that is a better fit. Most recent role: Senior Web Application Developer at Paperly (Perth, Australia, remote, July 2022 – August 2026), delivering school administration software used by thousands of teachers and parents. Experienced in SaaS, eCommerce, on-demand delivery, payment integrations (Stripe, PayPal, BPOINT), Redis, AWS, geolocation, workflow automation, Agile delivery, mentoring, and client communication.
+Senior Full-Stack Laravel/PHP Developer with 9+ years of experience building production web applications using Laravel, PHP, Vue.js, React, MySQL, and REST APIs. Available now for remote full-time roles and freelance Laravel projects. Most recent role: Senior Web Application Developer at Paperly (Perth, Australia, remote, July 2022 – August 2026), delivering school administration software used by thousands of teachers and parents. Experienced in SaaS, eCommerce, on-demand delivery, payment integrations (Stripe, PayPal, BPOINT), Redis, AWS, geolocation, workflow automation, Agile delivery, mentoring, and client communication.
 
 ### Skills
 **Backend:** Laravel, PHP 8+, REST APIs, MySQL, Redis, Node.js, Sails.js, CodeIgniter, Socket.io, JWT, OAuth, multi-tenant architecture
@@ -26,7 +26,7 @@ Senior Full-Stack Laravel/PHP Developer with 9+ years of experience building pro
 
 **Payments and integrations:** Stripe, PayPal, BPOINT, custom payment APIs, webhooks, shipping APIs, geolocation
 
-**Mobile:** React Native (iOS and Android)
+**Mobile:** React Native / Expo (secondary specialization; iOS and Android)
 
 **Practices:** Agile, sprint planning, code reviews, mentoring, requirements analysis, client communication
 

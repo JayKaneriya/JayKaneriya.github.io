@@ -14,6 +14,7 @@
 <meta property="og:title" content="Megathy Case Study — Jay Kaneriya, Senior Laravel Developer">
 <meta property="og:description" content="How Jay Kaneriya built Megathy's multi-vendor grocery and food delivery platform — Laravel APIs, Vue admin, Payfort payments, scheduled slots and live chat.">
 <meta property="og:image" content="https://jaykaneriya.github.io/projects/megathy.jpg">
+<meta property="og:image:alt" content="Megathy grocery delivery operations dashboard">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Megathy Case Study — Jay Kaneriya, Senior Laravel Developer">
 <meta name="twitter:description" content="Full-stack Laravel delivery platform for Eastern Saudi Arabia — stores, restaurants, drivers and ops APIs.">
@@ -27,6 +28,9 @@ body{font-size:17px}
 .cs-shell .section{padding:0;margin:36px 0}
 .cs-shell .kicker{margin-bottom:12px}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jaykaneriya.github.io/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://jaykaneriya.github.io/projects.html"},{"@type":"ListItem","position":3,"name":"Megathy","item":"https://jaykaneriya.github.io/case-studies/megathy.html"}]}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -50,7 +54,8 @@ body{font-size:17px}
       <a href="../skills.html" data-nav>Skills</a>
       <a href="../projects.html" data-nav>Projects</a>
       <a href="../services.html" data-nav>Services</a>
-      <a href="../contact.html?type=fulltime" data-nav class="nav-hire">Hire Me</a>
+      <a href="../cv.html" data-nav>CV</a>
+      <a href="../contact.html" data-nav class="nav-hire">Contact</a>
     </nav>
     <div class="nav-actions">
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -79,6 +84,7 @@ body{font-size:17px}
     </nav>
 
     <p class="kicker">Case study · 02 · On-demand · Saudi Arabia</p>
+    <span class="proj-badge prod">Professional Project</span>
     <h1>Megathy — multi-vendor grocery &amp; food delivery ops</h1>
     <p class="meta">Full-stack Developer · Laravel · Vue.js · MySQL · JSON APIs · Payfort · FCM / Pushwoosh · Twilio</p>
     <img class="hero-img" src="../projects/megathy-hero.jpg" alt="Megathy grocery delivery operations dashboard" width="1200" height="900" loading="eager">
@@ -94,34 +100,16 @@ body{font-size:17px}
       <a href="https://apps.apple.com/gb/app/megathy/id1227682497" target="_blank" rel="noopener">iOS ↗</a>
       <a href="https://play.google.com/store/apps/details?id=com.megathykom" target="_blank" rel="noopener">Android ↗</a>
     </div>
+    <p class="cs-proof">Production project — source code private. Laravel APIs power companion iOS and Android apps; the mobile clients are not claimed as React Native work.</p>
 
     <section class="section" id="problem">
-      <h2><span class="n">01</span> The Problem</h2>
+      <h2><span class="n">01</span> Overview</h2>
       <p>Megathy needed one operations core for grocery stores and restaurants in Eastern Saudi Arabia — not a pair of disconnected apps. Customers browse catalogues, book delivery slots, pay by cash or card, track drivers, redeem rewards and chat with support. Ops staff assign collectors and drivers behind the scenes, while companion iOS and Android apps stay in sync with the same backend.</p>
-      <p>The local codebase is a <strong>Laravel 6</strong> backend with Vue/jQuery/Bootstrap admin and storefront surfaces, JSON APIs for mobile clients, Payfort payments, FCM/Pushwoosh push and Twilio verification.</p>
     </section>
 
-    <section class="section" id="gallery">
-      <h2><span class="n">02</span> Screenshots</h2>
-      <p>Illustrative 4:3 mockups of the ops surfaces verified in the codebase — catalogue, scheduling/payments, order-flow chart and system architecture.</p>
-      <div class="gallery">
-        <figure>
-          <img src="../projects/megathy-catalog.jpg" alt="Megathy multi-vendor catalogue admin mockup" width="800" height="600" loading="lazy">
-          <figcaption>Multi-store catalogue — products, categories and stock status</figcaption>
-        </figure>
-        <figure>
-          <img src="../projects/megathy-slots.jpg" alt="Megathy delivery slots and payment screen mockup" width="800" height="600" loading="lazy">
-          <figcaption>Delivery slots, cash/card checkout and rewards</figcaption>
-        </figure>
-        <figure>
-          <img src="../projects/megathy-chart-flow.jpg" alt="Megathy order flow chart by stage" width="800" height="600" loading="lazy">
-          <figcaption>Order flow chart — browse → slot → pay → collect → deliver (sample data)</figcaption>
-        </figure>
-        <figure>
-          <img src="../projects/megathy-architecture.jpg" alt="Megathy system architecture diagram" width="800" height="600" loading="lazy">
-          <figcaption>Architecture — apps, Laravel core, MySQL, Payfort, push, Twilio</figcaption>
-        </figure>
-      </div>
+    <section class="section" id="project-context">
+      <h2><span class="n">02</span> Project Context</h2>
+      <p>The local codebase is a <strong>Laravel 6</strong> backend with Vue/jQuery/Bootstrap admin and storefront surfaces, JSON APIs for mobile clients, Payfort payments, FCM/Pushwoosh push and Twilio verification.</p>
     </section>
 
     <section class="section" id="contribution">
@@ -137,7 +125,7 @@ body{font-size:17px}
     </section>
 
     <section class="section" id="challenges">
-      <h2><span class="n">04</span> Engineering Challenges</h2>
+      <h2><span class="n">04</span> Technical Challenges</h2>
       <h3>Multi-store catalogue</h3>
       <p>Grocery stores and restaurants share one catalogue surface but not the same fulfilment rules. Stocked SKUs, categories and coupons sit beside restaurant add-ons, open hours and food-only carts. The Laravel core had to keep cities, areas, stores and restaurants consistent without splitting into two products.</p>
       <h3>Scheduled slots and Payfort checkout</h3>
@@ -148,7 +136,14 @@ body{font-size:17px}
 
     <section class="section" id="solution">
       <h2><span class="n">05</span> What I Built</h2>
+      <h3>Backend</h3>
       <p>A role-separated API surface on Laravel: customer endpoints for catalogue, slots, checkout, schedule orders, rewards and chat; collector and dispatcher endpoints for pick/assign; driver endpoints for location and delivery status; admin web for day-to-day operations.</p>
+      <h3>Payments</h3>
+      <p>Payfort card flows, dual/cash payment handling and reward history stay consistent when a scheduled slot becomes a collector assignment.</p>
+      <h3>Background Jobs</h3>
+      <p>Delivery sessions book, expire and convert into live orders through cron/queue work.</p>
+      <h3>Performance</h3>
+      <p>Admin reporting uses server-side DataTables with Excel exports and DomPDF invoices rather than loading full tables in the browser.</p>
 
       <figure class="shot">
         <img class="shot-img" src="../projects/megathy-chart-flow.jpg" alt="Chart of Megathy order stages from browse to delivery" width="1200" height="900" loading="lazy">
@@ -252,8 +247,13 @@ body{font-size:17px}
       <p class="diagram-cap">SVG companion diagram for the architecture mockup above.</p>
     </section>
 
+    <section class="section" id="integrations">
+      <h2><span class="n">07</span> Integrations &amp; Infrastructure</h2>
+      <p>Payfort handles card checkout; FCM and Pushwoosh push order and driver updates; Twilio covers OTP/SMS; Spatie roles/permissions gate admin ops. Companion iOS and Android apps consume the same JSON APIs.</p>
+    </section>
+
     <section class="section" id="outcomes">
-      <h2><span class="n">07</span> Business / Product Impact</h2>
+      <h2><span class="n">08</span> Results / Impact</h2>
       <p>Delivered a production multi-vendor delivery stack with <strong>5 role-specific workflows</strong> (customer, collector, driver, dispatcher, admin) spanning catalogue, scheduling, payments, loyalty, chat and operations APIs — plus companion <strong>iOS and Android</strong> apps listed on the App Store and Play Store for Eastern Saudi Arabia.</p>
       <p><strong>Impact:</strong> one Laravel core powers live grocery and restaurant orders across multiple vendor stores, with scheduled slots, Payfort checkout, and realtime driver/ops coordination.</p>
       <ul>
@@ -267,8 +267,31 @@ body{font-size:17px}
       </figure>
     </section>
 
+    <section class="section" id="gallery">
+      <h2><span class="n">09</span> Screenshots</h2>
+      <p>Illustrative 4:3 mockups of the ops surfaces verified in the codebase — catalogue, scheduling/payments, order-flow chart and system architecture.</p>
+      <div class="gallery">
+        <figure>
+          <img src="../projects/megathy-catalog.jpg" alt="Megathy multi-vendor catalogue admin" width="800" height="600" loading="lazy">
+          <figcaption>Illustrative interface — products, categories and stock status</figcaption>
+        </figure>
+        <figure>
+          <img src="../projects/megathy-slots.jpg" alt="Megathy delivery slots and payment screen" width="800" height="600" loading="lazy">
+          <figcaption>Illustrative interface — delivery slots, cash/card checkout and rewards</figcaption>
+        </figure>
+        <figure>
+          <img src="../projects/megathy-chart-flow.jpg" alt="Megathy order flow chart by stage" width="800" height="600" loading="lazy">
+          <figcaption>Illustrative interface — browse → slot → pay → collect → deliver (sample data)</figcaption>
+        </figure>
+        <figure>
+          <img src="../projects/megathy-architecture.jpg" alt="Megathy system architecture diagram" width="800" height="600" loading="lazy">
+          <figcaption>Architecture — apps, Laravel core, MySQL, Payfort, push, Twilio</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="section" id="technology">
-      <h2><span class="n">08</span> Technology</h2>
+      <h2><span class="n">10</span> Technology</h2>
       <ul>
         <li><strong>Backend / admin:</strong> Laravel 6, MySQL, JSON APIs, Vue.js, jQuery, Bootstrap, Laravel Mix, Spatie permissions, Swagger</li>
         <li><strong>Integrations:</strong> Payfort, FCM, Pushwoosh, Twilio, DomPDF, Maatwebsite Excel, Datatables</li>
@@ -277,15 +300,29 @@ body{font-size:17px}
       </ul>
     </section>
 
+    <section class="section" id="links">
+      <h2><span class="n">11</span> Links</h2>
+      <p>Production project — source code private.</p>
+      <div class="ext">
+        <a href="https://megathykom.com/" target="_blank" rel="noopener">Website ↗</a>
+        <a href="https://apps.apple.com/gb/app/megathy/id1227682497" target="_blank" rel="noopener">iOS ↗</a>
+        <a href="https://play.google.com/store/apps/details?id=com.megathykom" target="_blank" rel="noopener">Android ↗</a>
+      </div>
+    </section>
+
     <div class="tags">
       <span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>JSON API</span><span>Payfort</span><span>FCM</span><span>Twilio</span><span>Multi-vendor</span><span>Scheduling</span><span>Real-time ops</span>
     </div>
 
+    <div class="cs-cta-block">
+      <p>Need Laravel + mobile/API development?</p>
+      <a class="btn btn-fill" href="../contact.html">Discuss a Similar Project</a>
+    </div>
+
     <div class="cta">
-      <a class="btn btn-fill" href="../contact.html?type=fulltime">Discuss a role</a>
       <a class="btn btn-ghost" href="paperly.html">← Paperly</a>
       <a class="btn btn-ghost" href="zimdle.html">Next: Zimdle →</a>
-</div>
+    </div>
 
     </div>
 </main>
@@ -295,7 +332,7 @@ body{font-size:17px}
       <div>
         <p class="footer-brand">Jay Kaneriya</p>
         <p class="footer-role">Senior Full-Stack Laravel/PHP Developer</p>
-        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available now for remote full-time roles from Rajkot, India (IST).</p>
+        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available for remote roles and freelance Laravel projects from Rajkot, India (IST).</p>
       </div>
       <div class="footer-col">
         <h4>Navigate</h4>
@@ -305,6 +342,7 @@ body{font-size:17px}
           <a href="../skills.html">Skills</a>
           <a href="../projects.html">Projects</a>
           <a href="../services.html">Services</a>
+          <a href="../cv.html">CV</a>
           <a href="../contact.html">Contact</a>
         </div>
       </div>
@@ -313,13 +351,16 @@ body{font-size:17px}
         <div class="footer-links">
           <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
+          <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
           <a href="mailto:jay.kaneriya8@gmail.com">Email</a>
+          <a href="../cv.html">CV</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="../contact.html?type=fulltime">Open to remote roles</a></div>
+      <div class="footer-social"><a href="../contact.html">Hire me for Laravel development</a></div>
     </div>
   </div>
 </footer>

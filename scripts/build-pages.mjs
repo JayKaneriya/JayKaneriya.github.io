@@ -19,6 +19,7 @@ const icons = `<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria
   <symbol id="i-api" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></symbol>
   <symbol id="i-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></symbol>
   <symbol id="i-smartphone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
   <symbol id="i-cap" viewBox="0 0 24 24"><path d="M12 4 2.5 8.5 12 13l9.5-4.5L12 4Z"/><path d="M6.5 10.7V16c0 1.4 2.5 2.8 5.5 2.8s5.5-1.4 5.5-2.8v-5.3"/><path d="M21.5 8.5V14"/></symbol>
   <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="2" y1="13" x2="22" y2="13"/></symbol>
   <symbol id="i-chevup" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></symbol>
@@ -28,7 +29,20 @@ const icons = `<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria
   <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.5 13.9 9l5.6 2-5.6 2-1.9 5.5L10.1 13l-5.6-2 5.6-2 1.9-5.5Z"/><path d="M18.5 3.5v3M20 5h-3"/></symbol>
 </svg>`;
 
-function head({ title, description, canonical }) {
+function breadcrumbs(items) {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  });
+}
+
+function head({ title, description, canonical, jsonLd }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +60,7 @@ function head({ title, description, canonical }) {
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${description}">
 <meta property="og:image" content="https://jaykaneriya.github.io/og-image.jpg">
+<meta property="og:image:alt" content="Jay Kaneriya — Senior Full-Stack Developer Portfolio">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${description}">
@@ -60,6 +75,7 @@ function head({ title, description, canonical }) {
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="assets/css/site.css">
 <noscript><style>.reveal,.reveal-item,.hero-anim{opacity:1!important;transform:none!important}.scroll-progress,.particles-canvas{display:none!important}</style></noscript>
+${jsonLd ? `<script type="application/ld+json">\n${jsonLd}\n</script>` : ''}
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -81,7 +97,8 @@ const nav = `<header class="nav" id="nav">
       <a href="skills.html" data-nav>Skills</a>
       <a href="projects.html" data-nav>Projects</a>
       <a href="services.html" data-nav>Services</a>
-      <a href="contact.html?type=fulltime" data-nav class="nav-hire">Hire Me</a>
+      <a href="cv.html" data-nav>CV</a>
+      <a href="contact.html" data-nav class="nav-hire">Contact</a>
     </nav>
     <div class="nav-actions">
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -98,7 +115,7 @@ const footer = `<footer class="site-footer">
       <div>
         <p class="footer-brand">Jay Kaneriya</p>
         <p class="footer-role">Senior Full-Stack Laravel/PHP Developer</p>
-        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available now for remote full-time roles from Rajkot, India (IST).</p>
+        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available for remote roles and freelance Laravel projects from Rajkot, India (IST).</p>
       </div>
       <div class="footer-col">
         <h4>Navigate</h4>
@@ -108,6 +125,7 @@ const footer = `<footer class="site-footer">
           <a href="skills.html">Skills</a>
           <a href="projects.html">Projects</a>
           <a href="services.html">Services</a>
+          <a href="cv.html">CV</a>
           <a href="contact.html">Contact</a>
         </div>
       </div>
@@ -116,13 +134,16 @@ const footer = `<footer class="site-footer">
         <div class="footer-links">
           <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
+          <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
           <a href="mailto:jay.kaneriya8@gmail.com">Email</a>
+          <a href="cv.html">CV</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="contact.html?type=fulltime">Open to remote roles</a></div>
+      <div class="footer-social"><a href="contact.html">Hire me for Laravel development</a></div>
     </div>
   </div>
 </footer>
@@ -146,10 +167,14 @@ function serviceCard(title, solves, included, forWho) {
 
 const about =
   head({
-    title: 'About Jay Kaneriya | Experience',
+    title: 'About Jay Kaneriya | Senior Laravel Developer',
     description:
-      'About Jay Kaneriya — Senior Full-Stack Laravel/PHP Developer with production experience at Paperly (Australia) and Logistic Infotech. Full-stack ownership from architecture to maintenance.',
+      'About Jay Kaneriya — Senior Full-Stack Laravel/PHP Developer with 9+ years of production experience at Paperly (Australia) and Logistic Infotech. Full-stack ownership from architecture to maintenance.',
     canonical: 'https://jaykaneriya.github.io/about.html',
+    jsonLd: breadcrumbs([
+      { name: 'Home', url: 'https://jaykaneriya.github.io/' },
+      { name: 'About', url: 'https://jaykaneriya.github.io/about.html' },
+    ]),
   }) +
   nav +
   `
@@ -159,7 +184,8 @@ const about =
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>About</span></nav>
     <p class="kicker">About Jay</p>
     <h1 class="section-title">I own the whole <em>product problem.</em></h1>
-    <p class="section-lead">Senior full-stack developer specializing in Laravel/PHP — with production experience shipping SaaS and business systems end to end, including international remote delivery.</p>
+    <p class="scan-facts">Senior Laravel/PHP developer · 9+ years · Rajkot, India (IST, remote) · Open to Work</p>
+    <p class="section-lead">Available for remote full-time roles and freelance Laravel projects. Production experience shipping SaaS and business systems end to end, including international remote delivery.</p>
   </div>
 </section>
 
@@ -204,10 +230,10 @@ const about =
           <p class="t-co">@ <strong>Paperly</strong> · Education SaaS</p>
           <h4 class="t-heading">What I Owned</h4>
           <ul class="t-list">
-            <li>End-to-end feature ownership on a live multi-school Laravel + Vue.js platform.</li>
+            <li>End-to-end feature ownership on a live multi-school Laravel + Vue.js platform, including technical decisions for modules, permissions and integrations.</li>
             <li>Permissions and role boundaries across administrators, staff, parents and students.</li>
-            <li>REST APIs, MySQL schemas and third-party SIS/LMS integration work in Agile releases.</li>
-            <li>Production debugging, testing and continuous delivery for a platform used every school day.</li>
+            <li>REST APIs, MySQL schemas and third-party SIS/LMS integration work in Agile production releases.</li>
+            <li>Production debugging, testing and continuous delivery for a platform used every school day, collaborating remotely with a Perth-based team.</li>
           </ul>
           <h4 class="t-heading">What I Built</h4>
           <ul class="t-list">
@@ -235,12 +261,12 @@ const about =
           <p class="t-co">@ <strong>Logistic Infotech Pvt Ltd</strong></p>
           <h4 class="t-heading">What I Owned</h4>
           <ul class="t-list">
-            <li>Full-stack delivery for international clients across eCommerce, SaaS, education, restaurant and booking domains.</li>
-            <li>Client communication, mentoring juniors and Agile delivery leadership on project teams.</li>
+            <li>Full-stack delivery for international clients across eCommerce, SaaS, education, restaurant and booking domains — including maintenance of existing systems alongside new feature work.</li>
+            <li>Client communication, mentoring juniors and Agile delivery on project teams.</li>
           </ul>
           <h4 class="t-heading">What I Built</h4>
           <ul class="t-list">
-            <li>Laravel backends with Vue.js and React.js frontends, including admin dashboards and RBAC.</li>
+            <li>Laravel backends with Vue.js and React.js frontends, including admin dashboards and RBAC. Node.js and AWS on selected client systems.</li>
             <li>Stripe, PayPal, BPOINT and custom payment API integrations into production billing flows.</li>
             <li>Realtime features with Socket.io and Firebase.</li>
           </ul>
@@ -249,7 +275,7 @@ const about =
             <li>Five years of production client delivery across multiple domains and regions.</li>
             <li>Shipped payment and realtime systems used in live commercial products.</li>
           </ul>
-          <div class="tags" style="margin-top:20px"><span>Laravel</span><span>React</span><span>Vue.js</span><span>Payments</span><span>Realtime</span></div>
+          <div class="tags" style="margin-top:20px"><span>Laravel</span><span>React</span><span>Vue.js</span><span>Node.js</span><span>AWS</span><span>Payments</span></div>
         </div>
       </article>
     </div>
@@ -276,9 +302,9 @@ const about =
 <section class="final-cta">
   <div class="wrap reveal">
     <h2>Looking for an engineer who owns the whole problem?</h2>
-    <p>Available now for remote full-time — IST with AU / EU / US overlap.</p>
+    <p>Available for remote full-time roles and freelance Laravel projects — IST with AU / EU / US overlap.</p>
     <div class="hero-actions">
-      <a class="btn btn-fill" href="contact.html?type=fulltime">Discuss a role</a>
+      <a class="btn btn-fill" href="contact.html">Hire Me for Laravel Development</a>
       <a class="btn btn-ghost" href="projects.html">View projects</a>
     </div>
   </div>
@@ -289,10 +315,14 @@ const about =
 
 const skills =
   head({
-    title: 'Laravel, PHP, Vue, React & Full-Stack Development | Jay Kaneriya',
+    title: 'Laravel, PHP & React Native Skills | Jay Kaneriya',
     description:
-      'Technical skills of Jay Kaneriya — Laravel and PHP as primary stack, plus Vue.js, React, MySQL, REST APIs, payments, React Native and production delivery tooling.',
+      'Technical skills of Jay Kaneriya — Laravel and PHP as the primary stack, React Native as a secondary specialization, plus Vue.js, React, MySQL, REST APIs and payment integrations.',
     canonical: 'https://jaykaneriya.github.io/skills.html',
+    jsonLd: breadcrumbs([
+      { name: 'Home', url: 'https://jaykaneriya.github.io/' },
+      { name: 'Skills', url: 'https://jaykaneriya.github.io/skills.html' },
+    ]),
   }) +
   nav +
   `
@@ -301,7 +331,8 @@ const skills =
   <div class="wrap reveal">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Skills</span></nav>
     <p class="kicker">Skills</p>
-    <h1 class="section-title">Laravel/PHP first. <em>Full-stack where it counts.</em></h1>
+    <h1 class="section-title">Laravel/PHP first. <em>React Native where the product needs it.</em></h1>
+    <p class="scan-facts">Primary: Laravel, PHP 8+, MySQL, REST APIs · Secondary: React Native / Expo · Also used: Vue.js, React, Node.js, AWS</p>
     <p class="section-lead">Organized by how I actually work — not a long list of every tool I've touched.</p>
   </div>
 </section>
@@ -315,8 +346,9 @@ const skills =
     </div>
     <div class="skill-tiers reveal-item">
       <div class="skill-tier"><h3>Core — daily use</h3><p>Laravel · PHP 8+ · MySQL · REST APIs</p></div>
+      <div class="skill-tier"><h3>Secondary</h3><p>React Native · Expo · mobile API integration</p></div>
       <div class="skill-tier"><h3>Proficient</h3><p>Vue.js · React · TypeScript</p></div>
-      <div class="skill-tier"><h3>Familiar</h3><p>React Native · GraphQL · Redux</p></div>
+      <div class="skill-tier"><h3>Familiar</h3><p>Node.js · AWS · GraphQL · Redux</p></div>
     </div>
     <div class="skill-grid">
       <article class="skill-group reveal-item">
@@ -328,7 +360,7 @@ const skills =
       <article class="skill-group reveal-item">
         <h3><svg class="icon"><use href="#i-api"></use></svg> Backend &amp; API</h3>
         <div class="skill-chips">
-          <span class="primary">Laravel</span><span>REST APIs</span><span>Authentication</span><span>Authorization</span><span>Webhooks</span><span>Queues</span><span>Redis</span><span>Database architecture</span><span>JWT</span><span>OAuth</span><span>Multi-tenant</span>
+          <span class="primary">Laravel</span><span>REST APIs</span><span>Node.js</span><span>Authentication</span><span>Authorization</span><span>Webhooks</span><span>Queues</span><span>Redis</span><span>Database architecture</span><span>JWT</span><span>OAuth</span><span>Multi-tenant</span>
         </div>
       </article>
       <article class="skill-group reveal-item">
@@ -338,9 +370,9 @@ const skills =
         </div>
       </article>
       <article class="skill-group reveal-item">
-        <h3><svg class="icon"><use href="#i-smartphone"></use></svg> Mobile</h3>
+        <h3><svg class="icon"><use href="#i-smartphone"></use></svg> Mobile — secondary</h3>
         <div class="skill-chips">
-          <span>React Native</span><span>Firebase</span><span>Mobile API integration</span><span>iOS</span><span>Android</span><span>Expo</span>
+          <span class="primary">React Native</span><span class="primary">Expo</span><span>Firebase</span><span>Mobile API integration</span><span>iOS</span><span>Android</span>
         </div>
       </article>
       <article class="skill-group reveal-item">
@@ -374,9 +406,9 @@ const skills =
 <section class="final-cta">
   <div class="wrap reveal">
     <h2>Need Laravel expertise on a live product?</h2>
-    <p>Let's talk about your stack and timeline.</p>
+    <p>Available for remote roles and freelance Laravel, API, payment and React Native work.</p>
     <div class="hero-actions">
-      <a class="btn btn-fill" href="contact.html?type=fulltime">Discuss a role</a>
+      <a class="btn btn-fill" href="contact.html">Hire Me for Laravel Development</a>
       <a class="btn btn-ghost" href="services.html">View services</a>
     </div>
   </div>
@@ -387,10 +419,14 @@ const skills =
 
 const projects =
   head({
-    title: 'Laravel SaaS & Full-Stack Projects | Jay Kaneriya',
+    title: 'Laravel & Full-Stack Projects | Jay Kaneriya',
     description:
-      'Selected Laravel and full-stack projects by Jay Kaneriya — Paperly, Megathy and Zimdle production work, plus independent Exception Tracker and Resident App case studies.',
+      'Selected Laravel and full-stack projects by Jay Kaneriya — Paperly, Megathy and Zimdle professional production work, plus independent Exception Tracker and Resident App case studies.',
     canonical: 'https://jaykaneriya.github.io/projects.html',
+    jsonLd: breadcrumbs([
+      { name: 'Home', url: 'https://jaykaneriya.github.io/' },
+      { name: 'Projects', url: 'https://jaykaneriya.github.io/projects.html' },
+    ]),
   }) +
   nav +
   `
@@ -400,6 +436,7 @@ const projects =
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Projects</span></nav>
     <p class="kicker">Projects</p>
     <h1 class="section-title">Production systems and <em>selected builds.</em></h1>
+    <p class="scan-facts">3 professional projects first · Laravel / APIs / payments · 2 independent builds labeled separately</p>
     <p class="section-lead">Professional production work is listed first. Independent projects are labeled clearly and do not claim the same production scale.</p>
   </div>
 </section>
@@ -407,14 +444,14 @@ const projects =
 <section class="work">
   <div class="wrap">
     <div class="reveal">
-      <p class="kicker">Featured production work</p>
+      <p class="kicker">Professional production work</p>
       <h2 class="section-title">01–03 · Shipped for <em>real organisations.</em></h2>
     </div>
 
     <article class="flagship reveal">
       <div class="flag-top">
         <div>
-          <span class="proj-badge prod">Production</span>
+          <span class="proj-badge prod">Professional Project</span>
           <p class="flag-label">01 · Flagship</p>
           <h3>Paperly</h3>
           <p class="flag-meta"><strong>Senior Web Application Developer</strong> · EdTech · Australia · 2022–2026</p>
@@ -428,33 +465,33 @@ const projects =
 
     <div class="work-list" style="margin-bottom:60px">
       <article class="work-card reveal-item glow-card">
-        <span class="proj-badge prod">Production</span>
-        <div class="media"><img src="projects/megathy.jpg" alt="Megathy delivery operations" width="640" height="400" loading="lazy"></div>
+        <span class="proj-badge prod">Professional Project</span>
+        <div class="media"><img src="projects/megathy.jpg" alt="Megathy multi-vendor grocery and restaurant delivery" width="640" height="400" loading="lazy"></div>
         <h3>02 · Megathy</h3>
         <p class="meta">Full-stack · Multi-vendor grocery &amp; food · Saudi Arabia</p>
         <p>Laravel APIs and Vue admin powering grocery and restaurant orders, ops roles, Payfort payments and companion mobile apps.</p>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Payfort</span><span>FCM</span></div>
+        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Payfort</span><span>Mobile APIs</span></div>
         <a class="work-link" href="case-studies/megathy.html">View case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
       <article class="work-card reveal-item glow-card">
-        <span class="proj-badge prod">Production</span>
-        <div class="media"><img src="projects/zimdle.jpg" alt="Zimdle feedback SaaS" width="640" height="400" loading="lazy"></div>
+        <span class="proj-badge prod">Professional Project</span>
+        <div class="media"><img src="projects/zimdle.jpg" alt="Zimdle private customer feedback analytics" width="640" height="400" loading="lazy"></div>
         <h3>03 · Zimdle</h3>
         <p class="meta">Full-stack · Customer feedback SaaS</p>
-        <p>Private feedback, AJAX charts, Stripe subscription plans, PDF reports and Twilio alerts for business owners.</p>
-        <div class="tags"><span>Laravel</span><span>Stripe</span><span>Analytics</span></div>
+        <p>Legacy Laravel 5.3 SaaS with Stripe subscriptions, scheduled jobs, PDF reports and Twilio alerts.</p>
+        <div class="tags"><span>Laravel 5.3</span><span>Stripe</span><span>Analytics</span></div>
         <a class="work-link" href="case-studies/zimdle.html">View case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
     </div>
 
     <div class="reveal">
-      <p class="kicker">Independent / personal projects</p>
-      <h2 class="section-title">04–05 · Product builds in <em>progress.</em></h2>
-      <p class="section-lead">Personal SaaS experiments demonstrating architecture depth — not equivalent to multi-year client production systems.</p>
+      <p class="kicker">Independent builds</p>
+      <h2 class="section-title">04–05 · Personal products in <em>progress.</em></h2>
+      <p class="section-lead">Independent projects demonstrating architecture depth — not equivalent to multi-year client production systems.</p>
     </div>
     <div class="work-list">
       <article class="work-card reveal-item glow-card">
-        <span class="proj-badge personal">Personal · In progress</span>
+        <span class="proj-badge personal">Independent Project — In Progress</span>
         <div class="media"><img src="projects/exception.jpg" alt="Exception Tracker dashboard" width="640" height="400" loading="lazy"></div>
         <h3>04 · Exception Tracker</h3>
         <p class="meta">Observability SaaS</p>
@@ -463,12 +500,12 @@ const projects =
         <a class="work-link" href="case-studies/exception-tracker.html">View case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
       <article class="work-card reveal-item glow-card">
-        <span class="proj-badge personal">Personal · In progress</span>
+        <span class="proj-badge personal">Independent Project — In Progress</span>
         <div class="media"><img src="projects/resident.jpg" alt="Resident App society admin" width="640" height="400" loading="lazy"></div>
         <h3>05 · Resident App</h3>
-        <p class="meta">Housing society SaaS</p>
-        <p>Notices, maintenance, visitors and billing across admin web, resident web and Expo mobile — multi-tenant society ops.</p>
-        <div class="tags"><span>Laravel</span><span>React</span><span>Expo</span></div>
+        <p class="meta">Housing society SaaS · React Native</p>
+        <p>Notices, maintenance, visitors and billing across admin web, resident web and Expo / React Native mobile.</p>
+        <div class="tags"><span>Laravel</span><span>React</span><span>React Native</span><span>Expo</span></div>
         <a class="work-link" href="case-studies/resident-app.html">View case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
     </div>
@@ -477,10 +514,11 @@ const projects =
 
 <section class="final-cta">
   <div class="wrap reveal">
-    <h2>Want this kind of production engineering on your team?</h2>
-    <p>Available now for remote full-time — IST with AU / EU / US overlap.</p>
+    <h2>Need this kind of production engineering?</h2>
+    <p>Available for remote full-time roles and freelance Laravel, API, payment and React Native work.</p>
     <div class="hero-actions">
-      <a class="btn btn-fill" href="contact.html?type=fulltime">Discuss a role</a>
+      <a class="btn btn-fill" href="contact.html">Hire Me for Laravel Development</a>
+      <a class="btn btn-ghost" href="services.html">View services</a>
     </div>
   </div>
 </section>
@@ -490,10 +528,14 @@ const projects =
 
 const services =
   head({
-    title: 'Laravel Development, APIs & Integrations | Jay Kaneriya',
+    title: 'Laravel Development Services | SaaS, APIs & React Native',
     description:
-      'Freelance Laravel development, API integrations, payment gateways, existing application development and full-stack engagement options from Jay Kaneriya.',
+      'Laravel development services from Jay Kaneriya — existing application work, new SaaS and business platforms, API and payment integrations, and React Native applications.',
     canonical: 'https://jaykaneriya.github.io/services.html',
+    jsonLd: breadcrumbs([
+      { name: 'Home', url: 'https://jaykaneriya.github.io/' },
+      { name: 'Services', url: 'https://jaykaneriya.github.io/services.html' },
+    ]),
   }) +
   nav +
   `
@@ -503,7 +545,8 @@ const services =
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Services</span></nav>
     <p class="kicker">Services</p>
     <h1 class="section-title">Problems I can <em>own for you.</em></h1>
-    <p class="section-lead">Professional engineering engagements — grounded in production Laravel, API and full-stack delivery.</p>
+    <p class="scan-facts">Existing Laravel apps · New SaaS / business platforms · APIs &amp; payments · React Native</p>
+    <p class="section-lead">Available for freelance, contract and remote full-time work. Built around the problems teams actually hire for.</p>
   </div>
 </section>
 
@@ -511,86 +554,102 @@ const services =
   <div class="wrap">
     <div class="service-grid">
       ${serviceCard(
-        'Laravel Development',
-        'New or existing Laravel applications that need reliable architecture and feature delivery.',
+        'Existing Laravel Application',
+        'Live Laravel products that need features, fixes and modernization without a rewrite.',
         [
-          'New Laravel applications',
-          'Existing Laravel application development',
-          'SaaS and business applications',
-          'Module design and delivery',
-        ],
-        'Founders, product teams and agencies needing a Laravel specialist.'
-      )}
-      ${serviceCard(
-        'API & Integration',
-        'Systems that must talk to each other cleanly — auth, webhooks and third-party services.',
-        [
-          'REST API design and implementation',
-          'Third-party API integrations',
-          'Webhooks',
-          'Authentication and authorization',
-          'Database synchronization',
-        ],
-        'Teams connecting products, partners or internal tools.'
-      )}
-      ${serviceCard(
-        'Payment Integration',
-        'Billing flows that need correct transactions, callbacks and validation.',
-        [
-          'Payment gateway integration',
-          'Transactions and callbacks',
-          'Webhooks and validation',
-          'Testing of payment flows',
-          'Stripe, PayPal, BPOINT, Payfort experience',
-        ],
-        'SaaS, eCommerce and marketplace products collecting payments.'
-      )}
-      ${serviceCard(
-        'Existing Application Development',
-        'Live products that need features, fixes and modernization without a rewrite.',
-        [
-          'Bug fixing',
-          'Feature development',
-          'Performance optimization',
-          'Legacy PHP/Laravel modernization',
-          'Database improvements',
+          'Bug fixing and production debugging',
+          'New modules and feature development',
+          'API integrations',
+          'Payment integration',
+          'Performance and query improvements',
+          'Legacy Laravel work',
+          'Ongoing maintenance',
+          'Security and validation improvements',
         ],
         'Teams maintaining production Laravel/PHP applications.'
       )}
       ${serviceCard(
-        'Full-Stack Development',
-        'End-to-end delivery across backend and client surfaces.',
+        'New Laravel Application',
+        'New products that need a reliable Laravel foundation and clear delivery.',
         [
-          'Laravel + Vue.js',
-          'Laravel + React',
-          'Laravel + React Native',
-          'Admin dashboards and portals',
-          'API-backed mobile clients',
+          'SaaS platforms',
+          'Business platforms and ERP-style workflows',
+          'Admin dashboards',
+          'REST APIs',
+          'Multi-tenant applications',
+          'Authentication and permissions',
         ],
-        'Product owners who want one engineer across the stack.'
+        'Founders, product teams and agencies starting a Laravel system.'
       )}
       ${serviceCard(
-        'Project Engagement',
-        'Clear commercial paths matched to how you want to work.',
+        'API &amp; Payment Integration',
+        'Systems that must talk to each other cleanly — auth, webhooks, payments and callbacks.',
         [
-          'Fixed-scope project',
-          'Monthly retainer',
-          'Long-term development',
-          'Full-time collaboration',
+          'REST API design and implementation',
+          'Authentication and authorization',
+          'Webhooks and callback handling',
+          'Payment gateways (Stripe, PayPal, BPOINT, Payfort experience)',
+          'Third-party integrations',
+          'Data synchronization',
         ],
-        'Startups, SMEs and remote product teams.'
+        'SaaS, eCommerce and marketplace products connecting services or collecting payments.'
       )}
+      ${serviceCard(
+        'React Native Applications',
+        'Mobile products that need Laravel APIs, auth, notifications and business workflows.',
+        [
+          'React Native / Expo applications',
+          'Laravel API integration',
+          'Authentication',
+          'Push notifications',
+          'Payments',
+          'Business workflows',
+          'Existing mobile app improvements',
+        ],
+        'Teams that need Laravel plus a mobile client, or improvements to an existing React Native app.'
+      )}
+    </div>
+  </div>
+</section>
+
+<section class="summary">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="kicker">How I work</p>
+      <h2 class="section-title">A short path from <em>problem to delivery.</em></h2>
+    </div>
+    <div class="process-grid">
+      <article class="process-step reveal-item">
+        <div class="n">01</div>
+        <b>Understand</b>
+        <span>Review the existing application, requirements or business problem.</span>
+      </article>
+      <article class="process-step reveal-item">
+        <div class="n">02</div>
+        <b>Plan</b>
+        <span>Define technical approach, scope and implementation strategy.</span>
+      </article>
+      <article class="process-step reveal-item">
+        <div class="n">03</div>
+        <b>Build</b>
+        <span>Develop, integrate, test and iterate.</span>
+      </article>
+      <article class="process-step reveal-item">
+        <div class="n">04</div>
+        <b>Deliver</b>
+        <span>Deploy, document and support the completed solution.</span>
+      </article>
     </div>
   </div>
 </section>
 
 <section class="final-cta">
   <div class="wrap reveal">
-    <h2>Hiring a senior Laravel engineer?</h2>
-    <p>Available now for remote full-time. Contract options are below if you need a shorter engagement.</p>
+    <h2>Need Laravel development help?</h2>
+    <p>Existing apps, new builds, APIs, payments or React Native — tell me what you need.</p>
     <div class="hero-actions">
-      <a class="btn btn-fill" href="contact.html?type=fulltime">Discuss a role</a>
-      <a class="btn btn-ghost" href="contact.html">Start a contract</a>
+      <a class="btn btn-fill" href="contact.html">Let’s Discuss Your Project</a>
+      <a class="btn btn-ghost" href="projects.html">View case studies</a>
     </div>
   </div>
 </section>
@@ -600,10 +659,14 @@ const services =
 
 const contact =
   head({
-    title: 'Contact Jay Kaneriya | Remote Full-Time Roles',
+    title: 'Contact Jay Kaneriya | Laravel Developer',
     description:
-      'Contact Jay Kaneriya about a remote full-time Laravel or full-stack role. Email, LinkedIn and GitHub — available now. Contract work on request.',
+      'Contact Jay Kaneriya about existing Laravel applications, new SaaS builds, API and payment integrations, React Native work, or remote full-time roles.',
     canonical: 'https://jaykaneriya.github.io/contact.html',
+    jsonLd: breadcrumbs([
+      { name: 'Home', url: 'https://jaykaneriya.github.io/' },
+      { name: 'Contact', url: 'https://jaykaneriya.github.io/contact.html' },
+    ]),
   }) +
   nav +
   `
@@ -615,15 +678,25 @@ const contact =
       <p class="kicker">Contact</p>
       <div class="contact-layout">
         <div>
-          <h1>Let’s talk about a <em>role.</em></h1>
-          <p class="contact-lead">Available now for remote full-time. IST (GMT+5:30) with overlap for AU, EU and US teams. Contract and project work remain available if that is a better fit.</p>
+          <h1>What can you contact me <em>about?</em></h1>
+          <p class="scan-facts">Senior Laravel/PHP developer · 9+ years · Rajkot, India (IST) · Open to Work</p>
+          <p class="contact-lead">Tell me about the application, issue or idea. I work with startups, businesses, agencies and existing software teams — freelance, contract or remote full-time.</p>
+          <div class="need-list" aria-label="What you can contact Jay about">
+            <a href="#contactForm">Existing Laravel application</a>
+            <a href="#contactForm">New Laravel application / SaaS</a>
+            <a href="#contactForm">API integration</a>
+            <a href="#contactForm">Payment gateway</a>
+            <a href="#contactForm">React Native application</a>
+            <a href="#contactForm">Full-stack or freelance / contract work</a>
+          </div>
           <div class="contact-actions">
-            <a class="btn btn-fill magnetic" href="mailto:jay.kaneriya8@gmail.com?subject=Remote%20role%20for%20Jay%20Kaneriya"><svg class="icon"><use href="#i-mail"></use></svg> Email me</a>
+            <a class="btn btn-fill magnetic" href="mailto:jay.kaneriya8@gmail.com?subject=Laravel%20project%20for%20Jay%20Kaneriya"><svg class="icon"><use href="#i-mail"></use></svg> Email me</a>
+            <a class="btn btn-ghost" href="tel:+918530078687"><svg class="icon"><use href="#i-phone"></use></svg> +91 85300 78687</a>
             <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download><svg class="icon"><use href="#i-download"></use></svg> Download CV</a>
             <a class="btn btn-ghost" href="cv.html">View online CV</a>
           </div>
           <div class="contact-alt">
-            <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20role%20or%20project." target="_blank" rel="noopener"><svg class="icon icon-fill"><use href="#i-whatsapp"></use></svg> WhatsApp</a>
+            <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20Laravel%20project." target="_blank" rel="noopener"><svg class="icon icon-fill"><use href="#i-whatsapp"></use></svg> WhatsApp</a>
             <details>
               <summary>Applying through an ATS?</summary>
               <p class="contact-note">Use the <a href="Jay_Kaneriya_CV_AI.pdf" download>plain-format CV</a> — same content, optimized for automated parsing.</p>
@@ -635,6 +708,25 @@ const contact =
             <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
             <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
             <a href="mailto:jay.kaneriya8@gmail.com"><svg class="icon"><use href="#i-mail"></use></svg> jay.kaneriya8@gmail.com</a>
+          </div>
+          <h2 style="font-size:22px;margin:28px 0 0">What happens after I contact you?</h2>
+          <div class="next-steps" style="margin-top:18px">
+            <article class="next-step">
+              <b>1. Share your requirements</b>
+              <span>Tell me about the application, issue or idea.</span>
+            </article>
+            <article class="next-step">
+              <b>2. Technical discussion</b>
+              <span>I review the problem and identify the best implementation approach.</span>
+            </article>
+            <article class="next-step">
+              <b>3. Scope</b>
+              <span>We agree on deliverables, priorities and timeline.</span>
+            </article>
+            <article class="next-step">
+              <b>4. Development</b>
+              <span>I implement, test and deliver the work.</span>
+            </article>
           </div>
         </div>
         <form class="hire-form" action="https://formsubmit.co/jay.kaneriya8@gmail.com" method="POST" id="contactForm">
@@ -652,28 +744,21 @@ const contact =
               <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
             </div>
           </div>
-          <label for="project-type">Engagement type</label>
+          <label for="project-type">Project type</label>
           <select id="project-type" name="project_type" required>
-            <option value="Full-time remote role" selected>Full-time remote role</option>
-            <option value="Contract / retainer">Contract / retainer</option>
-            <option value="Fixed-scope project">Fixed-scope project</option>
-            <option value="Existing application development">Existing application development</option>
+            <option value="Existing Laravel application">Existing Laravel application</option>
+            <option value="New Laravel application">New Laravel application / SaaS</option>
+            <option value="API & payment integration">API &amp; payment integration</option>
+            <option value="React Native application">React Native application</option>
+            <option value="Full-stack project">Full-stack project</option>
+            <option value="Freelance / contract work">Freelance / contract work</option>
+            <option value="Full-time remote role">Full-time remote role</option>
             <option value="Something else">Something else</option>
           </select>
           <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="Role, team, stack, start date…"></textarea>
-          <div class="form-row" id="freelanceFields">
-            <div>
-              <label for="budget">Budget</label>
-              <input id="budget" name="budget" type="text" placeholder="Optional range">
-            </div>
-            <div>
-              <label for="timeline">Timeline</label>
-              <input id="timeline" name="timeline" type="text" placeholder="e.g. 4–8 weeks">
-            </div>
-          </div>
+          <textarea id="message" name="message" required placeholder="Application, issue or idea…"></textarea>
           <button class="btn btn-fill" type="submit"><svg class="icon"><use href="#i-arrow"></use></svg> Send inquiry</button>
-          <p class="hint">Sent securely to my inbox · I reply within 24 hours.</p>
+          <p class="hint">Sent securely to my inbox.</p>
         </form>
       </div>
     </div>
