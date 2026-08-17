@@ -40,14 +40,14 @@ a{color:var(--blue);text-decoration:none}
 .kicker{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
 h1{font-family:var(--font-d);font-size:clamp(34px,6vw,52px);font-weight:600;line-height:1.07;letter-spacing:-.02em;margin-bottom:14px}
 .meta{font-size:14px;color:var(--muted);margin-bottom:20px}
-.hero-img,.shot-img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px;display:block;border:1px solid var(--line);background:var(--card)}
+.hero-img,.shot-img{width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;border-radius:18px;display:block;border:1px solid var(--line);background:var(--card)}
 .hero-img{margin:20px 0 32px;box-shadow:0 0 40px rgba(139,92,246,.15)}
 .shot{margin:18px 0 8px}
 .shot-img{box-shadow:0 0 28px rgba(59,130,246,.12)}
 .shot-cap,.diagram-cap{font-size:13px;color:var(--dim);margin:8px 0 18px}
 .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:20px 0 8px}
 .gallery figure{margin:0}
-.gallery img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid var(--line);display:block;background:var(--card)}
+.gallery img{width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;border-radius:14px;border:1px solid var(--line);display:block;background:var(--card)}
 .gallery figcaption{font-size:12px;color:var(--dim);margin-top:8px}
 .section{margin:36px 0;padding-left:16px;border-left:2px solid transparent;border-image:var(--grad) 1}
 .section h2{font-family:var(--font-d);font-size:22px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:10px}
@@ -103,7 +103,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     <p class="kicker">Featured case study · 01 · EdTech · Australia · 2022–Present</p>
     <h1>Paperly — K-12 school operations at production scale</h1>
     <p class="meta">Senior Web Application Developer · July 2022 – Present · Remote (Perth team) · Laravel · Vue.js · MySQL · REST APIs</p>
-    <img class="hero-img" src="../projects/paperly-hero.jpg" alt="Paperly excursions operations dashboard with calendar, parent permissions and risk status" width="1200" height="900" loading="eager">
+    <img class="hero-img" src="../projects/paperly-hero.jpg" alt="Paperly excursions operations dashboard with calendar, parent permissions and risk status" width="1200" height="800" loading="eager">
 
     <div class="stats">
       <div class="stat"><b>4 yrs</b><span>Senior delivery on a live multi-school product</span></div>
@@ -125,22 +125,22 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
 
     <section class="section" id="gallery">
       <h2><span class="n">02</span> Product visuals</h2>
-      <p>Illustrative 4:3 mockups based on the verified product capabilities and architecture. They use representative sample data rather than production school records.</p>
+      <p>Illustrative product mockups based on the verified capabilities and architecture. They use representative sample data rather than production school records.</p>
       <div class="gallery">
         <figure>
-          <img src="../projects/paperly-forms.jpg" alt="Paperly dynamic form builder and multi-stage approval workflow" width="800" height="600" loading="lazy">
+          <img src="../projects/paperly-forms.jpg" alt="Paperly dynamic form builder and multi-stage approval workflow" width="1200" height="800" loading="lazy">
           <figcaption>Dynamic forms — configurable fields, conditional logic and role-based approval stages</figcaption>
         </figure>
         <figure>
-          <img src="../projects/paperly-workflow.jpg" alt="Paperly excursion and parent permission workflow chart" width="800" height="600" loading="lazy">
+          <img src="../projects/paperly-workflow.jpg" alt="Paperly excursion and parent permission workflow chart" width="1200" height="800" loading="lazy">
           <figcaption>Excursion flow — staff setup, approvals, consent, tracking and follow-up</figcaption>
         </figure>
         <figure>
-          <img src="../projects/paperly-architecture.jpg" alt="Paperly modular Laravel and Vue system architecture" width="800" height="600" loading="lazy">
+          <img src="../projects/paperly-architecture.jpg" alt="Paperly modular Laravel and Vue system architecture" width="1200" height="800" loading="lazy">
           <figcaption>Architecture — role portals, modular application core, SIS, identity and notifications</figcaption>
         </figure>
         <figure>
-          <img src="../projects/paperly.jpg" alt="Earlier Paperly school operations dashboard concept" width="800" height="600" loading="lazy">
+          <img src="../projects/paperly.jpg" alt="Earlier Paperly school operations dashboard concept" width="1200" height="800" loading="lazy">
           <figcaption>Operations overview — calendars, forms and permission follow-up</figcaption>
         </figure>
       </div>
@@ -176,7 +176,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       <p>School operations were modelled as composable modules behind role portals: staff configure and approve; parents consent and submit; students participate where needed. Laravel services and repositories own domain rules; Vue.js surfaces handle dense calendars, forms and permission follow-up; REST APIs and SIS clients keep external data in sync.</p>
 
       <figure class="shot">
-        <img class="shot-img" src="../projects/paperly-forms.jpg" alt="Paperly form builder with approval workflow configuration" width="1200" height="900" loading="lazy">
+        <img class="shot-img" src="../projects/paperly-forms.jpg" alt="Paperly form builder with approval workflow configuration" width="1200" height="800" loading="lazy">
         <figcaption class="shot-cap">Illustrative form-building surface — flexible field layouts, medical details, consent and a visible approval path.</figcaption>
       </figure>
 
@@ -220,7 +220,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       <p class="diagram-cap">Typical excursion path: staff configure → internal approvals → parent digital consent → permission tracking → operational calendar.</p>
 
       <figure class="shot">
-        <img class="shot-img" src="../projects/paperly-workflow.jpg" alt="Paperly end-to-end excursion workflow capability chart" width="1200" height="900" loading="lazy">
+        <img class="shot-img" src="../projects/paperly-workflow.jpg" alt="Paperly end-to-end excursion workflow capability chart" width="1200" height="800" loading="lazy">
         <figcaption class="shot-cap">Capability chart showing the operational flow and supporting risk, medical, notification and geolocation concerns.</figcaption>
       </figure>
 
@@ -240,7 +240,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       <p>Paperly is organised as convention-based modules (controllers, models, services, repositories and role-scoped routes per domain). Clients hit role portals; Laravel owns business logic; MySQL persists school data; SIS and identity clients keep external systems aligned.</p>
 
       <figure class="shot">
-        <img class="shot-img" src="../projects/paperly-architecture.jpg" alt="Paperly role portals and modular application architecture" width="1200" height="900" loading="lazy">
+        <img class="shot-img" src="../projects/paperly-architecture.jpg" alt="Paperly role portals and modular application architecture" width="1200" height="800" loading="lazy">
         <figcaption class="shot-cap">Architecture overview — four role surfaces, a modular Laravel/Vue core, and isolated integration responsibilities.</figcaption>
       </figure>
 
