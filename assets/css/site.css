@@ -477,6 +477,20 @@ footer a:hover{color:var(--purple)}
 .exp-summary-card .meta{font-size:13px;color:var(--faint);margin-bottom:10px}
 .exp-summary-card p{color:var(--muted);font-size:14px;line-height:1.55}
 
+.recs{background:var(--bg)}
+.recs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+.rec{margin:0;padding:26px 24px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);display:flex;flex-direction:column;gap:18px}
+.rec p{color:var(--muted);font-size:15px;line-height:1.6;quotes:none}
+.rec p::before{content:"“";color:var(--purple);font-family:var(--font);font-weight:700;font-size:1.35em;line-height:0;margin-right:.12em;vertical-align:-.15em}
+.rec p::after{content:"”";color:var(--purple);font-family:var(--font);font-weight:700;font-size:1.35em;line-height:0;margin-left:.08em;vertical-align:-.15em}
+.rec footer{margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.rec cite{display:block;font-style:normal;font-weight:650;font-size:15px;color:var(--ink)}
+.rec footer span{display:block;margin-top:4px;font-size:13px;color:var(--faint);line-height:1.45}
+.recs-source{margin-top:20px}
+.recs-source a{color:var(--muted);font-size:14px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:6px}
+.recs-source a:hover{color:var(--ink)}
+@media(max-width:800px){.recs-grid{grid-template-columns:1fr}}
+
 .final-cta{padding:80px 0;text-align:center;background:var(--bg-1)}
 .final-cta h2{font-family:var(--font);font-size:clamp(28px,5vw,40px);font-weight:700;letter-spacing:-.03em;margin-bottom:10px}
 .final-cta p{color:var(--muted);font-size:18px;margin-bottom:24px}
