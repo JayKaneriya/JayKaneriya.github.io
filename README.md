@@ -4,28 +4,28 @@ Senior Full-Stack Laravel/PHP Developer (Vue.js · React · React Native). **Ava
 
 **Live:** https://jaykaneriya.github.io
 
-## What's included
+## Site structure
 
-- Cinematic portfolio with GSAP motion, icons, project visuals
-- Case studies: Paperly (featured #1), Megathy, Zimdle, Exception Tracker, Resident App
-- Project ideas section with expanded contact form
+- `index.html` — Overview / landing
+- `about.html` — Experience & education
+- `skills.html` — Technical skills
+- `projects.html` — Project directory
+- `services.html` — Freelance services
+- `contact.html` — Contact form & links
+- `case-studies/` — Paperly, Megathy, Zimdle, Exception Tracker, Resident App
+
+Shared styles/scripts: `assets/css/site.css`, `assets/js/site.js`
+
+## Also included
+
 - Contact form (FormSubmit) + hire CTAs
 - Engagement options (full-time / retainer / fixed project)
 - User CV + ATS/AI CV (`cv.html`, `cv-ai.html`, `cv-ai.md`)
-
-## Key files
-
-| Path | Purpose |
-|------|---------|
-| `index.html` | Main site |
-| `case-studies/` | Deep project pages |
-| `projects/` | Project visuals |
-| `cv.html` / `Jay_Kaneriya_CV_2026.pdf` | User-friendly CV |
-| `cv-ai.html` / `cv-ai.md` / `Jay_Kaneriya_CV_AI.pdf` | ATS / AI CV |
-| `AI/hero-web.mp4` | Hero intro video |
 
 ## Contact
 
 - Email: jay.kaneriya8@gmail.com
 - LinkedIn: https://www.linkedin.com/in/jaykaneriya/
 - GitHub: https://github.com/JayKaneriya
+- Upwork: https://www.upwork.com/freelancers/~01b77240d87af81e14
+- Fiverr: https://www.fiverr.com/s/bk9dkYa

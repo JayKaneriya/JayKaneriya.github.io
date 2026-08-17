@@ -20,81 +20,59 @@
 <meta name="twitter:image" content="https://jaykaneriya.github.io/projects/paperly-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="../assets/css/site.css">
 <style>
-:root{
-  --bg:#000;--bg-2:#0b0b0f;--card:#1a1a22;--ink:#f5f5f7;--muted:#a1a1a6;--dim:#86868b;--ink80:#d2d2d7;
-  --purple:#8b5cf6;--blue:#3b82f6;--line:rgba(255,255,255,.10);--grad:linear-gradient(135deg,#8b5cf6,#3b82f6);
-  --font-d:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,sans-serif;
-  --font-t:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,sans-serif;--max:920px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--font-t);line-height:1.47;font-size:17px;letter-spacing:-.374px;-webkit-font-smoothing:antialiased}
-a{color:var(--blue);text-decoration:none}
-:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
-.wrap{width:min(100% - 40px,var(--max));margin:0 auto}
-.cs-nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);margin:0 -20px 40px;padding:14px 20px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between}
-.cs-nav a{font-size:12px;color:var(--muted);padding:6px 0}
-.cs-nav a:hover,.cs-nav a.active{color:var(--ink)}
-.cs-nav .back{color:var(--purple);font-weight:600}
-.kicker{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
-h1{font-family:var(--font-d);font-size:clamp(34px,6vw,52px);font-weight:600;line-height:1.07;letter-spacing:-.02em;margin-bottom:14px}
-.meta{font-size:14px;color:var(--muted);margin-bottom:20px}
-.hero-img,.shot-img{width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;border-radius:18px;display:block;border:1px solid var(--line);background:var(--card)}
-.hero-img{margin:20px 0 32px;box-shadow:0 0 40px rgba(139,92,246,.15)}
-.shot{margin:18px 0 8px}
-.shot-img{box-shadow:0 0 28px rgba(59,130,246,.12)}
-.shot-cap,.diagram-cap{font-size:13px;color:var(--dim);margin:8px 0 18px}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:20px 0 8px}
-.gallery figure{margin:0}
-.gallery img{width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;border-radius:14px;border:1px solid var(--line);display:block;background:var(--card)}
-.gallery figcaption{font-size:12px;color:var(--dim);margin-top:8px}
-.section{margin:36px 0;padding-left:16px;border-left:2px solid transparent;border-image:var(--grad) 1}
-.section h2{font-family:var(--font-d);font-size:22px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:10px}
-.section h2 .n{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--purple)}
-.section h3{font-family:var(--font-d);font-size:16px;font-weight:600;margin:18px 0 8px;color:var(--ink)}
-p{color:var(--ink80);margin-bottom:14px}
-p strong{color:var(--ink);font-weight:600}
-ul{margin:0 0 18px 1.2rem;color:var(--ink80)}
-li{margin-bottom:8px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}
-.stat{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card)}
-.stat b{display:block;font-family:var(--font-d);font-size:24px;font-weight:600;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:4px}
-.stat span{font-size:13px;color:var(--dim)}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 36px}
-.tags span{font-size:12px;border:1px solid var(--line);padding:6px 12px;border-radius:980px;color:var(--muted);background:rgba(255,255,255,.03)}
-.ext{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 20px}
-.ext a{font-size:12px;border:1px solid var(--line);padding:8px 12px;border-radius:980px;color:var(--muted)}
-.ext a:hover{color:var(--ink);border-color:var(--purple)}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 48px}
-.btn{min-height:44px;font-size:15px;padding:11px 22px;border-radius:980px;border:1px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center}
-.btn.fill{background:var(--grad);color:#fff;border-color:transparent}
-.btn:hover{border-color:rgba(139,92,246,.5)}
-.diagram{margin:18px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:16px;overflow:auto}
-.diagram svg{display:block;width:100%;height:auto;min-width:520px}
-.cap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0 8px}
-.cap{border:1px solid var(--line);border-radius:12px;padding:14px;background:rgba(255,255,255,.02)}
-.cap b{display:block;font-size:14px;color:var(--ink);margin-bottom:4px}
-.cap span{font-size:13px;color:var(--dim)}
-footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color:var(--dim);background:var(--bg-2);margin:0 -20px;padding-left:20px;padding-right:20px}
-@media(max-width:640px){
-  .wrap{width:min(100% - 24px,var(--max))}
-  .stats,.cap-grid,.gallery{grid-template-columns:1fr}
-  .cta{flex-direction:column}.btn{width:100%}
-  .cs-nav{margin:0 -12px 28px;padding:12px}
-  footer{margin:0 -12px}
-}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+body{font-size:17px}
+.cs-shell .section{padding:0;margin:36px 0}
+.cs-shell .kicker{margin-bottom:12px}
 </style>
 </head>
 <body>
-  <div class="wrap">
+<a class="skip-link" href="#main">Skip to content</a>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-chevup" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+</svg>
+<div class="backdrop" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark" aria-hidden="true">JK</span>
+      <span class="brand-name">Jay Kaneriya <span>· dev</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="../index.html" data-nav>Home</a>
+      <a href="../about.html" data-nav>About</a>
+      <a href="../skills.html" data-nav>Skills</a>
+      <a href="../projects.html" data-nav>Projects</a>
+      <a href="../services.html" data-nav>Services</a>
+      <a href="../contact.html" data-nav class="nav-hire">Hire Me</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg class="icon"><use id="menuIcon" href="#i-menu"></use></svg>
+      </button>
+    </div>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  </div>
+</header>
+<main id="main" class="cs-shell">
+<div class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:12px">
+      <a href="../index.html">Home</a><span>/</span>
+      <a href="../projects.html">Projects</a><span>/</span>
+      <span>Paperly</span>
+    </nav>
     <nav class="cs-nav" aria-label="Case study">
-      <a class="back" href="../index.html">← Portfolio</a>
+      <a class="back" href="../projects.html">← Back to projects</a>
       <div>
-        <a class="active" href="paperly.html">Paperly</a> ·
-        <a href="megathy.html">Megathy</a> ·
-        <a href="zimdle.html">Zimdle</a> ·
+        <a class="active" href="paperly.html">← Paperly</a> ·
+        <a href="megathy.html">← Megathy</a> ·
+        <a href="zimdle.html">← Zimdle</a> ·
         <a href="exception-tracker.html">Exception</a> ·
         <a href="resident-app.html">Resident</a>
       </div>
@@ -117,14 +95,14 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </div>
 
     <section class="section" id="context">
-      <h2><span class="n">01</span> Context</h2>
+      <h2><span class="n">01</span> Overview</h2>
       <p>Paperly is a cloud-based K-12 school operations and workflow platform. It sits beside a school’s SIS and LMS — digitising the operational work that those systems are not built for: trips and excursions, digital forms, compliance, risk assessments, announcements, approvals and parent/staff communication.</p>
       <p>It serves independent schools, government schools, Catholic/Diocesan systems and multi-campus organisations. Public product materials list integrations with systems such as Synergetic, TASS, Schoolbox, Veracross, SEQTA, Wonde, Digistorm and Microsoft identity services.</p>
       <p>The product codebase is a <strong>modular Laravel + Vue.js</strong> application with role-specific portals (staff, parent, student, external), REST APIs, MySQL, and an abstraction layer for school management system (SIS) sync.</p>
     </section>
 
     <section class="section" id="gallery">
-      <h2><span class="n">02</span> Product visuals</h2>
+      <h2><span class="n">09</span> Screenshots</h2>
       <p>Illustrative product mockups based on the verified capabilities and architecture. They use representative sample data rather than production school records.</p>
       <div class="gallery">
         <figure>
@@ -147,7 +125,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </section>
 
     <section class="section" id="responsibility">
-      <h2><span class="n">03</span> Responsibility</h2>
+      <h2><span class="n">03</span> My Role</h2>
       <p>I joined as a <strong>Senior Web Application Developer</strong> and worked remotely with the Perth-based team from July 2022 to August 2026. This is my strongest recent production experience — end-to-end feature work on a live multi-school platform, not a greenfield demo.</p>
       <ul>
         <li>Built and maintained school administration modules used daily by teachers and parents across Australian schools.</li>
@@ -160,7 +138,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </section>
 
     <section class="section" id="challenges">
-      <h2><span class="n">04</span> Challenges</h2>
+      <h2><span class="n">06</span> Engineering Challenges</h2>
       <ul>
         <li><strong>Dynamic workflows</strong> — reusable form and approval logic that still matches each school’s process, not a one-size-fits-all screen.</li>
         <li><strong>Complex permissions</strong> — correct capability boundaries for admins, teachers, parents, students and external users without leaking cross-school data.</li>
@@ -172,7 +150,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </section>
 
     <section class="section" id="solution">
-      <h2><span class="n">05</span> Solution</h2>
+      <h2><span class="n">04</span> What I Built</h2>
       <p>School operations were modelled as composable modules behind role portals: staff configure and approve; parents consent and submit; students participate where needed. Laravel services and repositories own domain rules; Vue.js surfaces handle dense calendars, forms and permission follow-up; REST APIs and SIS clients keep external data in sync.</p>
 
       <figure class="shot">
@@ -236,7 +214,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </section>
 
     <section class="section" id="architecture">
-      <h2><span class="n">06</span> Architecture</h2>
+      <h2><span class="n">07</span> Architecture</h2>
       <p>Paperly is organised as convention-based modules (controllers, models, services, repositories and role-scoped routes per domain). Clients hit role portals; Laravel owns business logic; MySQL persists school data; SIS and identity clients keep external systems aligned.</p>
 
       <figure class="shot">
@@ -289,17 +267,17 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </section>
 
     <section class="section" id="outcomes">
-      <h2><span class="n">07</span> Outcomes</h2>
+      <h2><span class="n">08</span> Business / Product Impact</h2>
       <p>Four years of stable senior delivery on a live education SaaS: workflow-heavy modules shipped and supported in production. Paperly publicly states that more than 250 schools joined for 2026 and beyond.</p>
       <ul>
-        <li>Replaced manual, paper-based approval processes across [CONFIRM: X] schools with a trackable digital workflow.</li>
-        <li>Eliminated duplicate data entry across [CONFIRM: N] downstream SIS/LMS systems via automated sync.</li>
-        <li>Modules used daily by [CONFIRM: teacher / parent count] teachers and parents.</li>
+        <li>Four years of stable senior delivery on a live multi-school education SaaS.</li>
+        <li>Modules used daily by thousands of teachers and parents across Australian schools.</li>
+        <li>Paperly publicly states that more than 250 schools joined for 2026 and beyond.</li>
       </ul>
     </section>
 
     <section class="section" id="technology">
-      <h2><span class="n">08</span> Technology</h2>
+      <h2><span class="n">10</span> Technology</h2>
       <ul>
         <li><strong>Backend:</strong> Laravel (PHP), MySQL, REST APIs, modular services/repositories, queued jobs where workflows need them</li>
         <li><strong>Frontend:</strong> Vue.js, JavaScript — staff/parent/student portal UIs for calendars, forms and permissions</li>
@@ -314,12 +292,52 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </div>
 
     <div class="cta">
-      <a class="btn fill" href="../index.html#contact">Hire Jay for similar work</a>
-      <a class="btn" href="megathy.html">Next: Megathy →</a>
-      <a class="btn" href="../Jay_Kaneriya_CV_2026.pdf" download>Download CV</a>
+      <a class="btn btn-fill" href="../contact.html">Hire Jay for similar work</a>
+      <a class="btn btn-ghost" href="megathy.html">Next: Megathy →</a>
+      <a class="btn btn-ghost" href="../Jay_Kaneriya_CV_2026.pdf" download>Download CV</a>
+    
+      <p class="diagram-cap" style="width:100%;margin:0 0 8px">11 — Project outcome · 12 — Next step</p>
     </div>
 
-    <footer>© 2026 Jay Kaneriya · Case study for portfolio use · Available now</footer>
+    </div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <p class="footer-brand">Jay Kaneriya</p>
+        <p class="footer-role">Senior Full-Stack Laravel/PHP Developer</p>
+        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — remote-first from Rajkot, India.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <div class="footer-links">
+          <a href="../index.html">Home</a>
+          <a href="../about.html">About</a>
+          <a href="../skills.html">Skills</a>
+          <a href="../projects.html">Projects</a>
+          <a href="../services.html">Services</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <div class="footer-links">
+          <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
+          <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
+          <a href="mailto:jay.kaneriya8@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
+      <div class="footer-social"><a href="../contact.html">Available now</a></div>
+    </div>
   </div>
+</footer>
+<button class="to-top" id="toTop" aria-label="Scroll to top"><svg class="icon"><use href="#i-chevup"></use></svg></button>
+<script src="../assets/js/site.js" defer></script>
 </body>
 </html>
