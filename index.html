@@ -207,6 +207,8 @@ section[id]{scroll-margin-top:var(--nav-h)}
 
 .hero-lead{max-width:38rem;color:var(--muted);margin-bottom:28px;font-size:16px;line-height:1.6}
 .hero-lead strong{color:var(--ink);font-weight:600}
+.hero-proof{font-size:14px;color:var(--muted);margin:-4px 0 14px}
+.hero-proof strong{color:var(--ink);font-weight:600}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
 .hero-chips{display:flex;flex-wrap:wrap;gap:8px}
 .hero-chips span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);border:1px solid var(--line);padding:7px 12px;border-radius:var(--r-pill);background:rgba(255,255,255,.03);transition:border-color .3s,transform .3s,background .3s}
@@ -222,6 +224,8 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .console-bar i:nth-child(1){background:#ff5f57}.console-bar i:nth-child(2){background:#febc2e}.console-bar i:nth-child(3){background:#28c840}
 .console-bar span{margin-left:8px;font-size:12px;color:var(--faint);font-family:var(--mono)}
 .console-body{padding:18px 18px 20px;font-family:var(--mono);font-size:12.5px;line-height:1.8}
+.engineer-code{margin:0;white-space:pre-wrap;word-break:break-word;color:var(--muted);font:inherit}
+.engineer-code .key{color:#a78bfa}.engineer-code .value{color:var(--green)}.engineer-code .string{color:#60a5fa}
 .console-line{display:flex;gap:10px;color:var(--muted);opacity:0;animation:lineIn .5s ease forwards}
 .console-line:nth-child(1){animation-delay:.3s}.console-line:nth-child(2){animation-delay:.55s}.console-line:nth-child(3){animation-delay:.8s}
 .console-line:nth-child(4){animation-delay:1.05s}.console-line:nth-child(5){animation-delay:1.3s}.console-line:nth-child(6){animation-delay:1.55s}
@@ -235,6 +239,7 @@ section[id]{scroll-margin-top:var(--nav-h)}
 @keyframes floaty{50%{transform:translateY(-3px)}}
 .console-chips .icon{width:12px;height:12px;color:var(--blue)}
 @media(max-width:960px){.console{max-width:560px;margin-inline:auto}}
+@media(max-width:480px){.console-body{padding:15px;font-size:11px;line-height:1.7}.console-chips{padding:0 15px 15px}}
 
 /* ==========================================================================
    8. Credibility Bar
@@ -321,6 +326,7 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .flag-contrib li{position:relative;padding-left:16px;font-size:14px;color:var(--muted);line-height:1.5}
 .flag-contrib li::before{content:'';position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:var(--purple)}
 .flag-arch{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;font-weight:500;padding:18px;border:1px solid var(--line);border-radius:var(--r-md);background:rgba(255,255,255,.03)}
+.flag-arch span{display:inline-flex;align-items:center;gap:10px}
 .flag-arch b{font-weight:500;color:var(--ink);padding:7px 13px;border:1px solid var(--line);border-radius:var(--r-pill);background:rgba(255,255,255,.04)}
 .flag-arch i{font-style:normal;color:var(--purple)}
 .flag-media{border-radius:14px;overflow:hidden;aspect-ratio:16/11;border:1px solid var(--line);align-self:center}
@@ -348,16 +354,10 @@ section[id]{scroll-margin-top:var(--nav-h)}
    ========================================================================== */
 .expertise{background:var(--bg-1)}
 
-/* Skill rings row */
-.skill-rings{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(24px,4vw,48px);margin-bottom:48px}
-.ring-item{display:flex;flex-direction:column;align-items:center;gap:12px}
-.ring-svg{width:100px;height:100px;transform:rotate(-90deg)}
-.ring-bg{fill:none;stroke:var(--line);stroke-width:6}
-.ring-fill{fill:none;stroke:url(#ring-grad);stroke-width:6;stroke-linecap:round;stroke-dasharray:282.74;stroke-dashoffset:282.74;transition:stroke-dashoffset 1.5s cubic-bezier(.4,0,.2,1)}
-.ring-item.animated .ring-fill{stroke-dashoffset:var(--offset)}
-.ring-label{font-size:13px;color:var(--muted);font-weight:500;text-align:center}
-.ring-pct{font-family:var(--mono);font-size:12px;color:var(--purple);font-weight:600;position:absolute;width:100%;text-align:center;top:50%;transform:translateY(-50%)}
-.ring-wrap{position:relative;width:100px;height:100px}
+/* Core skills */
+.core-skills{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px}
+.core-skills span{display:inline-flex;align-items:center;min-height:38px;padding:8px 14px;border:1px solid rgba(139,92,246,.42);border-radius:var(--r-pill);background:var(--accent-soft);color:var(--ink);font-size:14px;font-weight:600}
+.core-skills span::before{content:"//";margin-right:7px;color:var(--purple);font-family:var(--mono);font-size:12px}
 
 /* Skill grid */
 .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
@@ -421,6 +421,7 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .contact-alt a,.socials a{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:var(--muted);transition:color .2s}
 .contact-alt a:hover,.socials a:hover{color:var(--blue)}
 .contact-alt .icon,.socials .icon{width:15px;height:15px}
+.contact-note{flex-basis:100%;font-size:12px;color:var(--faint);margin-top:-6px}
 .hire-form{display:flex;flex-direction:column;gap:14px;padding:24px;border:1px solid rgba(139,92,246,.25);border-radius:var(--r-lg);background:var(--card);box-shadow:var(--glow)}
 .hire-form label{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)}
 .hire-form input,.hire-form select,.hire-form textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);color:var(--ink);font-family:var(--font);font-size:16px;padding:13px 16px;outline:none;transition:border-color .2s,box-shadow .2s}
@@ -451,9 +452,8 @@ footer a:hover{color:var(--purple)}
   .hero-actions .btn,.contact-actions .btn{flex:1 1 100%;width:100%}
   .section-lead{font-size:16px}
   .to-top{right:14px;bottom:max(14px,env(safe-area-inset-bottom))}
-  .skill-rings{gap:20px}
-  .ring-svg{width:80px;height:80px}
-  .ring-wrap{width:80px;height:80px}
+  .core-skills{gap:8px}
+  .core-skills span{font-size:13px}
 }
 @media(max-width:480px){
   .hero-chips{gap:6px}
@@ -551,6 +551,7 @@ footer a:hover{color:var(--purple)}
       <div class="typing-wrap hero-anim">
         <p class="typing-text">I build <span class="typed" id="typedText">production-grade Laravel systems</span></p>
       </div>
+      <p class="hero-proof hero-anim"><strong>4+ years at Paperly</strong> · production workflows for a platform serving <strong>250+ schools in 2026</strong>.</p>
       <p class="hero-lead hero-anim">
         <strong>9+ years</strong> shipping SaaS, education, eCommerce and delivery platforms.
         Most recently a Senior Web Application Developer at <strong>Paperly (Australia, remote)</strong>,
@@ -558,7 +559,7 @@ footer a:hover{color:var(--purple)}
       </p>
       <div class="hero-actions hero-anim">
         <a class="btn btn-fill magnetic" href="#work"><svg class="icon"><use href="#i-arrow"></use></svg> View selected work</a>
-        <a class="btn btn-ghost" href="#contact">Discuss a role</a>
+        <a class="btn btn-ghost" href="#contact" data-contact-type="Full-time remote role">Discuss a role</a>
         <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download><svg class="icon"><use href="#i-download"></use></svg> Download CV</a>
       </div>
       <div class="hero-chips hero-anim" aria-label="Core stack">
@@ -572,12 +573,12 @@ footer a:hover{color:var(--purple)}
     <aside class="console hero-anim" aria-label="Engineering console preview">
       <div class="console-bar"><i></i><i></i><i></i><span>engineer.ts — production</span></div>
       <div class="console-body">
-        <div class="console-line"><span class="prompt">$</span> boot laravel.service</div>
-        <div class="console-line"><span class="ok">✓</span> API gateway healthy <span class="info">200</span></div>
-        <div class="console-line"><span class="ok">✓</span> workflow.engine · multi-step approvals</div>
-        <div class="console-line"><span class="ok">✓</span> payments.webhooks · stripe/paypal</div>
-        <div class="console-line"><span class="ok">✓</span> vue/react modules synced</div>
-        <div class="console-line"><span class="prompt">$</span> ship --remote --senior<span class="cursor"></span></div>
+        <pre class="engineer-code"><code><span class="key">export const</span> engineer = {
+  <span class="key">focus</span>: [<span class="string">'Laravel'</span>, <span class="string">'Vue'</span>, <span class="string">'product systems'</span>],
+  <span class="key">experience</span>: <span class="value">'9+ years shipping'</span>,
+  <span class="key">recent</span>: <span class="value">'4+ years · Paperly, AU'</span>,
+  <span class="key">availability</span>: <span class="value">'remote roles &amp; contracts'</span>
+};<span class="cursor"></span></code></pre>
       </div>
       <div class="console-chips">
         <span><svg class="icon"><use href="#i-terminal"></use></svg> PHP 8+</span>
@@ -640,7 +641,7 @@ footer a:hover{color:var(--purple)}
       <div class="timeline-fill" id="timelineFill"></div>
       <article class="t-item is-current reveal-item">
         <div class="t-meta">
-          <time datetime="2022-07">Jul 2022 — Aug 2026</time>
+          <time datetime="2022-07">Jul 2022 — Present</time>
           <span class="t-loc">Perth, AU · Remote</span>
         </div>
         <div class="t-card">
@@ -705,7 +706,7 @@ footer a:hover{color:var(--purple)}
         <div>
           <p class="flag-label">★ Flagship</p>
           <h3>Paperly</h3>
-          <p class="flag-meta"><strong>Senior Web Application Developer</strong> · EdTech · Australia · 2022–2026</p>
+          <p class="flag-meta"><strong>Senior Web Application Developer</strong> · EdTech · Australia · 2022–Present</p>
           <p class="flag-lead">Schools needed reliable digital workflows for excursions, activities, forms, interviews and permissions — used daily at scale.</p>
           <div class="tags" style="margin-top:18px"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Geolocation</span></div>
           <a class="work-link" href="case-studies/paperly.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
@@ -739,12 +740,12 @@ footer a:hover{color:var(--purple)}
 
       <h4 class="flag-sub">Architecture</h4>
       <div class="flag-arch">
-        <b>Parents / Teachers / Administrators</b><i>→</i>
-        <b>Vue.js</b><i>→</i>
-        <b>Laravel / REST APIs</b><i>→</i>
-        <b>MySQL</b><i>→</i>
-        <b>Forms / Permissions / Workflows / Geolocation</b><i>→</i>
-        <b>Third-party integrations</b>
+        <b>Parents / Teachers / Administrators</b>
+        <span><i>→</i><b>Vue.js</b></span>
+        <span><i>→</i><b>Laravel / REST APIs</b></span>
+        <span><i>→</i><b>MySQL</b></span>
+        <span><i>→</i><b>Forms / Permissions / Workflows / Geolocation</b></span>
+        <span><i>→</i><b>Third-party integrations</b></span>
       </div>
     </article>
 
@@ -795,71 +796,11 @@ footer a:hover{color:var(--purple)}
     <div class="reveal">
       <p class="kicker">04 — Expertise</p>
       <h2 class="section-title">Technical <em>toolkit.</em></h2>
-      <p class="section-lead">Primary stack visualized, full toolkit grouped by layer.</p>
+      <p class="section-lead">Core technologies first, with the rest grouped by the work they support.</p>
     </div>
 
-    <!-- Animated skill rings -->
-    <div class="skill-rings reveal" id="skillRings">
-      <div class="ring-item" data-pct="95">
-        <div class="ring-wrap">
-          <svg class="ring-svg" viewBox="0 0 100 100">
-            <circle class="ring-bg" cx="50" cy="50" r="45"/>
-            <circle class="ring-fill" cx="50" cy="50" r="45" style="--offset:14.14"/>
-          </svg>
-          <span class="ring-pct">95%</span>
-        </div>
-        <span class="ring-label">Laravel</span>
-      </div>
-      <div class="ring-item" data-pct="95">
-        <div class="ring-wrap">
-          <svg class="ring-svg" viewBox="0 0 100 100">
-            <circle class="ring-bg" cx="50" cy="50" r="45"/>
-            <circle class="ring-fill" cx="50" cy="50" r="45" style="--offset:14.14"/>
-          </svg>
-          <span class="ring-pct">95%</span>
-        </div>
-        <span class="ring-label">PHP 8+</span>
-      </div>
-      <div class="ring-item" data-pct="90">
-        <div class="ring-wrap">
-          <svg class="ring-svg" viewBox="0 0 100 100">
-            <circle class="ring-bg" cx="50" cy="50" r="45"/>
-            <circle class="ring-fill" cx="50" cy="50" r="45" style="--offset:28.27"/>
-          </svg>
-          <span class="ring-pct">90%</span>
-        </div>
-        <span class="ring-label">Vue.js</span>
-      </div>
-      <div class="ring-item" data-pct="85">
-        <div class="ring-wrap">
-          <svg class="ring-svg" viewBox="0 0 100 100">
-            <circle class="ring-bg" cx="50" cy="50" r="45"/>
-            <circle class="ring-fill" cx="50" cy="50" r="45" style="--offset:42.41"/>
-          </svg>
-          <span class="ring-pct">85%</span>
-        </div>
-        <span class="ring-label">React</span>
-      </div>
-      <div class="ring-item" data-pct="90">
-        <div class="ring-wrap">
-          <svg class="ring-svg" viewBox="0 0 100 100">
-            <circle class="ring-bg" cx="50" cy="50" r="45"/>
-            <circle class="ring-fill" cx="50" cy="50" r="45" style="--offset:28.27"/>
-          </svg>
-          <span class="ring-pct">90%</span>
-        </div>
-        <span class="ring-label">MySQL</span>
-      </div>
-      <div class="ring-item" data-pct="90">
-        <div class="ring-wrap">
-          <svg class="ring-svg" viewBox="0 0 100 100">
-            <circle class="ring-bg" cx="50" cy="50" r="45"/>
-            <circle class="ring-fill" cx="50" cy="50" r="45" style="--offset:28.27"/>
-          </svg>
-          <span class="ring-pct">90%</span>
-        </div>
-        <span class="ring-label">REST APIs</span>
-      </div>
+    <div class="core-skills reveal" aria-label="Core day-to-day stack">
+      <span>Laravel</span><span>PHP 8+</span><span>Vue.js</span><span>React</span><span>MySQL</span><span>REST APIs</span>
     </div>
 
     <div class="skill-grid">
@@ -918,7 +859,7 @@ footer a:hover{color:var(--purple)}
         </div>
       </article>
     </div>
-    <p class="skill-note reveal"><strong>Highlighted</strong> = primary day-to-day stack · <strong style="color:var(--green)">Green</strong> = AI-assisted workflow</p>
+    <p class="skill-note reveal"><strong>Highlighted</strong> = core day-to-day stack · remaining tools are grouped by the work they support.</p>
   </div>
 </section>
 
@@ -983,11 +924,10 @@ footer a:hover{color:var(--purple)}
           <div class="contact-actions">
             <a class="btn btn-fill magnetic" href="mailto:jay.kaneriya8@gmail.com?subject=Role%20or%20project%20for%20Jay%20Kaneriya"><svg class="icon"><use href="#i-mail"></use></svg> Email me</a>
             <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download><svg class="icon"><use href="#i-download"></use></svg> CV</a>
-            <a class="btn btn-ghost" href="cv.html">View CV online</a>
           </div>
           <div class="contact-alt">
-            <a href="Jay_Kaneriya_CV_AI.pdf" download>ATS / AI CV ↓</a>
-            <a href="cv-ai.html">View ATS CV online</a>
+            <a href="Jay_Kaneriya_CV_AI.pdf" download>ATS-optimized CV ↓</a>
+            <span class="contact-note">Same experience, structured for applicant tracking systems.</span>
             <a href="https://wa.me/918530078687?text=Hi%20Jay%2C%20I%27d%20like%20to%20discuss%20a%20role%20or%20project." target="_blank" rel="noopener"><svg class="icon icon-fill"><use href="#i-whatsapp"></use></svg> WhatsApp</a>
           </div>
           <div class="socials">
@@ -1000,7 +940,7 @@ footer a:hover{color:var(--purple)}
           <input type="hidden" name="_subject" value="New inquiry — jaykaneriya.github.io">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-row">
             <div>
               <label for="name">Name</label>
@@ -1109,6 +1049,12 @@ footer a:hover{color:var(--purple)}
     document.addEventListener('keydown', e => { if(e.key==='Escape') setNav(false); });
     window.addEventListener('resize', () => { if(window.innerWidth > 900) setNav(false); });
   }
+
+  /* ──────────────────────────── Contact CTA context ──────────────────────────── */
+  const projectType = $('#project-type');
+  $$('[data-contact-type]').forEach(cta => cta.addEventListener('click', () => {
+    if(projectType) projectType.value = cta.dataset.contactType;
+  }));
 
   /* ──────────────────────────── Reveal animations (IO fallback) ──────────────────────────── */
   const supportsViewTimeline = CSS.supports('animation-timeline','view()');
@@ -1242,19 +1188,6 @@ footer a:hover{color:var(--purple)}
       });
     }, {threshold: 0.5});
     credCounters.forEach(c => counterObs.observe(c));
-  }
-
-  /* ──────────────────────────── Skill rings ──────────────────────────── */
-  const ringItems = $$('.ring-item');
-  if(ringItems.length){
-    const ringObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if(!e.isIntersecting) return;
-        e.target.classList.add('animated');
-        ringObs.unobserve(e.target);
-      });
-    }, {threshold:.3});
-    ringItems.forEach(r => ringObs.observe(r));
   }
 
   /* ──────────────────────────── Timeline fill ──────────────────────────── */
