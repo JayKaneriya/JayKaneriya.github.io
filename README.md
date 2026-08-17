@@ -1,6 +1,6 @@
 # Jay Kaneriya — Portfolio
 
-Senior Full-Stack Laravel/PHP Developer (Vue.js · React · React Native). **Available now** for remote full-time and freelance / contract work.
+Senior Full-Stack Laravel/PHP Developer (Vue.js · React · React Native). **Available now** for remote full-time roles. Contract / freelance work remains available if that is a better fit.
 
 **Live:** https://jaykaneriya.github.io
 

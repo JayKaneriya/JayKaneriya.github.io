@@ -68,8 +68,28 @@
 
   /* ──────────────────────────── Contact CTA context ──────────────────────────── */
   const projectType = $('#project-type');
+  const freelanceFields = $('#freelanceFields');
+  const messageField = $('#message');
+  const syncContactForm = () => {
+    if(!projectType) return;
+    const isFullTime = projectType.value === 'Full-time remote role';
+    if(freelanceFields){
+      freelanceFields.hidden = isFullTime;
+      $$('input', freelanceFields).forEach(input => {
+        input.disabled = isFullTime;
+      });
+    }
+    if(messageField){
+      messageField.placeholder = isFullTime
+        ? 'Role, team, stack, start date…'
+        : 'Product, problem, stack, goals…';
+    }
+  };
   $$('[data-contact-type]').forEach(cta => cta.addEventListener('click', () => {
-    if(projectType) projectType.value = cta.dataset.contactType;
+    if(projectType){
+      projectType.value = cta.dataset.contactType;
+      syncContactForm();
+    }
   }));
   const contactType = new URLSearchParams(window.location.search).get('type');
   const contactTypeMap = {
@@ -79,6 +99,10 @@
   };
   if(projectType && contactTypeMap[contactType]){
     projectType.value = contactTypeMap[contactType];
+  }
+  if(projectType){
+    projectType.addEventListener('change', syncContactForm);
+    syncContactForm();
   }
 
   /* ──────────────────────────── Reveal animations (IO fallback) ──────────────────────────── */

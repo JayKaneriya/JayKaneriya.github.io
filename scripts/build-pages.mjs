@@ -81,7 +81,7 @@ const nav = `<header class="nav" id="nav">
       <a href="skills.html" data-nav>Skills</a>
       <a href="projects.html" data-nav>Projects</a>
       <a href="services.html" data-nav>Services</a>
-      <a href="contact.html" data-nav class="nav-hire">Hire Me</a>
+      <a href="contact.html?type=fulltime" data-nav class="nav-hire">Hire Me</a>
     </nav>
     <div class="nav-actions">
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -98,7 +98,7 @@ const footer = `<footer class="site-footer">
       <div>
         <p class="footer-brand">Jay Kaneriya</p>
         <p class="footer-role">Senior Full-Stack Laravel/PHP Developer</p>
-        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — remote-first from Rajkot, India.</p>
+        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available now for remote full-time roles from Rajkot, India (IST).</p>
       </div>
       <div class="footer-col">
         <h4>Navigate</h4>
@@ -116,15 +116,13 @@ const footer = `<footer class="site-footer">
         <div class="footer-links">
           <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
-          <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
           <a href="mailto:jay.kaneriya8@gmail.com">Email</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="contact.html">Available now</a></div>
+      <div class="footer-social"><a href="contact.html?type=fulltime">Open to remote roles</a></div>
     </div>
   </div>
 </footer>
@@ -142,7 +140,7 @@ function serviceCard(title, solves, included, forWho) {
     <ul>${included.map((i) => `<li>${i}</li>`).join('')}</ul>
     <h4>Who it's for</h4>
     <p>${forWho}</p>
-    <a class="work-link" href="contact.html">Start a project <svg class="icon"><use href="#i-arrow"></use></svg></a>
+    <a class="work-link" href="contact.html">Get in touch <svg class="icon"><use href="#i-arrow"></use></svg></a>
   </article>`;
 }
 
@@ -278,9 +276,9 @@ const about =
 <section class="final-cta">
   <div class="wrap reveal">
     <h2>Looking for an engineer who owns the whole problem?</h2>
-    <p>Let's discuss your role or project.</p>
+    <p>Available now for remote full-time — IST with AU / EU / US overlap.</p>
     <div class="hero-actions">
-      <a class="btn btn-fill" href="contact.html">Start a conversation</a>
+      <a class="btn btn-fill" href="contact.html?type=fulltime">Discuss a role</a>
       <a class="btn btn-ghost" href="projects.html">View projects</a>
     </div>
   </div>
@@ -378,7 +376,7 @@ const skills =
     <h2>Need Laravel expertise on a live product?</h2>
     <p>Let's talk about your stack and timeline.</p>
     <div class="hero-actions">
-      <a class="btn btn-fill" href="contact.html">Hire Me</a>
+      <a class="btn btn-fill" href="contact.html?type=fulltime">Discuss a role</a>
       <a class="btn btn-ghost" href="services.html">View services</a>
     </div>
   </div>
@@ -479,10 +477,10 @@ const projects =
 
 <section class="final-cta">
   <div class="wrap reveal">
-    <h2>Want similar engineering on your product?</h2>
-    <p>You bring the idea. I bring the engineering.</p>
+    <h2>Want this kind of production engineering on your team?</h2>
+    <p>Available now for remote full-time — IST with AU / EU / US overlap.</p>
     <div class="hero-actions">
-      <a class="btn btn-fill" href="contact.html">Discuss a project</a>
+      <a class="btn btn-fill" href="contact.html?type=fulltime">Discuss a role</a>
     </div>
   </div>
 </section>
@@ -588,10 +586,11 @@ const services =
 
 <section class="final-cta">
   <div class="wrap reveal">
-    <h2>You bring the idea. I bring the engineering.</h2>
-    <p>Tell me about the product — I'll respond with a clear next step.</p>
+    <h2>Hiring a senior Laravel engineer?</h2>
+    <p>Available now for remote full-time. Contract options are below if you need a shorter engagement.</p>
     <div class="hero-actions">
-      <a class="btn btn-fill" href="contact.html">Let's discuss your project</a>
+      <a class="btn btn-fill" href="contact.html?type=fulltime">Discuss a role</a>
+      <a class="btn btn-ghost" href="contact.html">Start a contract</a>
     </div>
   </div>
 </section>
@@ -601,9 +600,9 @@ const services =
 
 const contact =
   head({
-    title: 'Contact Jay Kaneriya | Start a Project',
+    title: 'Contact Jay Kaneriya | Remote Full-Time Roles',
     description:
-      'Contact Jay Kaneriya to discuss a Laravel, full-stack or freelance engagement. Email, LinkedIn, GitHub, Upwork and Fiverr — available now.',
+      'Contact Jay Kaneriya about a remote full-time Laravel or full-stack role. Email, LinkedIn and GitHub — available now. Contract work on request.',
     canonical: 'https://jaykaneriya.github.io/contact.html',
   }) +
   nav +
@@ -616,10 +615,10 @@ const contact =
       <p class="kicker">Contact</p>
       <div class="contact-layout">
         <div>
-          <h2>Have a project in mind?</h2>
-          <p class="contact-lead">You bring the idea. I bring the engineering. Tell me about the role or product — I'll respond with a clear next step.</p>
+          <h1>Let’s talk about a <em>role.</em></h1>
+          <p class="contact-lead">Available now for remote full-time. IST (GMT+5:30) with overlap for AU, EU and US teams. Contract and project work remain available if that is a better fit.</p>
           <div class="contact-actions">
-            <a class="btn btn-fill magnetic" href="mailto:jay.kaneriya8@gmail.com?subject=Project%20for%20Jay%20Kaneriya"><svg class="icon"><use href="#i-mail"></use></svg> Email me</a>
+            <a class="btn btn-fill magnetic" href="mailto:jay.kaneriya8@gmail.com?subject=Remote%20role%20for%20Jay%20Kaneriya"><svg class="icon"><use href="#i-mail"></use></svg> Email me</a>
             <a class="btn btn-ghost" href="Jay_Kaneriya_CV_2026.pdf" download><svg class="icon"><use href="#i-download"></use></svg> Download CV</a>
             <a class="btn btn-ghost" href="cv.html">View online CV</a>
           </div>
@@ -653,18 +652,17 @@ const contact =
               <input id="email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
             </div>
           </div>
-          <label for="project-type">Project type</label>
+          <label for="project-type">Engagement type</label>
           <select id="project-type" name="project_type" required>
-            <option value="" disabled selected>Select</option>
-            <option value="Full-time remote role">Full-time remote role</option>
+            <option value="Full-time remote role" selected>Full-time remote role</option>
             <option value="Contract / retainer">Contract / retainer</option>
             <option value="Fixed-scope project">Fixed-scope project</option>
             <option value="Existing application development">Existing application development</option>
             <option value="Something else">Something else</option>
           </select>
-          <label for="message">Project description</label>
-          <textarea id="message" name="message" required placeholder="Product, problem, stack, goals…"></textarea>
-          <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Role, team, stack, start date…"></textarea>
+          <div class="form-row" id="freelanceFields">
             <div>
               <label for="budget">Budget</label>
               <input id="budget" name="budget" type="text" placeholder="Optional range">

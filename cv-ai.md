@@ -5,17 +5,17 @@
 - Email: jay.kaneriya8@gmail.com
 - Phone: +91 85300 78687
 - Location: Rajkot, Gujarat, India
-- Work preference: Remote (full-time or freelance / contract)
+- Work preference: Remote full-time (priority); contract available if a better fit
 - Timezone: IST (GMT+5:30); available for AU / EU / US overlap
 - Portfolio: https://jaykaneriya.github.io
 - LinkedIn: https://www.linkedin.com/in/jaykaneriya/
 - GitHub: https://github.com/JayKaneriya
 
 ### Availability
-Currently available for full-time remote roles and freelance / contract engagements.
+Currently available for remote full-time roles. Contract work remains available if that is a better fit.
 
 ### Professional Summary
-Senior Full-Stack Laravel/PHP Developer with 9+ years of experience building production web applications using Laravel, PHP, Vue.js, React, MySQL, and REST APIs. Available now for full-time remote and freelance / contract engagements. Most recent role: Senior Web Application Developer at Paperly (Perth, Australia, remote, July 2022 – August 2026), delivering school administration software used by thousands of teachers and parents. Experienced in SaaS, eCommerce, on-demand delivery, payment integrations (Stripe, PayPal, BPOINT), Redis, AWS, geolocation, workflow automation, Agile delivery, mentoring, and client communication.
+Senior Full-Stack Laravel/PHP Developer with 9+ years of experience building production web applications using Laravel, PHP, Vue.js, React, MySQL, and REST APIs. Available now for remote full-time roles. Contract work remains available if that is a better fit. Most recent role: Senior Web Application Developer at Paperly (Perth, Australia, remote, July 2022 – August 2026), delivering school administration software used by thousands of teachers and parents. Experienced in SaaS, eCommerce, on-demand delivery, payment integrations (Stripe, PayPal, BPOINT), Redis, AWS, geolocation, workflow automation, Agile delivery, mentoring, and client communication.
 
 ### Skills
 **Backend:** Laravel, PHP 8+, REST APIs, MySQL, Redis, Node.js, Sails.js, CodeIgniter, Socket.io, JWT, OAuth, multi-tenant architecture
@@ -99,4 +99,4 @@ July 2013 – May 2017
 - Gujarati: Native
 
 ### Keywords
-Senior Full-Stack Laravel Developer, Full-Stack PHP Developer, Laravel Developer, Vue.js Developer, React Developer, PHP Developer, JavaScript Developer, REST API, MySQL, Redis, Stripe, PayPal, AWS, GitHub Actions, SaaS, eCommerce, EdTech, Remote Work, Freelance, Contract, Agile, Mentoring, React Native, Node.js, TypeScript, Web Application Development, Available now
+Senior Full-Stack Laravel Developer, Full-Stack PHP Developer, Laravel Developer, Vue.js Developer, React Developer, PHP Developer, JavaScript Developer, REST API, MySQL, Redis, Stripe, PayPal, AWS, GitHub Actions, SaaS, eCommerce, EdTech, Remote Work, Full-time, Agile, Mentoring, React Native, Node.js, TypeScript, Web Application Development, Available now

@@ -25,7 +25,7 @@ const siteNav = `<header class="nav" id="nav">
       <a href="../skills.html" data-nav>Skills</a>
       <a href="../projects.html" data-nav>Projects</a>
       <a href="../services.html" data-nav>Services</a>
-      <a href="../contact.html" data-nav class="nav-hire">Hire Me</a>
+      <a href="../contact.html?type=fulltime" data-nav class="nav-hire">Hire Me</a>
     </nav>
     <div class="nav-actions">
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -42,7 +42,7 @@ const siteFooter = `<footer class="site-footer">
       <div>
         <p class="footer-brand">Jay Kaneriya</p>
         <p class="footer-role">Senior Full-Stack Laravel/PHP Developer</p>
-        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — remote-first from Rajkot, India.</p>
+        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available now for remote full-time roles from Rajkot, India (IST).</p>
       </div>
       <div class="footer-col">
         <h4>Navigate</h4>
@@ -60,15 +60,13 @@ const siteFooter = `<footer class="site-footer">
         <div class="footer-links">
           <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
-          <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
           <a href="mailto:jay.kaneriya8@gmail.com">Email</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="../contact.html">Available now</a></div>
+      <div class="footer-social"><a href="../contact.html?type=fulltime">Open to remote roles</a></div>
     </div>
   </div>
 </footer>
@@ -186,17 +184,8 @@ ${siteNav}
   }
 
   // CTA links
-  html = html.replace(/href="\.\.\/index\.html#contact"/g, 'href="../contact.html"');
+  html = html.replace(/href="\.\.\/index\.html#contact"/g, 'href="../contact.html?type=fulltime"');
   html = html.replace(/href="\.\.\/index\.html"/g, 'href="../projects.html"');
-
-  // Add Project Outcome section before technology if missing - skip if already have impact
-  // Add CTA label tweak
-  html = html.replace(
-    /(<div class="cta">[\s\S]*?)(<\/div>\s*<footer>)/,
-    `$1
-      <p class="diagram-cap" style="width:100%;margin:0 0 8px">11 — Project outcome · 12 — Next step</p>
-    $2`
-  );
 
   // Replace mini footer with site footer
   html = html.replace(

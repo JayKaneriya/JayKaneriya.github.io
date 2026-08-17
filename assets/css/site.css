@@ -379,8 +379,8 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .contact{background:radial-gradient(ellipse 50% 45% at 85% 0%,rgba(139,92,246,.12),transparent 55%),var(--bg-1)}
 .contact-layout{display:grid;grid-template-columns:1fr minmax(280px,420px);gap:clamp(24px,4vw,48px);align-items:start}
 @media(max-width:900px){.contact-layout{grid-template-columns:1fr}}
-.contact h2{font-family:var(--font);font-size:clamp(34px,5.5vw,44px);font-weight:700;line-height:1.08;letter-spacing:-.03em;margin-bottom:14px;max-width:14ch}
-.contact h2 span{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.contact h1,.contact h2{font-family:var(--font);font-size:clamp(34px,5.5vw,44px);font-weight:700;line-height:1.08;letter-spacing:-.03em;margin-bottom:14px;max-width:16ch}
+.contact h1 em,.contact h2 span{background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
 .contact-lead{color:var(--muted);margin-bottom:24px;max-width:34rem;line-height:1.55}
 .contact-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
 .contact-alt,.socials{display:flex;flex-wrap:wrap;gap:10px 18px;margin-bottom:16px}
@@ -399,6 +399,7 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .hire-form button{border:none;cursor:pointer;width:100%;margin-top:4px}
 .hire-form .hint{font-size:12px;color:var(--faint)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-row[hidden]{display:none}
 .form-row>div{display:flex;flex-direction:column;gap:14px;min-width:0}
 @media(max-width:560px){.form-row{grid-template-columns:1fr}}
 
@@ -459,6 +460,11 @@ footer a:hover{color:var(--purple)}
 
 .page-hero{padding:120px 0 48px}
 .page-hero .section-title{margin-bottom:12px}
+.scan-facts{max-width:46rem;margin:0 0 14px;font-size:15px;line-height:1.5;color:var(--ink);font-weight:650}
+.hero-contact{display:flex;flex-wrap:wrap;gap:8px 18px;margin:16px 0 0;font-size:14px}
+.hero-contact a{color:var(--muted);text-decoration:none}
+.hero-contact a:hover{color:var(--ink)}
+.contact-phone{font-weight:600}
 .breadcrumb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--faint);margin-bottom:18px}
 .breadcrumb a{color:var(--muted);text-decoration:none}
 .breadcrumb a:hover{color:var(--ink)}

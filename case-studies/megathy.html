@@ -50,7 +50,7 @@ body{font-size:17px}
       <a href="../skills.html" data-nav>Skills</a>
       <a href="../projects.html" data-nav>Projects</a>
       <a href="../services.html" data-nav>Services</a>
-      <a href="../contact.html" data-nav class="nav-hire">Hire Me</a>
+      <a href="../contact.html?type=fulltime" data-nav class="nav-hire">Hire Me</a>
     </nav>
     <div class="nav-actions">
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
@@ -70,9 +70,9 @@ body{font-size:17px}
     <nav class="cs-nav" aria-label="Case study">
       <a class="back" href="../projects.html">← Back to projects</a>
       <div>
-        <a href="paperly.html">← Paperly</a> ·
-        <a class="active" href="megathy.html">← Megathy</a> ·
-        <a href="zimdle.html">← Zimdle</a> ·
+        <a href="paperly.html">Paperly</a> ·
+        <a class="active" href="megathy.html">Megathy</a> ·
+        <a href="zimdle.html">Zimdle</a> ·
         <a href="exception-tracker.html">Exception</a> ·
         <a href="resident-app.html">Resident</a>
       </div>
@@ -96,13 +96,13 @@ body{font-size:17px}
     </div>
 
     <section class="section" id="problem">
-      <h2><span class="n">02</span> The Problem</h2>
+      <h2><span class="n">01</span> The Problem</h2>
       <p>Megathy needed one operations core for grocery stores and restaurants in Eastern Saudi Arabia — not a pair of disconnected apps. Customers browse catalogues, book delivery slots, pay by cash or card, track drivers, redeem rewards and chat with support. Ops staff assign collectors and drivers behind the scenes, while companion iOS and Android apps stay in sync with the same backend.</p>
       <p>The local codebase is a <strong>Laravel 6</strong> backend with Vue/jQuery/Bootstrap admin and storefront surfaces, JSON APIs for mobile clients, Payfort payments, FCM/Pushwoosh push and Twilio verification.</p>
     </section>
 
     <section class="section" id="gallery">
-      <h2><span class="n">09</span> Screenshots</h2>
+      <h2><span class="n">02</span> Screenshots</h2>
       <p>Illustrative 4:3 mockups of the ops surfaces verified in the codebase — catalogue, scheduling/payments, order-flow chart and system architecture.</p>
       <div class="gallery">
         <figure>
@@ -137,7 +137,7 @@ body{font-size:17px}
     </section>
 
     <section class="section" id="challenges">
-      <h2><span class="n">06</span> Engineering Challenges</h2>
+      <h2><span class="n">04</span> Engineering Challenges</h2>
       <h3>Multi-store catalogue</h3>
       <p>Grocery stores and restaurants share one catalogue surface but not the same fulfilment rules. Stocked SKUs, categories and coupons sit beside restaurant add-ons, open hours and food-only carts. The Laravel core had to keep cities, areas, stores and restaurants consistent without splitting into two products.</p>
       <h3>Scheduled slots and Payfort checkout</h3>
@@ -147,7 +147,7 @@ body{font-size:17px}
     </section>
 
     <section class="section" id="solution">
-      <h2><span class="n">04</span> What I Built</h2>
+      <h2><span class="n">05</span> What I Built</h2>
       <p>A role-separated API surface on Laravel: customer endpoints for catalogue, slots, checkout, schedule orders, rewards and chat; collector and dispatcher endpoints for pick/assign; driver endpoints for location and delivery status; admin web for day-to-day operations.</p>
 
       <figure class="shot">
@@ -209,7 +209,7 @@ body{font-size:17px}
     </section>
 
     <section class="section" id="architecture">
-      <h2><span class="n">07</span> Architecture</h2>
+      <h2><span class="n">06</span> Architecture</h2>
       <figure class="shot">
         <img class="shot-img" src="../projects/megathy-architecture.jpg" alt="Megathy architecture diagram with Laravel core and integrations" width="1200" height="900" loading="lazy">
         <figcaption class="shot-cap">Multi-actor clients share one Laravel core with MySQL, Payfort, push and Twilio.</figcaption>
@@ -253,7 +253,7 @@ body{font-size:17px}
     </section>
 
     <section class="section" id="outcomes">
-      <h2><span class="n">08</span> Business / Product Impact</h2>
+      <h2><span class="n">07</span> Business / Product Impact</h2>
       <p>Delivered a production multi-vendor delivery stack with <strong>5 role-specific workflows</strong> (customer, collector, driver, dispatcher, admin) spanning catalogue, scheduling, payments, loyalty, chat and operations APIs — plus companion <strong>iOS and Android</strong> apps listed on the App Store and Play Store for Eastern Saudi Arabia.</p>
       <p><strong>Impact:</strong> one Laravel core powers live grocery and restaurant orders across multiple vendor stores, with scheduled slots, Payfort checkout, and realtime driver/ops coordination.</p>
       <ul>
@@ -268,7 +268,7 @@ body{font-size:17px}
     </section>
 
     <section class="section" id="technology">
-      <h2><span class="n">10</span> Technology</h2>
+      <h2><span class="n">08</span> Technology</h2>
       <ul>
         <li><strong>Backend / admin:</strong> Laravel 6, MySQL, JSON APIs, Vue.js, jQuery, Bootstrap, Laravel Mix, Spatie permissions, Swagger</li>
         <li><strong>Integrations:</strong> Payfort, FCM, Pushwoosh, Twilio, DomPDF, Maatwebsite Excel, Datatables</li>
@@ -282,12 +282,10 @@ body{font-size:17px}
     </div>
 
     <div class="cta">
-      <a class="btn btn-fill" href="../contact.html">Hire Jay for similar work</a>
+      <a class="btn btn-fill" href="../contact.html?type=fulltime">Discuss a role</a>
       <a class="btn btn-ghost" href="paperly.html">← Paperly</a>
       <a class="btn btn-ghost" href="zimdle.html">Next: Zimdle →</a>
-    
-      <p class="diagram-cap" style="width:100%;margin:0 0 8px">11 — Project outcome · 12 — Next step</p>
-    </div>
+</div>
 
     </div>
 </main>
@@ -297,7 +295,7 @@ body{font-size:17px}
       <div>
         <p class="footer-brand">Jay Kaneriya</p>
         <p class="footer-role">Senior Full-Stack Laravel/PHP Developer</p>
-        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — remote-first from Rajkot, India.</p>
+        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available now for remote full-time roles from Rajkot, India (IST).</p>
       </div>
       <div class="footer-col">
         <h4>Navigate</h4>
@@ -315,15 +313,13 @@ body{font-size:17px}
         <div class="footer-links">
           <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
-          <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
           <a href="mailto:jay.kaneriya8@gmail.com">Email</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="../contact.html">Available now</a></div>
+      <div class="footer-social"><a href="../contact.html?type=fulltime">Open to remote roles</a></div>
     </div>
   </div>
 </footer>
