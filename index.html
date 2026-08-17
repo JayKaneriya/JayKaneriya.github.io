@@ -244,8 +244,8 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .cred-item{padding:30px 20px;text-align:center;border-right:1px solid var(--line);transition:background .3s}
 .cred-item:last-child{border-right:0}
 .cred-item:hover{background:rgba(139,92,246,.04)}
-.cred-item strong{display:block;font-family:var(--font);font-size:28px;font-weight:700;margin-bottom:4px;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
-.cred-item span{font-size:12px;color:var(--faint);letter-spacing:-.12px}
+.cred-item strong{display:block;font-family:var(--font);font-size:clamp(32px,4vw,46px);font-weight:800;margin-bottom:6px;letter-spacing:-.03em;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cred-item span{font-size:13px;color:var(--faint);letter-spacing:-.12px}
 @media(max-width:800px){.cred-inner{grid-template-columns:1fr 1fr}.cred-item{border-bottom:1px solid var(--line)}.cred-item:nth-child(2n){border-right:0}}
 
 /* ==========================================================================
@@ -352,6 +352,12 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .skill-chips span.primary{color:var(--ink);border-color:rgba(139,92,246,.4);background:var(--accent-soft)}
 .skill-note{margin-top:20px;font-size:13px;color:var(--faint)}
 .skill-note strong{color:var(--purple);font-weight:600}
+/* AI tools chip style */
+.skill-chips span.ai{color:#34d399;border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.08)}
+.skill-chips span.ai:hover{border-color:rgba(52,211,153,.6);background:rgba(52,211,153,.14)}
+.ai-group{border-color:rgba(52,211,153,.25)!important}
+.ai-group:hover{border-color:rgba(52,211,153,.5)!important;box-shadow:0 0 28px rgba(52,211,153,.12)!important}
+.ai-group h3{color:var(--green)!important}
 
 /* ==========================================================================
    13. Education
@@ -479,6 +485,7 @@ footer a:hover{color:var(--purple)}
   <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
   <symbol id="i-chevup" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.5 13.9 9l5.6 2-5.6 2-1.9 5.5L10.1 13l-5.6-2 5.6-2 1.9-5.5Z"/><path d="M18.5 3.5v3M20 5h-3"/></symbol>
   <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.6.68 2.35a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.75.32 1.54.55 2.35.68A2 2 0 0 1 22 16.92z"/></symbol>
@@ -566,10 +573,10 @@ footer a:hover{color:var(--purple)}
 <!-- ===== CREDIBILITY BAR ===== -->
 <div class="cred" aria-label="Key stats">
   <div class="wrap cred-inner">
-    <div class="cred-item"><strong><span class="counter" data-target="9">0</span>+</strong><span>Years Production Exp</span></div>
-    <div class="cred-item"><strong><span class="counter" data-target="4">0</span> yrs</strong><span>AU Remote · Paperly</span></div>
-    <div class="cred-item"><strong><span class="counter" data-target="5">0</span> yrs</strong><span>Agency · Logistic Infotech</span></div>
-    <div class="cred-item"><strong><span class="counter" data-target="30">0</span>+</strong><span>Production Projects</span></div>
+    <div class="cred-item" data-count="9" data-suffix="+"><strong>9+</strong><span>Years Production Exp</span></div>
+    <div class="cred-item" data-count="4" data-suffix=" yrs"><strong>4 yrs</strong><span>AU Remote · Paperly</span></div>
+    <div class="cred-item" data-count="5" data-suffix=" yrs"><strong>5 yrs</strong><span>Agency · Logistic Infotech</span></div>
+    <div class="cred-item"><strong>Full-Stack</strong><span>Laravel · Vue · React</span></div>
   </div>
 </div>
 
@@ -844,8 +851,14 @@ footer a:hover{color:var(--purple)}
           <span class="primary">Agile</span><span>Mentoring</span><span>Code reviews</span><span>Sprint planning</span><span>Client communication</span>
         </div>
       </article>
+      <article class="skill-group reveal-item ai-group">
+        <h3><svg class="icon"><use href="#i-spark"></use></svg> AI-Assisted Development</h3>
+        <div class="skill-chips">
+          <span class="ai primary">Cursor</span><span class="ai primary">Claude</span><span class="ai primary">Antigravity</span><span class="ai primary">ChatGPT</span><span class="ai">AI Code Review</span><span class="ai">Prompt Engineering</span>
+        </div>
+      </article>
     </div>
-    <p class="skill-note reveal"><strong>Highlighted</strong> = primary day-to-day stack</p>
+    <p class="skill-note reveal"><strong>Highlighted</strong> = primary day-to-day stack · <strong style="color:var(--green)">Green</strong> = AI-assisted workflow</p>
   </div>
 </section>
 
@@ -1137,33 +1150,38 @@ footer a:hover{color:var(--purple)}
   }
 
   /* ──────────────────────────── Counter animation ──────────────────────────── */
-  const counters = $$('.counter');
-  if(counters.length){
+  const credCounters = $$('.cred-item[data-count]');
+  if(credCounters.length){
     const counterObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if(!e.isIntersecting) return;
         const el = e.target;
-        const target = parseInt(el.dataset.target, 10);
-        if(reduce){
-          el.textContent = target;
+        const strong = el.querySelector('strong');
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        if(reduce || !strong){
+          if(strong) strong.textContent = target + suffix;
           counterObs.unobserve(el);
           return;
         }
         let current = 0;
-        const step = Math.max(1, Math.floor(target / 40));
+        const duration = 1200;
+        const fps = 60;
+        const totalSteps = Math.round(duration / (1000 / fps));
+        const step = target / totalSteps;
         const interval = setInterval(() => {
           current += step;
           if(current >= target){
-            el.textContent = target;
+            strong.textContent = target + suffix;
             clearInterval(interval);
           } else {
-            el.textContent = current;
+            strong.textContent = Math.floor(current) + suffix;
           }
-        }, 40);
+        }, 1000 / fps);
         counterObs.unobserve(el);
       });
-    }, {threshold:.3});
-    counters.forEach(c => counterObs.observe(c));
+    }, {threshold: 0.5});
+    credCounters.forEach(c => counterObs.observe(c));
   }
 
   /* ──────────────────────────── Skill rings ──────────────────────────── */
