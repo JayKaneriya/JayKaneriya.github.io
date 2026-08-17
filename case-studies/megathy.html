@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Megathy Case Study — Jay Kaneriya</title>
-<meta name="description" content="Megathy case study — multi-vendor on-demand grocery delivery for Eastern Saudi Arabia. Laravel backend, React Native mobile, Vue.js admin, real-time tracking, payments and loyalty.">
+<meta name="description" content="Megathy case study — multi-vendor grocery and food delivery for Eastern Saudi Arabia. Laravel APIs, Vue admin, stores, restaurants, drivers, collectors, scheduled slots, Payfort payments, rewards and live chat.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://jaykaneriya.github.io/case-studies/megathy.html">
@@ -12,11 +12,11 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jaykaneriya.github.io/case-studies/megathy.html">
 <meta property="og:title" content="Megathy Case Study — Jay Kaneriya">
-<meta property="og:description" content="Laravel + React Native multi-vendor grocery delivery with scheduled slots, real-time tracking, payments and loyalty.">
+<meta property="og:description" content="Laravel multi-vendor grocery and food delivery with scheduled slots, driver tracking, payments, rewards and live chat.">
 <meta property="og:image" content="https://jaykaneriya.github.io/projects/megathy.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Megathy Case Study — Jay Kaneriya">
-<meta name="twitter:description" content="Full-stack Laravel and React Native delivery platform for Eastern Saudi Arabia.">
+<meta name="twitter:description" content="Full-stack Laravel delivery platform for Eastern Saudi Arabia — stores, restaurants, drivers and ops APIs.">
 <meta name="twitter:image" content="https://jaykaneriya.github.io/projects/megathy.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,6 +44,7 @@ h1{font-family:var(--font-d);font-size:clamp(34px,6vw,52px);font-weight:600;line
 .section{margin:36px 0;padding-left:16px;border-left:2px solid transparent;border-image:var(--grad) 1}
 .section h2{font-family:var(--font-d);font-size:22px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:10px}
 .section h2 .n{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--purple)}
+.section h3{font-family:var(--font-d);font-size:16px;font-weight:600;margin:18px 0 8px;color:var(--ink)}
 p{color:var(--ink80);margin-bottom:14px}
 p strong{color:var(--ink);font-weight:600}
 ul{margin:0 0 18px 1.2rem;color:var(--ink80)}
@@ -61,10 +62,17 @@ li{margin-bottom:8px}
 .btn{min-height:44px;font-size:15px;padding:11px 22px;border-radius:980px;border:1px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center}
 .btn.fill{background:var(--grad);color:#fff;border-color:transparent}
 .btn:hover{border-color:rgba(139,92,246,.5)}
+.diagram{margin:18px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:16px;overflow:auto}
+.diagram svg{display:block;width:100%;height:auto;min-width:520px}
+.diagram-cap{font-size:13px;color:var(--dim);margin:0 0 18px}
+.cap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0 8px}
+.cap{border:1px solid var(--line);border-radius:12px;padding:14px;background:rgba(255,255,255,.02)}
+.cap b{display:block;font-size:14px;color:var(--ink);margin-bottom:4px}
+.cap span{font-size:13px;color:var(--dim)}
 footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color:var(--dim);background:var(--bg-2);margin:0 -20px;padding-left:20px;padding-right:20px}
 @media(max-width:640px){
   .wrap{width:min(100% - 24px,var(--max))}
-  .stats{grid-template-columns:1fr}
+  .stats,.cap-grid{grid-template-columns:1fr}
   .cta{flex-direction:column}.btn{width:100%}
   .cs-nav{margin:0 -12px 28px;padding:12px}
   footer{margin:0 -12px}
@@ -86,14 +94,14 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </nav>
 
     <p class="kicker">Case study · 02 · On-demand · Saudi Arabia</p>
-    <h1>Megathy — on-demand grocery delivery at regional scale</h1>
-    <p class="meta">Full-stack Developer · Laravel · React Native · Vue.js · MySQL · Firebase · Payments</p>
-    <img class="hero-img" src="../projects/megathy.jpg" alt="Megathy grocery delivery ops dashboard" width="1200" height="675" loading="eager">
+    <h1>Megathy — multi-vendor grocery &amp; food delivery ops</h1>
+    <p class="meta">Full-stack Developer · Laravel · Vue.js · MySQL · JSON APIs · Payfort · FCM / Pushwoosh · Twilio</p>
+    <img class="hero-img" src="../projects/megathy.jpg" alt="Megathy grocery delivery operations dashboard mockup" width="1200" height="675" loading="eager">
 
     <div class="stats">
-      <div class="stat"><b>Multi-vendor</b><span>Catalog &amp; order routing across sellers</span></div>
-      <div class="stat"><b>Live ops</b><span>Real-time tracking &amp; delivery slots</span></div>
-      <div class="stat"><b>KSA East</b><span>Production platform for Eastern SA</span></div>
+      <div class="stat"><b>Multi-actor</b><span>Customer, collector, driver, dispatcher &amp; admin APIs</span></div>
+      <div class="stat"><b>Hybrid catalog</b><span>Grocery stores plus restaurant / food ordering</span></div>
+      <div class="stat"><b>KSA East</b><span>Production platform for Eastern Saudi Arabia</span></div>
     </div>
 
     <div class="ext">
@@ -102,52 +110,142 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       <a href="https://play.google.com/store/apps/details?id=com.megathykom" target="_blank" rel="noopener">Android ↗</a>
     </div>
 
-    <section class="section">
+    <section class="section" id="context">
       <h2><span class="n">01</span> Context</h2>
-      <p>Megathy was a multi-vendor on-demand grocery delivery platform for Eastern Saudi Arabia. The product needed catalogues across sellers, flexible delivery scheduling, cash and card payments, real-time order tracking, discounts/loyalty and customer support across web and mobile.</p>
+      <p>Megathy is an on-demand grocery and food delivery platform for Eastern Saudi Arabia. Customers browse store and restaurant catalogues, book delivery time sessions, pay by cash or card, track drivers, redeem rewards and chat with support — while ops staff assign collectors and drivers behind the scenes.</p>
+      <p>The local codebase is a <strong>Laravel 6</strong> backend with Vue/jQuery/Bootstrap admin and storefront surfaces, JSON APIs for mobile clients, Payfort payments, FCM/Pushwoosh push and Twilio verification.</p>
     </section>
 
-    <section class="section">
+    <section class="section" id="responsibility">
       <h2><span class="n">02</span> Responsibility</h2>
+      <p>As full-stack developer I owned end-to-end delivery across backend, admin tooling and client APIs used by the production apps.</p>
       <ul>
-        <li>Built the <strong>Laravel</strong> backend, admin panel and order management used for day-to-day operations.</li>
-        <li>Shipped a <strong>multi-vendor product catalogue</strong> with order management and scheduled delivery slots.</li>
-        <li>Implemented <strong>real-time tracking</strong>, cash/card payments, discounts, loyalty and live chat support.</li>
-        <li>Delivered mobile/web experiences with <strong>React Native</strong>, Vue.js/jQuery, MySQL, Sass, Bootstrap and Firebase for supporting mobile features.</li>
+        <li>Built <strong>Laravel APIs and admin</strong> for catalogue, carts, orders, schedule sessions, rewards and chat.</li>
+        <li>Shipped a <strong>multi-store grocery model</strong> (cities, areas, stores, categories, products, favourites, coupons) plus <strong>restaurant / food</strong> ordering with add-ons and open hours.</li>
+        <li>Implemented <strong>ops roles</strong>: collector picking, dispatcher assignment of collectors/drivers, driver location updates and status changes.</li>
+        <li>Integrated <strong>Payfort</strong> card flows, dual/cash payment handling, reward history, OTP/SMS via Twilio and mobile push via FCM / Pushwoosh.</li>
+        <li>Delivered admin reporting surfaces with Datatables, Excel exports, DomPDF invoices and Spatie roles/permissions.</li>
       </ul>
     </section>
 
-    <section class="section">
+    <section class="section" id="challenges">
       <h2><span class="n">03</span> Challenges</h2>
       <ul>
-        <li>Coordinating multi-vendor catalogues and order routing in one ops surface.</li>
-        <li>Scheduled delivery slots plus live tracking across web and mobile.</li>
-        <li>Payments, loyalty and support features that had to work together in production.</li>
+        <li>Coordinating grocery and restaurant catalogues with different fulfilment rules in one platform.</li>
+        <li>Scheduled delivery slots that must book, expire and convert into live orders (including cron/queue work).</li>
+        <li>Keeping customer, collector, driver and dispatcher flows consistent through one order lifecycle.</li>
+        <li>Payments, loyalty, chat and push notifications that had to work together in production.</li>
       </ul>
     </section>
 
-    <section class="section">
+    <section class="section" id="solution">
       <h2><span class="n">04</span> Solution</h2>
-      <p>End-to-end delivery across backend, admin tooling and mobile: catalogues, ordering, scheduled slots, live tracking, payments, support and loyalty — with Laravel APIs and React Native client surfaces.</p>
+      <p>A role-separated API surface on Laravel: customer endpoints for catalogue, slots, checkout, schedule orders, rewards and chat; collector and dispatcher endpoints for pick/assign; driver endpoints for location and delivery status; admin web for day-to-day operations.</p>
+      <h3>Order lifecycle</h3>
+      <div class="diagram" role="img" aria-label="Megathy order lifecycle from customer to delivery">
+        <svg viewBox="0 0 840 180" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
+          <defs>
+            <linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
+          </defs>
+          <rect width="840" height="180" rx="12" fill="#121218"/>
+          <g fill="#1f1f2a" stroke="url(#mg)" stroke-width="1.5">
+            <rect x="24" y="58" width="120" height="64" rx="12"/>
+            <rect x="188" y="58" width="120" height="64" rx="12"/>
+            <rect x="352" y="58" width="120" height="64" rx="12"/>
+            <rect x="516" y="58" width="120" height="64" rx="12"/>
+            <rect x="680" y="58" width="120" height="64" rx="12"/>
+          </g>
+          <g fill="#f5f5f7" font-size="13" font-weight="600" text-anchor="middle">
+            <text x="84" y="88">Customer</text>
+            <text x="248" y="88">Catalogue</text>
+            <text x="412" y="88">Slot / Pay</text>
+            <text x="576" y="88">Ops</text>
+            <text x="740" y="88">Driver</text>
+          </g>
+          <g fill="#a1a1a6" font-size="11" text-anchor="middle">
+            <text x="84" y="108">cart &amp; chat</text>
+            <text x="248" y="108">store / food</text>
+            <text x="412" y="108">Payfort / cash</text>
+            <text x="576" y="108">collect &amp; assign</text>
+            <text x="740" y="108">track &amp; deliver</text>
+          </g>
+          <g stroke="#8b5cf6" stroke-width="2" fill="none">
+            <path d="M144 90 H188"/><path d="M308 90 H352"/><path d="M472 90 H516"/><path d="M636 90 H680"/>
+          </g>
+          <g fill="#8b5cf6">
+            <polygon points="184,90 174,85 174,95"/><polygon points="348,90 338,85 338,95"/>
+            <polygon points="512,90 502,85 502,95"/><polygon points="676,90 666,85 666,95"/>
+          </g>
+        </svg>
+      </div>
+      <p class="diagram-cap">Verified flow from codebase APIs: browse → book session → place/schedule order → collector/dispatcher → driver location &amp; status.</p>
+
+      <h3>Capability map</h3>
+      <div class="cap-grid">
+        <div class="cap"><b>Catalogue</b><span>Stores, restaurants, categories, products, banners, favourites, product suggestions</span></div>
+        <div class="cap"><b>Scheduling</b><span>Order time sessions, store slot times, schedule orders converted by jobs</span></div>
+        <div class="cap"><b>Payments &amp; loyalty</b><span>Payfort transactions, dual payment, coupons, reward histories</span></div>
+        <div class="cap"><b>Realtime ops</b><span>Driver location, chat, FCM/Pushwoosh push, Twilio OTP/SMS</span></div>
+      </div>
     </section>
 
-    <section class="section">
-      <h2><span class="n">05</span> Outcomes</h2>
-      <p>The project demonstrates full-stack delivery across backend, admin and mobile without inventing unverified metrics — a strong reference for multi-vendor and on-demand product work.</p>
+    <section class="section" id="architecture">
+      <h2><span class="n">05</span> Architecture</h2>
+      <div class="diagram" role="img" aria-label="Megathy system architecture diagram">
+        <svg viewBox="0 0 840 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
+          <defs>
+            <linearGradient id="mg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
+          </defs>
+          <rect width="840" height="260" rx="12" fill="#121218"/>
+          <g fill="#1f1f2a" stroke="#3a3a48" stroke-width="1">
+            <rect x="30" y="30" width="150" height="50" rx="10"/>
+            <rect x="210" y="30" width="150" height="50" rx="10"/>
+            <rect x="390" y="30" width="150" height="50" rx="10"/>
+            <rect x="570" y="30" width="150" height="50" rx="10"/>
+            <rect x="245" y="120" width="350" height="56" rx="12"/>
+            <rect x="60" y="210" width="160" height="36" rx="8"/>
+            <rect x="250" y="210" width="160" height="36" rx="8"/>
+            <rect x="440" y="210" width="160" height="36" rx="8"/>
+            <rect x="630" y="210" width="150" height="36" rx="8"/>
+          </g>
+          <rect x="245" y="120" width="350" height="56" rx="12" fill="none" stroke="url(#mg2)" stroke-width="1.5"/>
+          <g fill="#f5f5f7" font-size="12" font-weight="600" text-anchor="middle">
+            <text x="105" y="60">Customer apps</text>
+            <text x="285" y="60">Collector app</text>
+            <text x="465" y="60">Dispatcher</text>
+            <text x="645" y="60">Driver app</text>
+            <text x="420" y="153">Laravel 6 API + Admin (Vue / Bootstrap)</text>
+            <text x="140" y="233">MySQL</text>
+            <text x="330" y="233">Payfort</text>
+            <text x="520" y="233">FCM / Push</text>
+            <text x="705" y="233">Twilio</text>
+          </g>
+          <g stroke="#8b5cf6" stroke-width="1.5" fill="none">
+            <path d="M105 80 V120 H420"/><path d="M285 80 V120"/><path d="M465 80 V120"/><path d="M645 80 V120 H420"/>
+            <path d="M300 176 V210"/><path d="M380 176 V210"/><path d="M460 176 V210"/><path d="M540 176 V210 H630"/>
+          </g>
+        </svg>
+      </div>
+      <p class="diagram-cap">Multi-actor clients share one Laravel core with MySQL, payment and messaging integrations.</p>
     </section>
 
-    <section class="section">
-      <h2><span class="n">06</span> Technology</h2>
+    <section class="section" id="outcomes">
+      <h2><span class="n">06</span> Outcomes</h2>
+      <p>Delivered a production-capable multi-vendor delivery stack spanning catalogue, scheduling, payments, loyalty, chat and role-based ops APIs — without relying on unverified growth metrics. The work is a strong reference for marketplace and on-demand Laravel systems that must support both customers and field roles.</p>
+    </section>
+
+    <section class="section" id="technology">
+      <h2><span class="n">07</span> Technology</h2>
       <ul>
-        <li><strong>Backend / admin:</strong> Laravel, MySQL, JSON APIs, Git</li>
-        <li><strong>Frontend:</strong> Vue.js, JavaScript, jQuery, AJAX, Bootstrap</li>
-        <li><strong>Mobile:</strong> React Native, Firebase</li>
-        <li><strong>Domain features:</strong> multi-vendor catalogue, scheduled slots, payments, loyalty, live support</li>
+        <li><strong>Backend / admin:</strong> Laravel 6, MySQL, JSON APIs, Vue.js, jQuery, Bootstrap, Laravel Mix, Spatie permissions, Swagger</li>
+        <li><strong>Integrations:</strong> Payfort, FCM, Pushwoosh, Twilio, DomPDF, Maatwebsite Excel, Datatables</li>
+        <li><strong>Domain:</strong> multi-store grocery, restaurants, schedule sessions, collectors, dispatchers, drivers, rewards, live chat</li>
+        <li><strong>Clients:</strong> production web storefront plus iOS/Android companion apps (App Store &amp; Play Store listings)</li>
       </ul>
     </section>
 
     <div class="tags">
-      <span>Laravel</span><span>React Native</span><span>Vue.js</span><span>MySQL</span><span>Firebase</span><span>Payments</span><span>Multi-vendor</span><span>Real-time</span>
+      <span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>JSON API</span><span>Payfort</span><span>FCM</span><span>Twilio</span><span>Multi-vendor</span><span>Scheduling</span><span>Real-time ops</span>
     </div>
 
     <div class="cta">
