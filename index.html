@@ -25,7 +25,58 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Jay Kaneriya","jobTitle":"Senior Full-Stack Laravel Developer","url":"https://jaykaneriya.github.io/","email":"mailto:jay.kaneriya8@gmail.com","telephone":"+918530078687","address":{"@type":"PostalAddress","addressLocality":"Rajkot","addressRegion":"Gujarat","addressCountry":"IN"},"sameAs":["https://www.linkedin.com/in/jaykaneriya/","https://github.com/JayKaneriya"],"knowsAbout":["Laravel","PHP","Vue.js","React","React Native","JavaScript","TypeScript","MySQL","REST API","System Architecture"]}
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://jaykaneriya.github.io/#person",
+  "name": "Jay Kaneriya",
+  "jobTitle": "Senior Full-Stack Laravel Developer",
+  "url": "https://jaykaneriya.github.io/",
+  "image": "https://jaykaneriya.github.io/og-image.jpg",
+  "email": "mailto:jay.kaneriya8@gmail.com",
+  "telephone": "+918530078687",
+  "sameAs": [
+    "https://www.linkedin.com/in/jaykaneriya/",
+    "https://github.com/JayKaneriya"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Rajkot",
+    "addressRegion": "Gujarat",
+    "addressCountry": "IN"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Independent / Available"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Gujarat Technological University"
+  },
+  "knowsAbout": [
+    "Laravel", "PHP", "Vue.js", "React", "MySQL", "REST APIs",
+    "TypeScript", "AWS", "Docker", "CI/CD", "System Architecture",
+    "React Native", "JavaScript", "Redis", "Agile"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://jaykaneriya.github.io/#profilepage",
+  "url": "https://jaykaneriya.github.io/",
+  "name": "Jay Kaneriya — Senior Full-Stack Laravel Developer",
+  "description": "Portfolio of Jay Kaneriya, Senior Full-Stack Laravel/PHP Developer with 9+ years shipping production SaaS, education, eCommerce and business applications.",
+  "mainEntity": { "@id": "https://jaykaneriya.github.io/#person" },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://jaykaneriya.github.io/#website",
+    "name": "Jay Kaneriya",
+    "url": "https://jaykaneriya.github.io/",
+    "publisher": { "@id": "https://jaykaneriya.github.io/#person" }
+  }
+}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -354,10 +405,14 @@ section[id]{scroll-margin-top:var(--nav-h)}
    ========================================================================== */
 .expertise{background:var(--bg-1)}
 
-/* Core skills */
-.core-skills{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px}
-.core-skills span{display:inline-flex;align-items:center;min-height:38px;padding:8px 14px;border:1px solid rgba(139,92,246,.42);border-radius:var(--r-pill);background:var(--accent-soft);color:var(--ink);font-size:14px;font-weight:600}
-.core-skills span::before{content:"//";margin-right:7px;color:var(--purple);font-family:var(--mono);font-size:12px}
+/* Skill tiers (replaces numeric % bars) */
+.skill-tiers{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:0 0 28px}
+@media(max-width:700px){.skill-tiers{grid-template-columns:1fr}}
+.skill-tiers .tier{padding:22px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);transition:border-color .3s,box-shadow .3s}
+.skill-tiers .tier:hover{border-color:rgba(139,92,246,.4);box-shadow:var(--glow)}
+.skill-tiers .tier h4{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
+.skill-tiers .tier ul{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tiers .tier li{font-size:13px;letter-spacing:-.12px;color:var(--ink);border:1px solid rgba(139,92,246,.4);padding:7px 13px;border-radius:var(--r-pill);background:var(--accent-soft);font-weight:600}
 
 /* Skill grid */
 .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
@@ -452,8 +507,8 @@ footer a:hover{color:var(--purple)}
   .hero-actions .btn,.contact-actions .btn{flex:1 1 100%;width:100%}
   .section-lead{font-size:16px}
   .to-top{right:14px;bottom:max(14px,env(safe-area-inset-bottom))}
-  .core-skills{gap:8px}
-  .core-skills span{font-size:13px}
+  .skill-tiers .tier{padding:18px}
+  .skill-tiers .tier li{font-size:12px;padding:6px 11px}
 }
 @media(max-width:480px){
   .hero-chips{gap:6px}
@@ -754,7 +809,7 @@ footer a:hover{color:var(--purple)}
         <div class="media"><img src="projects/megathy.jpg" alt="Megathy delivery platform" width="640" height="400" loading="lazy"></div>
         <h3>Megathy</h3>
         <p class="meta">Full-stack · Multi-vendor grocery &amp; food · Saudi Arabia</p>
-        <p>Laravel APIs &amp; Vue admin — multi-store catalogue, restaurants, scheduled slots, collectors/drivers, Payfort payments, rewards and live chat.</p>
+        <p>Laravel APIs &amp; Vue admin — multi-store catalogue, restaurants, scheduled slots, collectors/drivers, Payfort payments, rewards and live chat. Shipped production APIs for 5 ops roles with companion iOS &amp; Android apps for Eastern Saudi Arabia.</p>
         <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Payfort</span><span>FCM</span></div>
         <a class="work-link" href="case-studies/megathy.html">Case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
@@ -762,7 +817,7 @@ footer a:hover{color:var(--purple)}
         <div class="media"><img src="projects/zimdle.jpg" alt="Zimdle feedback platform" width="640" height="400" loading="lazy"></div>
         <h3>Zimdle</h3>
         <p class="meta">Full-stack · Customer feedback SaaS</p>
-        <p>Private feedback, AJAX charts, Stripe plans, PDF reports and Twilio alerts so owners can act on customer signal.</p>
+        <p>Private feedback, AJAX charts, Stripe plans, PDF reports and Twilio alerts so owners can act on customer signal. Delivered full SaaS loop including 4 Stripe subscription lifecycle actions (subscribe, change, resume, cancel).</p>
         <div class="tags"><span>Laravel</span><span>Stripe</span><span>Analytics</span></div>
         <a class="work-link" href="case-studies/zimdle.html">Case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
@@ -796,11 +851,26 @@ footer a:hover{color:var(--purple)}
     <div class="reveal">
       <p class="kicker">04 — Expertise</p>
       <h2 class="section-title">Technical <em>toolkit.</em></h2>
-      <p class="section-lead">Core technologies first, with the rest grouped by the work they support.</p>
+      <p class="section-lead">Experience-tiered core stack first, with the rest grouped by the work they support.</p>
     </div>
 
-    <div class="core-skills reveal" aria-label="Core day-to-day stack">
-      <span>Laravel</span><span>PHP 8+</span><span>Vue.js</span><span>React</span><span>MySQL</span><span>REST APIs</span>
+    <div class="skill-tiers reveal" aria-label="Skill experience tiers">
+      <div class="tier">
+        <h4>Primary stack (daily, 5+ yrs)</h4>
+        <ul>
+          <li>Laravel</li>
+          <li>PHP 8+</li>
+          <li>MySQL</li>
+          <li>REST APIs</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <h4>Frontend (daily, 3–5 yrs)</h4>
+        <ul>
+          <li>Vue.js</li>
+          <li>React</li>
+        </ul>
+      </div>
     </div>
 
     <div class="skill-grid">
@@ -843,7 +913,7 @@ footer a:hover{color:var(--purple)}
       <article class="skill-group reveal-item">
         <h3><svg class="icon"><use href="#i-terminal"></use></svg> Tools &amp; Delivery</h3>
         <div class="skill-chips">
-          <span>Git</span><span>CI/CD</span><span>Postman</span><span>JIRA</span><span>Linux</span><span>cPanel</span>
+          <span>Git</span><span>GitHub Actions</span><span>Docker</span><span>AWS</span><span>Postman</span><span>JIRA</span><span>Linux</span><span>cPanel</span>
         </div>
       </article>
       <article class="skill-group reveal-item">
@@ -859,7 +929,7 @@ footer a:hover{color:var(--purple)}
         </div>
       </article>
     </div>
-    <p class="skill-note reveal"><strong>Highlighted</strong> = core day-to-day stack · remaining tools are grouped by the work they support.</p>
+    <p class="skill-note reveal"><strong>Tiers</strong> = years of daily use · chip highlights in groups below = core day-to-day stack.</p>
   </div>
 </section>
 
