@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zimdle Case Study — Jay Kaneriya</title>
-<meta name="description" content="Zimdle case study — SaaS private customer feedback and business performance monitoring. Laravel, Stripe subscriptions, AJAX charts, PDF reports, Twilio alerts and enterprise compare.">
+<title>Zimdle Case Study — Jay Kaneriya, Senior Laravel Developer</title>
+<meta name="description" content="How Jay Kaneriya built Zimdle's private feedback SaaS — AJAX charts, Stripe subscription plans, PDF reports and Twilio alerts for business owners.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://jaykaneriya.github.io/case-studies/zimdle.html">
 <link rel="icon" type="image/svg+xml" href="../logo.svg">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jaykaneriya.github.io/case-studies/zimdle.html">
-<meta property="og:title" content="Zimdle Case Study — Jay Kaneriya">
-<meta property="og:description" content="Private feedback SaaS with Laravel, Stripe, charts, PDF reports and Twilio alerts.">
+<meta property="og:title" content="Zimdle Case Study — Jay Kaneriya, Senior Laravel Developer">
+<meta property="og:description" content="How Jay Kaneriya built Zimdle's private feedback SaaS — AJAX charts, Stripe subscription plans, PDF reports and Twilio alerts for business owners.">
 <meta property="og:image" content="https://jaykaneriya.github.io/projects/zimdle.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Zimdle Case Study — Jay Kaneriya">
+<meta name="twitter:title" content="Zimdle Case Study — Jay Kaneriya, Senior Laravel Developer">
 <meta name="twitter:description" content="Private customer feedback SaaS with analytics, reports and alerts.">
 <meta name="twitter:image" content="https://jaykaneriya.github.io/projects/zimdle.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,9 +115,9 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       <a href="https://zimdle.com/" target="_blank" rel="noopener">Website ↗</a>
     </div>
 
-    <section class="section" id="context">
-      <h2><span class="n">01</span> Context</h2>
-      <p>Zimdle is a SaaS platform for structured private customer feedback and business performance visibility — so owners can monitor trends without relying only on public social-media reviews.</p>
+    <section class="section" id="problem">
+      <h2><span class="n">01</span> Problem</h2>
+      <p>Public review sites give owners delayed, unfiltered signal. Zimdle needed structured <strong>private</strong> customer feedback and performance monitoring so owners could act on trends without waiting for social-media blowback.</p>
       <p>The local codebase is <strong>Laravel 5.3</strong> with Stripe Cashier subscriptions, AJAX dashboard charts, DomPDF reports, Twilio SMS alerts, criteria/templates and enterprise comparison tools.</p>
     </section>
 
@@ -136,8 +136,8 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       </div>
     </section>
 
-    <section class="section" id="responsibility">
-      <h2><span class="n">03</span> Responsibility</h2>
+    <section class="section" id="contribution">
+      <h2><span class="n">03</span> Contribution</h2>
       <ul>
         <li>Built a <strong>structured private feedback workflow</strong> that routes responses to the business owner and representatives.</li>
         <li>Implemented dashboard analytics: feedback history, criteria averages, time-period charts and competition/benchmark charts.</li>
@@ -148,16 +148,17 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </section>
 
     <section class="section" id="challenges">
-      <h2><span class="n">04</span> Challenges</h2>
-      <ul>
-        <li>Keeping feedback private to owners while still enabling actionable analytics.</li>
-        <li>Surfacing trends, history and alerts in a way operators can act on quickly.</li>
-        <li>Combining SaaS billing, multi-business ownership and enterprise comparison in one product surface.</li>
-      </ul>
+      <h2><span class="n">04</span> Engineering Challenges</h2>
+      <h3>AJAX charts without a public feed</h3>
+      <p>Feedback had to stay private to owners while still powering history, criteria averages, time-period trends and competition charts. Chart endpoints and the AJAX dashboard needed to aggregate scores without exposing individual responses on a public wall.</p>
+      <h3>Stripe plan lifecycle</h3>
+      <p>Four subscription actions — subscribe, change, resume and cancel — sit behind plan middleware. Features such as reports and enterprise compare had to remain gated when a business paused or switched plans, without breaking in-flight feedback capture.</p>
+      <h3>Twilio alerts that operators can act on</h3>
+      <p>Low-average scores trigger email and Twilio SMS, with scheduled PDF jobs for owners who do not live in the dashboard. The challenge was routing the right alert to the right representative without turning every score into noise.</p>
     </section>
 
-    <section class="section" id="solution">
-      <h2><span class="n">05</span> Solution</h2>
+    <section class="section" id="architecture">
+      <h2><span class="n">05</span> Architecture</h2>
       <p>Private feedback capture, criteria templates, chart endpoints, PDF/email reporting and Twilio alerts — so owners get structured insight without public social blowback.</p>
 
       <figure class="shot">
@@ -218,6 +219,11 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       <h2><span class="n">06</span> Outcomes</h2>
       <p>Full-stack SaaS delivery across structured private feedback, analytics, reporting and operational alerts — including <strong>4 Stripe subscription lifecycle actions</strong> (subscribe, change, resume, cancel) gated behind plan middleware.</p>
       <p><strong>Impact:</strong> owners get private customer signal with trend charts, PDF reports and Twilio/email alerts instead of relying only on public social reviews.</p>
+      <ul>
+        <li>4 Stripe subscription lifecycle actions gated behind plan middleware.</li>
+        <li>Private feedback routed to owners across [CONFIRM: N] businesses / locations.</li>
+        <li>[CONFIRM: alert volume or response-time figure, if publishable] via Twilio SMS and email when averages drop.</li>
+      </ul>
     </section>
 
     <section class="section" id="technology">

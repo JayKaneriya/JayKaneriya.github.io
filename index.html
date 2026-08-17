@@ -47,16 +47,16 @@
   },
   "worksFor": {
     "@type": "Organization",
-    "name": "Independent / Available"
+    "name": "Paperly",
+    "url": "https://paperly.education/"
   },
   "alumniOf": {
     "@type": "CollegeOrUniversity",
     "name": "Gujarat Technological University"
   },
   "knowsAbout": [
-    "Laravel", "PHP", "Vue.js", "React", "MySQL", "REST APIs",
-    "TypeScript", "AWS", "GitHub Actions", "System Architecture",
-    "React Native", "JavaScript", "Redis", "Agile"
+    "Laravel", "PHP", "Vue.js", "React", "REST API design", "MySQL",
+    "System architecture", "Workflow automation"
   ]
 }
 </script>
@@ -80,8 +80,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
 <noscript><style>.reveal,.reveal-item,.hero-anim{opacity:1!important;transform:none!important}.scroll-progress,.particles-canvas{display:none!important}.typing-text::after{display:none}</style></noscript>
 <style>
 /* ==========================================================================
@@ -225,7 +225,8 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .tags span:hover{border-color:rgba(139,92,246,.3);background:var(--accent-soft)}
 
 /* Reveal animations */
-.reveal,.reveal-item,.hero-anim{opacity:0;transform:translateY(28px)}
+.reveal,.reveal-item{opacity:0;transform:translateY(28px)}
+.hero-anim{opacity:1;transform:none}
 
 /* CSS scroll-driven reveal */
 @supports (animation-timeline:view()){
@@ -257,9 +258,9 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .typing-text::after{content:"";display:inline-block;width:3px;height:1.1em;background:var(--purple);vertical-align:text-bottom;margin-left:3px;animation:blink 1s step-end infinite}
 @keyframes blink{50%{opacity:0}}
 
-.hero-lead{max-width:38rem;color:var(--muted);margin-bottom:28px;font-size:16px;line-height:1.6}
+.hero-lead{max-width:38rem;color:var(--muted);margin-bottom:12px;font-size:16px;line-height:1.6}
 .hero-lead strong{color:var(--ink);font-weight:600}
-.hero-proof{font-size:14px;color:var(--muted);margin:-4px 0 14px}
+.hero-proof{font-size:14px;color:var(--muted);margin:0 0 22px}
 .hero-proof strong{color:var(--ink);font-weight:600}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:24px}
 .hero-chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -417,8 +418,13 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .skill-chips span{font-size:13px;letter-spacing:-.12px;color:var(--muted);border:1px solid var(--line);padding:7px 13px;border-radius:var(--r-pill);background:rgba(255,255,255,.02);transition:border-color .2s,background .2s,transform .2s}
 .skill-chips span:hover{transform:translateY(-2px)}
 .skill-chips span.primary{color:var(--ink);border-color:rgba(139,92,246,.4);background:var(--accent-soft)}
-.skill-note{margin:-24px 0 28px;font-size:13px;color:var(--faint)}
+.skill-note{margin:-24px 0 20px;font-size:13px;color:var(--faint)}
 .skill-note strong{color:var(--purple);font-weight:600}
+.skill-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 28px}
+@media(max-width:800px){.skill-tiers{grid-template-columns:1fr}}
+.skill-tier{padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card)}
+.skill-tier h4{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--purple);margin:0 0 8px}
+.skill-tier p{color:var(--muted);font-size:14px;line-height:1.5}
 /* AI tools chip style */
 .skill-chips span.ai{color:#34d399;border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.08)}
 .skill-chips span.ai:hover{border-color:rgba(52,211,153,.6);background:rgba(52,211,153,.14)}
@@ -599,12 +605,12 @@ footer a:hover{color:var(--purple)}
       <div class="typing-wrap hero-anim">
         <p class="typing-text">I build <span class="typed" id="typedText">production-grade Laravel systems</span></p>
       </div>
-      <p class="hero-proof hero-anim"><strong>4+ years at Paperly (AU)</strong> · shipped workflows for <strong>250+ schools in 2026</strong> · available immediately.</p>
       <p class="hero-lead hero-anim">
         <strong>9+ years</strong> shipping SaaS, education, eCommerce and delivery platforms.
         Most recently a Senior Web Application Developer at <strong>Paperly (Australia, remote)</strong>,
         owning Laravel/Vue workflows used daily by thousands of teachers and parents.
       </p>
+      <p class="hero-proof hero-anim">Shipped to 250+ schools · 4 yrs at Paperly (AU) · Available immediately</p>
       <div class="hero-actions hero-anim">
         <a class="btn btn-fill magnetic" href="#work"><svg class="icon"><use href="#i-arrow"></use></svg> View selected work</a>
         <a class="btn btn-ghost" href="?type=fulltime#contact" data-contact-type="Full-time remote role">Discuss a role</a>
@@ -705,9 +711,9 @@ footer a:hover{color:var(--purple)}
           </ul>
           <h4 class="t-heading">Impact</h4>
           <ul class="t-list">
-            <li>Replaced manual processes with trackable digital approvals.</li>
-            <li>Removed manual data re-entry across multiple systems.</li>
-            <li>Increased operational visibility for school administrators.</li>
+            <li>Replaced manual, paper-based approval processes across [CONFIRM: X] schools with a trackable digital workflow.</li>
+            <li>Eliminated duplicate data entry across [CONFIRM: N] downstream systems via automated sync.</li>
+            <li>Increased operational visibility for [CONFIRM: role / admin count] school administrators.</li>
           </ul>
           <div class="tags" style="margin-top:20px;"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Workflows</span></div>
         </div>
@@ -729,9 +735,9 @@ footer a:hover{color:var(--purple)}
           </ul>
           <h4 class="t-heading">Impact</h4>
           <ul class="t-list">
-            <li>Delivered reliable end-to-end products that enabled clients to launch and scale their businesses.</li>
-            <li>Streamlined payment and booking flows, directly driving client revenue.</li>
-            <li>Elevated team code quality through continuous mentoring and code reviews.</li>
+            <li>Shipped [CONFIRM: N] production client products across eCommerce, SaaS, education, restaurant, and booking domains.</li>
+            <li>Integrated Stripe, PayPal, BPOINT, and custom payment APIs into billing flows used by [CONFIRM: N] live clients.</li>
+            <li>Mentored [CONFIRM: N] junior developers through pairing and code reviews.</li>
           </ul>
           <div class="tags" style="margin-top:20px;"><span>Laravel</span><span>React</span><span>Vue.js</span><span>Payments</span><span>Realtime</span></div>
         </div>
@@ -760,14 +766,14 @@ footer a:hover{color:var(--purple)}
           <div class="tags" style="margin-top:18px"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Geolocation</span></div>
           <a class="work-link" href="case-studies/paperly.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
         </div>
-        <div class="flag-media"><img src="projects/paperly.jpg" alt="Paperly school management UI" width="800" height="500" loading="lazy"></div>
+        <div class="flag-media"><img src="projects/paperly.jpg" alt="Paperly school operations dashboard for calendars, forms and parent permissions" width="800" height="500" loading="lazy"></div>
       </div>
 
       <h4 class="flag-sub">Role &amp; outcome</h4>
       <div class="flag-grid">
         <div><h4>Role</h4><p>Senior Web Application Developer leading end-to-end module development over 4 years.</p></div>
-        <div><h4>Business Value</h4><p>Replaced manual processes and paper forms with trackable digital approvals, saving administrative time and increasing visibility.</p></div>
-        <div><h4>Outcome</h4><p>Stable multi-school delivery; platforms used by thousands daily. Paperly states 250+ schools joined for 2026.</p></div>
+        <div><h4>Business Value</h4><p>Replaced manual, paper-based approvals across [CONFIRM: X] schools with trackable digital workflows, and removed duplicate entry across [CONFIRM: N] downstream systems.</p></div>
+        <div><h4>Outcome</h4><p>Stable multi-school delivery; platforms used by [CONFIRM: daily user count] daily. Paperly states 250+ schools joined for 2026.</p></div>
       </div>
 
       <h4 class="flag-sub">Contribution</h4>
@@ -800,7 +806,7 @@ footer a:hover{color:var(--purple)}
 
     <div class="work-list" style="margin-bottom: 60px;">
       <article class="work-card reveal-item glow-card">
-        <div class="media"><img src="projects/megathy.jpg" alt="Megathy delivery platform" width="640" height="400" loading="lazy"></div>
+        <div class="media"><img src="projects/megathy.jpg" alt="Megathy multi-vendor grocery and restaurant delivery operations" width="640" height="400" loading="lazy"></div>
         <h3>Megathy</h3>
         <p class="meta">Full-stack · Multi-vendor grocery &amp; food · Saudi Arabia</p>
         <p>Laravel APIs &amp; Vue admin — multi-store catalogue, restaurants, scheduled slots, collectors/drivers, Payfort payments, rewards and live chat. One Laravel core powering live grocery and restaurant orders across multiple vendor stores, with companion iOS and Android apps live on the App Store and Play Store.</p>
@@ -808,7 +814,7 @@ footer a:hover{color:var(--purple)}
         <a class="work-link" href="case-studies/megathy.html">Case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
       <article class="work-card reveal-item glow-card">
-        <div class="media"><img src="projects/zimdle.jpg" alt="Zimdle feedback platform" width="640" height="400" loading="lazy"></div>
+        <div class="media"><img src="projects/zimdle.jpg" alt="Zimdle private customer feedback analytics dashboard" width="640" height="400" loading="lazy"></div>
         <h3>Zimdle</h3>
         <p class="meta">Full-stack · Customer feedback SaaS</p>
         <p>Private feedback, AJAX charts, Stripe plans, PDF reports and Twilio alerts so owners can act on customer signal. 4 Stripe subscription lifecycle actions gated behind plan middleware, with trend charts, PDF reports and Twilio/email alerts replacing reliance on public reviews.</p>
@@ -820,7 +826,7 @@ footer a:hover{color:var(--purple)}
     <h3 style="font-family:var(--font); font-size:24px; font-weight:700; margin:0 0 24px; border-bottom:1px solid var(--line); padding-bottom:12px;">Independent Projects</h3>
     <div class="work-list">
       <article class="work-card reveal-item glow-card">
-        <div class="media"><img src="projects/exception.jpg" alt="Exception Tracker" width="640" height="400" loading="lazy"></div>
+        <div class="media"><img src="projects/exception.jpg" alt="Exception Tracker dashboard grouping production errors for triage" width="640" height="400" loading="lazy"></div>
         <h3>Exception Tracker</h3>
         <p class="meta">Personal · Observability SaaS · In progress</p>
         <p>Ingest, group and triage production exceptions with SDKs, uptime monitors, session replay and Stripe billing.</p>
@@ -828,7 +834,7 @@ footer a:hover{color:var(--purple)}
         <a class="work-link" href="case-studies/exception-tracker.html">Case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
       <article class="work-card reveal-item glow-card">
-        <div class="media"><img src="projects/resident.jpg" alt="Resident App" width="640" height="400" loading="lazy"></div>
+        <div class="media"><img src="projects/resident.jpg" alt="Resident App society admin dashboard for notices, visitors and billing" width="640" height="400" loading="lazy"></div>
         <h3>Resident App</h3>
         <p class="meta">Personal · Housing society SaaS · In progress</p>
         <p>Notices, maintenance, visitors and billing across admin web, resident web and Expo mobile — multi-tenant society ops.</p>
@@ -845,8 +851,14 @@ footer a:hover{color:var(--purple)}
     <div class="reveal">
       <p class="kicker">04 — Expertise</p>
       <h2 class="section-title">Technical <em>toolkit.</em></h2>
-      <p class="section-lead">Primary stack visualized by experience tier, full toolkit grouped by layer.</p>
+      <p class="section-lead">Primary stack by experience tier, full toolkit grouped by layer.</p>
       <p class="skill-note"><strong>Highlighted</strong> = daily use, 5+ yrs (core) or 3–5 yrs (frontend)</p>
+    </div>
+
+    <div class="skill-tiers">
+      <div class="skill-tier"><h4>Core — daily use</h4><p>Laravel · PHP 8+ · MySQL · REST APIs</p></div>
+      <div class="skill-tier"><h4>Proficient</h4><p>Vue.js · React · TypeScript</p></div>
+      <div class="skill-tier"><h4>Familiar</h4><p>React Native · GraphQL · Redux</p></div>
     </div>
 
     <div class="skill-grid">
@@ -1308,32 +1320,33 @@ footer a:hover{color:var(--purple)}
   }
 
   /* ──────────────────────────── Particle constellation ──────────────────────────── */
-  if(!reduce){
+  if(!reduce && window.innerWidth >= 768 && !window.matchMedia('(pointer: coarse)').matches){
     const canvas = $('#particles');
     if(canvas){
-      const ctx = canvas.getContext('2d');
-      let w, h, particles = [];
-      const count = window.innerWidth < 768 ? 30 : 60;
-      const maxDist = 120;
+      const ctx = canvas.getContext('2d', {alpha:true});
+      let w, h, particles = [], running = false, raf = 0;
+      const count = 28;
+      const maxDist = 110;
 
       const resize = () => {
         w = canvas.width = window.innerWidth;
         h = canvas.height = window.innerHeight;
       };
       resize();
-      window.addEventListener('resize', resize);
+      window.addEventListener('resize', resize, {passive:true});
 
       for(let i = 0; i < count; i++){
         particles.push({
           x: Math.random() * w,
           y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
-          r: Math.random() * 1.8 + 0.5
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          r: Math.random() * 1.6 + 0.4
         });
       }
 
       const draw = () => {
+        if(!running) return;
         ctx.clearRect(0, 0, w, h);
         for(let i = 0; i < particles.length; i++){
           const p = particles[i];
@@ -1364,9 +1377,25 @@ footer a:hover{color:var(--purple)}
             }
           }
         }
-        requestAnimationFrame(draw);
+        raf = requestAnimationFrame(draw);
       };
-      draw();
+
+      const start = () => {
+        if(running) return;
+        running = true;
+        raf = requestAnimationFrame(draw);
+      };
+      const stop = () => {
+        running = false;
+        cancelAnimationFrame(raf);
+      };
+
+      document.addEventListener('visibilitychange', () => {
+        if(document.hidden) stop();
+        else start();
+      });
+      const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 400));
+      idle(start);
     }
   }
 

@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Megathy Case Study — Jay Kaneriya</title>
-<meta name="description" content="Megathy case study — multi-vendor grocery and food delivery for Eastern Saudi Arabia. Laravel APIs, Vue admin, stores, restaurants, drivers, collectors, scheduled slots, Payfort payments, rewards and live chat.">
+<title>Megathy Case Study — Jay Kaneriya, Senior Laravel Developer</title>
+<meta name="description" content="How Jay Kaneriya built Megathy's multi-vendor grocery and food delivery platform — Laravel APIs, Vue admin, Payfort payments, scheduled slots and live chat.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://jaykaneriya.github.io/case-studies/megathy.html">
 <link rel="icon" type="image/svg+xml" href="../logo.svg">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jaykaneriya.github.io/case-studies/megathy.html">
-<meta property="og:title" content="Megathy Case Study — Jay Kaneriya">
-<meta property="og:description" content="Laravel multi-vendor grocery and food delivery with scheduled slots, driver tracking, payments, rewards and live chat.">
+<meta property="og:title" content="Megathy Case Study — Jay Kaneriya, Senior Laravel Developer">
+<meta property="og:description" content="How Jay Kaneriya built Megathy's multi-vendor grocery and food delivery platform — Laravel APIs, Vue admin, Payfort payments, scheduled slots and live chat.">
 <meta property="og:image" content="https://jaykaneriya.github.io/projects/megathy.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Megathy Case Study — Jay Kaneriya">
+<meta name="twitter:title" content="Megathy Case Study — Jay Kaneriya, Senior Laravel Developer">
 <meta name="twitter:description" content="Full-stack Laravel delivery platform for Eastern Saudi Arabia — stores, restaurants, drivers and ops APIs.">
 <meta name="twitter:image" content="https://jaykaneriya.github.io/projects/megathy.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,9 +117,9 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       <a href="https://play.google.com/store/apps/details?id=com.megathykom" target="_blank" rel="noopener">Android ↗</a>
     </div>
 
-    <section class="section" id="context">
-      <h2><span class="n">01</span> Context</h2>
-      <p>Megathy is an on-demand grocery and food delivery platform for Eastern Saudi Arabia. Customers browse store and restaurant catalogues, book delivery time sessions, pay by cash or card, track drivers, redeem rewards and chat with support — while ops staff assign collectors and drivers behind the scenes.</p>
+    <section class="section" id="problem">
+      <h2><span class="n">01</span> Problem</h2>
+      <p>Megathy needed one operations core for grocery stores and restaurants in Eastern Saudi Arabia — not a pair of disconnected apps. Customers browse catalogues, book delivery slots, pay by cash or card, track drivers, redeem rewards and chat with support. Ops staff assign collectors and drivers behind the scenes, while companion iOS and Android apps stay in sync with the same backend.</p>
       <p>The local codebase is a <strong>Laravel 6</strong> backend with Vue/jQuery/Bootstrap admin and storefront surfaces, JSON APIs for mobile clients, Payfort payments, FCM/Pushwoosh push and Twilio verification.</p>
     </section>
 
@@ -146,8 +146,8 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       </div>
     </section>
 
-    <section class="section" id="responsibility">
-      <h2><span class="n">03</span> Responsibility</h2>
+    <section class="section" id="contribution">
+      <h2><span class="n">03</span> Contribution</h2>
       <p>As full-stack developer I owned end-to-end delivery across backend, admin tooling and client APIs used by the production apps.</p>
       <ul>
         <li>Built <strong>Laravel APIs and admin</strong> for catalogue, carts, orders, schedule sessions, rewards and chat.</li>
@@ -159,13 +159,13 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </section>
 
     <section class="section" id="challenges">
-      <h2><span class="n">04</span> Challenges</h2>
-      <ul>
-        <li>Coordinating grocery and restaurant catalogues with different fulfilment rules in one platform.</li>
-        <li>Scheduled delivery slots that must book, expire and convert into live orders (including cron/queue work).</li>
-        <li>Keeping customer, collector, driver and dispatcher flows consistent through one order lifecycle.</li>
-        <li>Payments, loyalty, chat and push notifications that had to work together in production.</li>
-      </ul>
+      <h2><span class="n">04</span> Engineering Challenges</h2>
+      <h3>Multi-store catalogue</h3>
+      <p>Grocery stores and restaurants share one catalogue surface but not the same fulfilment rules. Stocked SKUs, categories and coupons sit beside restaurant add-ons, open hours and food-only carts. The Laravel core had to keep cities, areas, stores and restaurants consistent without splitting into two products.</p>
+      <h3>Scheduled slots and Payfort checkout</h3>
+      <p>Delivery sessions must book, expire and convert into live orders through cron/queue work, while checkout supports cash, card and dual payment plus rewards. Payfort transactions, coupons and reward history had to stay consistent when a scheduled slot became a collector assignment.</p>
+      <h3>Live chat and multi-role ops</h3>
+      <p>Customer, collector, dispatcher and driver flows all mutate the same order. Live chat, FCM/Pushwoosh and Twilio OTP had to stay attached to that lifecycle so support and field staff were looking at the same status as the customer app.</p>
     </section>
 
     <section class="section" id="solution">
@@ -278,6 +278,11 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       <h2><span class="n">07</span> Outcomes</h2>
       <p>Delivered a production multi-vendor delivery stack with <strong>5 role-specific workflows</strong> (customer, collector, driver, dispatcher, admin) spanning catalogue, scheduling, payments, loyalty, chat and operations APIs — plus companion <strong>iOS and Android</strong> apps listed on the App Store and Play Store for Eastern Saudi Arabia.</p>
       <p><strong>Impact:</strong> one Laravel core powers live grocery and restaurant orders across multiple vendor stores, with scheduled slots, Payfort checkout, and realtime driver/ops coordination.</p>
+      <ul>
+        <li>Production apps covering [CONFIRM: N] vendor stores / restaurants in Eastern Saudi Arabia.</li>
+        <li>Five role-specific API flows (customer, collector, driver, dispatcher, admin) on one Laravel core.</li>
+        <li>[CONFIRM: order / GMV / active-user figure, if publishable] handled through scheduled slots and Payfort checkout.</li>
+      </ul>
       <figure class="shot">
         <img class="shot-img" src="../projects/megathy-catalog.jpg" alt="Megathy catalogue management screen" width="1200" height="900" loading="lazy">
         <figcaption class="shot-cap">Catalogue ops surface supporting multi-store grocery inventory.</figcaption>
