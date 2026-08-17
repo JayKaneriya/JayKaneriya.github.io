@@ -25,7 +25,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Jay Kaneriya","jobTitle":"Senior Full-Stack Laravel Developer","url":"https://jaykaneriya.github.io/","email":"mailto:jay.kaneriya8@gmail.com","telephone":"+918530078687","address":{"@type":"PostalAddress","addressLocality":"Rajkot","addressRegion":"Gujarat","addressCountry":"IN"},"sameAs":["https://www.linkedin.com/in/jaykaneriya/","https://github.com/JayKaneriya"],"knowsAbout":["Laravel","PHP","Vue.js","React","JavaScript","TypeScript","Node.js","MySQL","REST API","System Architecture"]}
+{"@context":"https://schema.org","@type":"Person","name":"Jay Kaneriya","jobTitle":"Senior Full-Stack Laravel Developer","url":"https://jaykaneriya.github.io/","email":"mailto:jay.kaneriya8@gmail.com","telephone":"+918530078687","address":{"@type":"PostalAddress","addressLocality":"Rajkot","addressRegion":"Gujarat","addressCountry":"IN"},"sameAs":["https://www.linkedin.com/in/jaykaneriya/","https://github.com/JayKaneriya"],"knowsAbout":["Laravel","PHP","Vue.js","React","React Native","JavaScript","TypeScript","MySQL","REST API","System Architecture"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -255,7 +255,7 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:800px){.pillar-grid{grid-template-columns:1fr}}
 .pillar{padding:28px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--card);position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s,transform .3s var(--ease)}
-.pillar::before{content:"";position:absolute;inset:0;border-radius:var(--r-lg);background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.12),transparent 40%);opacity:0;transition:opacity .4s}
+.pillar::before{content:"";position:absolute;inset:0;border-radius:var(--r-lg);background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.12),transparent 40%);opacity:0;transition:opacity .4s;pointer-events:none}
 .pillar:hover::before{opacity:1}
 .pillar:hover{border-color:rgba(139,92,246,.4);box-shadow:var(--glow);transform:translateY(-4px)}
 .pillar .ico{width:48px;height:48px;border-radius:var(--r-md);display:grid;place-items:center;margin-bottom:16px;background:var(--accent-soft);color:var(--purple);transition:transform .3s var(--ease)}
@@ -313,7 +313,7 @@ section[id]{scroll-margin-top:var(--nav-h)}
 .work-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:800px){.work-list{grid-template-columns:1fr}}
 .work-card{display:flex;flex-direction:column;gap:14px;padding:20px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg-2);position:relative;overflow:hidden;transition:border-color .3s,transform .3s var(--ease),box-shadow .3s}
-.work-card::before{content:"";position:absolute;inset:0;border-radius:var(--r-lg);background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(59,130,246,.1),transparent 40%);opacity:0;transition:opacity .4s}
+.work-card::before{content:"";position:absolute;inset:0;border-radius:var(--r-lg);background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(59,130,246,.1),transparent 40%);opacity:0;transition:opacity .4s;pointer-events:none}
 .work-card:hover::before{opacity:1}
 .work-card:hover{border-color:rgba(139,92,246,.4);transform:translateY(-4px);box-shadow:var(--glow)}
 .work-card .media{border-radius:var(--r-md);overflow:hidden;aspect-ratio:16/10;border:1px solid var(--line)}
@@ -585,8 +585,8 @@ footer a:hover{color:var(--purple)}
   <div class="wrap">
     <div class="reveal">
       <p class="kicker">01 — Overview</p>
-      <h2 class="section-title">What hiring teams get when they <em>hire me.</em></h2>
-      <p class="section-lead">Not a ticket-taker. A senior engineer who owns the module from data model to production release.</p>
+      <h2 class="section-title">I own the whole <em>product problem.</em></h2>
+      <p class="section-lead">From database architecture and API design through frontend development, integrations, testing and production release.</p>
     </div>
     <div class="pillar-grid">
       <article class="pillar reveal-item glow-card">
@@ -623,14 +623,20 @@ footer a:hover{color:var(--purple)}
         <div class="t-card">
           <h3 class="t-title">Senior Web Application Developer</h3>
           <p class="t-co">@ <strong>Paperly</strong> · Education SaaS</p>
+          <h4 style="font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--faint); margin-bottom:12px;">Responsibilities</h4>
           <ul class="t-list">
             <li>Developed and maintained school administration modules used daily by thousands of teachers and parents.</li>
             <li>Built excursion, sports, music, parent-teacher interview, and assessment calendar features.</li>
             <li>Implemented dynamic form builders, workflow automation, multi-school integrations, geolocation, and permissions.</li>
             <li>Designed REST APIs and MySQL schemas; integrated third-party services in Agile production releases.</li>
           </ul>
-          <p class="t-impact"><strong>Impact</strong> Stable remote delivery on a live multi-school platform used daily at production scale.</p>
-          <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Workflows</span></div>
+          <h4 style="font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--faint); margin-bottom:12px; margin-top:20px;">Impact</h4>
+          <ul class="t-list" style="margin-bottom:0;">
+             <li>Replaced manual processes with trackable digital approvals.</li>
+             <li>Removed manual data re-entry across multiple systems.</li>
+             <li>Increased operational visibility for school administrators.</li>
+          </ul>
+          <div class="tags" style="margin-top:20px;"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Workflows</span></div>
         </div>
       </article>
       <article class="t-item reveal-item">
@@ -638,22 +644,20 @@ footer a:hover{color:var(--purple)}
         <div class="t-card">
           <h3 class="t-title">Web Application Developer</h3>
           <p class="t-co">@ <strong>Logistic Infotech Pvt Ltd</strong></p>
+          <h4 style="font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--faint); margin-bottom:12px;">Responsibilities</h4>
           <ul class="t-list">
             <li>Delivered full-stack client projects worldwide across eCommerce, SaaS, education, restaurant, and booking domains.</li>
             <li>Built Laravel backends with Vue.js and React.js frontends, including admin dashboards and RBAC.</li>
             <li>Integrated Stripe, PayPal, BPOINT, and custom payment APIs into production billing flows.</li>
             <li>Shipped realtime features with Socket.io and Firebase; mentored juniors and led Agile client delivery.</li>
           </ul>
-          <p class="t-impact"><strong>Impact</strong> End-to-end client delivery across payments, realtime ops, and mentoring on production teams.</p>
-          <div class="tags"><span>Laravel</span><span>React</span><span>Vue.js</span><span>Payments</span><span>Realtime</span></div>
-        </div>
-      </article>
-      <article class="t-item reveal-item">
-        <div class="t-when">Jul 2013 — May 2017<br>Rajkot, India</div>
-        <div class="t-card">
-          <h3 class="t-title">B.E. Computer Science &amp; Engineering</h3>
-          <p class="t-co">@ <strong>Gujarat Technological University</strong> · Shri Labhubhai Trivedi Institute of Engineering and Technology, Rajkot</p>
-          <p class="t-desc">Algorithms, data structures, databases and software engineering foundations used every day in production work.</p>
+          <h4 style="font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:0.04em; color:var(--faint); margin-bottom:12px; margin-top:20px;">Impact</h4>
+          <ul class="t-list" style="margin-bottom:0;">
+             <li>Delivered reliable end-to-end products that enabled clients to launch and scale their businesses.</li>
+             <li>Streamlined payment and booking flows, directly driving client revenue.</li>
+             <li>Elevated team code quality through continuous mentoring and code reviews.</li>
+          </ul>
+          <div class="tags" style="margin-top:20px;"><span>Laravel</span><span>React</span><span>Vue.js</span><span>Payments</span><span>Realtime</span></div>
         </div>
       </article>
     </div>
@@ -669,6 +673,7 @@ footer a:hover{color:var(--purple)}
       <p class="section-lead">Production systems for real organisations — flagship first, then selected builds.</p>
     </div>
 
+    <h3 style="font-family:var(--font); font-size:24px; font-weight:700; margin:0 0 24px; border-bottom:1px solid var(--line); padding-bottom:12px;">Professional / Production Work</h3>
     <article class="flagship reveal">
       <div>
         <p class="flag-label">★ Flagship</p>
@@ -676,39 +681,70 @@ footer a:hover{color:var(--purple)}
         <p class="flag-meta"><strong>Senior Web Application Developer</strong> · EdTech · Australia · 2022–2026</p>
         <div class="flag-grid">
           <div><h4>Problem</h4><p>Schools needed reliable digital workflows for excursions, activities, forms, interviews and permissions — used daily at scale.</p></div>
-          <div><h4>Ownership</h4><p>Full-stack modules: Laravel backends, Vue.js UIs, REST APIs, geolocation, multi-school permissions and workflow automation.</p></div>
-          <div><h4>Outcome</h4><p>Stable multi-school delivery over 4 years remote; platforms used by thousands daily. Paperly states 250+ schools joined for 2026.</p></div>
+          <div><h4>Role</h4><p>Senior Web Application Developer leading end-to-end module development over 4 years.</p></div>
+          <div><h4>Business Value</h4><p>Replaced manual processes and paper forms with trackable digital approvals, saving administrative time and increasing visibility.</p></div>
+          <div><h4>Outcome</h4><p>Stable multi-school delivery; platforms used by thousands daily. Paperly states 250+ schools joined for 2026.</p></div>
         </div>
-        <h4 class="flag-label" style="margin-top:4px">Contribution</h4>
+        
+        <h4 class="flag-label" style="margin-top:20px; margin-bottom:8px">Contribution</h4>
         <ul class="flag-contrib">
           <li>Excursion, sports, music, parent-teacher interview, and assessment calendar features.</li>
           <li>Dynamic form builders and workflow automation for school operations.</li>
           <li>Geolocation-enabled workflows and multi-school permission management.</li>
           <li>REST APIs, MySQL schemas, and third-party integrations in Agile releases.</li>
         </ul>
+
+        <h4 class="flag-label" style="margin-top:20px; margin-bottom:12px">Engineering Challenges</h4>
+        <div class="flag-grid" style="margin-bottom: 24px;">
+          <div><h4>Dynamic Workflows</h4><p>Designing reusable workflow logic that could support different school processes and approval requirements.</p></div>
+          <div><h4>Complex Permissions</h4><p>Managing different capabilities across administrators, teachers, parents and other users.</p></div>
+          <div><h4>Third-party Integrations</h4><p>Keeping application data synchronized with external systems while maintaining data accuracy.</p></div>
+          <div><h4>Geolocation</h4><p>Supporting location-dependent workflows and school activities.</p></div>
+          <div><h4>Production Reliability</h4><p>Maintaining a live multi-school platform while continuously adding functionality.</p></div>
+        </div>
+
+        <h4 class="flag-label" style="margin-top:20px; margin-bottom:12px">Architecture</h4>
+        <div style="font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--muted); background: rgba(255,255,255,0.03); padding: 18px; border-radius: var(--r-md); border: 1px solid var(--line); margin-bottom: 24px; text-align: center; line-height: 1.8;">
+          <div style="color:var(--ink)">Parents / Teachers / Administrators</div>
+          <div style="color:var(--purple); margin: 4px 0;">↓</div>
+          <div style="color:var(--ink)">Vue.js</div>
+          <div style="color:var(--purple); margin: 4px 0;">↓</div>
+          <div style="color:var(--ink)">Laravel / REST APIs</div>
+          <div style="color:var(--purple); margin: 4px 0;">↓</div>
+          <div style="color:var(--ink)">MySQL</div>
+          <div style="color:var(--purple); margin: 4px 0;">↓</div>
+          <div style="color:var(--ink)">Forms / Permissions / Workflows / Geolocation</div>
+          <div style="color:var(--purple); margin: 4px 0;">↓</div>
+          <div style="color:var(--ink)">Third-party integrations</div>
+        </div>
+
         <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Geolocation</span></div>
-        <a class="work-link" href="case-studies/paperly.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
+        <a class="work-link" style="margin-top:16px;" href="case-studies/paperly.html">Read case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </div>
       <div class="flag-media"><img src="projects/paperly.jpg" alt="Paperly school management UI" width="800" height="500" loading="lazy"></div>
     </article>
 
-    <div class="work-list">
+    <div class="work-list" style="margin-bottom: 60px;">
       <article class="work-card reveal-item glow-card">
         <div class="media"><img src="projects/megathy.jpg" alt="Megathy delivery platform" width="640" height="400" loading="lazy"></div>
         <h3>Megathy</h3>
-        <p class="meta">Full-stack · Multi-vendor grocery · Saudi Arabia</p>
-        <p>Laravel backend &amp; admin, React Native mobile, multi-vendor catalogue, scheduled slots, realtime tracking and payments.</p>
-        <div class="tags"><span>Laravel</span><span>React Native</span><span>Firebase</span></div>
+        <p class="meta">Full-stack · Multi-vendor grocery &amp; food · Saudi Arabia</p>
+        <p>Laravel APIs &amp; Vue admin — multi-store catalogue, restaurants, scheduled slots, collectors/drivers, Payfort payments, rewards and live chat.</p>
+        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Payfort</span><span>FCM</span></div>
         <a class="work-link" href="case-studies/megathy.html">Case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
       <article class="work-card reveal-item glow-card">
         <div class="media"><img src="projects/zimdle.jpg" alt="Zimdle feedback platform" width="640" height="400" loading="lazy"></div>
         <h3>Zimdle</h3>
         <p class="meta">Full-stack · Customer feedback SaaS</p>
-        <p>Private feedback workflows, trend charts, reports and alerts so owners can act on customer signal.</p>
-        <div class="tags"><span>Laravel</span><span>CodeIgniter</span><span>Analytics</span></div>
+        <p>Private feedback, AJAX charts, Stripe plans, PDF reports and Twilio alerts so owners can act on customer signal.</p>
+        <div class="tags"><span>Laravel</span><span>Stripe</span><span>Analytics</span></div>
         <a class="work-link" href="case-studies/zimdle.html">Case study <svg class="icon"><use href="#i-arrow"></use></svg></a>
       </article>
+    </div>
+
+    <h3 style="font-family:var(--font); font-size:24px; font-weight:700; margin:0 0 24px; border-bottom:1px solid var(--line); padding-bottom:12px;">Independent Projects</h3>
+    <div class="work-list">
       <article class="work-card reveal-item glow-card">
         <div class="media"><img src="projects/exception.jpg" alt="Exception Tracker" width="640" height="400" loading="lazy"></div>
         <h3>Exception Tracker</h3>
@@ -806,7 +842,7 @@ footer a:hover{color:var(--purple)}
       <article class="skill-group reveal-item">
         <h3><svg class="icon"><use href="#i-server"></use></svg> Backend</h3>
         <div class="skill-chips">
-          <span class="primary">Laravel</span><span class="primary">PHP 8+</span><span>Node.js</span><span>Sails.js</span><span>CodeIgniter</span><span>Redis</span><span>Socket.io</span>
+          <span class="primary">Laravel</span><span class="primary">PHP 8+</span><span>CodeIgniter</span><span>Redis</span><span>Socket.io</span>
         </div>
       </article>
       <article class="skill-group reveal-item">
@@ -818,7 +854,7 @@ footer a:hover{color:var(--purple)}
       <article class="skill-group reveal-item">
         <h3><svg class="icon"><use href="#i-layers"></use></svg> Architecture &amp; APIs</h3>
         <div class="skill-chips">
-          <span class="primary">REST API</span><span>JWT</span><span>OAuth</span><span>Webhooks</span><span>Multi-tenant</span><span>System architecture</span>
+          <span>REST API</span><span>JWT</span><span>OAuth</span><span>Webhooks</span><span>Multi-tenant</span><span>System architecture</span>
         </div>
       </article>
       <article class="skill-group reveal-item">
@@ -830,31 +866,31 @@ footer a:hover{color:var(--purple)}
       <article class="skill-group reveal-item">
         <h3><svg class="icon"><use href="#i-zap"></use></svg> Payments &amp; Realtime</h3>
         <div class="skill-chips">
-          <span class="primary">Stripe</span><span>PayPal</span><span>BPOINT</span><span>Firebase</span><span>Socket.io</span><span>Geolocation</span>
+          <span>Stripe</span><span>PayPal</span><span>BPOINT</span><span>Firebase</span><span>Socket.io</span><span>Geolocation</span>
         </div>
       </article>
       <article class="skill-group reveal-item">
         <h3><svg class="icon"><use href="#i-smartphone"></use></svg> Mobile</h3>
         <div class="skill-chips">
-          <span class="primary">React Native</span><span>iOS</span><span>Android</span>
+          <span>React Native</span><span>iOS</span><span>Android</span>
         </div>
       </article>
       <article class="skill-group reveal-item">
         <h3><svg class="icon"><use href="#i-terminal"></use></svg> Tools &amp; Delivery</h3>
         <div class="skill-chips">
-          <span class="primary">Git</span><span>CI/CD</span><span>Postman</span><span>JIRA</span><span>Linux</span><span>cPanel</span>
+          <span>Git</span><span>CI/CD</span><span>Postman</span><span>JIRA</span><span>Linux</span><span>cPanel</span>
         </div>
       </article>
       <article class="skill-group reveal-item">
         <h3><svg class="icon"><use href="#i-briefcase"></use></svg> Practices</h3>
         <div class="skill-chips">
-          <span class="primary">Agile</span><span>Mentoring</span><span>Code reviews</span><span>Sprint planning</span><span>Client communication</span>
+          <span>Agile</span><span>Mentoring</span><span>Code reviews</span><span>Sprint planning</span><span>Client communication</span>
         </div>
       </article>
       <article class="skill-group reveal-item ai-group">
         <h3><svg class="icon"><use href="#i-spark"></use></svg> AI-Assisted Development</h3>
         <div class="skill-chips">
-          <span class="ai primary">Cursor</span><span class="ai primary">Claude</span><span class="ai primary">Antigravity</span><span class="ai primary">ChatGPT</span><span class="ai">AI Code Review</span><span class="ai">Prompt Engineering</span>
+          <span class="ai">Cursor</span><span class="ai">Claude</span><span class="ai">Antigravity</span><span class="ai">ChatGPT</span><span class="ai">AI Code Review</span><span class="ai">Prompt Engineering</span>
         </div>
       </article>
     </div>

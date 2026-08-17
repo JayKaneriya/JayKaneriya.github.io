@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zimdle Case Study — Jay Kaneriya</title>
-<meta name="description" content="Zimdle case study — SaaS customer feedback and business performance monitoring. Laravel, CodeIgniter, AJAX analytics, charts, reports and alerts.">
+<meta name="description" content="Zimdle case study — SaaS private customer feedback and business performance monitoring. Laravel, Stripe subscriptions, AJAX charts, PDF reports, Twilio alerts and enterprise compare.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://jaykaneriya.github.io/case-studies/zimdle.html">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jaykaneriya.github.io/case-studies/zimdle.html">
 <meta property="og:title" content="Zimdle Case Study — Jay Kaneriya">
-<meta property="og:description" content="SaaS feedback and performance monitoring with Laravel, CodeIgniter, charts, reports and alerts.">
+<meta property="og:description" content="Private feedback SaaS with Laravel, Stripe, charts, PDF reports and Twilio alerts.">
 <meta property="og:image" content="https://jaykaneriya.github.io/projects/zimdle.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Zimdle Case Study — Jay Kaneriya">
@@ -40,10 +40,19 @@ a{color:var(--blue);text-decoration:none}
 .kicker{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
 h1{font-family:var(--font-d);font-size:clamp(34px,6vw,52px);font-weight:600;line-height:1.07;letter-spacing:-.02em;margin-bottom:14px}
 .meta{font-size:14px;color:var(--muted);margin-bottom:20px}
-.hero-img{width:100%;border-radius:18px;margin:20px 0 32px;display:block;border:1px solid var(--line);box-shadow:0 0 40px rgba(139,92,246,.15)}
+.hero-img,.shot-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;display:block;border:1px solid var(--line);background:var(--card)}
+.hero-img{margin:20px 0 32px;box-shadow:0 0 40px rgba(139,92,246,.15)}
+.shot{margin:18px 0 8px}
+.shot-img{box-shadow:0 0 28px rgba(59,130,246,.12)}
+.shot-cap,.diagram-cap{font-size:13px;color:var(--dim);margin:8px 0 18px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:20px 0 8px}
+.gallery figure{margin:0}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid var(--line);display:block;background:var(--card)}
+.gallery figcaption{font-size:12px;color:var(--dim);margin-top:8px}
 .section{margin:36px 0;padding-left:16px;border-left:2px solid transparent;border-image:var(--grad) 1}
 .section h2{font-family:var(--font-d);font-size:22px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:10px}
 .section h2 .n{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--purple)}
+.section h3{font-family:var(--font-d);font-size:16px;font-weight:600;margin:18px 0 8px;color:var(--ink)}
 p{color:var(--ink80);margin-bottom:14px}
 p strong{color:var(--ink);font-weight:600}
 ul{margin:0 0 18px 1.2rem;color:var(--ink80)}
@@ -61,10 +70,16 @@ li{margin-bottom:8px}
 .btn{min-height:44px;font-size:15px;padding:11px 22px;border-radius:980px;border:1px solid var(--line);color:var(--ink);display:inline-flex;align-items:center;justify-content:center}
 .btn.fill{background:var(--grad);color:#fff;border-color:transparent}
 .btn:hover{border-color:rgba(139,92,246,.5)}
+.diagram{margin:18px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:16px;overflow:auto}
+.diagram svg{display:block;width:100%;height:auto;min-width:520px}
+.cap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0 8px}
+.cap{border:1px solid var(--line);border-radius:12px;padding:14px;background:rgba(255,255,255,.02)}
+.cap b{display:block;font-size:14px;color:var(--ink);margin-bottom:4px}
+.cap span{font-size:13px;color:var(--dim)}
 footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color:var(--dim);background:var(--bg-2);margin:0 -20px;padding-left:20px;padding-right:20px}
 @media(max-width:640px){
   .wrap{width:min(100% - 24px,var(--max))}
-  .stats{grid-template-columns:1fr}
+  .stats,.cap-grid,.gallery{grid-template-columns:1fr}
   .cta{flex-direction:column}.btn{width:100%}
   .cs-nav{margin:0 -12px 28px;padding:12px}
   footer{margin:0 -12px}
@@ -86,64 +101,135 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </nav>
 
     <p class="kicker">Case study · 03 · Feedback SaaS</p>
-    <h1>Zimdle — customer feedback and business performance monitoring</h1>
-    <p class="meta">Full-stack Developer · Laravel · CodeIgniter · JavaScript · AJAX · Analytics · SaaS</p>
-    <img class="hero-img" src="../projects/zimdle.jpg" alt="Zimdle customer feedback analytics dashboard" width="1200" height="675" loading="eager">
+    <h1>Zimdle — private feedback &amp; performance monitoring</h1>
+    <p class="meta">Full-stack Developer · Laravel · Stripe Cashier · JavaScript / AJAX · Charts · Twilio · DomPDF</p>
+    <img class="hero-img" src="../projects/zimdle-hero.jpg" alt="Zimdle private feedback analytics dashboard" width="1200" height="900" loading="eager">
 
     <div class="stats">
-      <div class="stat"><b>Private</b><span>Feedback goes to the owner, not the feed</span></div>
-      <div class="stat"><b>Trends</b><span>Charts, history stats &amp; benchmarking</span></div>
-      <div class="stat"><b>Alerts</b><span>Automated reports when scores slip</span></div>
+      <div class="stat"><b>Private</b><span>Feedback routes to the owner, not a public feed</span></div>
+      <div class="stat"><b>Insights</b><span>Trend charts, criteria templates &amp; benchmarking</span></div>
+      <div class="stat"><b>Alerts</b><span>Email / SMS reports when averages slip</span></div>
     </div>
 
     <div class="ext">
       <a href="https://zimdle.com/" target="_blank" rel="noopener">Website ↗</a>
     </div>
 
-    <section class="section">
+    <section class="section" id="context">
       <h2><span class="n">01</span> Context</h2>
       <p>Zimdle is a SaaS platform for structured private customer feedback and business performance visibility — so owners can monitor trends without relying only on public social-media reviews.</p>
+      <p>The local codebase is <strong>Laravel 5.3</strong> with Stripe Cashier subscriptions, AJAX dashboard charts, DomPDF reports, Twilio SMS alerts, criteria/templates and enterprise comparison tools.</p>
     </section>
 
-    <section class="section">
-      <h2><span class="n">02</span> Responsibility</h2>
+    <section class="section" id="gallery">
+      <h2><span class="n">02</span> Product visuals</h2>
+      <p>Illustrative 4:3 mockups of the feedback SaaS surfaces verified in the codebase.</p>
+      <div class="gallery">
+        <figure>
+          <img src="../projects/zimdle-chart.jpg" alt="Zimdle feedback insights chart mockup" width="800" height="600" loading="lazy">
+          <figcaption>Feedback insights — trend lines and competition benchmarks (sample data)</figcaption>
+        </figure>
+        <figure>
+          <img src="../projects/zimdle-flow.jpg" alt="Zimdle feedback to alert flow diagram" width="800" height="600" loading="lazy">
+          <figcaption>Capture → score → charts/reports → alerts, plus Stripe plans</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="responsibility">
+      <h2><span class="n">03</span> Responsibility</h2>
       <ul>
-        <li>Built a <strong>structured private feedback workflow</strong> that routes responses to the business owner.</li>
-        <li>Implemented feedback history, statistics, visual charts and trend monitoring.</li>
-        <li>Added reports, alerts and business-performance comparisons for ongoing monitoring.</li>
-        <li>Delivered an AJAX-driven application UI with <strong>Laravel</strong>, <strong>CodeIgniter</strong>, JavaScript, jQuery, Sass and Bootstrap.</li>
+        <li>Built a <strong>structured private feedback workflow</strong> that routes responses to the business owner and representatives.</li>
+        <li>Implemented dashboard analytics: feedback history, criteria averages, time-period charts and competition/benchmark charts.</li>
+        <li>Added <strong>PDF reports</strong>, email/SMS alerts for low averages, and scheduled report jobs.</li>
+        <li>Shipped <strong>Stripe subscription</strong> plans (subscribe, change, resume, unsubscribe) gated behind subscription middleware.</li>
+        <li>Delivered AJAX-driven UI for templates, criteria, business profiles, galleries and enterprise compare.</li>
       </ul>
     </section>
 
-    <section class="section">
-      <h2><span class="n">03</span> Challenges</h2>
+    <section class="section" id="challenges">
+      <h2><span class="n">04</span> Challenges</h2>
       <ul>
-        <li>Keeping feedback private to the owner while still enabling actionable analytics.</li>
+        <li>Keeping feedback private to owners while still enabling actionable analytics.</li>
         <li>Surfacing trends, history and alerts in a way operators can act on quickly.</li>
-        <li>Building a maintainable AJAX-driven SaaS UI across Laravel and CodeIgniter surfaces.</li>
+        <li>Combining SaaS billing, multi-business ownership and enterprise comparison in one product surface.</li>
       </ul>
     </section>
 
-    <section class="section">
-      <h2><span class="n">04</span> Solution</h2>
-      <p>Private feedback capture, history/statistics, charts, reports and alerts — so owners get structured insight without public social blowback.</p>
+    <section class="section" id="solution">
+      <h2><span class="n">05</span> Solution</h2>
+      <p>Private feedback capture, criteria templates, chart endpoints, PDF/email reporting and Twilio alerts — so owners get structured insight without public social blowback.</p>
+
+      <figure class="shot">
+        <img class="shot-img" src="../projects/zimdle-chart.jpg" alt="Zimdle analytics charts" width="1200" height="900" loading="lazy">
+        <figcaption class="shot-cap">Illustrative analytics surface — charts represent product capability, not live KPIs.</figcaption>
+      </figure>
+
+      <h3>Feedback loop</h3>
+      <div class="diagram" role="img" aria-label="Zimdle feedback to alert loop">
+        <svg viewBox="0 0 840 180" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
+          <defs>
+            <linearGradient id="zg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
+          </defs>
+          <rect width="840" height="180" rx="12" fill="#121218"/>
+          <g fill="#1f1f2a" stroke="url(#zg)" stroke-width="1.5">
+            <rect x="24" y="58" width="140" height="64" rx="12"/>
+            <rect x="208" y="58" width="140" height="64" rx="12"/>
+            <rect x="392" y="58" width="140" height="64" rx="12"/>
+            <rect x="576" y="58" width="140" height="64" rx="12"/>
+          </g>
+          <g fill="#f5f5f7" font-size="13" font-weight="600" text-anchor="middle">
+            <text x="94" y="88">Capture</text>
+            <text x="278" y="88">Score</text>
+            <text x="462" y="88">Charts</text>
+            <text x="646" y="88">Alerts</text>
+          </g>
+          <g fill="#a1a1a6" font-size="11" text-anchor="middle">
+            <text x="94" y="108">private feedback</text>
+            <text x="278" y="108">criteria / overall</text>
+            <text x="462" y="108">AJAX + PDF</text>
+            <text x="646" y="108">email / SMS</text>
+          </g>
+          <g stroke="#8b5cf6" stroke-width="2" fill="none">
+            <path d="M164 90 H208"/><path d="M348 90 H392"/><path d="M532 90 H576"/>
+          </g>
+          <g fill="#8b5cf6">
+            <polygon points="204,90 194,85 194,95"/><polygon points="388,90 378,85 378,95"/><polygon points="572,90 562,85 562,95"/>
+          </g>
+        </svg>
+      </div>
+      <p class="diagram-cap">Verified product loop from feedback controllers, chart endpoints, DomPDF reports and Twilio alert jobs.</p>
+
+      <h3>SaaS surface map</h3>
+      <div class="cap-grid">
+        <div class="cap"><b>Templates &amp; criteria</b><span>Custom feedback templates with per-criteria scoring</span></div>
+        <div class="cap"><b>Dashboard charts</b><span>History, averages, time-period and competition charts</span></div>
+        <div class="cap"><b>Stripe plans</b><span>Subscribe, change, resume, unsubscribe with plan gates</span></div>
+        <div class="cap"><b>Enterprise compare</b><span>Multi-business compare reports and push notifications</span></div>
+      </div>
+
+      <figure class="shot">
+        <img class="shot-img" src="../projects/zimdle-flow.jpg" alt="Zimdle SaaS flow including Stripe and enterprise compare" width="1200" height="900" loading="lazy">
+        <figcaption class="shot-cap">Capability flow covering billing, analytics and alerting.</figcaption>
+      </figure>
     </section>
 
-    <section class="section">
-      <h2><span class="n">05</span> Outcomes</h2>
+    <section class="section" id="outcomes">
+      <h2><span class="n">06</span> Outcomes</h2>
       <p>Full-stack SaaS delivery around structured feedback, analytics, reporting and operational alerts — focused on problem, contribution and implementation rather than unverified metrics.</p>
     </section>
 
-    <section class="section">
-      <h2><span class="n">06</span> Technology</h2>
+    <section class="section" id="technology">
+      <h2><span class="n">07</span> Technology</h2>
       <ul>
-        <li><strong>Stack:</strong> Laravel, CodeIgniter, JavaScript, jQuery, AJAX, Sass, Bootstrap, Git, JSON</li>
-        <li><strong>Product surface:</strong> private feedback, history/statistics, charts, reports, alerts, performance comparison</li>
+        <li><strong>Stack:</strong> Laravel 5.3, JavaScript, jQuery, AJAX, Bootstrap, Sass, Git, JSON</li>
+        <li><strong>Integrations:</strong> Stripe Cashier, Twilio, DomPDF, c-pchart chart generation, push notifications</li>
+        <li><strong>Product surface:</strong> private feedback, criteria/templates, charts, PDF reports, alerts, enterprise compare</li>
       </ul>
     </section>
 
     <div class="tags">
-      <span>Laravel</span><span>CodeIgniter</span><span>JavaScript</span><span>jQuery</span><span>AJAX</span><span>Sass</span><span>Bootstrap</span><span>SaaS</span><span>Analytics</span>
+      <span>Laravel</span><span>Stripe</span><span>JavaScript</span><span>AJAX</span><span>Charts</span><span>Twilio</span><span>DomPDF</span><span>SaaS</span><span>Analytics</span>
     </div>
 
     <div class="cta">

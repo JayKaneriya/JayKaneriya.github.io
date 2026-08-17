@@ -62,17 +62,17 @@ Senior Full-Stack Laravel/PHP Developer with 8+ years of experience building pro
 - Role: Senior Web Application Developer | 2022–2026 | Australia
 - Stack: Laravel, Vue.js, MySQL, REST API, Geolocation
 
-#### Megathy — On-Demand Grocery Delivery
+#### Megathy — On-Demand Grocery & Food Delivery
 - Role: Full Stack Developer | Multi-vendor | Saudi Arabia
-- Stack: Laravel, React Native, Vue.js, MySQL, Firebase, Payments
-- Built backend, admin, and order management for Eastern Saudi Arabia grocery delivery
-- Multi-vendor catalog, real-time tracking, scheduled slots, multi-payment, discounts, loyalty, live chat
+- Stack: Laravel, Vue.js, MySQL, Payfort, FCM, Twilio
+- Built Laravel APIs and Vue admin for Eastern Saudi Arabia grocery and restaurant delivery
+- Multi-store catalogue, scheduled slots, collectors/drivers/dispatchers, payments, rewards, live chat
 - Case study: https://jaykaneriya.github.io/case-studies/megathy.html
 
 #### Zimdle — Customer Feedback Platform
 - Role: Full Stack Developer
-- Stack: Laravel, CodeIgniter, AJAX
-- Private real-time feedback with charts, trends, alerts, and benchmarking for business owners
+- Stack: Laravel, Stripe, AJAX, Charts, Twilio
+- Private feedback SaaS with charts, criteria templates, PDF reports, Twilio alerts, and Stripe plans
 - Case study: https://jaykaneriya.github.io/case-studies/zimdle.html
 
 #### Exception Tracker (Personal Project) — In progress

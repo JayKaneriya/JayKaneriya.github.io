@@ -40,7 +40,15 @@ a{color:var(--blue);text-decoration:none}
 .kicker{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:12px}
 h1{font-family:var(--font-d);font-size:clamp(34px,6vw,52px);font-weight:600;line-height:1.07;letter-spacing:-.02em;margin-bottom:14px}
 .meta{font-size:14px;color:var(--muted);margin-bottom:20px}
-.hero-img{width:100%;border-radius:18px;margin:20px 0 32px;display:block;border:1px solid var(--line);box-shadow:0 0 40px rgba(139,92,246,.15)}
+.hero-img,.shot-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;display:block;border:1px solid var(--line);background:var(--card)}
+.hero-img{margin:20px 0 32px;box-shadow:0 0 40px rgba(139,92,246,.15)}
+.shot{margin:18px 0 8px}
+.shot-img{box-shadow:0 0 28px rgba(59,130,246,.12)}
+.shot-cap,.diagram-cap{font-size:13px;color:var(--dim);margin:8px 0 18px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:20px 0 8px}
+.gallery figure{margin:0}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid var(--line);display:block;background:var(--card)}
+.gallery figcaption{font-size:12px;color:var(--dim);margin-top:8px}
 .section{margin:36px 0;padding-left:16px;border-left:2px solid transparent;border-image:var(--grad) 1}
 .section h2{font-family:var(--font-d);font-size:22px;font-weight:600;margin:0 0 10px;display:flex;align-items:center;gap:10px}
 .section h2 .n{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--purple)}
@@ -64,7 +72,6 @@ li{margin-bottom:8px}
 .btn:hover{border-color:rgba(139,92,246,.5)}
 .diagram{margin:18px 0 8px;border:1px solid var(--line);border-radius:16px;background:var(--card);padding:16px;overflow:auto}
 .diagram svg{display:block;width:100%;height:auto;min-width:520px}
-.diagram-cap{font-size:13px;color:var(--dim);margin:0 0 18px}
 .cap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0 8px}
 .cap{border:1px solid var(--line);border-radius:12px;padding:14px;background:rgba(255,255,255,.02)}
 .cap b{display:block;font-size:14px;color:var(--ink);margin-bottom:4px}
@@ -72,7 +79,7 @@ li{margin-bottom:8px}
 footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color:var(--dim);background:var(--bg-2);margin:0 -20px;padding-left:20px;padding-right:20px}
 @media(max-width:640px){
   .wrap{width:min(100% - 24px,var(--max))}
-  .stats,.cap-grid{grid-template-columns:1fr}
+  .stats,.cap-grid,.gallery{grid-template-columns:1fr}
   .cta{flex-direction:column}.btn{width:100%}
   .cs-nav{margin:0 -12px 28px;padding:12px}
   footer{margin:0 -12px}
@@ -96,7 +103,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     <p class="kicker">Case study · 02 · On-demand · Saudi Arabia</p>
     <h1>Megathy — multi-vendor grocery &amp; food delivery ops</h1>
     <p class="meta">Full-stack Developer · Laravel · Vue.js · MySQL · JSON APIs · Payfort · FCM / Pushwoosh · Twilio</p>
-    <img class="hero-img" src="../projects/megathy.jpg" alt="Megathy grocery delivery operations dashboard mockup" width="1200" height="675" loading="eager">
+    <img class="hero-img" src="../projects/megathy-hero.jpg" alt="Megathy grocery delivery operations dashboard" width="1200" height="900" loading="eager">
 
     <div class="stats">
       <div class="stat"><b>Multi-actor</b><span>Customer, collector, driver, dispatcher &amp; admin APIs</span></div>
@@ -116,8 +123,31 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
       <p>The local codebase is a <strong>Laravel 6</strong> backend with Vue/jQuery/Bootstrap admin and storefront surfaces, JSON APIs for mobile clients, Payfort payments, FCM/Pushwoosh push and Twilio verification.</p>
     </section>
 
+    <section class="section" id="gallery">
+      <h2><span class="n">02</span> Product visuals</h2>
+      <p>Illustrative 4:3 mockups of the ops surfaces verified in the codebase — catalogue, scheduling/payments, order-flow chart and system architecture.</p>
+      <div class="gallery">
+        <figure>
+          <img src="../projects/megathy-catalog.jpg" alt="Megathy multi-vendor catalogue admin mockup" width="800" height="600" loading="lazy">
+          <figcaption>Multi-store catalogue — products, categories and stock status</figcaption>
+        </figure>
+        <figure>
+          <img src="../projects/megathy-slots.jpg" alt="Megathy delivery slots and payment screen mockup" width="800" height="600" loading="lazy">
+          <figcaption>Delivery slots, cash/card checkout and rewards</figcaption>
+        </figure>
+        <figure>
+          <img src="../projects/megathy-chart-flow.jpg" alt="Megathy order flow chart by stage" width="800" height="600" loading="lazy">
+          <figcaption>Order flow chart — browse → slot → pay → collect → deliver (sample data)</figcaption>
+        </figure>
+        <figure>
+          <img src="../projects/megathy-architecture.jpg" alt="Megathy system architecture diagram" width="800" height="600" loading="lazy">
+          <figcaption>Architecture — apps, Laravel core, MySQL, Payfort, push, Twilio</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="section" id="responsibility">
-      <h2><span class="n">02</span> Responsibility</h2>
+      <h2><span class="n">03</span> Responsibility</h2>
       <p>As full-stack developer I owned end-to-end delivery across backend, admin tooling and client APIs used by the production apps.</p>
       <ul>
         <li>Built <strong>Laravel APIs and admin</strong> for catalogue, carts, orders, schedule sessions, rewards and chat.</li>
@@ -129,7 +159,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </section>
 
     <section class="section" id="challenges">
-      <h2><span class="n">03</span> Challenges</h2>
+      <h2><span class="n">04</span> Challenges</h2>
       <ul>
         <li>Coordinating grocery and restaurant catalogues with different fulfilment rules in one platform.</li>
         <li>Scheduled delivery slots that must book, expire and convert into live orders (including cron/queue work).</li>
@@ -139,8 +169,14 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
     </section>
 
     <section class="section" id="solution">
-      <h2><span class="n">04</span> Solution</h2>
+      <h2><span class="n">05</span> Solution</h2>
       <p>A role-separated API surface on Laravel: customer endpoints for catalogue, slots, checkout, schedule orders, rewards and chat; collector and dispatcher endpoints for pick/assign; driver endpoints for location and delivery status; admin web for day-to-day operations.</p>
+
+      <figure class="shot">
+        <img class="shot-img" src="../projects/megathy-chart-flow.jpg" alt="Chart of Megathy order stages from browse to delivery" width="1200" height="900" loading="lazy">
+        <figcaption class="shot-cap">Capability chart of the verified order path — not live production KPIs.</figcaption>
+      </figure>
+
       <h3>Order lifecycle</h3>
       <div class="diagram" role="img" aria-label="Megathy order lifecycle from customer to delivery">
         <svg viewBox="0 0 840 180" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
@@ -187,10 +223,19 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
         <div class="cap"><b>Payments &amp; loyalty</b><span>Payfort transactions, dual payment, coupons, reward histories</span></div>
         <div class="cap"><b>Realtime ops</b><span>Driver location, chat, FCM/Pushwoosh push, Twilio OTP/SMS</span></div>
       </div>
+
+      <figure class="shot">
+        <img class="shot-img" src="../projects/megathy-slots.jpg" alt="Megathy scheduling and payment UI" width="1200" height="900" loading="lazy">
+        <figcaption class="shot-cap">Slot booking and payment surface — cash/card plus rewards redeem.</figcaption>
+      </figure>
     </section>
 
     <section class="section" id="architecture">
-      <h2><span class="n">05</span> Architecture</h2>
+      <h2><span class="n">06</span> Architecture</h2>
+      <figure class="shot">
+        <img class="shot-img" src="../projects/megathy-architecture.jpg" alt="Megathy architecture diagram with Laravel core and integrations" width="1200" height="900" loading="lazy">
+        <figcaption class="shot-cap">Multi-actor clients share one Laravel core with MySQL, Payfort, push and Twilio.</figcaption>
+      </figure>
       <div class="diagram" role="img" aria-label="Megathy system architecture diagram">
         <svg viewBox="0 0 840 260" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
           <defs>
@@ -226,16 +271,20 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;font-size:12px;color
           </g>
         </svg>
       </div>
-      <p class="diagram-cap">Multi-actor clients share one Laravel core with MySQL, payment and messaging integrations.</p>
+      <p class="diagram-cap">SVG companion diagram for the architecture mockup above.</p>
     </section>
 
     <section class="section" id="outcomes">
-      <h2><span class="n">06</span> Outcomes</h2>
+      <h2><span class="n">07</span> Outcomes</h2>
       <p>Delivered a production-capable multi-vendor delivery stack spanning catalogue, scheduling, payments, loyalty, chat and role-based ops APIs — without relying on unverified growth metrics. The work is a strong reference for marketplace and on-demand Laravel systems that must support both customers and field roles.</p>
+      <figure class="shot">
+        <img class="shot-img" src="../projects/megathy-catalog.jpg" alt="Megathy catalogue management screen" width="1200" height="900" loading="lazy">
+        <figcaption class="shot-cap">Catalogue ops surface supporting multi-store grocery inventory.</figcaption>
+      </figure>
     </section>
 
     <section class="section" id="technology">
-      <h2><span class="n">07</span> Technology</h2>
+      <h2><span class="n">08</span> Technology</h2>
       <ul>
         <li><strong>Backend / admin:</strong> Laravel 6, MySQL, JSON APIs, Vue.js, jQuery, Bootstrap, Laravel Mix, Spatie permissions, Swagger</li>
         <li><strong>Integrations:</strong> Payfort, FCM, Pushwoosh, Twilio, DomPDF, Maatwebsite Excel, Datatables</li>
