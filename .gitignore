@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# npm / package lock (generated files)
+package-lock.json
+
+# Generation scripts (local dev tools only)
+generate-pdf.js
+generate-docx.js
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# Environment variables
+.env
+.env.local
