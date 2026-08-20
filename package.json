@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "docx": "^9.7.1",
+    "puppeteer": "^25.8.0"
+  }
+}

@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jay Kaneriya - CV (Document Format)</title>
+<meta name="description" content="Jay Kaneriya CV in document format - Senior Full-Stack Laravel/PHP Developer with 9+ years of experience.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ink: #1a1a2e;
+  --muted: #4a5568;
+  --dim: #718096;
+  --accent: #2d3a8c;
+  --accent-light: #3b4fd0;
+  --rule: #d4d8e8;
+  --paper: #ffffff;
+  --bg: #e8eaf0;
+  --serif: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+html { background: var(--bg); min-height: 100%; }
+body { font-family: var(--sans); color: var(--ink); font-size: 14px; line-height: 1.6; background: var(--bg); }
+.toolbar { position: sticky; top: 0; z-index: 100; background: #1a1a2e; color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.toolbar-left { display: flex; align-items: center; gap: 12px; }
+.toolbar-logo { width: 32px; height: 32px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0; color:#fff; }
+.toolbar-title { font-size: 13px; font-weight: 600; color: #e2e8f0; }
+.toolbar-subtitle { font-size: 11px; color: #94a3b8; }
+.toolbar-actions { display: flex; align-items: center; gap: 8px; }
+.btn-print, .btn-cv { padding: 7px 16px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: all .2s; }
+.btn-print { background: #6366f1; color: #fff; }
+.btn-print:hover { background: #4f46e5; }
+.btn-cv { background: rgba(255,255,255,.1); color: #e2e8f0; border: 1px solid rgba(255,255,255,.15); }
+.btn-cv:hover { background: rgba(255,255,255,.18); }
+.page-wrap { display: flex; justify-content: center; padding: 32px 16px 64px; }
+.sheet { background: var(--paper); width: 100%; max-width: 794px; box-shadow: 0 4px 40px rgba(0,0,0,.18), 0 1px 8px rgba(0,0,0,.1); padding: 48px 56px; }
+.doc-header { border-bottom: 2.5px solid var(--accent); padding-bottom: 20px; margin-bottom: 24px; }
+.doc-name { font-family: var(--serif); font-size: 34px; font-weight: 700; color: var(--ink); letter-spacing: -0.5px; line-height: 1.1; }
+.doc-title { font-size: 13.5px; color: var(--accent-light); font-weight: 600; margin-top: 6px; }
+.doc-contact-row { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 4px 0; }
+.doc-contact-row .sep { color: var(--dim); margin: 0 10px; }
+.doc-contact-row span, .doc-contact-row a { font-size: 12px; color: var(--muted); text-decoration: none; }
+.doc-contact-row a:hover { color: var(--accent); text-decoration: underline; }
+.doc-body { display: grid; grid-template-columns: 1fr 255px; gap: 32px 40px; }
+.sec-heading { font-size: 9.5px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 8px; }
+.sec-heading::before { content: ''; display: inline-block; width: 3px; height: 14px; background: var(--accent); border-radius: 2px; flex-shrink: 0; }
+.profile-text { font-family: var(--serif); font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+.core-bar { background: #f0f2f8; border-left: 3px solid var(--accent); padding: 9px 14px; font-size: 12px; color: var(--muted); border-radius: 0 4px 4px 0; }
+.core-bar strong { color: var(--ink); font-weight: 600; }
+.exp-section { margin-top: 24px; }
+.job { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--rule); }
+.job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.job-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 2px; }
+.job-title { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink); }
+.job-period { font-size: 11.5px; font-weight: 600; color: var(--accent); white-space: nowrap; flex-shrink: 0; padding-top: 2px; }
+.job-org { font-size: 12px; color: var(--dim); margin-bottom: 8px; font-style: italic; }
+.job-bullets { list-style: none; }
+.job-bullets li { font-size: 13px; color: var(--muted); padding-left: 16px; position: relative; margin-bottom: 4px; line-height: 1.55; }
+.job-bullets li::before { content: 'chevron'; font-size: 0; position: absolute; left: 2px; top: 6px; width: 5px; height: 5px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+.tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 4px; }
+.tags span { background: #eef0f8; color: var(--accent); font-size: 10.5px; font-weight: 600; padding: 2px 8px; border-radius: 3px; border: 1px solid #d8dcf0; }
+.proj { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #eef0f8; }
+.proj:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.proj-header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 2px; }
+.proj-name { font-weight: 700; font-size: 13.5px; color: var(--ink); }
+.proj-type { font-size: 10.5px; color: var(--dim); font-style: italic; }
+.proj-meta { font-size: 11.5px; color: var(--dim); margin-bottom: 3px; font-style: italic; }
+.proj-desc { font-size: 12.5px; color: var(--muted); line-height: 1.55; margin-bottom: 6px; }
+.side-section { margin-bottom: 22px; }
+.side-section:last-child { margin-bottom: 0; }
+.skill-group { margin-bottom: 10px; }
+.skill-label { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 2px; }
+.skill-items { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.plain-list { list-style: none; padding: 0; }
+.plain-list li { font-size: 12.5px; color: var(--muted); padding-left: 14px; position: relative; margin-bottom: 4px; line-height: 1.4; }
+.plain-list li::before { content: ''; position: absolute; left: 2px; top: 6px; width: 5px; height: 5px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+.avail-badge { display: inline-block; background: #e8fdf0; color: #166534; border: 1px solid #bbf7d0; border-radius: 4px; padding: 4px 10px; font-size: 11.5px; font-weight: 700; margin-bottom: 10px; }
+.edu-degree { font-weight: 700; font-size: 13px; color: var(--ink); line-height: 1.3; }
+.edu-school { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.edu-period { font-size: 11px; color: var(--dim); margin-top: 1px; }
+.doc-footer { margin-top: 36px; padding-top: 14px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.doc-footer p { font-size: 10.5px; color: var(--dim); }
+.doc-footer a { color: var(--accent); text-decoration: none; }
+@media print {
+  html, body { background: #fff !important; }
+  .toolbar { display: none !important; }
+  .page-wrap { padding: 0; }
+  .sheet { box-shadow: none; max-width: 100%; width: 100%; padding: 16mm 16mm; }
+  .job, .proj { page-break-inside: avoid; }
+  @page { size: A4; margin: 0; }
+}
+@media (max-width: 700px) {
+  .sheet { padding: 28px 20px; }
+  .doc-body { grid-template-columns: 1fr; }
+  .toolbar { padding: 10px 14px; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="toolbar-left">
+    <div class="toolbar-logo">JK</div>
+    <div>
+      <div class="toolbar-title">Jay Kaneriya &mdash; CV</div>
+      <div class="toolbar-subtitle">Document Format &middot; Senior Full-Stack Laravel Developer</div>
+    </div>
+  </div>
+  <div class="toolbar-actions">
+    <a href="cv.html" class="btn-cv">&larr; Web CV</a>
+    <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
+  </div>
+</div>
+
+<div class="page-wrap">
+<div class="sheet">
+
+  <header class="doc-header">
+    <div class="doc-name">Jay Kaneriya</div>
+    <div class="doc-title">Senior Full-Stack Laravel / PHP Developer &middot; 9+ Years Production Experience</div>
+    <div class="doc-contact-row">
+      <span>Rajkot, Gujarat, India (IST)</span>
+      <span class="sep">|</span>
+      <a href="mailto:jay.kaneriya8@gmail.com">jay.kaneriya8@gmail.com</a>
+      <span class="sep">|</span>
+      <a href="tel:+918530078687">+91 85300 78687</a>
+      <span class="sep">|</span>
+      <a href="https://jaykaneriya.github.io" target="_blank" rel="noopener">jaykaneriya.github.io</a>
+      <span class="sep">|</span>
+      <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="sep">|</span>
+      <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <div class="doc-body">
+    <div class="main-col">
+
+      <div class="sec-heading">Professional Summary</div>
+      <p class="profile-text">
+        Senior Full-Stack Laravel / PHP Developer with <strong>9+ years</strong> shipping production web applications for
+        education, eCommerce and SaaS. Most recently <strong>Senior Web Application Developer at Paperly</strong>
+        (Perth, Australia &mdash; remote), leading end-to-end module development on a Laravel / Vue school-management
+        platform used daily by thousands of teachers and parents across 250+ Australian schools.
+        Available for <strong>remote full-time roles</strong> and <strong>freelance Laravel projects</strong> &mdash;
+        IST timezone with AU / EU / US overlap.
+      </p>
+      <div class="core-bar">
+        <strong>Core expertise:</strong> Laravel &middot; PHP 8+ &middot; REST APIs &middot; MySQL &middot; Vue.js &middot; React &middot; Redis &middot; Stripe / PayPal / Payfort &middot; Workflow automation
+      </div>
+
+      <div class="exp-section">
+        <div class="sec-heading" style="margin-top:24px;">Work Experience</div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Senior Web Application Developer</div>
+            <div class="job-period">Jul 2022 &ndash; Aug 2026</div>
+          </div>
+          <div class="job-org">Paperly &middot; Perth, Western Australia (Remote) &middot; EdTech SaaS</div>
+          <ul class="job-bullets">
+            <li>Led end-to-end feature development on a multi-school Laravel / Vue SaaS platform used daily by <strong>thousands of teachers and parents</strong> across 250+ Australian schools.</li>
+            <li>Built excursion management, sports scheduling, music programs, parent-teacher interview booking, assessment calendars and digital permission forms as full production modules.</li>
+            <li>Delivered dynamic form builder, workflow automation engine, geolocation-based roll-call and multi-school SIS integrations from design through to deployment.</li>
+            <li>Designed and maintained REST API contracts and MySQL schemas; integrated third-party services in Agile sprints with the Perth team.</li>
+            <li>Managed production releases, permission models and data migrations; collaborated asynchronously across time zones as the sole remote senior developer.</li>
+          </ul>
+          <div class="tags">
+            <span>Laravel 10/11</span><span>Vue.js 3</span><span>MySQL</span><span>REST APIs</span>
+            <span>Geolocation</span><span>Agile</span><span>PHP 8</span><span>GitHub Actions</span>
+          </div>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <div class="job-title">Web Application Developer</div>
+            <div class="job-period">Jul 2017 &ndash; Jun 2022</div>
+          </div>
+          <div class="job-org">Logistic Infotech Pvt Ltd &middot; Rajkot, India &middot; Software Agency</div>
+          <ul class="job-bullets">
+            <li>Delivered full-stack client projects across education, eCommerce, SaaS, restaurant and booking verticals for clients in Saudi Arabia, Australia, UK and India.</li>
+            <li>Built Laravel backends (REST APIs, RBAC, scheduled jobs) paired with Vue.js and React.js frontends and admin dashboards.</li>
+            <li>Integrated Stripe, PayPal, BPOINT and Payfort into production billing and checkout flows across multiple live products.</li>
+            <li>Shipped real-time features with Socket.io and Firebase; delivered AWS-backed infrastructure for media storage and deployment pipelines.</li>
+            <li>Mentored junior developers, led client estimates, ran code reviews and coordinated releases across multiple concurrent project teams.</li>
+          </ul>
+          <div class="tags">
+            <span>Laravel</span><span>Vue.js</span><span>React.js</span><span>Node.js</span>
+            <span>MySQL</span><span>Socket.io</span><span>AWS S3</span><span>Firebase</span>
+            <span>Stripe</span><span>PayPal</span><span>BPOINT</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-heading" style="margin-top:24px;">Selected Projects</div>
+
+      <div class="proj">
+        <div class="proj-header">
+          <span class="proj-name">Paperly &mdash; School Management Platform</span>
+          <span class="proj-type">Professional &middot; 2022&ndash;2026 &middot; Australia</span>
+        </div>
+        <div class="proj-meta">Senior Web Application Developer &middot; EdTech SaaS &middot; Laravel / Vue.js</div>
+        <p class="proj-desc">K-12 school operations platform: excursions, sports, music, parent-teacher interviews, forms, workflow automation and geolocation roll-call &mdash; live at scale across 250+ Australian schools.</p>
+        <div class="tags"><span>Laravel</span><span>Vue.js 3</span><span>MySQL</span><span>REST API</span><span>Geolocation</span></div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-header">
+          <span class="proj-name">Megathy &mdash; On-Demand Grocery &amp; Food Delivery</span>
+          <span class="proj-type">Professional &middot; Multi-vendor &middot; Saudi Arabia</span>
+        </div>
+        <div class="proj-meta">Full Stack &middot; Laravel APIs + Vue Admin + Mobile Apps</div>
+        <p class="proj-desc">Multi-store grocery and restaurant delivery for Eastern Saudi Arabia &mdash; multi-vendor catalogue, scheduled slots, collectors and drivers, Payfort payments, rewards system and live chat.</p>
+        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Payfort</span><span>FCM</span><span>Mobile APIs</span></div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-header">
+          <span class="proj-name">Zimdle &mdash; Customer Feedback SaaS</span>
+          <span class="proj-type">Professional &middot; Private feedback platform</span>
+        </div>
+        <div class="proj-meta">Full Stack &middot; Laravel 5.3 &middot; Stripe &middot; Analytics</div>
+        <p class="proj-desc">Private feedback collection with Stripe subscription plans, scheduled reporting, PDF generation and Twilio SMS alerts for business performance monitoring.</p>
+        <div class="tags"><span>Laravel 5.3</span><span>Stripe</span><span>AJAX</span><span>PDF</span><span>Twilio</span></div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-header">
+          <span class="proj-name">Exception Tracker</span>
+          <span class="proj-type">Independent &middot; In progress</span>
+        </div>
+        <div class="proj-meta">Personal project &middot; Observability SaaS &middot; Architecture sample</div>
+        <p class="proj-desc">Multi-tenant exception monitoring with issue grouping, custom SDK integrations, uptime monitors, session replay, Horizon-backed queues and Stripe billing.</p>
+        <div class="tags"><span>Laravel</span><span>Horizon</span><span>Redis</span><span>Stripe</span><span>Multi-tenant</span></div>
+      </div>
+
+    </div>
+
+    <div class="side-col">
+
+      <div class="side-section">
+        <div class="sec-heading">Availability</div>
+        <div class="avail-badge">Available Now</div>
+        <ul class="plain-list">
+          <li>Remote full-time roles</li>
+          <li>Freelance / contract Laravel</li>
+          <li>IST &middot; AU / EU / US overlap</li>
+        </ul>
+      </div>
+
+      <div class="side-section">
+        <div class="sec-heading">Technical Skills</div>
+        <div class="skill-group">
+          <div class="skill-label">Backend</div>
+          <div class="skill-items">Laravel, PHP 8+, REST APIs, MySQL, Redis, Node.js, Socket.io, JWT, Sanctum</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Frontend</div>
+          <div class="skill-items">Vue.js 3, React.js, TypeScript, Tailwind CSS, Sass, Inertia.js</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Payments</div>
+          <div class="skill-items">Stripe, PayPal, BPOINT, Payfort, Razorpay, webhooks</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Cloud &amp; DevOps</div>
+          <div class="skill-items">Git, GitHub Actions, AWS S3, Linux, CI/CD, Postman, JIRA, Firebase</div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Practices</div>
+          <div class="skill-items">Agile / Scrum, code reviews, mentoring, multi-tenancy, system architecture</div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="sec-heading">Domain Experience</div>
+        <ul class="plain-list">
+          <li>EdTech / School operations</li>
+          <li>On-demand delivery</li>
+          <li>eCommerce &amp; Marketplaces</li>
+          <li>SaaS &amp; Subscriptions</li>
+          <li>Booking &amp; scheduling</li>
+          <li>Feedback &amp; analytics</li>
+          <li>Workflow automation</li>
+        </ul>
+      </div>
+
+      <div class="side-section">
+        <div class="sec-heading">Education</div>
+        <div class="edu-degree">B.E. Computer Science &amp; Engineering</div>
+        <div class="edu-school">Gujarat Technological University</div>
+        <div class="edu-school">Rajkot, India</div>
+        <div class="edu-period">2013 &ndash; 2017</div>
+      </div>
+
+      <div class="side-section">
+        <div class="sec-heading">Languages</div>
+        <ul class="plain-list">
+          <li>English &mdash; Professional</li>
+          <li>Hindi &mdash; Professional</li>
+          <li>Gujarati &mdash; Native</li>
+        </ul>
+      </div>
+
+      <div class="side-section">
+        <div class="sec-heading">Strengths</div>
+        <ul class="plain-list">
+          <li>Reliable remote delivery</li>
+          <li>Clear client communication</li>
+          <li>Mentoring &amp; code reviews</li>
+          <li>Agile / sprint planning</li>
+          <li>End-to-end ownership</li>
+        </ul>
+      </div>
+
+      <div class="side-section">
+        <div class="sec-heading">Profiles</div>
+        <ul class="plain-list">
+          <li><a href="https://www.linkedin.com/in/jaykaneriya/" style="color:var(--accent)">LinkedIn</a></li>
+          <li><a href="https://github.com/JayKaneriya" style="color:var(--accent)">GitHub</a></li>
+          <li><a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" style="color:var(--accent)">Upwork</a></li>
+          <li><a href="https://www.fiverr.com/s/bk9dkYa" style="color:var(--accent)">Fiverr</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <p>Jay Kaneriya &middot; jay.kaneriya8@gmail.com &middot; +91 85300 78687 &middot; Rajkot, India (IST)</p>
+    <p><a href="cv.html">Web CV</a> | <a href="Jay_Kaneriya_CV_2026.pdf">Download PDF</a></p>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

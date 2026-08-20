@@ -76,11 +76,13 @@ Senior Full-Stack Laravel/PHP Developer with 9+ years of experience building pro
 - Ingests, groups, and triages exceptions with uptime monitors, session replay, alerts, and billing
 - Case study: https://jaykaneriya.github.io/case-studies/exception-tracker.html
 
+<!-- Resident App — commented out for now
 #### Resident App (Personal Project) — In progress
 - Type: Multi-tenant housing society platform
 - Stack: Laravel 11, Inertia/React, Expo, stancl/tenancy, Razorpay, Stripe
 - Notices, maintenance / complaints, visitors, amenities, billing, and admin/resident/guard workflows across web and mobile
 - Case study: https://jaykaneriya.github.io/case-studies/resident-app.html
+-->
 
 <!--
 DEFERRED — Multi-Vendor eCommerce Marketplace + SaaS Subscription Management Platform
