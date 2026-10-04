@@ -5,68 +5,76 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>404 — Page Not Found | Jay Kaneriya</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#08090c">
+<meta name="theme-color" content="#242623">
 <link rel="icon" type="image/svg+xml" href="logo.svg">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: #000; color: #f5f5f7; min-height: 100vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 18px; font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, sans-serif;
-    text-align: center; padding: 24px;
-    background-image:
-      radial-gradient(ellipse 50% 40% at 50% 0%, rgba(139,92,246,.2), transparent 55%),
-      radial-gradient(ellipse 40% 35% at 80% 100%, rgba(59,130,246,.12), transparent 50%);
+  .error-page {
+    min-height: 100vh;
+    background: #242623;
+    color: #eeeae2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 6vw;
+    text-align: center;
   }
-  h1 {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, sans-serif;
-    font-size: clamp(72px, 16vw, 120px);
-    font-weight: 600; line-height: 1.07;
-    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    letter-spacing: -0.28px;
+  .error-label {
+    font: 11px var(--font-mono);
+    color: var(--accent-terracotta);
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
   }
-  p { color: #a1a1a6; font-size: 17px; max-width: 28rem; line-height: 1.47; letter-spacing: -0.374px; }
-  .term {
-    width: min(100%, 420px); text-align: left;
-    border: 1px solid rgba(255,255,255,.12); border-radius: 14px;
-    background: #1a1a22; overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 13px; box-shadow: 0 0 40px rgba(139,92,246,.15);
+  .error-page h1 {
+    font: 700 clamp(80px, 16vw, 160px) / 0.9 var(--font-display);
+    letter-spacing: -0.08em;
+    margin: 0 0 16px;
+    color: #eeeae2;
   }
-  .term-bar { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.03); }
-  .term-bar i { width: 9px; height: 9px; border-radius: 50%; }
-  .term-bar i:nth-child(1){background:#ff5f57}.term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
-  .term-body { padding: 14px 16px; color: #a1a1a6; line-height: 1.7; }
-  .term-body .err { color: #f87171; }
-  .term-body .ok { color: #34d399; }
-  .cursor { display: inline-block; width: 8px; height: 13px; background: #8b5cf6; vertical-align: middle; margin-left: 2px; animation: blink 1s step-end infinite; }
-  @keyframes blink { 50% { opacity: 0; } }
-  a {
-    color: #fff; background: linear-gradient(135deg, #8b5cf6, #3b82f6); text-decoration: none; font-weight: 400;
-    font-size: 17px; letter-spacing: -0.374px; padding: 11px 22px; border-radius: 980px; min-height: 44px;
-    display: inline-flex; align-items: center;
+  .error-page h1 em {
+    font-style: normal;
+    color: var(--accent-terracotta);
   }
-  a:active { transform: scale(0.95); }
-  a:focus-visible { outline: 2px solid #3b82f6; outline-offset: 3px; }
-  @media (prefers-reduced-motion: reduce) {
-    .cursor { animation: none; }
+  .error-page p {
+    color: #b9bcb3;
+    font-size: clamp(16px, 1.4vw, 20px);
+    max-width: 520px;
+    line-height: 1.6;
+    margin: 0 0 36px;
+  }
+  .error-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 </style>
 </head>
-<body>
-  <h1>404</h1>
-  <p>This page doesn't exist — but the portfolio does. Let's get you back.</p>
-  <div class="term" aria-hidden="true">
-    <div class="term-bar"><i></i><i></i><i></i></div>
-    <div class="term-body">
-      <div>$ open requested.route</div>
-      <div class="err">× error: path not found</div>
-      <div class="ok">✓ redirect → /</div>
-      <div>$ cd ~<span class="cursor"></span></div>
-    </div>
+<body class="error-page">
+  <span class="error-label"><span class="status-dot"></span> 404 / NOT FOUND</span>
+  <h1>Lost in<br><em>cyberspace.</em></h1>
+  <p>The page you requested doesn't exist or has moved. Let's get you back to the work that matters.</p>
+  <div class="error-actions">
+    <a class="primary-link" href="index.html">
+      Back to Home
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+    </a>
+    <a class="text-link" href="projects.html" style="color:#eeeae2; border-color:#777970;">
+      Browse Projects
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+    </a>
+    <a class="text-link" href="cv.html" style="color:#eeeae2; border-color:#777970;">
+      View CV
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+    </a>
   </div>
-  <a href="index.html">Take me home</a>
-  <p style="margin-top:8px;font-size:14px"><a href="projects.html" style="background:transparent;color:#a1a1a6;padding:0;min-height:auto;text-decoration:underline">Browse projects</a> · <a href="contact.html" style="background:transparent;color:#a1a1a6;padding:0;min-height:auto;text-decoration:underline">Contact</a></p>
+  <script src="assets/js/site.js" defer></script>
 </body>
 </html>

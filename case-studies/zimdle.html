@@ -1,297 +1,378 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zimdle Case Study — Jay Kaneriya, Senior Laravel Developer</title>
-<meta name="description" content="How Jay Kaneriya built Zimdle's private feedback SaaS — AJAX charts, Stripe subscription plans, PDF reports and Twilio alerts for business owners.">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#08090c">
+<title>Zimdle — Case Study | Jay Kaneriya</title>
+<meta name="description" content="Private customer feedback and performance monitoring SaaS built with Laravel 5.3, Stripe Cashier, AJAX charts, Twilio alerts and DomPDF reports.">
+<meta name="author" content="Jay Kaneriya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#242623">
 <link rel="canonical" href="https://jaykaneriya.github.io/case-studies/zimdle.html">
-<link rel="icon" type="image/svg+xml" href="../logo.svg">
+
+<!-- Open Graph / Social -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jaykaneriya.github.io/case-studies/zimdle.html">
-<meta property="og:title" content="Zimdle Case Study — Jay Kaneriya, Senior Laravel Developer">
-<meta property="og:description" content="How Jay Kaneriya built Zimdle's private feedback SaaS — AJAX charts, Stripe subscription plans, PDF reports and Twilio alerts for business owners.">
-<meta property="og:image" content="https://jaykaneriya.github.io/projects/zimdle.jpg">
-<meta property="og:image:alt" content="Zimdle private feedback analytics dashboard">
+<meta property="og:site_name" content="Jay Kaneriya">
+<meta property="og:title" content="Zimdle — Case Study | Jay Kaneriya">
+<meta property="og:description" content="Private customer feedback and performance monitoring SaaS built with Laravel 5.3, Stripe Cashier, AJAX charts, Twilio alerts and DomPDF reports.">
+<meta property="og:image" content="https://jaykaneriya.github.io/og-image.jpg">
+
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Zimdle Case Study — Jay Kaneriya, Senior Laravel Developer">
-<meta name="twitter:description" content="Private customer feedback SaaS with analytics, reports and alerts.">
-<meta name="twitter:image" content="https://jaykaneriya.github.io/projects/zimdle.jpg">
+<meta name="twitter:title" content="Zimdle — Case Study | Jay Kaneriya">
+<meta name="twitter:description" content="Private customer feedback and performance monitoring SaaS built with Laravel 5.3, Stripe Cashier, AJAX charts, Twilio alerts and DomPDF reports.">
+<meta name="twitter:image" content="https://jaykaneriya.github.io/og-image.jpg">
+
+<!-- Icons -->
+<link rel="manifest" href="../site.webmanifest">
+<link rel="icon" type="image/svg+xml" href="../logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+<!-- Fonts & Stylesheet -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/site.css">
-<style>
-body{font-size:17px}
-.cs-shell .section{padding:0;margin:36px 0}
-.cs-shell .kicker{margin-bottom:12px}
-</style>
+
+<!-- Breadcrumbs JSON-LD -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jaykaneriya.github.io/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://jaykaneriya.github.io/projects.html"},{"@type":"ListItem","position":3,"name":"Zimdle","item":"https://jaykaneriya.github.io/case-studies/zimdle.html"}]}
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jaykaneriya.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://jaykaneriya.github.io/#work" },
+    { "@type": "ListItem", "position": 3, "name": "Zimdle", "item": "https://jaykaneriya.github.io/case-studies/zimdle.html" }
+  ]
+}
 </script>
 </head>
 <body>
+
 <a class="skip-link" href="#main">Skip to content</a>
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
-  <symbol id="i-chevup" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></symbol>
-  <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
-</svg>
-<div class="backdrop" aria-hidden="true"></div>
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a class="brand" href="../index.html">
-      <span class="brand-mark" aria-hidden="true">JK</span>
-      <span class="brand-name">Jay Kaneriya <span>· dev</span></span>
+
+<!-- Site Header -->
+<header class="site-header">
+  <a class="brand" href="../index.html" aria-label="Jay Kaneriya, home">
+    <span class="brand-mark">J<span>.</span>K</span>
+    <span class="brand-name">JAY KANERIYA<span> / PORTFOLIO</span></span>
+  </a>
+  <nav class="desktop-nav" aria-label="Main navigation">
+    <a href="../index.html#work" class="active">Work</a>
+    <a href="../index.html#expertise">Expertise</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#about">About</a>
+    <a href="../projects.html">All Projects</a>
+    <a href="../cv.html">CV</a>
+  </nav>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Toggle light/dark mode">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <a class="header-contact" href="mailto:jay.kaneriya8@gmail.com?subject=Let's%20work%20together">
+    Let’s talk
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+  </a>
+  <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+  </button>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#expertise">Expertise</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#about">About</a>
+    <a href="../projects.html">All Projects</a>
+    <a href="../cv.html">View CV</a>
+    <a class="mobile-cta" href="mailto:jay.kaneriya8@gmail.com?subject=Let's%20work%20together">
+      Let’s talk
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
     </a>
-    <nav class="nav-links" id="navLinks" aria-label="Primary">
-      <a href="../index.html" data-nav>Home</a>
-      <a href="../about.html" data-nav>About</a>
-      <a href="../skills.html" data-nav>Skills</a>
-      <a href="../projects.html" data-nav>Projects</a>
-      <a href="../services.html" data-nav>Services</a>
-      <a href="../cv.html" data-nav>CV</a>
-      <a href="../contact.html" data-nav class="nav-hire">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <svg class="icon"><use id="menuIcon" href="#i-menu"></use></svg>
-      </button>
-    </div>
-    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-  </div>
+  </nav>
 </header>
-<main id="main" class="cs-shell">
-<div class="wrap">
-    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:12px">
-      <a href="../index.html">Home</a><span>/</span>
-      <a href="../projects.html">Projects</a><span>/</span>
-      <span>Zimdle</span>
-    </nav>
-    <nav class="cs-nav" aria-label="Case study">
-      <a class="back" href="../projects.html">← Back to projects</a>
-      <div>
-        <a href="paperly.html">Paperly</a> ·
-        <a href="megathy.html">Megathy</a> ·
-        <a class="active" href="zimdle.html">Zimdle</a> ·
-        <a href="exception-tracker.html">Exception</a>
+
+<main id="main" class="case-page">
+  <!-- Case Hero -->
+  <div class="case-hero">
+    <a class="case-back" href="../index.html#work">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      Back to selected work
+    </a>
+    <div class="case-topline">
+      <span>03 / 05&nbsp; · &nbsp;Feedback SaaS &bull; Analytics</span>
+      <span>Production Subscription Platform</span>
+    </div>
+    <h1>Zimdle<span>.</span></h1>
+    <p class="case-intro">Private customer feedback and performance monitoring SaaS. Helping business owners collect private reviews, analyze multi-criteria trends, generate automated PDF reports, and automate Stripe recurring subscriptions.</p>
+    <div class="case-hero-meta">
+      <span>Full-Stack Developer · Laravel 5.3, Stripe Cashier, JavaScript / AJAX, Twilio, DomPDF</span>
+      <span>Commercial Production Deployment</span>
+    </div>
+  </div>
+
+  <!-- Key Metrics Bar -->
+  <div class="cred-bar">
+    <div class="cred-cell">
+      <span class="cred-val">Private</span>
+      <span class="cred-label">Routed to owners, not public review sites</span>
+    </div>
+    <div class="cred-cell">
+      <span class="cred-val">Insights</span>
+      <span class="cred-label">Trend analytics, criteria scoring &amp; benchmarks</span>
+    </div>
+    <div class="cred-cell">
+      <span class="cred-val">Stripe</span>
+      <span class="cred-label">4 lifecycle actions with plan middleware</span>
+    </div>
+    <div class="cred-cell">
+      <span class="cred-val">Alerts</span>
+      <span class="cred-label">Low-score Twilio SMS &amp; automated DomPDF</span>
+    </div>
+  </div>
+
+  <!-- Showcase Media -->
+  <div class="case-image">
+    <img src="../assets/images/zimdle-main.png" alt="Zimdle private feedback analytics dashboard" onerror="this.onerror=null;this.src='../projects/zimdle-hero.jpg';">
+    <span>Illustrative Zimdle customer feedback and analytics dashboard — representative sample data.</span>
+  </div>
+
+  <!-- Detailed Body -->
+  <div class="case-body">
+
+    <!-- 01 Overview -->
+    <div class="case-section-item">
+      <div class="case-intro-grid">
+        <span class="section-label">01 / OVERVIEW</span>
+        <div>
+          <h2>Private operational signals instead of social media blowback.</h2>
+          <p>Public review sites frequently deliver delayed, angry, and unfiltered customer reactions when it is already too late for operators to intervene. Zimdle was engineered to provide structured, private customer feedback and proactive performance monitoring so business managers can identify service friction and resolve customer complaints before they escalate into public social reviews.</p>
+          <p>The system connects frontline customers with company decision-makers through lightweight survey widgets, automated scoring algorithms, real-time alerting triggers, and executive benchmarking summaries.</p>
+        </div>
       </div>
-    </nav>
-
-    <p class="kicker">Case study · 03 · Feedback SaaS</p>
-    <span class="proj-badge prod">Professional Project</span>
-    <h1>Zimdle — private feedback &amp; performance monitoring</h1>
-    <p class="meta">Full-stack Developer · Laravel · Stripe Cashier · JavaScript / AJAX · Charts · Twilio · DomPDF</p>
-    <img class="hero-img" src="../projects/zimdle-hero.jpg" alt="Zimdle private feedback analytics dashboard" width="1200" height="900" loading="eager">
-
-    <div class="stats">
-      <div class="stat"><b>Private</b><span>Feedback routes to the owner, not a public feed</span></div>
-      <div class="stat"><b>Insights</b><span>Trend charts, criteria templates &amp; benchmarking</span></div>
-      <div class="stat"><b>4 actions</b><span>Subscribe, change, resume and cancel subscription plans</span></div>
     </div>
 
-    <div class="ext">
-      <a href="https://zimdle.com/" target="_blank" rel="noopener">Website ↗</a>
+    <!-- 02 My Role & What I Built -->
+    <div class="case-section-item">
+      <div class="case-two-col">
+        <div>
+          <span class="section-label">02 / MY ROLE</span>
+          <h3>Full-Stack SaaS Implementation</h3>
+          <p>As full-stack developer, I engineered the application core, billing automation, dashboard telemetry, and real-time notification workers.</p>
+          <ul>
+            <li>Architected a <strong>structured private feedback workflow</strong> that captures customer inputs and safely routes them to authorized company representatives.</li>
+            <li>Constructed <strong>interactive dashboard analytics</strong>: response timelines, criteria-specific averages, rolling date-range charts, and competitor benchmarks.</li>
+            <li>Implemented <strong>automated PDF report generation</strong>, queued email digests, and immediate SMS dispatch for critical low-satisfaction ratings.</li>
+            <li>Shipped <strong>Stripe subscription billing</strong> supporting full customer lifecycles (subscribe, tier change, pause/resume, cancel) protected by Laravel middleware.</li>
+            <li>Delivered a responsive AJAX-driven UI for survey template customization, criteria weights, location profiles, and multi-branch enterprise comparison.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="section-label">03 / TECHNICAL CHALLENGES</span>
+          <h3>Engineering Private Signal &amp; Billing</h3>
+          <ul>
+            <li><strong>Private AJAX Aggregation:</strong> Feedback data had to remain strictly private to business owners while dynamically powering trend lines, criteria breakdowns, and peer comparisons without exposing raw survey submissions to unauthorized viewers.</li>
+            <li><strong>Stripe Subscription Lifecycle:</strong> Four full lifecycle actions — subscribe, plan change, resume, and cancel — operate behind custom subscription middleware. Tier-locked features like PDF exports and enterprise comparison had to gate gracefully without interrupting in-flight survey collection.</li>
+            <li><strong>Actionable Operator Alerts:</strong> Low-satisfaction scores trigger Twilio SMS and email dispatch, backed by queued DomPDF summary jobs for managers outside the web portal. Alerts needed smart throttling to eliminate notification fatigue.</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <p class="cs-proof">Production project — source code private. Laravel 5.3 experience is commercially useful for legacy SaaS, subscriptions and payment work.</p>
 
-    <section class="section" id="problem">
-      <h2><span class="n">01</span> Overview</h2>
-      <p>Public review sites give owners delayed, unfiltered signal. Zimdle needed structured <strong>private</strong> customer feedback and performance monitoring so owners could act on trends without waiting for social-media blowback.</p>
-    </section>
+    <!-- 04 Architecture & System Loop -->
+    <div class="case-section-item">
+      <span class="section-label">04 / SYSTEM ARCHITECTURE</span>
+      <h2 style="font: 600 clamp(36px, 4.5vw, 64px) var(--font-display); letter-spacing: -0.06em; margin: 16px 0 20px;">Customer Signal to Operator Action.</h2>
+      <p style="color: #55524b; font-size: 15px; max-width: 820px; line-height: 1.7;">A lightweight capture widget feeds responses into scoring controllers, generating interactive AJAX visualizations, scheduled PDF summaries, and Twilio SMS escalations.</p>
 
-    <section class="section" id="project-context">
-      <h2><span class="n">02</span> Project Context</h2>
-      <p>The local codebase is <strong>Laravel 5.3</strong> with Stripe Cashier subscriptions, AJAX dashboard charts, DomPDF reports, Twilio SMS alerts, criteria/templates and enterprise comparison tools. Older Laravel is treated as useful production experience — not a weakness — alongside modern Laravel work elsewhere.</p>
-    </section>
-
-    <section class="section" id="contribution">
-      <h2><span class="n">03</span> My Role</h2>
-      <ul>
-        <li>Built a <strong>structured private feedback workflow</strong> that routes responses to the business owner and representatives.</li>
-        <li>Implemented dashboard analytics: feedback history, criteria averages, time-period charts and competition/benchmark charts.</li>
-        <li>Added <strong>PDF reports</strong>, email/SMS alerts for low averages, and scheduled report jobs.</li>
-        <li>Shipped <strong>Stripe subscription</strong> plans (subscribe, change, resume, unsubscribe) gated behind subscription middleware.</li>
-        <li>Delivered AJAX-driven UI for templates, criteria, business profiles, galleries and enterprise compare.</li>
-      </ul>
-    </section>
-
-    <section class="section" id="challenges">
-      <h2><span class="n">04</span> Technical Challenges</h2>
-      <h3>AJAX charts without a public feed</h3>
-      <p>Feedback had to stay private to owners while still powering history, criteria averages, time-period trends and competition charts. Chart endpoints and the AJAX dashboard needed to aggregate scores without exposing individual responses on a public wall.</p>
-      <h3>Stripe plan lifecycle</h3>
-      <p>Four subscription actions — subscribe, change, resume and cancel — sit behind plan middleware. Features such as reports and enterprise compare had to remain gated when a business paused or switched plans, without breaking in-flight feedback capture.</p>
-      <h3>Twilio alerts that operators can act on</h3>
-      <p>Low-average scores trigger email and Twilio SMS, with scheduled PDF jobs for owners who do not live in the dashboard. The challenge was routing the right alert to the right representative without turning every score into noise.</p>
-    </section>
-
-    <section class="section" id="architecture">
-      <h2><span class="n">05</span> What I Built</h2>
-      <h3>Payments</h3>
-      <p>Stripe subscription plans (subscribe, change, resume, unsubscribe) gated behind subscription middleware.</p>
-      <h3>Background Jobs</h3>
-      <p>Scheduled PDF report jobs and low-average email/SMS alerts so owners who do not live in the dashboard still get signal.</p>
-      <h3>Security</h3>
-      <p>Feedback stays private to owners and representatives. Chart endpoints aggregate scores without exposing individual responses on a public wall.</p>
-
-      <figure class="shot">
-        <img class="shot-img" src="../projects/zimdle-chart.jpg" alt="Zimdle analytics charts" width="1200" height="900" loading="lazy">
-        <figcaption class="shot-cap">Illustrative analytics surface — charts represent product capability, not live KPIs.</figcaption>
-      </figure>
-
-      <h3>Feedback loop</h3>
-      <div class="diagram" role="img" aria-label="Zimdle feedback to alert loop">
-        <svg viewBox="0 0 840 180" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
-          <defs>
-            <linearGradient id="zg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
-          </defs>
-          <rect width="840" height="180" rx="12" fill="#121218"/>
-          <g fill="#1f1f2a" stroke="url(#zg)" stroke-width="1.5">
-            <rect x="24" y="58" width="140" height="64" rx="12"/>
-            <rect x="208" y="58" width="140" height="64" rx="12"/>
-            <rect x="392" y="58" width="140" height="64" rx="12"/>
-            <rect x="576" y="58" width="140" height="64" rx="12"/>
+      <!-- SVG Feedback Loop Diagram -->
+      <div class="diagram-container" role="img" aria-label="Zimdle feedback to alert loop">
+        <svg viewBox="0 0 840 180" xmlns="http://www.w3.org/2000/svg" font-family="'Space Grotesk', sans-serif">
+          <rect width="840" height="180" rx="6" fill="#1c1e1c"/>
+          <g fill="#242623" stroke="#bd795e" stroke-width="1.5">
+            <rect x="25" y="58" width="165" height="64" rx="4"/>
+            <rect x="230" y="58" width="165" height="64" rx="4"/>
+            <rect x="435" y="58" width="165" height="64" rx="4"/>
+            <rect x="640" y="58" width="175" height="64" rx="4"/>
           </g>
-          <g fill="#f5f5f7" font-size="13" font-weight="600" text-anchor="middle">
-            <text x="94" y="88">Capture</text>
-            <text x="278" y="88">Score</text>
-            <text x="462" y="88">Charts</text>
-            <text x="646" y="88">Alerts</text>
+          <g fill="#eeebe3" font-size="14" font-weight="600" text-anchor="middle">
+            <text x="107" y="88">1. Capture</text>
+            <text x="312" y="88">2. Score</text>
+            <text x="517" y="88">3. Charts</text>
+            <text x="727" y="88">4. Alerts</text>
           </g>
-          <g fill="#a1a1a6" font-size="11" text-anchor="middle">
-            <text x="94" y="108">private feedback</text>
-            <text x="278" y="108">criteria / overall</text>
-            <text x="462" y="108">AJAX + PDF</text>
-            <text x="646" y="108">email / SMS</text>
+          <g fill="#a4a69d" font-size="11" font-family="'IBM Plex Mono', monospace" text-anchor="middle">
+            <text x="107" y="108">Private Feedback</text>
+            <text x="312" y="108">Criteria &bull; Overall</text>
+            <text x="517" y="108">AJAX &bull; DomPDF</text>
+            <text x="727" y="108">Email &bull; Twilio SMS</text>
           </g>
-          <g stroke="#8b5cf6" stroke-width="2" fill="none">
-            <path d="M164 90 H208"/><path d="M348 90 H392"/><path d="M532 90 H576"/>
-          </g>
-          <g fill="#8b5cf6">
-            <polygon points="204,90 194,85 194,95"/><polygon points="388,90 378,85 378,95"/><polygon points="572,90 562,85 562,95"/>
+          <g stroke="#bd795e" stroke-width="2" fill="none">
+            <path d="M190 90 H230"/><polygon points="228,87 233,90 228,93" fill="#bd795e"/>
+            <path d="M395 90 H435"/><polygon points="433,87 438,90 433,93" fill="#bd795e"/>
+            <path d="M600 90 H640"/><polygon points="638,87 643,90 638,93" fill="#bd795e"/>
           </g>
         </svg>
-      </div>
-      <p class="diagram-cap">Verified product loop from feedback controllers, chart endpoints, DomPDF reports and Twilio alert jobs.</p>
-
-      <h3>SaaS surface map</h3>
-      <div class="cap-grid">
-        <div class="cap"><b>Templates &amp; criteria</b><span>Custom feedback templates with per-criteria scoring</span></div>
-        <div class="cap"><b>Dashboard charts</b><span>History, averages, time-period and competition charts</span></div>
-        <div class="cap"><b>Stripe plans</b><span>Subscribe, change, resume, unsubscribe with plan gates</span></div>
-        <div class="cap"><b>Enterprise compare</b><span>Multi-business compare reports and push notifications</span></div>
+        <p class="diagram-caption">Product Loop: Verified path from feedback capture endpoints, aggregation controllers, DomPDF compilations, and Twilio SMS alerts.</p>
       </div>
 
-      <figure class="shot">
-        <img class="shot-img" src="../projects/zimdle-flow.jpg" alt="Zimdle SaaS flow including Stripe and enterprise compare" width="1200" height="900" loading="lazy">
-        <figcaption class="shot-cap">Capability flow covering billing, analytics and alerting.</figcaption>
-      </figure>
-    </section>
+      <!-- SaaS Surface Grid -->
+      <h3 style="margin-top: 36px;">Core SaaS Capabilities</h3>
+      <div class="tech-spec-grid" style="margin-top: 16px;">
+        <div class="tech-spec-item">
+          <strong>Templates &amp; Criteria</strong>
+          <span>Customizable survey questionnaires with weighted multi-criteria scoring and star/nps ratings</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Dashboard Analytics</strong>
+          <span>Time-series historical curves, categorical averages, and cross-branch performance benchmarking</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Stripe Subscription Tiers</strong>
+          <span>Seamless plan selection, prorated upgrades, pause/resume, and automated webhook reconciliation</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Enterprise Comparison</strong>
+          <span>Aggregated cross-location analytics, scheduled executive PDF digests, and SMS push alerts</span>
+        </div>
+      </div>
+    </div>
 
-    <section class="section" id="outcomes">
-      <h2><span class="n">06</span> Results / Impact</h2>
-      <p>Full-stack SaaS delivery across structured private feedback, analytics, reporting and operational alerts — including <strong>4 Stripe subscription lifecycle actions</strong> (subscribe, change, resume, cancel) gated behind plan middleware.</p>
-      <p><strong>Impact:</strong> owners get private customer signal with trend charts, PDF reports and Twilio/email alerts instead of relying only on public social reviews.</p>
-      <ul>
-        <li>4 Stripe subscription lifecycle actions gated behind plan middleware.</li>
-        <li>Private feedback routed to owners with trend charts, PDF reports and Twilio/email alerts.</li>
-        <li>Structured private signal instead of relying only on public social reviews.</li>
-      </ul>
-    </section>
+    <!-- 05 What I Built / Subsystems -->
+    <div class="case-section-item">
+      <div class="case-two-col">
+        <div>
+          <span class="section-label">05 / SUBSYSTEMS BUILT</span>
+          <h3>Stripe Cashier &amp; Plan Middleware</h3>
+          <p>The platform’s recurring commercial engine is backed by Laravel Cashier and Stripe:</p>
+          <ul>
+            <li><strong>4 Subscription States:</strong> Seamless handling of initial checkout, mid-cycle tier changes, temporary payment pauses, and self-serve cancellations.</li>
+            <li><strong>Feature Entitlement Gates:</strong> Custom route middleware dynamically verifies subscriber standing before allowing access to advanced charting and PDF reports.</li>
+            <li><strong>Webhook Synchronization:</strong> Automated listening for Stripe failed payment events, customer invoice reminders, and credit card renewal prompts.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="section-label">06 / REPORTING &amp; DISPATCH</span>
+          <h3>Automated Reporting Engine</h3>
+          <p>Engineered background processes to deliver insights directly to stakeholders:</p>
+          <ul>
+            <li><strong>DomPDF Document Generator:</strong> Server-side rendering of print-ready executive summaries with embedded SVG performance charts.</li>
+            <li><strong>Twilio SMS Emergency Alerts:</strong> Instant text messaging triggered when a customer leaves a critical rating, allowing same-day resolution.</li>
+            <li><strong>Tenant Isolation:</strong> Strict multi-business database boundaries ensuring complete data confidentiality across competing merchants.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <section class="section" id="gallery">
-      <h2><span class="n">07</span> Screenshots</h2>
-      <p>Illustrative 4:3 mockups of the feedback SaaS surfaces verified in the codebase.</p>
-      <div class="gallery">
-        <figure>
-          <img src="../projects/zimdle-chart.jpg" alt="Zimdle feedback insights chart" width="800" height="600" loading="lazy">
-          <figcaption>Illustrative interface — trend lines and competition benchmarks (sample data)</figcaption>
+    <!-- 07 Visual Showcase Gallery -->
+    <div class="case-section-item">
+      <span class="section-label">07 / VISUAL SHOWCASE</span>
+      <h2 style="font: 600 clamp(36px, 4.5vw, 64px) var(--font-display); letter-spacing: -0.06em; margin: 16px 0 20px;">Interfaces Built for Customer Intelligence.</h2>
+      <div class="case-gallery-grid">
+        <figure class="case-gallery-card">
+          <img src="../assets/images/zimdle-second.png" alt="Zimdle survey configuration interface" loading="lazy">
+          <figcaption><strong>Survey Configuration:</strong> Custom criteria builder, scoring scales, and mobile survey preview.</figcaption>
         </figure>
-        <figure>
-          <img src="../projects/zimdle-flow.jpg" alt="Zimdle feedback to alert flow diagram" width="800" height="600" loading="lazy">
-          <figcaption>Capture → score → charts/reports → alerts, plus Stripe plans</figcaption>
+        <figure class="case-gallery-card">
+          <img src="../projects/zimdle-chart.jpg" alt="Zimdle feedback insights chart" loading="lazy">
+          <figcaption><strong>Insights &amp; Analytics:</strong> Trend lines, rolling averages, and peer competition benchmarks.</figcaption>
+        </figure>
+        <figure class="case-gallery-card">
+          <img src="../projects/zimdle-flow.jpg" alt="Zimdle SaaS capability and subscription flow" loading="lazy">
+          <figcaption><strong>Platform Architecture:</strong> From capture and scoring to DomPDF reports, Twilio alerts, and Stripe billing.</figcaption>
+        </figure>
+        <figure class="case-gallery-card">
+          <img src="../projects/zimdle-hero.jpg" alt="Zimdle executive dashboard" loading="lazy">
+          <figcaption><strong>Executive Dashboard:</strong> Real-time customer signal overview with branch comparison.</figcaption>
         </figure>
       </div>
-    </section>
+    </div>
 
-    <section class="section" id="technology">
-      <h2><span class="n">08</span> Technology</h2>
-      <ul>
-        <li><strong>Stack:</strong> Laravel 5.3, JavaScript, jQuery, AJAX, Bootstrap, Sass, Git, JSON</li>
-        <li><strong>Integrations:</strong> Stripe Cashier, Twilio, DomPDF, c-pchart chart generation, push notifications</li>
-        <li><strong>Product surface:</strong> private feedback, criteria/templates, charts, PDF reports, alerts, enterprise compare</li>
-      </ul>
-    </section>
-
-    <section class="section" id="links">
-      <h2><span class="n">09</span> Links</h2>
-      <p>Production project — source code private.</p>
-      <div class="ext">
-        <a href="https://zimdle.com/" target="_blank" rel="noopener">Website ↗</a>
+    <!-- 08 Tech Stack Breakdown -->
+    <div class="case-section-item">
+      <span class="section-label">08 / TECHNICAL SPECIFICATION</span>
+      <h2 style="font: 600 clamp(36px, 4.5vw, 64px) var(--font-display); letter-spacing: -0.06em; margin: 16px 0 20px;">Technology &amp; Tooling.</h2>
+      <div class="tech-spec-grid">
+        <div class="tech-spec-item">
+          <strong>Backend Core</strong>
+          <span>Laravel 5.3, MySQL, Eloquent ORM, RESTful Controllers, Artisan CLI, Queued Jobs</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Payments &amp; Billing</strong>
+          <span>Stripe Cashier, Stripe API, Webhook listeners, Pro-rated subscription lifecycle management</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Frontend &amp; Interactivity</strong>
+          <span>JavaScript (ES6), jQuery, AJAX asynchronous calls, Bootstrap, Sass, Dynamic SVG charts</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Reporting &amp; Alerts</strong>
+          <span>DomPDF document compiler, Twilio SMS API, PHPMailer / Mailgun, Scheduled Cron tasks</span>
+        </div>
       </div>
-    </section>
-
-    <div class="tags">
-      <span>Laravel 5.3</span><span>Stripe</span><span>JavaScript</span><span>AJAX</span><span>Charts</span><span>Twilio</span><span>DomPDF</span><span>SaaS</span><span>Analytics</span>
     </div>
 
-    <div class="cs-cta-block">
-      <p>Need SaaS, subscriptions or payment integration?</p>
-      <a class="btn btn-fill" href="../contact.html?type=project">Talk about your SaaS</a>
-    </div>
-
-    <div class="cta">
-      <a class="btn btn-ghost" href="megathy.html">← Megathy</a>
-      <a class="btn btn-ghost" href="exception-tracker.html">Next: Exception Tracker →</a>
-    </div>
-
-    </div>
-</main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
+    <!-- 09 Outcome & Public Links -->
+    <div class="case-outcome">
+      <span class="section-label">09 / THE OUTCOME</span>
       <div>
-        <p class="footer-brand">Jay Kaneriya</p>
-        <p class="footer-role">Senior Full-Stack Laravel/PHP Developer</p>
-        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available for remote roles and freelance Laravel projects from Rajkot, India (IST).</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <div class="footer-links">
-          <a href="../index.html">Home</a>
-          <a href="../about.html">About</a>
-          <a href="../skills.html">Skills</a>
-          <a href="../projects.html">Projects</a>
-          <a href="../services.html">Services</a>
-          <a href="../cv.html">CV</a>
-          <a href="../contact.html">Contact</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <div class="footer-links">
-          <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
-          <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
-          <a href="mailto:jay.kaneriya8@gmail.com">Email</a>
-          <a href="../cv.html">CV</a>
+        <p>Full-stack SaaS delivery across structured private feedback collection, analytics, reporting, and operational alerting. Includes 4 Stripe subscription lifecycle actions with plan middleware protection. Business owners gain genuine private signals to resolve customer issues proactively.</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px;">
+          <a class="underlined-link" href="https://zimdle.com/" target="_blank" rel="noopener noreferrer">
+            Visit Zimdle website
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="../contact.html">Discuss a role or project</a></div>
+
+  </div>
+
+  <!-- Next Case Study Banner -->
+  <div class="case-next">
+    <span class="section-label">NEXT PROJECT</span>
+    <a href="exception-tracker.html">
+      Exception Tracker
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+    </a>
+  </div>
+</main>
+
+<!-- Rich Footer -->
+<footer class="rich-footer">
+  <div class="rich-footer-grid">
+    <div>
+      <p class="rich-footer-brand">Jay Kaneriya</p>
+      <p class="rich-footer-role">Senior Full-Stack Laravel/PHP Developer</p>
+      <p class="rich-footer-desc">9+ years shipping production SaaS, education and business systems. Available for remote full-time roles and freelance Laravel projects from Rajkot, India (IST).</p>
+    </div>
+    <div>
+      <h4>Case Studies</h4>
+      <div class="rich-footer-links">
+        <a href="paperly.html">Paperly (EdTech)</a>
+        <a href="megathy.html">Megathy (Delivery)</a>
+        <a href="zimdle.html">Zimdle (Customer SaaS)</a>
+        <a href="exception-tracker.html">Exception Tracker</a>
+        <!-- <a href="resident-app.html">Resident App (PropTech)</a> -->
+      </div>
+    </div>
+    <div>
+      <h4>Connect &amp; Hire</h4>
+      <div class="rich-footer-links">
+        <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="mailto:jay.kaneriya8@gmail.com">Direct Email</a>
+        <a href="../contact.html">Discuss a Role or Project</a>
+      </div>
     </div>
   </div>
+  <div class="rich-footer-bottom">
+    <span>© <span class="current-year">2026</span> JAY KANERIYA &bull; CASE STUDY: ZIMDLE</span>
+    <a href="#top">
+      BACK TO TOP
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+    </a>
+  </div>
 </footer>
-<button class="to-top" id="toTop" aria-label="Scroll to top"><svg class="icon"><use href="#i-chevup"></use></svg></button>
+
 <script src="../assets/js/site.js" defer></script>
 </body>
 </html>
-

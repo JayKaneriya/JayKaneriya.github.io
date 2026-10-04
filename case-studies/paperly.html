@@ -1,380 +1,366 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paperly Case Study — Jay Kaneriya, Senior Laravel Developer</title>
-<meta name="description" content="Jay Kaneriya's senior Laravel/Vue production work on Paperly — form builders, workflow automation, permissions and SIS integrations for a K-12 school operations platform.">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#08090c">
+<title>Paperly — Case Study | Jay Kaneriya</title>
+<meta name="description" content="Four years of senior Laravel/Vue delivery on a live Australian EdTech SaaS platform. Excursions, dynamic forms, approvals, parent permissions and SIS integrations.">
+<meta name="author" content="Jay Kaneriya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#242623">
 <link rel="canonical" href="https://jaykaneriya.github.io/case-studies/paperly.html">
-<link rel="icon" type="image/svg+xml" href="../logo.svg">
+
+<!-- Open Graph / Social -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jaykaneriya.github.io/case-studies/paperly.html">
-<meta property="og:title" content="Paperly Case Study — Jay Kaneriya, Senior Laravel Developer">
-<meta property="og:description" content="Senior Laravel/Vue production work on Paperly — form builders, workflow automation, permissions and SIS integrations.">
-<meta property="og:image" content="https://jaykaneriya.github.io/projects/paperly-hero.jpg">
-<meta property="og:image:alt" content="Paperly school operations dashboard">
+<meta property="og:site_name" content="Jay Kaneriya">
+<meta property="og:title" content="Paperly — Case Study | Jay Kaneriya">
+<meta property="og:description" content="Four years of senior Laravel/Vue delivery on a live Australian EdTech SaaS platform.">
+<meta property="og:image" content="https://jaykaneriya.github.io/og-image.jpg">
+
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Paperly Case Study — Jay Kaneriya, Senior Laravel Developer">
-<meta name="twitter:description" content="Senior Laravel/Vue production work on Paperly, a K-12 school operations platform.">
-<meta name="twitter:image" content="https://jaykaneriya.github.io/projects/paperly-hero.jpg">
+<meta name="twitter:title" content="Paperly — Case Study | Jay Kaneriya">
+<meta name="twitter:description" content="Four years of senior Laravel/Vue delivery on a live Australian EdTech SaaS platform.">
+<meta name="twitter:image" content="https://jaykaneriya.github.io/og-image.jpg">
+
+<!-- Icons -->
+<link rel="manifest" href="../site.webmanifest">
+<link rel="icon" type="image/svg+xml" href="../logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+<!-- Fonts & Stylesheet -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/site.css">
-<style>
-body{font-size:17px}
-.cs-shell .section{padding:0;margin:36px 0}
-.cs-shell .kicker{margin-bottom:12px}
-</style>
+
+<!-- Breadcrumbs JSON-LD -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jaykaneriya.github.io/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://jaykaneriya.github.io/projects.html"},{"@type":"ListItem","position":3,"name":"Paperly","item":"https://jaykaneriya.github.io/case-studies/paperly.html"}]}
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jaykaneriya.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://jaykaneriya.github.io/#work" },
+    { "@type": "ListItem", "position": 3, "name": "Paperly", "item": "https://jaykaneriya.github.io/case-studies/paperly.html" }
+  ]
+}
 </script>
 </head>
 <body>
+
 <a class="skip-link" href="#main">Skip to content</a>
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
-  <symbol id="i-chevup" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></symbol>
-  <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
-</svg>
-<div class="backdrop" aria-hidden="true"></div>
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a class="brand" href="../index.html">
-      <span class="brand-mark" aria-hidden="true">JK</span>
-      <span class="brand-name">Jay Kaneriya <span>· dev</span></span>
+
+<!-- Site Header -->
+<header class="site-header">
+  <a class="brand" href="../index.html" aria-label="Jay Kaneriya, home">
+    <span class="brand-mark">J<span>.</span>K</span>
+    <span class="brand-name">JAY KANERIYA<span> / PORTFOLIO</span></span>
+  </a>
+  <nav class="desktop-nav" aria-label="Main navigation">
+    <a href="../index.html#work" class="active">Work</a>
+    <a href="../index.html#expertise">Expertise</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#about">About</a>
+    <a href="../projects.html">All Projects</a>
+    <a href="../cv.html">CV</a>
+  </nav>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Toggle light/dark mode">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <a class="header-contact" href="mailto:jay.kaneriya8@gmail.com?subject=Let's%20work%20together">
+    Let’s talk
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+  </a>
+  <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+  </button>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#expertise">Expertise</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#about">About</a>
+    <a href="../projects.html">All Projects</a>
+    <a href="../cv.html">View CV</a>
+    <a class="mobile-cta" href="mailto:jay.kaneriya8@gmail.com?subject=Let's%20work%20together">
+      Let’s talk
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
     </a>
-    <nav class="nav-links" id="navLinks" aria-label="Primary">
-      <a href="../index.html" data-nav>Home</a>
-      <a href="../about.html" data-nav>About</a>
-      <a href="../skills.html" data-nav>Skills</a>
-      <a href="../projects.html" data-nav>Projects</a>
-      <a href="../services.html" data-nav>Services</a>
-      <a href="../cv.html" data-nav>CV</a>
-      <a href="../contact.html" data-nav class="nav-hire">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <svg class="icon"><use id="menuIcon" href="#i-menu"></use></svg>
-      </button>
-    </div>
-    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-  </div>
+  </nav>
 </header>
-<main id="main" class="cs-shell">
-<div class="wrap">
-    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:12px">
-      <a href="../index.html">Home</a><span>/</span>
-      <a href="../projects.html">Projects</a><span>/</span>
-      <span>Paperly</span>
-    </nav>
-    <nav class="cs-nav" aria-label="Case study">
-      <a class="back" href="../projects.html">← Back to projects</a>
-      <div>
-        <a class="active" href="paperly.html">Paperly</a> ·
-        <a href="megathy.html">Megathy</a> ·
-        <a href="zimdle.html">Zimdle</a> ·
-        <a href="exception-tracker.html">Exception</a>
+
+<main id="main" class="case-page">
+  <!-- Case Hero -->
+  <div class="case-hero">
+    <a class="case-back" href="../index.html#work">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      Back to selected work
+    </a>
+    <div class="case-topline">
+      <span>01 / 05&nbsp; · &nbsp;EdTech / Australia</span>
+      <span>Production SaaS</span>
+    </div>
+    <h1>Paperly<span>.</span></h1>
+    <p class="case-intro">Making the complex work of running a school feel simpler. Digital excursions, dynamic forms, approvals and parent permissions for teachers and parents across Australia.</p>
+    <div class="case-hero-meta">
+      <span>Senior Web Application Developer · Laravel, Vue.js, MySQL</span>
+      <span>July 2022 — August 2026 (4 Years)</span>
+    </div>
+  </div>
+
+  <!-- Key Metrics Bar -->
+  <div class="cred-bar">
+    <div class="cred-cell">
+      <span class="cred-val">4 Years</span>
+      <span class="cred-label">Senior Delivery &bull; Perth Team</span>
+    </div>
+    <div class="cred-cell">
+      <span class="cred-val">250+ Schools</span>
+      <span class="cred-label">Joined for 2026 and beyond</span>
+    </div>
+    <div class="cred-cell">
+      <span class="cred-val">Full-Stack</span>
+      <span class="cred-label">Laravel core &bull; Vue portals</span>
+    </div>
+    <div class="cred-cell">
+      <span class="cred-val">Live Ops</span>
+      <span class="cred-label">Excursions &bull; Dynamic Forms</span>
+    </div>
+  </div>
+
+  <!-- Showcase Media -->
+  <div class="case-image">
+    <img src="../assets/images/paperly-main.png" alt="Paperly school operations platform dashboard" onerror="this.onerror=null;this.src='../projects/paperly.jpg';">
+    <span>Illustrative Paperly school operations interface — representative sample data.</span>
+  </div>
+
+  <!-- Detailed Body -->
+  <div class="case-body">
+
+    <!-- 01 Overview -->
+    <div class="case-section-item">
+      <div class="case-intro-grid">
+        <span class="section-label">01 / OVERVIEW</span>
+        <div>
+          <h2>Behind the build.</h2>
+          <p>Paperly is a school management platform used by Australian schools to replace paper trails, manual spreadsheets and fragmented communication. The system coordinates complex school operations: multi-day excursions, parent consent, dynamic form builders, calendar events, medical tracking and parent-teacher interviews.</p>
+          <p>Schools need strict role-scoped workflows: teachers draft requests, heads of department approve them, finance checks budgets, and parents submit legally binding consent with emergency contact details.</p>
+        </div>
       </div>
-    </nav>
-
-    <p class="kicker">Featured case study · 01 · EdTech · Australia · 2022–2026</p>
-    <span class="proj-badge prod">Professional Project</span>
-    <h1>Paperly — K-12 school operations at production scale</h1>
-    <p class="meta">Senior Web Application Developer · July 2022 – August 2026 · Remote (Perth team) · Laravel · Vue.js · MySQL · REST APIs</p>
-    <img class="hero-img" src="../projects/paperly-hero.jpg" alt="Paperly excursions operations dashboard with calendar, parent permissions and risk status" width="1200" height="800" loading="eager">
-
-    <div class="stats">
-      <div class="stat"><b>4 yrs</b><span>Senior delivery on a live multi-school product</span></div>
-      <div class="stat"><b>Daily use</b><span>Modules used by teachers &amp; parents at scale</span></div>
-      <div class="stat"><b>250+</b><span>Schools joined for 2026 — Paperly public claim</span></div>
     </div>
 
-    <div class="ext">
-      <a href="https://paperly.education/" target="_blank" rel="noopener">Visit Paperly ↗</a>
-      <a href="https://apps.apple.com/au/app/paperly/id1441275647" target="_blank" rel="noopener">iOS app ↗</a>
+    <!-- 02 My Role & What I Built -->
+    <div class="case-section-item">
+      <div class="case-two-col">
+        <div>
+          <span class="section-label">02 / MY ROLE</span>
+          <h3>Senior Developer Ownership</h3>
+          <p>As Senior Web Application Developer working remotely with Paperly’s Perth-based engineering team, I took end-to-end responsibility for key platform modules from architecture to production deployments.</p>
+          <ul>
+            <li>Designed relational data schemas and Eloquent models for excursions, forms, permissions and scheduling.</li>
+            <li>Built high-throughput REST APIs consumed by Vue.js staff, parent and student portals.</li>
+            <li>Implemented multi-step approval workflows with audit logs and automated email/SMS reminders.</li>
+            <li>Handled regular production releases, hotfixes, data migrations and cross-time-zone team collaboration.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="section-label">03 / KEY MODULES BUILT</span>
+          <h3>Core Platform Workflows</h3>
+          <ul>
+            <li><strong>Digital Excursions:</strong> Complete planning workflows with risk assessments, transport booking, student rosters, medical alerts and parent permission tracking.</li>
+            <li><strong>Dynamic Form Builder:</strong> Configurable form engine supporting custom field types, conditional logic, multi-stage approvals and exportable responses.</li>
+            <li><strong>Parent Approvals &amp; Consent:</strong> Mobile-friendly portal where parents review excursion details, confirm medical data, and provide digital sign-off.</li>
+            <li><strong>Calendars &amp; Parent-Teacher Interviews:</strong> Time-slot scheduling engine preventing booking conflicts for hundreds of families.</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <p class="cs-proof">Production project — source code private</p>
 
-    <section class="section" id="context">
-      <h2><span class="n">01</span> Overview</h2>
-      <p>Paperly is a cloud-based K-12 school operations and workflow platform. It sits beside a school’s SIS and LMS — digitising the operational work that those systems are not built for: trips and excursions, digital forms, compliance, risk assessments, announcements, approvals and parent/staff communication.</p>
-    </section>
+    <!-- 04 Architecture & System Loop -->
+    <div class="case-section-item">
+      <span class="section-label">04 / SYSTEM ARCHITECTURE</span>
+      <h2 style="font: 600 clamp(36px, 4.5vw, 64px) var(--font-display); letter-spacing: -0.06em; margin: 16px 0 20px;">Modular Laravel &amp; Vue Architecture.</h2>
+      <p style="color: #55524b; font-size: 15px; max-width: 820px; line-height: 1.7;">Role-scoped web portals share a unified modular Laravel backend, managing school-scoped databases, external Student Information System sync, and notification dispatch.</p>
 
-    <section class="section" id="project-context">
-      <h2><span class="n">02</span> Project Context</h2>
-      <p>It serves independent schools, government schools, Catholic/Diocesan systems and multi-campus organisations. Public product materials list integrations with systems such as Synergetic, TASS, Schoolbox, Veracross, SEQTA, Wonde, Digistorm and Microsoft identity services.</p>
-      <p>The product codebase is a <strong>modular Laravel + Vue.js</strong> application with role-specific portals (staff, parent, student, external), REST APIs, MySQL, and an abstraction layer for school management system (SIS) sync.</p>
-    </section>
-
-    <section class="section" id="responsibility">
-      <h2><span class="n">03</span> My Role</h2>
-      <p>I joined as a <strong>Senior Web Application Developer</strong> and worked remotely with the Perth-based team from July 2022 to August 2026. This is my strongest recent production experience — end-to-end feature work on a live multi-school platform, not a greenfield demo.</p>
-      <ul>
-        <li>Built and maintained school administration modules used daily by teachers and parents across Australian schools.</li>
-        <li>Delivered <strong>excursion / trip workflows</strong>, sports and music coordination, parent-teacher interviews and assessment calendars.</li>
-        <li>Implemented <strong>dynamic form builders</strong>, multi-step approval workflows and notification-driven submission lifecycles.</li>
-        <li>Owned <strong>permissions and role boundaries</strong> across administrators, staff, parents and students in a multi-school context.</li>
-        <li>Designed REST APIs and MySQL schemas; integrated third-party SIS/LMS and identity services in Agile production releases.</li>
-        <li>Supported geolocation-enabled activity workflows and ongoing production debugging, testing and delivery.</li>
-      </ul>
-    </section>
-
-    <section class="section" id="solution">
-      <h2><span class="n">04</span> What I Built</h2>
-      <h3>Backend</h3>
-      <p>School operations were modelled as composable Laravel modules behind role portals: staff configure and approve; parents consent and submit; students participate where needed. Laravel services and repositories own domain rules.</p>
-      <h3>Database</h3>
-      <p>MySQL schemas persist school data, submissions, approvals and permission state across a multi-school context.</p>
-      <h3>APIs &amp; Integrations</h3>
-      <p>REST APIs and SIS clients keep people, classes, medical and contact data in sync. Vue.js surfaces handle dense calendars, forms and permission follow-up.</p>
-      <h3>Authentication &amp; Permissions</h3>
-      <p>Role boundaries for administrators, staff, parents, students and external users, including school-scoped access so data does not leak across schools.</p>
-
-      <figure class="shot">
-        <img class="shot-img" src="../projects/paperly-forms.jpg" alt="Paperly form builder with approval workflow configuration" width="1200" height="800" loading="lazy">
-        <figcaption class="shot-cap">Illustrative form-building surface — flexible field layouts, medical details, consent and a visible approval path.</figcaption>
-      </figure>
-
-      <h3>Excursion &amp; permission flow</h3>
-      <div class="diagram" role="img" aria-label="Paperly excursion workflow from setup to parent consent">
-        <svg viewBox="0 0 840 180" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
-          <defs>
-            <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
-          </defs>
-          <rect width="840" height="180" rx="12" fill="#121218"/>
-          <g fill="#1f1f2a" stroke="url(#pg)" stroke-width="1.5">
-            <rect x="24" y="58" width="120" height="64" rx="12"/>
-            <rect x="188" y="58" width="120" height="64" rx="12"/>
-            <rect x="352" y="58" width="120" height="64" rx="12"/>
-            <rect x="516" y="58" width="120" height="64" rx="12"/>
-            <rect x="680" y="58" width="120" height="64" rx="12"/>
+      <div class="diagram-container" role="img" aria-label="Paperly Modular Architecture Diagram">
+        <svg viewBox="0 0 840 280" xmlns="http://www.w3.org/2000/svg" font-family="'Space Grotesk', sans-serif">
+          <rect width="840" height="280" rx="6" fill="#1c1e1c"/>
+          <g fill="#242623" stroke="#bd795e" stroke-width="1.5">
+            <rect x="25" y="24" width="160" height="54" rx="4"/>
+            <rect x="205" y="24" width="160" height="54" rx="4"/>
+            <rect x="385" y="24" width="160" height="54" rx="4"/>
+            <rect x="565" y="24" width="160" height="54" rx="4"/>
+            <rect x="180" y="118" width="480" height="64" rx="4"/>
+            <rect x="40" y="212" width="160" height="48" rx="4"/>
+            <rect x="230" y="212" width="160" height="48" rx="4"/>
+            <rect x="420" y="212" width="160" height="48" rx="4"/>
+            <rect x="620" y="212" width="180" height="48" rx="4"/>
           </g>
-          <g fill="#f5f5f7" font-size="13" font-weight="600" text-anchor="middle">
-            <text x="84" y="88">Staff setup</text>
-            <text x="248" y="88">Approvals</text>
-            <text x="412" y="88">Parent forms</text>
-            <text x="576" y="88">Permissions</text>
-            <text x="740" y="88">Ops view</text>
+          <g fill="#eeebe3" font-size="13" font-weight="600" text-anchor="middle">
+            <text x="105" y="56">Staff Portal</text>
+            <text x="285" y="56">Parent Portal</text>
+            <text x="465" y="56">Student Portal</text>
+            <text x="645" y="56">External SIS API</text>
+            <text x="420" y="146">Modular Laravel Core &bull; Vue.js Client APIs</text>
+            <text x="120" y="241">MySQL Cluster</text>
+            <text x="310" y="241">SIS Connectors</text>
+            <text x="500" y="241">Microsoft Identity SSO</text>
+            <text x="710" y="241">Notification Pipeline</text>
           </g>
-          <g fill="#a1a1a6" font-size="11" text-anchor="middle">
-            <text x="84" y="108">trip &amp; risk</text>
-            <text x="248" y="108">multi-stage</text>
-            <text x="412" y="108">consent / medical</text>
-            <text x="576" y="108">track pending</text>
-            <text x="740" y="108">calendar &amp; follow-up</text>
+          <g fill="#a4a69d" font-size="11" font-family="'IBM Plex Mono', monospace" text-anchor="middle">
+            <text x="420" y="165">Excursions &bull; Forms Engine &bull; Approvals &bull; Calendars &bull; Permissions</text>
           </g>
-          <g stroke="#8b5cf6" stroke-width="2" fill="none">
-            <path d="M144 90 H188"/><path d="M308 90 H352"/><path d="M472 90 H516"/><path d="M636 90 H680"/>
-          </g>
-          <g fill="#8b5cf6">
-            <polygon points="184,90 174,85 174,95"/><polygon points="348,90 338,85 338,95"/>
-            <polygon points="512,90 502,85 502,95"/><polygon points="676,90 666,85 666,95"/>
-          </g>
-        </svg>
-      </div>
-      <p class="diagram-cap">Typical excursion path: staff configure → internal approvals → parent digital consent → permission tracking → operational calendar.</p>
-
-      <figure class="shot">
-        <img class="shot-img" src="../projects/paperly-workflow.jpg" alt="Paperly end-to-end excursion workflow capability chart" width="1200" height="800" loading="lazy">
-        <figcaption class="shot-cap">Capability chart showing the operational flow and supporting risk, medical, notification and geolocation concerns.</figcaption>
-      </figure>
-
-      <h3>Module map</h3>
-      <div class="cap-grid">
-        <div class="cap"><b>Excursions &amp; activities</b><span>Trips, sports, music, geolocation-aware activity workflows and follow-up</span></div>
-        <div class="cap"><b>Form builder</b><span>Dynamic forms, submission lifecycle, multi-step approvals and notifications</span></div>
-        <div class="cap"><b>Calendars &amp; interviews</b><span>Assessment calendars, events and parent-teacher interview scheduling</span></div>
-        <div class="cap"><b>Compliance &amp; ops</b><span>Policies/procedures, training induction, reception and school settings surfaces</span></div>
-        <div class="cap"><b>Identity &amp; portals</b><span>Staff, parent, student and external portals with school identity federation</span></div>
-        <div class="cap"><b>SIS integrations</b><span>Abstraction layer syncing people, classes and medical data from school systems</span></div>
-      </div>
-    </section>
-
-    <section class="section" id="challenges">
-      <h2><span class="n">05</span> Technical Challenges</h2>
-      <ul>
-        <li><strong>Dynamic workflows</strong> — reusable form and approval logic that still matches each school’s process, not a one-size-fits-all screen.</li>
-        <li><strong>Complex permissions</strong> — correct capability boundaries for admins, teachers, parents, students and external users without leaking cross-school data.</li>
-        <li><strong>SIS / third-party sync</strong> — keeping people, classes, medical and contact data accurate while schools run different student information systems.</li>
-        <li><strong>Geolocation &amp; activity ops</strong> — location-aware excursion and activity flows that remain usable for non-technical staff.</li>
-        <li><strong>Production reliability</strong> — shipping continuously into a live multi-school platform used every school day.</li>
-        <li><strong>Remote collaboration</strong> — senior delivery across timezones with a Perth-based product and engineering team.</li>
-      </ul>
-    </section>
-
-    <section class="section" id="architecture">
-      <h2><span class="n">06</span> Architecture</h2>
-      <p>Paperly is organised as convention-based modules (controllers, models, services, repositories and role-scoped routes per domain). Clients hit role portals; Laravel owns business logic; MySQL persists school data; SIS and identity clients keep external systems aligned.</p>
-
-      <figure class="shot">
-        <img class="shot-img" src="../projects/paperly-architecture.jpg" alt="Paperly role portals and modular application architecture" width="1200" height="800" loading="lazy">
-        <figcaption class="shot-cap">Architecture overview — four role surfaces, a modular Laravel/Vue core, and isolated integration responsibilities.</figcaption>
-      </figure>
-
-      <div class="diagram" role="img" aria-label="Paperly system architecture with portals, Laravel core and integrations">
-        <svg viewBox="0 0 840 280" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
-          <defs>
-            <linearGradient id="pg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
-          </defs>
-          <rect width="840" height="280" rx="12" fill="#121218"/>
-          <g fill="#1f1f2a" stroke="#3a3a48" stroke-width="1">
-            <rect x="30" y="28" width="150" height="50" rx="10"/>
-            <rect x="210" y="28" width="150" height="50" rx="10"/>
-            <rect x="390" y="28" width="150" height="50" rx="10"/>
-            <rect x="570" y="28" width="150" height="50" rx="10"/>
-            <rect x="180" y="118" width="480" height="56" rx="12"/>
-            <rect x="40" y="214" width="160" height="40" rx="8"/>
-            <rect x="230" y="214" width="160" height="40" rx="8"/>
-            <rect x="420" y="214" width="160" height="40" rx="8"/>
-            <rect x="610" y="214" width="180" height="40" rx="8"/>
-          </g>
-          <rect x="180" y="118" width="480" height="56" rx="12" fill="none" stroke="url(#pg2)" stroke-width="1.5"/>
-          <g fill="#f5f5f7" font-size="12" font-weight="600" text-anchor="middle">
-            <text x="105" y="58">Staff portal</text>
-            <text x="285" y="58">Parent portal</text>
-            <text x="465" y="58">Student portal</text>
-            <text x="645" y="58">External / API</text>
-            <text x="420" y="151">Laravel modules + Vue.js · REST APIs</text>
-            <text x="120" y="239">MySQL</text>
-            <text x="310" y="239">SIS clients</text>
-            <text x="500" y="239">Identity / SSO</text>
-            <text x="700" y="239">Notifications</text>
-          </g>
-          <g fill="#a1a1a6" font-size="10" text-anchor="middle">
-            <text x="420" y="168">Excursion · Forms · Calendar · PTI · Permissions</text>
-          </g>
-          <g stroke="#8b5cf6" stroke-width="1.5" fill="none">
+          <g stroke="#bd795e" stroke-width="1.8" fill="none">
             <path d="M105 78 V118 H420"/><path d="M285 78 V118"/><path d="M465 78 V118"/><path d="M645 78 V118 H420"/>
-            <path d="M280 174 V214"/><path d="M360 174 V214"/><path d="M480 174 V214"/><path d="M560 174 V214 H610"/>
+            <path d="M280 182 V212"/><path d="M360 182 V212"/><path d="M480 182 V212"/><path d="M560 182 V212 H640"/>
           </g>
         </svg>
+        <p class="diagram-caption">Architectural diagram: Role portals interface through modular Laravel endpoints with MySQL, SIS abstraction, SSO identity, and queued notifications.</p>
       </div>
-      <p class="diagram-cap">Role portals share one modular Laravel/Vue core with MySQL, SIS sync, identity federation and notification channels.</p>
-    </section>
+    </div>
 
-    <section class="section" id="integrations">
-      <h2><span class="n">07</span> Integrations &amp; Infrastructure</h2>
-      <p>School data sync is abstracted behind a school-management interface so the same modules can run against different SIS products. Public Paperly materials and the product integration surface include Synergetic, TASS, Veracross, SEQTA, Schoolbox, Wonde, Digistorm and Microsoft identity — plus payments and venue/contractor tooling where schools need them.</p>
-      <h3>Security</h3>
-      <p>Access is role- and school-scoped. Form submissions, medical details and parent consent sit behind permission checks rather than a shared admin surface.</p>
-      <h3>Deployment</h3>
-      <p>Work shipped through Agile production releases on a live multi-school platform, including testing, debugging and ongoing support with the remote Perth team.</p>
-    </section>
+    <!-- 05 Integrations & Infrastructure -->
+    <div class="case-section-item">
+      <div class="case-two-col">
+        <div>
+          <span class="section-label">05 / INTEGRATIONS</span>
+          <h3>School Ecosystem Sync</h3>
+          <p>School data sync is abstracted behind a clean adapter interface so platform modules run consistently against different SIS/LMS platforms. Supported ecosystem integrations include:</p>
+          <ul>
+            <li><strong>Synergetic &amp; TASS:</strong> Bi-directional student enrolment, parent contact and timetable synchronization.</li>
+            <li><strong>Veracross, SEQTA &amp; Schoolbox:</strong> Class rosters, medical flags and teacher scheduling.</li>
+            <li><strong>Microsoft Identity &amp; Wonde:</strong> Enterprise single sign-on (SSO) and automated identity federation.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="section-label">06 / SECURITY &amp; COMPLIANCE</span>
+          <h3>Data Protection &amp; Roles</h3>
+          <p>School environments demand strict privacy boundaries. Medical details, consent slips, and dietary restrictions are isolated with per-school tenant safeguards:</p>
+          <ul>
+            <li>Role-scoped permissions ensuring teachers only access assigned student cohorts.</li>
+            <li>Encrypted storage for sensitive parent declarations and medical documents.</li>
+            <li>Detailed audit trail tracking who viewed, approved, or modified operational records.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <section class="section" id="outcomes">
-      <h2><span class="n">08</span> Results / Impact</h2>
-      <p>Four years of stable senior delivery on a live education SaaS: workflow-heavy modules shipped and supported in production. Paperly publicly states that more than 250 schools joined for 2026 and beyond.</p>
-      <ul>
-        <li>Four years of stable senior delivery on a live multi-school education SaaS.</li>
-        <li>Modules used daily by thousands of teachers and parents across Australian schools.</li>
-        <li>Paperly publicly states that more than 250 schools joined for 2026 and beyond.</li>
-      </ul>
-    </section>
-
-    <section class="section" id="gallery">
-      <h2><span class="n">09</span> Screenshots</h2>
-      <p>Illustrative product mockups based on the verified capabilities and architecture. They use representative sample data rather than production school records.</p>
-      <div class="gallery">
-        <figure>
-          <img src="../projects/paperly-forms.jpg" alt="Paperly dynamic form builder and multi-stage approval workflow" width="1200" height="800" loading="lazy">
-          <figcaption>Illustrative interface — configurable fields, conditional logic and role-based approval stages</figcaption>
+    <!-- 07 Visual Showcase Gallery -->
+    <div class="case-section-item">
+      <span class="section-label">07 / VISUAL SHOWCASE</span>
+      <h2 style="font: 600 clamp(36px, 4.5vw, 64px) var(--font-display); letter-spacing: -0.06em; margin: 16px 0 20px;">Interfaces Built for Everyday School Ops.</h2>
+      <div class="case-gallery-grid">
+        <figure class="case-gallery-card">
+          <img src="../assets/images/paperly-second.png" alt="Dynamic form builder interface" loading="lazy">
+          <figcaption><strong>Dynamic Form Builder:</strong> Configurable fields, conditional logic, multi-stage approvals, and role permissions.</figcaption>
         </figure>
-        <figure>
-          <img src="../projects/paperly-workflow.jpg" alt="Paperly excursion and parent permission workflow chart" width="1200" height="800" loading="lazy">
-          <figcaption>Illustrative interface — staff setup, approvals, consent, tracking and follow-up</figcaption>
+        <figure class="case-gallery-card">
+          <img src="../projects/paperly-workflow.jpg" alt="Excursion workflow chart" loading="lazy">
+          <figcaption><strong>Excursion Workflow:</strong> Multi-step staff submission, risk management, budget signoff, and parent consent.</figcaption>
         </figure>
-        <figure>
-          <img src="../projects/paperly-architecture.jpg" alt="Paperly modular Laravel and Vue system architecture" width="1200" height="800" loading="lazy">
-          <figcaption>Architecture — role portals, modular application core, SIS, identity and notifications</figcaption>
+        <figure class="case-gallery-card">
+          <img src="../projects/paperly-forms.jpg" alt="Form approval tracking" loading="lazy">
+          <figcaption><strong>Approvals Matrix:</strong> Live tracking for teachers and administrative staff on overdue consent forms.</figcaption>
         </figure>
-        <figure>
-          <img src="../projects/paperly.jpg" alt="Paperly school management dashboard" width="1200" height="800" loading="lazy">
-          <figcaption>Illustrative interface — calendars, forms and permission follow-up</figcaption>
+        <figure class="case-gallery-card">
+          <img src="../projects/paperly-architecture.jpg" alt="System architecture blueprint" loading="lazy">
+          <figcaption><strong>System Architecture:</strong> Modular Laravel services connecting Vue frontends with School Information Systems.</figcaption>
         </figure>
       </div>
-    </section>
+    </div>
 
-    <section class="section" id="technology">
-      <h2><span class="n">10</span> Technology</h2>
-      <ul>
-        <li><strong>Backend:</strong> Laravel (PHP), MySQL, REST APIs, modular services/repositories, queued jobs where workflows need them</li>
-        <li><strong>Frontend:</strong> Vue.js, JavaScript — staff/parent/student portal UIs for calendars, forms and permissions</li>
-        <li><strong>Domain:</strong> excursions, form builder, calendars, parent-teacher interviews, cocurricular, policies, enrolment, permissions</li>
-        <li><strong>Integrations:</strong> SIS/LMS clients (e.g. Synergetic, TASS, Veracross, SEQTA, Schoolbox, Wonde), identity federation, notifications</li>
-        <li><strong>Delivery:</strong> Agile production releases, remote collaboration, debugging and ongoing support on a multi-school live platform</li>
-      </ul>
-    </section>
-
-    <section class="section" id="links">
-      <h2><span class="n">11</span> Links</h2>
-      <p>Production project — source code private. Public product surfaces:</p>
-      <div class="ext">
-        <a href="https://paperly.education/" target="_blank" rel="noopener">Visit Paperly ↗</a>
-        <a href="https://apps.apple.com/au/app/paperly/id1441275647" target="_blank" rel="noopener">iOS app ↗</a>
+    <!-- 08 Tech Stack Breakdown -->
+    <div class="case-section-item">
+      <span class="section-label">08 / TECHNICAL SPECIFICATION</span>
+      <h2 style="font: 600 clamp(36px, 4.5vw, 64px) var(--font-display); letter-spacing: -0.06em; margin: 16px 0 20px;">Technology &amp; Tooling.</h2>
+      <div class="tech-spec-grid">
+        <div class="tech-spec-item">
+          <strong>Backend Core</strong>
+          <span>Laravel (PHP), MySQL, REST APIs, Eloquent ORM, Queued Jobs, Redis caching</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Frontend &amp; UI</strong>
+          <span>Vue.js, JavaScript (ES6+), Component Architecture, SCSS/Tailwind, Responsive Design</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Integrations</strong>
+          <span>Synergetic, TASS, Veracross, SEQTA, Schoolbox, Wonde, Microsoft Azure SSO</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Engineering &amp; DevOps</strong>
+          <span>Git, Agile sprints, CI/CD pipelines, Database migrations, Zero-downtime releases</span>
+        </div>
       </div>
-    </section>
-
-    <div class="tags">
-      <span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Workflows</span><span>Form Builder</span><span>Permissions</span><span>Geolocation</span><span>SIS Integrations</span><span>EdTech</span><span>Multi-school</span>
     </div>
 
-    <div class="cs-cta-block">
-      <p>Need a complex Laravel business platform?</p>
-      <a class="btn btn-fill" href="../contact.html?type=project">Start a Laravel project</a>
-    </div>
-
-    <div class="cta">
-      <a class="btn btn-ghost" href="megathy.html">Next: Megathy →</a>
-      <a class="btn btn-ghost" href="../Jay_Kaneriya_CV_2026.pdf" download>Download CV</a>
-    </div>
-
-    </div>
-</main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
+    <!-- 09 Outcome & Public Links -->
+    <div class="case-outcome">
+      <span class="section-label">09 / THE OUTCOME</span>
       <div>
-        <p class="footer-brand">Jay Kaneriya</p>
-        <p class="footer-role">Senior Full-Stack Laravel/PHP Developer</p>
-        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available for remote roles and freelance Laravel projects from Rajkot, India (IST).</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <div class="footer-links">
-          <a href="../index.html">Home</a>
-          <a href="../about.html">About</a>
-          <a href="../skills.html">Skills</a>
-          <a href="../projects.html">Projects</a>
-          <a href="../services.html">Services</a>
-          <a href="../cv.html">CV</a>
-          <a href="../contact.html">Contact</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <div class="footer-links">
-          <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
-          <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
-          <a href="mailto:jay.kaneriya8@gmail.com">Email</a>
-          <a href="../cv.html">CV</a>
+        <p>Four years of stable senior engineering delivery on a live multi-school education SaaS. Modules are used daily by thousands of teachers and parents across Australia, with Paperly publicly reporting 250+ schools joining for 2026 and beyond.</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px;">
+          <a class="underlined-link" href="https://paperly.education/" target="_blank" rel="noopener noreferrer">
+            Visit Paperly website
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
+          <a class="underlined-link" href="https://apps.apple.com/au/app/paperly/id1441275647" target="_blank" rel="noopener noreferrer">
+            View Paperly on iOS App Store
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="../contact.html">Discuss a role or project</a></div>
+
+  </div>
+
+  <!-- Next Case Study Banner -->
+  <div class="case-next">
+    <span class="section-label">NEXT PROJECT</span>
+    <a href="megathy.html">
+      Megathy
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+    </a>
+  </div>
+</main>
+
+<!-- Rich Footer -->
+<footer class="rich-footer">
+  <div class="rich-footer-grid">
+    <div>
+      <p class="rich-footer-brand">Jay Kaneriya</p>
+      <p class="rich-footer-role">Senior Full-Stack Laravel/PHP Developer</p>
+      <p class="rich-footer-desc">9+ years shipping production SaaS, education and business systems. Available for remote full-time roles and freelance Laravel projects from Rajkot, India (IST).</p>
     </div>
+    <div>
+      <h4>Case Studies</h4>
+      <div class="rich-footer-links">
+        <a href="paperly.html">Paperly (EdTech)</a>
+        <a href="megathy.html">Megathy (Delivery)</a>
+        <a href="zimdle.html">Zimdle (Customer SaaS)</a>
+        <a href="exception-tracker.html">Exception Tracker</a>
+        <!-- <a href="resident-app.html">Resident App (PropTech)</a> -->
+      </div>
+    </div>
+    <div>
+      <h4>Connect &amp; Hire</h4>
+      <div class="rich-footer-links">
+        <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="mailto:jay.kaneriya8@gmail.com">Direct Email</a>
+        <a href="../contact.html">Discuss a Role or Project</a>
+      </div>
+    </div>
+  </div>
+  <div class="rich-footer-bottom">
+    <span>© <span class="current-year">2026</span> JAY KANERIYA &bull; CASE STUDY: PAPERLY</span>
+    <a href="#top">
+      BACK TO TOP
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+    </a>
   </div>
 </footer>
-<button class="to-top" id="toTop" aria-label="Scroll to top"><svg class="icon"><use href="#i-chevup"></use></svg></button>
+
 <script src="../assets/js/site.js" defer></script>
 </body>
 </html>
-

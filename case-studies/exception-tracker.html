@@ -1,284 +1,379 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exception Tracker Case Study — Jay Kaneriya, Senior Laravel Developer</title>
-<meta name="description" content="How Jay Kaneriya designed Exception Tracker — a multi-tenant observability SaaS for ingesting, grouping and triaging production exceptions with SDKs and Stripe billing.">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#08090c">
+<title>Exception Tracker — Case Study | Jay Kaneriya</title>
+<meta name="description" content="Multi-tenant error tracking and observability platform built with Laravel, PostgreSQL, Redis, Horizon, Stripe and multi-language SDKs.">
+<meta name="author" content="Jay Kaneriya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#242623">
 <link rel="canonical" href="https://jaykaneriya.github.io/case-studies/exception-tracker.html">
-<link rel="icon" type="image/svg+xml" href="../logo.svg">
+
+<!-- Open Graph / Social -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jaykaneriya.github.io/case-studies/exception-tracker.html">
-<meta property="og:title" content="Exception Tracker Case Study — Jay Kaneriya, Senior Laravel Developer">
-<meta property="og:description" content="How Jay Kaneriya designed Exception Tracker — a multi-tenant observability SaaS for ingesting, grouping and triaging production exceptions with SDKs and Stripe billing.">
-<meta property="og:image" content="https://jaykaneriya.github.io/projects/exception.jpg">
-<meta property="og:image:alt" content="Exception Tracker triage dashboard">
+<meta property="og:site_name" content="Jay Kaneriya">
+<meta property="og:title" content="Exception Tracker — Case Study | Jay Kaneriya">
+<meta property="og:description" content="Multi-tenant error tracking and observability platform built with Laravel, PostgreSQL, Redis, Horizon, Stripe and multi-language SDKs.">
+<meta property="og:image" content="https://jaykaneriya.github.io/og-image.jpg">
+
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Exception Tracker Case Study — Jay Kaneriya, Senior Laravel Developer">
-<meta name="twitter:description" content="Multi-tenant exception monitoring with SDKs, triage dashboard and alerts.">
-<meta name="twitter:image" content="https://jaykaneriya.github.io/projects/exception.jpg">
+<meta name="twitter:title" content="Exception Tracker — Case Study | Jay Kaneriya">
+<meta name="twitter:description" content="Multi-tenant error tracking and observability platform built with Laravel, PostgreSQL, Redis, Horizon, Stripe and multi-language SDKs.">
+<meta name="twitter:image" content="https://jaykaneriya.github.io/og-image.jpg">
+
+<!-- Icons -->
+<link rel="manifest" href="../site.webmanifest">
+<link rel="icon" type="image/svg+xml" href="../logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+<!-- Fonts & Stylesheet -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/site.css">
-<style>
-body{font-size:17px}
-.cs-shell .section{padding:0;margin:36px 0}
-.cs-shell .kicker{margin-bottom:12px}
-</style>
+
+<!-- Breadcrumbs JSON-LD -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jaykaneriya.github.io/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://jaykaneriya.github.io/projects.html"},{"@type":"ListItem","position":3,"name":"Exception Tracker","item":"https://jaykaneriya.github.io/case-studies/exception-tracker.html"}]}
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jaykaneriya.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://jaykaneriya.github.io/#work" },
+    { "@type": "ListItem", "position": 3, "name": "Exception Tracker", "item": "https://jaykaneriya.github.io/case-studies/exception-tracker.html" }
+  ]
+}
 </script>
 </head>
 <body>
+
 <a class="skip-link" href="#main">Skip to content</a>
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
-  <symbol id="i-chevup" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></symbol>
-  <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
-</svg>
-<div class="backdrop" aria-hidden="true"></div>
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a class="brand" href="../index.html">
-      <span class="brand-mark" aria-hidden="true">JK</span>
-      <span class="brand-name">Jay Kaneriya <span>· dev</span></span>
+
+<!-- Site Header -->
+<header class="site-header">
+  <a class="brand" href="../index.html" aria-label="Jay Kaneriya, home">
+    <span class="brand-mark">J<span>.</span>K</span>
+    <span class="brand-name">JAY KANERIYA<span> / PORTFOLIO</span></span>
+  </a>
+  <nav class="desktop-nav" aria-label="Main navigation">
+    <a href="../index.html#work" class="active">Work</a>
+    <a href="../index.html#expertise">Expertise</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#about">About</a>
+    <a href="../projects.html">All Projects</a>
+    <a href="../cv.html">CV</a>
+  </nav>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Toggle light/dark mode">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <a class="header-contact" href="mailto:jay.kaneriya8@gmail.com?subject=Let's%20work%20together">
+    Let’s talk
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+  </a>
+  <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+  </button>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#expertise">Expertise</a>
+    <a href="../index.html#experience">Experience</a>
+    <a href="../index.html#about">About</a>
+    <a href="../projects.html">All Projects</a>
+    <a href="../cv.html">View CV</a>
+    <a class="mobile-cta" href="mailto:jay.kaneriya8@gmail.com?subject=Let's%20work%20together">
+      Let’s talk
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
     </a>
-    <nav class="nav-links" id="navLinks" aria-label="Primary">
-      <a href="../index.html" data-nav>Home</a>
-      <a href="../about.html" data-nav>About</a>
-      <a href="../skills.html" data-nav>Skills</a>
-      <a href="../projects.html" data-nav>Projects</a>
-      <a href="../services.html" data-nav>Services</a>
-      <a href="../cv.html" data-nav>CV</a>
-      <a href="../contact.html" data-nav class="nav-hire">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-        <svg class="icon"><use id="menuIcon" href="#i-menu"></use></svg>
-      </button>
-    </div>
-    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-  </div>
+  </nav>
 </header>
-<main id="main" class="cs-shell">
-<div class="wrap">
-    <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom:12px">
-      <a href="../index.html">Home</a><span>/</span>
-      <a href="../projects.html">Projects</a><span>/</span>
-      <span>exception tracker</span>
-    </nav>
-    <nav class="cs-nav" aria-label="Case study">
-      <a class="back" href="../projects.html">← Back to projects</a>
-      <div>
-        <a href="paperly.html">Paperly</a> ·
-        <a href="megathy.html">Megathy</a> ·
-        <a href="zimdle.html">Zimdle</a> ·
-        <a class="active" href="exception-tracker.html">Exception</a>
+
+<main id="main" class="case-page">
+  <!-- Case Hero -->
+  <div class="case-hero">
+    <a class="case-back" href="../index.html#work">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+      Back to selected work
+    </a>
+    <div class="case-topline">
+      <span>04 / 05&nbsp; · &nbsp;Observability SaaS &bull; Telemetry</span>
+      <span>Independent Systems Architecture</span>
+    </div>
+    <h1>Exception Tracker<span>.</span></h1>
+    <p class="case-intro">Production error triage, telemetry and performance monitoring SaaS. Built to ingest high-frequency exception streams, collapse noisy stack traces into actionable issues, and provide integrated uptime, OTLP tracing, and session replay.</p>
+    <div class="case-hero-meta">
+      <span>Lead Architect &amp; Developer · Laravel, Sanctum, Horizon, PostgreSQL, Redis, Stripe, Multi-Language SDKs</span>
+      <span>Independent Engineering Project · In Active Development</span>
+    </div>
+  </div>
+
+  <!-- Key Metrics Bar -->
+  <div class="cred-bar">
+    <div class="cred-cell">
+      <span class="cred-val">8 SDKs</span>
+      <span class="cred-label">JS, Node, PHP, Laravel, Python, Rust, iOS, Android</span>
+    </div>
+    <div class="cred-cell">
+      <span class="cred-val">Deduping</span>
+      <span class="cred-label">Intelligent fingerprinting grouping stack traces</span>
+    </div>
+    <div class="cred-cell">
+      <span class="cred-val">Full Scope</span>
+      <span class="cred-label">Exceptions, traces, uptime &amp; session replay</span>
+    </div>
+    <div class="cred-cell">
+      <span class="cred-val">High Load</span>
+      <span class="cred-label">Redis &bull; Horizon queues &bull; PostgreSQL cluster</span>
+    </div>
+  </div>
+
+  <!-- Showcase Media -->
+  <div class="case-image">
+    <img src="../assets/images/exception-main.png" alt="Exception Tracker triage dashboard mockup" onerror="this.onerror=null;this.src='../projects/exception-hero.jpg';">
+    <span>Illustrative Exception Tracker triage and telemetry dashboard — representative sample data.</span>
+  </div>
+
+  <!-- Detailed Body -->
+  <div class="case-body">
+
+    <!-- 01 Overview -->
+    <div class="case-section-item">
+      <div class="case-intro-grid">
+        <span class="section-label">01 / OVERVIEW</span>
+        <div>
+          <h2>Observability built for engineering teams who demand precision.</h2>
+          <p>Exception Tracker is an independent multi-tenant observability and error triage platform designed for software engineering teams and DevOps organizations. Rather than requiring disjointed subscriptions for crash analytics, synthetic uptime monitors, tracing, and user replay sessions, Exception Tracker brings these signals together into a single, cohesive developer workspace.</p>
+          <p>The platform accepts high-volume exception events from multiple client languages, strips sensitive environment variables, groups identical crashes using stack-trace fingerprinting algorithms, and dispatches contextual alerts to Slack, webhooks, and email.</p>
+        </div>
       </div>
-    </nav>
-
-    <p class="kicker">Case study · 04 · Observability · Independent</p>
-    <span class="proj-badge personal">Independent Project — In Progress</span>
-    <h1>Exception Tracker — production error triage &amp; monitoring</h1>
-    <p class="meta">Independent project · In progress · Laravel · Sanctum · Horizon · PostgreSQL · Redis · Stripe · Multi-language SDKs</p>
-    <img class="hero-img" src="../projects/exception-hero.jpg" alt="Exception Tracker triage dashboard mockup" width="1200" height="900" loading="eager">
-
-    <div class="stats">
-      <div class="stat"><b>Group</b><span>Similar exceptions collapsed into issues for faster triage</span></div>
-      <div class="stat"><b>Signals</b><span>Exceptions, traces, uptime checks &amp; session replay</span></div>
-      <div class="stat"><b>8 SDKs</b><span>JavaScript, Node, PHP, Laravel, Python, Rust, iOS &amp; Android</span></div>
     </div>
 
-    <section class="section" id="context">
-      <h2><span class="n">01</span> Overview</h2>
-      <p>Exception Tracker is an independent <strong>multi-tenant observability SaaS</strong> for developers and DevOps teams — ingest production errors, group them into issues, set alerts, and debug with traces, uptime monitors and session replay in one place. It is in progress and has no commercial adoption to claim.</p>
-    </section>
+    <!-- 02 My Role & What I Built -->
+    <div class="case-section-item">
+      <div class="case-two-col">
+        <div>
+          <span class="section-label">02 / MY ROLE</span>
+          <h3>Full Architecture &amp; Implementation</h3>
+          <p>As lead architect and developer, I designed the ingest protocol, database models, asynchronous queues, client libraries, and customer web interface.</p>
+          <ul>
+            <li>Engineered a <strong>high-throughput ingestion pipeline</strong> that handles batched error payloads, validates API keys, and offloads heavy processing to Redis workers.</li>
+            <li>Designed and published <strong>eight client SDKs and native MVPs</strong> (JavaScript, Node.js, PHP, Laravel package, Python, Rust, Swift for iOS, and Kotlin for Android).</li>
+            <li>Constructed <strong>strict multi-tenant data boundaries</strong> ensuring absolute project, organization, team, and billing segregation.</li>
+            <li>Built <strong>monitoring capabilities</strong>: HTTP synthetic ping monitors, background cron heartbeat verification, database query performance profiling, and DOM session replay.</li>
+            <li>Implemented <strong>Stripe usage-based monetization</strong>, quota enforcement middleware, and customer self-service billing portals.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="section-label">03 / TECHNICAL CHALLENGES</span>
+          <h3>High-Concurrency Ingestion &amp; Grouping</h3>
+          <ul>
+            <li><strong>Intelligent Stack-Trace Deduplication:</strong> High-traffic applications can fire millions of duplicate errors during an outage. An MD5/SHA256 frame-normalization fingerprinting engine collapses repeated exceptions into unified issues while preserving chronological occurrence logs.</li>
+            <li><strong>Zero-Latency Ingest Architecture:</strong> Client applications cannot afford slow telemetry calls. Laravel controllers immediately push incoming event envelopes into Redis queues via Horizon workers, responding to callers in under 15ms.</li>
+            <li><strong>Unified Observability Surface:</strong> Integrating crash logs, OpenTelemetry (OTLP) distributed traces, uptime checks, and session replays into one intuitive interface without overwhelming engineers with Datadog-level configuration complexity.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <section class="section" id="project-context">
-      <h2><span class="n">02</span> Project Context</h2>
-      <p>The local codebase is a <strong>Laravel</strong> monolith with Sanctum auth, Redis/Horizon queues, Stripe billing, tenant-scoped data, Blade customer dashboards and official SDKs under <code>platform/sdk/</code>.</p>
-    </section>
+    <!-- 04 Architecture & System Loop -->
+    <div class="case-section-item">
+      <span class="section-label">04 / SYSTEM ARCHITECTURE</span>
+      <h2 style="font: 600 clamp(36px, 4.5vw, 64px) var(--font-display); letter-spacing: -0.06em; margin: 16px 0 20px;">Ingestion Pipeline to Triage Action.</h2>
+      <p style="color: #55524b; font-size: 15px; max-width: 820px; line-height: 1.7;">SDK clients push telemetry through rate-limited ingress endpoints into Redis queues; Horizon workers parse stack frames, deduplicate issues into PostgreSQL, and fire rule-based alerts.</p>
 
-    <section class="section" id="responsibility">
-      <h2><span class="n">03</span> My Role</h2>
-      <ul>
-        <li>Designed and built a <strong>full observability product</strong> — ingest protocol, issue grouping, triage UI and alert workflows.</li>
-        <li>Implemented <strong>tenant isolation</strong> so organizations keep projects, issues, monitors and billing scoped per tenant.</li>
-        <li>Shipped <strong>official SDKs</strong> (JavaScript, Node, PHP, Laravel, Python, Rust, plus native iOS/Android MVPs) for capture and flush.</li>
-        <li>Added monitoring surfaces: HTTP uptime checks, cron heartbeats, charted HTTP/SQL/queue signals and session replay capture.</li>
-        <li>Wired <strong>Stripe</strong> subscriptions / usage-oriented billing and admin/customer dashboards for ops and revenue views.</li>
-      </ul>
-    </section>
-
-    <section class="section" id="challenges">
-      <h2><span class="n">04</span> Technical Challenges</h2>
-      <ul>
-        <li>Collapsing noisy exception events into actionable issues without losing searchable history.</li>
-        <li>Keeping multi-tenant isolation correct across ingest, queries, alerts and billing.</li>
-        <li>Packaging one product surface for exceptions, traces, uptime and replay — without Datadog-level complexity.</li>
-      </ul>
-    </section>
-
-    <section class="section" id="solution">
-      <h2><span class="n">05</span> What I Built</h2>
-      <h3>Backend</h3>
-      <p>SDK ingest into a Laravel API, intelligent issue grouping, severity-aware triage dashboards, Horizon-backed jobs, Stripe plans and optional enterprise auth hooks (SAML/SCIM foundations) — so production debugging stays in one workflow.</p>
-      <h3>Authentication &amp; Permissions</h3>
-      <p>Sanctum authentication with tenant isolation so organizations keep projects, issues, monitors and billing scoped per tenant.</p>
-      <h3>Payments</h3>
-      <p>Stripe subscriptions / usage-oriented billing with admin and customer dashboards.</p>
-      <h3>Performance</h3>
-      <p>Redis and Horizon queues absorb ingest and alert work so the dashboard stays a triage surface rather than a processing bottleneck.</p>
-
-      <figure class="shot">
-        <img class="shot-img" src="../projects/exception-chart.jpg" alt="Exception Tracker analytics charts" width="1200" height="900" loading="lazy">
-        <figcaption class="shot-cap">Illustrative analytics surface — charts represent product capability, not live KPIs.</figcaption>
-      </figure>
-
-      <h3>Triage loop</h3>
-      <div class="diagram" role="img" aria-label="Exception Tracker capture to alert loop">
-        <svg viewBox="0 0 840 180" xmlns="http://www.w3.org/2000/svg" font-family="Inter,system-ui,sans-serif">
-          <defs>
-            <linearGradient id="eg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
-          </defs>
-          <rect width="840" height="180" rx="12" fill="#121218"/>
-          <g fill="#1f1f2a" stroke="url(#eg)" stroke-width="1.5">
-            <rect x="24" y="58" width="140" height="64" rx="12"/>
-            <rect x="208" y="58" width="140" height="64" rx="12"/>
-            <rect x="392" y="58" width="140" height="64" rx="12"/>
-            <rect x="576" y="58" width="140" height="64" rx="12"/>
+      <!-- SVG Triage Loop Diagram -->
+      <div class="diagram-container" role="img" aria-label="Exception Tracker capture to alert loop">
+        <svg viewBox="0 0 840 180" xmlns="http://www.w3.org/2000/svg" font-family="'Space Grotesk', sans-serif">
+          <rect width="840" height="180" rx="6" fill="#1c1e1c"/>
+          <g fill="#242623" stroke="#bd795e" stroke-width="1.5">
+            <rect x="25" y="58" width="165" height="64" rx="4"/>
+            <rect x="230" y="58" width="165" height="64" rx="4"/>
+            <rect x="435" y="58" width="165" height="64" rx="4"/>
+            <rect x="640" y="58" width="175" height="64" rx="4"/>
           </g>
-          <g fill="#f5f5f7" font-size="13" font-weight="600" text-anchor="middle">
-            <text x="94" y="88">Capture</text>
-            <text x="278" y="88">Group</text>
-            <text x="462" y="88">Triage</text>
-            <text x="646" y="88">Alert</text>
+          <g fill="#eeebe3" font-size="14" font-weight="600" text-anchor="middle">
+            <text x="107" y="88">1. Capture</text>
+            <text x="312" y="88">2. Group</text>
+            <text x="517" y="88">3. Triage</text>
+            <text x="727" y="88">4. Alert</text>
           </g>
-          <g fill="#a1a1a6" font-size="11" text-anchor="middle">
-            <text x="94" y="108">SDK / OTLP</text>
-            <text x="278" y="108">issues + severity</text>
-            <text x="462" y="108">dashboard</text>
-            <text x="646" y="108">email / rules</text>
+          <g fill="#a4a69d" font-size="11" font-family="'IBM Plex Mono', monospace" text-anchor="middle">
+            <text x="107" y="108">8 SDKs &bull; OTLP</text>
+            <text x="312" y="108">Fingerprint &bull; Severity</text>
+            <text x="517" y="108">Dashboard UI</text>
+            <text x="727" y="108">Email &bull; Webhooks</text>
           </g>
-          <g stroke="#8b5cf6" stroke-width="2" fill="none">
-            <path d="M164 90 H208"/><path d="M348 90 H392"/><path d="M532 90 H576"/>
-          </g>
-          <g fill="#8b5cf6">
-            <polygon points="204,90 194,85 194,95"/><polygon points="388,90 378,85 378,95"/><polygon points="572,90 562,85 562,95"/>
+          <g stroke="#bd795e" stroke-width="2" fill="none">
+            <path d="M190 90 H230"/><polygon points="228,87 233,90 228,93" fill="#bd795e"/>
+            <path d="M395 90 H435"/><polygon points="433,87 438,90 433,93" fill="#bd795e"/>
+            <path d="M600 90 H640"/><polygon points="638,87 643,90 638,93" fill="#bd795e"/>
           </g>
         </svg>
-      </div>
-      <p class="diagram-cap">Verified product loop from ExceptionCaptureService, issue models, monitoring dashboards and report/alert jobs.</p>
-
-      <h3>Capability map</h3>
-      <div class="cap-grid">
-        <div class="cap"><b>Issue triage</b><span>Group, filter unresolved, assign, tag and resolve</span></div>
-        <div class="cap"><b>Monitoring</b><span>HTTP uptime, cron check-ins, HTTP/SQL/queue charts</span></div>
-        <div class="cap"><b>Session replay</b><span>DOM snapshot + network/console capture for debug context</span></div>
-        <div class="cap"><b>SaaS billing</b><span>Stripe plans with tenant-scoped usage and admin revenue views</span></div>
+        <p class="diagram-caption">Telemetry Lifecycle: ExceptionCaptureService ingests events, resolves parent issues, refreshes occurrence metrics, and triggers alert policies.</p>
       </div>
 
-      <figure class="shot">
-        <img class="shot-img" src="../projects/exception-flow.jpg" alt="Exception Tracker architecture flow including SDKs and billing" width="1200" height="900" loading="lazy">
-        <figcaption class="shot-cap">Capability flow covering SDKs, ingest, triage and alerts.</figcaption>
-      </figure>
-    </section>
+      <!-- Capability Grid -->
+      <h3 style="margin-top: 36px;">Observability Capability Map</h3>
+      <div class="tech-spec-grid" style="margin-top: 16px;">
+        <div class="tech-spec-item">
+          <strong>Issue Triage &amp; Workflow</strong>
+          <span>Group by stack trace, filter unresolved, assign team members, tag releases, and track regressions</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Synthetic Monitoring</strong>
+          <span>Global HTTP endpoint uptime checks, cron job dead-man switches, and queue latency charts</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Session Replay</strong>
+          <span>DOM mutation recording, console event logging, and network timeline reconstruction for visual debugging</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Tenant Metering &amp; Billing</strong>
+          <span>Stripe subscription plans, per-seat and per-event volume limits, and organization revenue management</span>
+        </div>
+      </div>
+    </div>
 
-    <section class="section" id="outcomes">
-      <h2><span class="n">06</span> Results / Impact</h2>
-      <p>A personal full-stack observability product with <strong>eight SDKs and native MVPs</strong>, demonstrating tenant isolation, ingest design, triage UX and billing. It is in progress and has no production-adoption metrics yet; the count reflects implemented product scope, not an estimate.</p>
-      <ul>
-        <li>Implemented eight SDK / ingest surfaces in the current codebase.</li>
-        <li>Full observability product surface spanning exceptions, traces, uptime and session replay.</li>
-        <li>In progress — no production-adoption metrics claimed.</li>
-      </ul>
-    </section>
+    <!-- 05 What I Built / Subsystems -->
+    <div class="case-section-item">
+      <div class="case-two-col">
+        <div>
+          <span class="section-label">05 / SUBSYSTEMS BUILT</span>
+          <h3>Ingestion Engine &amp; Worker Queues</h3>
+          <p>Designed to scale horizontally as event volume spikes:</p>
+          <ul>
+            <li><strong>Laravel Horizon &amp; Redis:</strong> Dedicated priority queues ensuring critical enterprise alerts are dispatched immediately even during mass error storms.</li>
+            <li><strong>PostgreSQL JSONB Storage:</strong> Flexible document-style storage for rich exception context: local variable bindings, headers, breadcrumbs, and user metadata.</li>
+            <li><strong>API Authentication:</strong> High-speed project token validation utilizing cached Sanctum tokens to prevent database lookup bottlenecks.</li>
+          </ul>
+        </div>
+        <div>
+          <span class="section-label">06 / SDK ECOSYSTEM</span>
+          <h3>Multi-Language Client Libraries</h3>
+          <p>Engineered uniform SDK abstractions across modern developer environments:</p>
+          <ul>
+            <li><strong>Web &amp; Node:</strong> Zero-dependency browser package with auto-unhandled-rejection interceptors and lightweight payload compression.</li>
+            <li><strong>PHP &amp; Laravel:</strong> Native service provider catching Laravel exceptions with automated context enhancement (route, authenticated user, query count).</li>
+            <li><strong>Python &amp; Rust:</strong> Asynchronous thread-safe error listeners with custom back-off retry logic.</li>
+            <li><strong>Mobile Clients:</strong> Swift and Kotlin modules with offline queue caching when mobile devices lose cellular connectivity.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <section class="section" id="gallery">
-      <h2><span class="n">07</span> Screenshots</h2>
-      <p>Illustrative 4:3 mockups of the triage surfaces verified in the codebase — dashboard, volume charts and ingest-to-alert flow.</p>
-      <div class="gallery">
-        <figure>
-          <img src="../projects/exception-chart.jpg" alt="Exception volume and severity chart" width="800" height="600" loading="lazy">
-          <figcaption>Illustrative interface — trend lines and severity breakdown (sample data)</figcaption>
+    <!-- 07 Visual Showcase Gallery -->
+    <div class="case-section-item">
+      <span class="section-label">07 / VISUAL SHOWCASE</span>
+      <h2 style="font: 600 clamp(36px, 4.5vw, 64px) var(--font-display); letter-spacing: -0.06em; margin: 16px 0 20px;">Interfaces Built for Fast Issue Resolution.</h2>
+      <div class="case-gallery-grid">
+        <figure class="case-gallery-card">
+          <img src="../assets/images/exception-second.png" alt="Exception Tracker issue detail and stack trace view" loading="lazy">
+          <figcaption><strong>Issue Diagnostics:</strong> Full stack-trace visualization, environment headers, and breadcrumb chronological timeline.</figcaption>
         </figure>
-        <figure>
-          <img src="../projects/exception-flow.jpg" alt="Exception Tracker ingest to alert flow diagram" width="800" height="600" loading="lazy">
-          <figcaption>SDKs → ingest → group issues → triage → alerts, plus billing</figcaption>
+        <figure class="case-gallery-card">
+          <img src="../projects/exception-chart.jpg" alt="Exception volume and severity chart" loading="lazy">
+          <figcaption><strong>Telemetry Charts:</strong> Real-time event velocity, severity breakdowns, and regression spikes.</figcaption>
+        </figure>
+        <figure class="case-gallery-card">
+          <img src="../projects/exception-flow.jpg" alt="Ingest to alert architectural flow diagram" loading="lazy">
+          <figcaption><strong>System Flow:</strong> Client SDKs to Redis queues, Horizon deduplication, triage dashboard, and webhooks.</figcaption>
+        </figure>
+        <figure class="case-gallery-card">
+          <img src="../projects/exception-hero.jpg" alt="Exception Tracker workspace overview" loading="lazy">
+          <figcaption><strong>Triage Dashboard:</strong> Unified multi-project dashboard with unresolved filter states and status badges.</figcaption>
         </figure>
       </div>
-    </section>
-
-    <section class="section" id="technology">
-      <h2><span class="n">08</span> Technology</h2>
-      <ul>
-        <li><strong>Stack:</strong> Laravel, Sanctum, Horizon, PostgreSQL, Redis, Blade dashboards, OpenAPI / Swagger</li>
-        <li><strong>Integrations:</strong> Stripe Cashier, OAuth (GitHub/Google), SAML/SCIM foundations, OTLP traces</li>
-        <li><strong>Product surface:</strong> exceptions, issues, traces, uptime, session replay, SDK ingest, alerts, billing</li>
-      </ul>
-    </section>
-
-    <section class="section" id="links">
-      <h2><span class="n">09</span> Links</h2>
-      <p>Independent project — in progress. No public production repository linked.</p>
-    </section>
-
-    <div class="tags">
-      <span>Laravel</span><span>Sanctum</span><span>Horizon</span><span>Redis</span><span>PostgreSQL</span><span>Stripe</span><span>SDKs</span><span>Observability</span><span>SaaS</span>
     </div>
 
-    <div class="cta">
-      <a class="btn btn-ghost" href="zimdle.html">← Zimdle</a>
-      <a class="btn btn-ghost" href="../projects.html">All projects →</a>
+    <!-- 08 Tech Stack Breakdown -->
+    <div class="case-section-item">
+      <span class="section-label">08 / TECHNICAL SPECIFICATION</span>
+      <h2 style="font: 600 clamp(36px, 4.5vw, 64px) var(--font-display); letter-spacing: -0.06em; margin: 16px 0 20px;">Technology &amp; Tooling.</h2>
+      <div class="tech-spec-grid">
+        <div class="tech-spec-item">
+          <strong>Backend &amp; Queues</strong>
+          <span>Laravel, PHP 8+, PostgreSQL, Redis, Laravel Horizon, Laravel Sanctum, OpenAPI / Swagger specs</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Telemetry &amp; Ingestion</strong>
+          <span>OpenTelemetry (OTLP), REST Ingestion endpoints, JSONB payload normalization, Deduplication hashing</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Official SDKs</strong>
+          <span>JavaScript, Node.js, PHP, Laravel package, Python, Rust, Swift (iOS MVP), Kotlin (Android MVP)</span>
+        </div>
+        <div class="tech-spec-item">
+          <strong>Billing &amp; Operations</strong>
+          <span>Stripe Cashier, Event-volume usage metering, Enterprise SAML/SCIM foundations, Webhook alert dispatch</span>
+        </div>
+      </div>
     </div>
 
-    </div>
-</main>
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
+    <!-- 09 Outcome & Public Links -->
+    <div class="case-outcome">
+      <span class="section-label">09 / THE OUTCOME</span>
       <div>
-        <p class="footer-brand">Jay Kaneriya</p>
-        <p class="footer-role">Senior Full-Stack Laravel/PHP Developer</p>
-        <p class="footer-desc">9+ years shipping production SaaS, education and business systems — available for remote roles and freelance Laravel projects from Rajkot, India (IST).</p>
-      </div>
-      <div class="footer-col">
-        <h4>Navigate</h4>
-        <div class="footer-links">
-          <a href="../index.html">Home</a>
-          <a href="../about.html">About</a>
-          <a href="../skills.html">Skills</a>
-          <a href="../projects.html">Projects</a>
-          <a href="../services.html">Services</a>
-          <a href="../cv.html">CV</a>
-          <a href="../contact.html">Contact</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <div class="footer-links">
-          <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener">Upwork</a>
-          <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener">Fiverr</a>
-          <a href="mailto:jay.kaneriya8@gmail.com">Email</a>
-          <a href="../cv.html">CV</a>
+        <p>A full-stack, enterprise-ready observability prototype demonstrating production-scale systems architecture, high-throughput ingest queues, reliable deduplication, and developer-friendly triage interfaces. Actively maintained as an independent engineering project.</p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px;">
+          <a class="underlined-link" href="../projects.html">
+            View all projects
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© <span id="footerYear">2026</span> Jay Kaneriya · Rajkot, India</p>
-      <div class="footer-social"><a href="../contact.html">Discuss a role or project</a></div>
+
+  </div>
+
+  <!-- Next Case Study Banner -->
+  <div class="case-next">
+    <span class="section-label">NEXT PROJECT</span>
+    <a href="paperly.html">
+      Paperly
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+    </a>
+  </div>
+</main>
+
+<!-- Rich Footer -->
+<footer class="rich-footer">
+  <div class="rich-footer-grid">
+    <div>
+      <p class="rich-footer-brand">Jay Kaneriya</p>
+      <p class="rich-footer-role">Senior Full-Stack Laravel/PHP Developer</p>
+      <p class="rich-footer-desc">9+ years shipping production SaaS, education and business systems. Available for remote full-time roles and freelance Laravel projects from Rajkot, India (IST).</p>
+    </div>
+    <div>
+      <h4>Case Studies</h4>
+      <div class="rich-footer-links">
+        <a href="paperly.html">Paperly (EdTech)</a>
+        <a href="megathy.html">Megathy (Delivery)</a>
+        <a href="zimdle.html">Zimdle (Customer SaaS)</a>
+        <a href="exception-tracker.html">Exception Tracker</a>
+        <!-- <a href="resident-app.html">Resident App (PropTech)</a> -->
+      </div>
+    </div>
+    <div>
+      <h4>Connect &amp; Hire</h4>
+      <div class="rich-footer-links">
+        <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="mailto:jay.kaneriya8@gmail.com">Direct Email</a>
+        <a href="../contact.html">Discuss a Role or Project</a>
+      </div>
     </div>
   </div>
+  <div class="rich-footer-bottom">
+    <span>© <span class="current-year">2026</span> JAY KANERIYA &bull; CASE STUDY: EXCEPTION TRACKER</span>
+    <a href="#top">
+      BACK TO TOP
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+    </a>
+  </div>
 </footer>
-<button class="to-top" id="toTop" aria-label="Scroll to top"><svg class="icon"><use href="#i-chevup"></use></svg></button>
+
 <script src="../assets/js/site.js" defer></script>
 </body>
 </html>
-

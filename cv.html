@@ -3,425 +3,622 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#08090c">
-<title>Jay Kaneriya CV — Senior Full-Stack Laravel Developer</title>
-<meta name="description" content="CV for Jay Kaneriya, a Senior Full-Stack Laravel/PHP Developer with 9+ years of experience in SaaS, education, eCommerce, Vue.js, React, MySQL and REST APIs.">
+<title>Jay Kaneriya — Curriculum Vitae | Senior Full-Stack Laravel Developer</title>
+<meta name="description" content="Curriculum Vitae of Jay Kaneriya — Senior Full-Stack Laravel/PHP Developer with 9+ years shipping production SaaS, APIs and education platforms. Available for remote full-time roles and freelance projects.">
+<meta name="author" content="Jay Kaneriya">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#242623">
 <link rel="canonical" href="https://jaykaneriya.github.io/cv.html">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://jaykaneriya.github.io/cv.html">
+<meta property="og:site_name" content="Jay Kaneriya">
+<meta property="og:title" content="Jay Kaneriya — Curriculum Vitae | Senior Full-Stack Laravel Developer">
+<meta property="og:description" content="CV of Jay Kaneriya — 9+ years shipping production SaaS, education and business systems. Laravel · Vue.js · React · MySQL · REST APIs. Available for remote roles.">
+<meta property="og:image" content="https://jaykaneriya.github.io/og-image.jpg">
+<meta property="og:image:alt" content="Jay Kaneriya — Senior Full-Stack Developer Portfolio">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jay Kaneriya CV — Senior Full-Stack Laravel Developer">
+<meta name="twitter:description" content="9+ years Laravel/PHP. Senior developer at Paperly (250+ schools, AU). Available remote.">
+<meta name="twitter:image" content="https://jaykaneriya.github.io/og-image.jpg">
+
+<!-- Icons -->
+<link rel="manifest" href="site.webmanifest">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<!-- Fonts & Stylesheet -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+<!-- Schema JSON-LD: BreadcrumbList + Person -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jaykaneriya.github.io/"},{"@type":"ListItem","position":2,"name":"CV","item":"https://jaykaneriya.github.io/cv.html"}]}
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jaykaneriya.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Curriculum Vitae", "item": "https://jaykaneriya.github.io/cv.html" }
+  ]
+}
 </script>
-<style>
-  @page { size: A4; margin: 0; }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --ink: #f5f5f7;
-    --muted: #a1a1a6;
-    --dim: #86868b;
-    --accent: #8b5cf6;
-    --accent-2: #3b82f6;
-    --accent-soft: rgba(139,92,246,.14);
-    --line: rgba(255,255,255,.12);
-    --paper: #15151b;
-    --bg: #000000;
-    --grad: linear-gradient(135deg,#8b5cf6,#3b82f6);
-  }
-
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, 'Segoe UI', Arial, sans-serif;
-    color: var(--ink);
-    background: var(--bg);
-    font-size: 9.4pt;
-    line-height: 1.48;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .page { padding: 11mm 12mm; }
-
-  .head {
-    border-bottom: 3px solid transparent;
-    border-image: var(--grad) 1;
-    padding-bottom: 14px;
-    margin-bottom: 14px;
-  }
-  .head-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 10px;
-  }
-  .head h1 {
-    font-size: 24pt;
-    font-weight: 800;
-    letter-spacing: -0.6px;
-    line-height: 1.05;
-  }
-  .head h1 span {
-    background: var(--grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .role {
-    margin-top: 4px;
-    font-size: 10.5pt;
-    color: var(--muted);
-  }
-  .role strong { color: var(--accent); font-weight: 700; }
-  .status {
-    background: var(--grad);
-    color: #fff;
-    border-radius: 999px;
-    padding: 8px 14px;
-    font-size: 8pt;
-    font-weight: 800;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-  .contact {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px 16px;
-    font-size: 8pt;
-    color: var(--dim);
-  }
-  .contact a { color: var(--ink); text-decoration: none; font-weight: 600; }
-  .contact a:hover { color: var(--accent); }
-
-  .cols { display: flex; gap: 16px; }
-  .main { flex: 1.7; min-width: 0; }
-  .side { flex: 1; min-width: 0; }
-
-  h2 {
-    font-size: 8.5pt;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--ink);
-    margin: 13px 0 7px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  h2::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background: var(--accent);
-    border-radius: 2px;
-  }
-  h2:first-child { margin-top: 0; }
-
-  .summary { color: var(--muted); font-size: 9.2pt; }
-  .core {
-    margin-top: 6px;
-    font-size: 8.1pt;
-    color: var(--dim);
-    background: var(--paper);
-    border-left: 3px solid var(--accent);
-    padding: 7px 10px;
-  }
-  .core b { color: var(--ink); }
-
-  .job { margin-bottom: 11px; page-break-inside: avoid; }
-  .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
-  .job h3 { font-size: 10.4pt; font-weight: 700; }
-  .job .when { font-size: 7.8pt; color: var(--accent); font-weight: 700; white-space: nowrap; }
-  .job .where { font-size: 8.3pt; color: var(--dim); margin-bottom: 3px; }
-  .job ul { list-style: none; margin: 2px 0 5px; }
-  .job li {
-    color: var(--muted);
-    padding-left: 12px;
-    position: relative;
-    margin-bottom: 1.5px;
-    font-size: 8.6pt;
-  }
-  .job li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5em;
-    width: 5px;
-    height: 5px;
-    background: var(--accent);
-  }
-
-  .tags { display: flex; flex-wrap: wrap; gap: 4px; }
-  .tags span {
-    background: var(--accent-soft);
-    color: #c4b5fd;
-    border: 1px solid rgba(139,92,246,.35);
-    font-size: 7pt;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 999px;
-  }
-
-  @media print {
-    :root {
-      --ink: #1d1d1f;
-      --muted: #4a4a4a;
-      --dim: #7a7a7a;
-      --accent: #5b3fd4;
-      --accent-soft: #f0ecff;
-      --line: #e0e0e0;
-      --paper: #f5f5f7;
-      --bg: #ffffff;
-      --grad: none;
-    }
-    body { background: #fff; color: #1d1d1f; }
-    .head { border-bottom: 3px solid #5b3fd4; border-image: none; }
-    .head h1 span { background: none; color: #5b3fd4; -webkit-background-clip: unset; background-clip: unset; }
-    .status { background: #5b3fd4; }
-    .tags span { background: #f0ecff; color: #5b3fd4; border: none; }
-    .core { border-left-color: #5b3fd4; }
-    h2::before, .job li::before, .plain-list li::before { background: #5b3fd4; }
-    .skill-group h4, .job .when, .edu .when, .role strong, .contact a:hover { color: #5b3fd4; }
-  }
-
-  @media screen and (max-width: 720px) {
-    .page { padding: 16px; }
-    .cols { flex-direction: column; }
-    .head-top { flex-direction: column; }
-  }
-
-  .proj { margin-bottom: 8px; page-break-inside: avoid; }
-  .proj h3 { font-size: 9.3pt; font-weight: 700; }
-  .proj .p-role { font-size: 7.6pt; color: var(--dim); margin-bottom: 2px; }
-  .proj p { font-size: 8.3pt; color: var(--muted); margin-bottom: 3px; }
-
-  .panel {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 11px 12px;
-    margin-bottom: 9px;
-    page-break-inside: avoid;
-  }
-  .panel h2 { margin-top: 0; font-size: 8pt; }
-  .panel h2::before { width: 8px; height: 8px; }
-  .skill-group { margin-bottom: 7px; }
-  .skill-group:last-child { margin-bottom: 0; }
-  .skill-group h4 {
-    font-size: 8pt;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 1px;
-  }
-  .skill-group p { font-size: 8pt; color: var(--muted); }
-
-  .plain-list { list-style: none; }
-  .plain-list li {
-    font-size: 8.2pt;
-    color: var(--muted);
-    padding-left: 11px;
-    position: relative;
-    margin-bottom: 2px;
-  }
-  .plain-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5em;
-    width: 5px;
-    height: 5px;
-    background: var(--accent);
-  }
-
-  .edu h3 { font-size: 8.8pt; font-weight: 700; }
-  .edu p { font-size: 8pt; color: var(--muted); }
-  .edu .when { color: var(--accent); font-weight: 700; font-size: 7.8pt; }
-
-  .note {
-    margin-top: 8px;
-    font-size: 7.2pt;
-    color: var(--dim);
-    text-align: center;
-  }
-</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jay Kaneriya",
+  "jobTitle": "Senior Full-Stack Laravel/PHP Developer",
+  "url": "https://jaykaneriya.github.io/",
+  "email": "jay.kaneriya8@gmail.com",
+  "telephone": "+918530078687",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Rajkot",
+    "addressRegion": "Gujarat",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/jaykaneriya/",
+    "https://github.com/JayKaneriya"
+  ]
+}
+</script>
 </head>
-<body>
-<div class="page">
+<body class="cv-page-body">
 
-  <header class="head">
-    <div class="head-top">
-      <div>
-        <h1>Jay Kaneriya<span>.</span></h1>
-        <div class="role">Senior Full-Stack Laravel/PHP Developer · Laravel/PHP primary · Available for remote roles and freelance work</div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Site Header -->
+<header class="site-header" id="top">
+  <a class="brand" href="index.html" aria-label="Jay Kaneriya, home">
+    <span class="brand-mark">J<span>.</span>K</span>
+    <span class="brand-name">JAY KANERIYA<span> / PORTFOLIO</span></span>
+  </a>
+  <nav class="desktop-nav" aria-label="Main navigation">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#expertise">Expertise</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="services.html">Services</a>
+    <a href="projects.html">All Projects</a>
+    <a href="cv.html" class="active">CV</a>
+  </nav>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" title="Toggle light/dark mode">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <a class="header-contact" href="mailto:jay.kaneriya8@gmail.com?subject=Let's%20work%20together">
+    Let's talk
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+  </a>
+  <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+  </button>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#expertise">Expertise</a>
+    <a href="index.html#experience">Experience</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="services.html">Services</a>
+    <a href="projects.html">All Projects</a>
+    <a href="cv.html">View CV</a>
+    <a class="mobile-cta" href="mailto:jay.kaneriya8@gmail.com?subject=Let's%20work%20together">
+      Let's talk
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+    </a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="cv-page-wrapper">
+
+    <!-- Document Action Toolbar -->
+    <div class="cv-toolbar" role="toolbar" aria-label="CV controls">
+      <div class="cv-toolbar-status">
+        <span class="status-dot"></span>
+        <span>Verified Curriculum Vitae &bull; Jay Kaneriya &bull; 2026 Edition</span>
       </div>
-      <div class="status">Available · Remote</div>
-    </div>
-    <div class="contact">
-      <span>Rajkot, Gujarat, India (IST)</span>
-      <span><a href="mailto:jay.kaneriya8@gmail.com">jay.kaneriya8@gmail.com</a></span>
-      <span><a href="tel:+918530078687">+91 85300 78687</a></span>
-      <span><a href="https://jaykaneriya.github.io">jaykaneriya.github.io</a></span>
-      <span><a href="https://www.linkedin.com/in/jaykaneriya/">LinkedIn</a></span>
-      <span><a href="https://github.com/JayKaneriya">GitHub</a></span>
-    </div>
-  </header>
-
-  <div class="cols">
-    <div class="main">
-
-      <h2>About</h2>
-      <p class="summary">
-        Senior Full-Stack Laravel/PHP Developer with 9+ years shipping production web apps for education, SaaS, and eCommerce.
-        Available for <b>remote full-time</b> roles and freelance Laravel projects. Most recently Senior Web Application Developer at Paperly (Australia),
-        building Laravel + Vue school software used by thousands of teachers and parents.
-      </p>
-      <p class="core"><b>Best at:</b> Laravel · PHP · REST APIs · MySQL · Vue.js · React · React Native · Stripe / PayPal · workflow systems</p>
-
-      <h2>Experience</h2>
-
-      <div class="job">
-        <div class="job-head">
-          <h3>Senior Web Application Developer</h3>
-          <span class="when">Jul 2022 – Aug 2026</span>
-        </div>
-        <div class="where">Paperly · Perth, Australia (Remote) · July 2022 – August 2026</div>
-        <ul>
-          <li>Shipped school admin modules used daily by thousands of teachers and parents across Australia.</li>
-          <li>Built excursion, sports, music, parent-teacher interview, and assessment calendar features.</li>
-          <li>Delivered dynamic forms, workflow automation, geolocation, and multi-school integrations.</li>
-          <li>Designed REST APIs and MySQL schemas; integrated third-party services in Agile releases.</li>
-        </ul>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>REST API</span><span>Geolocation</span></div>
+      <div class="cv-toolbar-actions">
+        <a class="cv-btn-secondary" href="cv-ai.html" title="Switch to clean plaintext ATS format">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="m14 9 3 3-3 3"/></svg>
+          AI / ATS Version
+        </a>
+        <button class="cv-btn-secondary" type="button" onclick="window.print()" title="Print or save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print / Save PDF
+        </button>
+        <a class="cv-btn-primary" href="Jay_Kaneriya_CV_2026.pdf" download title="Download official PDF CV">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
       </div>
-
-      <div class="job">
-        <div class="job-head">
-          <h3>Web Application Developer</h3>
-          <span class="when">Jul 2017 – Jun 2022</span>
-        </div>
-        <div class="where">Logistic Infotech Pvt Ltd · Rajkot, India</div>
-        <ul>
-          <li>Delivered full-stack projects worldwide — eCommerce, SaaS, education, restaurants, booking.</li>
-          <li>Built Laravel backends with Vue.js / React.js frontends, admin dashboards, and RBAC.</li>
-          <li>Integrated Stripe, PayPal, BPOINT, and custom payment APIs into production billing.</li>
-          <li>Shipped real-time features with Socket.io and Firebase; mentored juniors and led client delivery.</li>
-        </ul>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>React</span><span>Node.js</span><span>Socket.io</span><span>AWS</span></div>
-      </div>
-
-      <h2>Selected work</h2>
-
-      <div class="proj">
-        <h3>Paperly — School Management</h3>
-        <div class="p-role">Senior Web Application Developer · 2022–2026 · Australia</div>
-        <p>Extracurricular and school admin at scale: excursions, sports, music, PT interviews, forms, workflows, geolocation.</p>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>MySQL</span></div>
-      </div>
-
-      <div class="proj">
-        <h3>Megathy — On-Demand Grocery &amp; Food</h3>
-        <div class="p-role">Full Stack · Multi-vendor · Saudi Arabia</div>
-        <p>Multi-store grocery and restaurant delivery — Laravel APIs, Vue admin, scheduled slots, collectors/drivers, Payfort payments, rewards, and live chat for Eastern Saudi Arabia.</p>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>Payfort</span><span>FCM</span></div>
-      </div>
-
-      <div class="proj">
-        <h3>Zimdle — Customer Feedback</h3>
-        <div class="p-role">Full Stack · Private feedback SaaS</div>
-        <p>Private feedback, AJAX charts, Stripe subscriptions, PDF reports and Twilio alerts for business performance monitoring.</p>
-        <div class="tags"><span>Laravel</span><span>Stripe</span><span>AJAX</span><span>Analytics</span></div>
-      </div>
-
-      <div class="proj">
-        <h3>Exception Tracker</h3>
-        <div class="p-role">Personal project · Observability SaaS · In progress</div>
-        <p>Multi-tenant exception monitoring with issue grouping, SDKs, uptime/session replay, Horizon queues and Stripe billing.</p>
-        <div class="tags"><span>Laravel</span><span>Horizon</span><span>Redis</span><span>Stripe</span></div>
-      </div>
-
-      <!-- Resident App — commented out for now
-      <div class="proj">
-        <h3>Resident App</h3>
-        <div class="p-role">Personal project · Housing society SaaS · In progress</div>
-        <p>Multi-tenant society platform for notices, maintenance, visitors, billing and Expo / React Native mobile — admin and resident channels.</p>
-        <div class="tags"><span>Laravel</span><span>React</span><span>React Native</span><span>Expo</span></div>
-      </div>
-      -->
-
     </div>
 
-    <div class="side">
+    <!-- The Executive Document Container -->
+    <article class="cv-document">
 
-      <div class="panel">
-        <h2>Skills</h2>
-        <div class="skill-group">
-          <h4>Backend</h4>
-          <p>Laravel, PHP 8+, REST APIs, MySQL, Redis, Node.js, Socket.io, JWT, OAuth</p>
+      <!-- CV Document Header -->
+      <header class="cv-doc-header">
+        <div class="cv-header-top">
+          <div class="cv-header-identity">
+            <div class="cv-avatar-badge" aria-hidden="true">JK</div>
+            <div class="cv-title-block">
+              <h1>Jay Kaneriya</h1>
+              <p class="cv-role-subtitle">Senior Full-Stack Laravel / PHP Developer</p>
+              <div class="cv-availability-badge">
+                <span class="status-dot"></span>
+                <span>Available for Remote Full-Time &amp; High-Impact Freelance Roles</span>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="cv-btn-secondary" type="button" data-copy-email="jay.kaneriya8@gmail.com" title="Click to copy email">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              Copy Email
+            </button>
+            <a class="cv-btn-secondary" href="mailto:jay.kaneriya8@gmail.com?subject=Full-Time%20Role%20Inquiry%20%E2%80%94%20Jay%20Kaneriya">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              Email Directly
+            </a>
+          </div>
         </div>
-        <div class="skill-group">
-          <h4>Frontend</h4>
-          <p>Vue.js, React.js, TypeScript, Tailwind, Sass, responsive UI</p>
+
+        <!-- Contact Pills Strip -->
+        <div class="cv-contact-strip">
+          <span class="cv-contact-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <a href="mailto:jay.kaneriya8@gmail.com">jay.kaneriya8@gmail.com</a>
+          </span>
+          <span class="cv-contact-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.36 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 2h3a2 2 0 0 1 2 1.72c.127.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+918530078687">+91 85300 78687</a>
+          </span>
+          <span class="cv-contact-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Rajkot, India &bull; IST (UTC+5:30)</span>
+          </span>
+          <span class="cv-contact-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </span>
+          <span class="cv-contact-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </span>
+          <span class="cv-contact-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><path d="M2 10h20"/></svg>
+            <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener noreferrer">Upwork</a>
+          </span>
         </div>
-        <div class="skill-group">
-          <h4>Mobile</h4>
-          <p>React Native, Expo, Laravel API integration, push notifications</p>
+      </header>
+
+      <!-- Key Qualifications Stats Bar -->
+      <div class="cv-stats-grid" aria-label="Key qualifications and metrics">
+        <div class="cv-stat-box">
+          <span class="cv-stat-num">9+ Years</span>
+          <span class="cv-stat-lbl">Production Experience</span>
         </div>
-        <div class="skill-group">
-          <h4>Cloud &amp; tools</h4>
-          <p>Git, GitHub Actions, AWS, Postman, JIRA, Firebase, Linux, cPanel</p>
+        <div class="cv-stat-box">
+          <span class="cv-stat-num">250+ Schools</span>
+          <span class="cv-stat-lbl">Paperly EdTech SaaS (AU)</span>
         </div>
-        <div class="skill-group">
-          <h4>Payments</h4>
-          <p>Stripe, PayPal, BPOINT, webhooks</p>
+        <div class="cv-stat-box">
+          <span class="cv-stat-num">5+ Years</span>
+          <span class="cv-stat-lbl">Agency Delivery (Logistic)</span>
+        </div>
+        <div class="cv-stat-box">
+          <span class="cv-stat-num">Full-Stack Core</span>
+          <span class="cv-stat-lbl">Laravel &bull; Vue &bull; React &bull; MySQL</span>
         </div>
       </div>
 
-      <div class="panel">
-        <h2>Looking for</h2>
-        <ul class="plain-list">
-          <li>Available now</li>
-          <li>Remote full-time roles</li>
-          <li>Freelance / contract Laravel work</li>
-          <li>IST · AU / EU / US overlap</li>
-        </ul>
-      </div>
+      <!-- Document Body Two-Column Grid -->
+      <div class="cv-doc-grid">
 
-      <div class="panel">
-        <h2>Domains</h2>
-        <p style="font-size:8pt;color:var(--muted)">
-          Education · SaaS · eCommerce · On-demand delivery · Booking · Feedback analytics · Workflow automation
-        </p>
-      </div>
+        <!-- ══════════════════════════════════
+             LEFT COLUMN: TECHNICAL SIDEBAR
+        ═══════════════════════════════════ -->
+        <aside class="cv-doc-sidebar" aria-label="Technical skills, education and languages">
 
-      <div class="panel edu">
-        <h2>Education</h2>
-        <h3>B.E. Computer Science</h3>
-        <p>Gujarat Technological University</p>
-        <p>Rajkot, India</p>
-        <p class="when">2013 – 2017</p>
-      </div>
+          <!-- Core Technologies -->
+          <div class="cv-side-section">
+            <h2 class="cv-side-label">Technical Arsenal</h2>
 
-      <div class="panel">
-        <h2>Languages</h2>
-        <ul class="plain-list">
-          <li>English — Professional</li>
-          <li>Hindi — Professional</li>
-          <li>Gujarati — Native</li>
-        </ul>
-      </div>
+            <div class="skill-group">
+              <div class="skill-group-label">Backend Core</div>
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Laravel / PHP 8+</span>
+                  <span class="skill-item-pct">95%</span>
+                </div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">MySQL / PostgreSQL</span>
+                  <span class="skill-item-pct">88%</span>
+                </div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Redis / Queues / Horizon</span>
+                  <span class="skill-item-pct">82%</span>
+                </div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">RESTful API Architecture</span>
+                  <span class="skill-item-pct">94%</span>
+                </div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="94"></div></div>
+              </div>
+            </div>
 
-      <div class="panel">
-        <h2>Strengths</h2>
-        <ul class="plain-list">
-          <li>Reliable remote delivery</li>
-          <li>Clear client communication</li>
-          <li>Mentoring &amp; code reviews</li>
-          <li>Agile / sprint planning</li>
-        </ul>
-      </div>
+            <div class="skill-group">
+              <div class="skill-group-label">Frontend &amp; Mobile</div>
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">Vue.js (2 &amp; 3)</span>
+                  <span class="skill-item-pct">88%</span>
+                </div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">React / React Native</span>
+                  <span class="skill-item-pct">80%</span>
+                </div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-item-header">
+                  <span class="skill-item-name">TypeScript / JavaScript</span>
+                  <span class="skill-item-pct">82%</span>
+                </div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div>
+              </div>
+            </div>
+          </div>
 
+          <!-- Stack Badges -->
+          <div class="cv-side-section">
+            <h2 class="cv-side-label">Ecosystem &amp; Tools</h2>
+            <div class="cv-tech-pills">
+              <span class="cv-tech-pill">Laravel 11</span>
+              <span class="cv-tech-pill">stancl/tenancy</span>
+              <span class="cv-tech-pill">Stripe Cashier</span>
+              <span class="cv-tech-pill">Payfort</span>
+              <span class="cv-tech-pill">Inertia.js</span>
+              <span class="cv-tech-pill">Expo</span>
+              <span class="cv-tech-pill">Twilio SMS</span>
+              <span class="cv-tech-pill">AWS S3</span>
+              <span class="cv-tech-pill">GitHub Actions</span>
+              <span class="cv-tech-pill">Docker</span>
+              <span class="cv-tech-pill">Tailwind CSS</span>
+              <span class="cv-tech-pill">Socket.io</span>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="cv-side-section">
+            <h2 class="cv-side-label">Education</h2>
+            <div class="cv-side-edu">
+              <p class="cv-side-degree">B.E. Computer Science &amp; Engineering</p>
+              <p class="cv-side-school">Gujarat Technological University</p>
+              <p class="cv-side-school">Shri Labhubhai Trivedi Institute of Engineering &amp; Technology, Rajkot</p>
+              <span class="cv-side-year">2013 — 2017 &bull; First Class</span>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="cv-side-section">
+            <h2 class="cv-side-label">Languages</h2>
+            <div class="cv-side-lang">
+              <span>English</span>
+              <span class="cv-side-lang-level">Professional</span>
+            </div>
+            <div class="cv-side-lang">
+              <span>Hindi</span>
+              <span class="cv-side-lang-level">Native</span>
+            </div>
+            <div class="cv-side-lang">
+              <span>Gujarati</span>
+              <span class="cv-side-lang-level">Native</span>
+            </div>
+          </div>
+
+          <!-- Core Strengths -->
+          <div class="cv-side-section">
+            <h2 class="cv-side-label">Core Strengths</h2>
+            <ul class="cv-side-strengths">
+              <li>End-to-end architecture ownership — database design to production rollout</li>
+              <li>Clear, dependable asynchronous communication across AU / EU / US timezones</li>
+              <li>Production incident resolution, query tuning, and zero-downtime migrations</li>
+              <li>Code reviews, convention building, and technical mentoring of junior engineers</li>
+              <li>Direct client engagement, scope translation, and Agile sprint execution</li>
+            </ul>
+          </div>
+
+        </aside>
+
+        <!-- ══════════════════════════════════
+             RIGHT COLUMN: EXPERIENCE & PROOF
+        ═══════════════════════════════════ -->
+        <div class="cv-doc-main">
+
+          <!-- Executive Summary -->
+          <section class="cv-block">
+            <h2 class="cv-block-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              Executive Summary
+            </h2>
+            <p style="font-size: 15px; line-height: 1.8; color: var(--text-light-muted); margin: 0;">
+              Senior Full-Stack Laravel/PHP Developer with <strong style="color:var(--text-light);">9+ years</strong> of commercial experience engineering resilient web applications for SaaS, EdTech, logistics, and eCommerce systems. Available for <strong style="color:var(--text-light);">remote full-time engineering roles</strong> and high-impact freelance Laravel consulting engagements.
+            </p>
+            <p style="font-size: 14.5px; line-height: 1.75; color: var(--text-light-muted); margin: 14px 0 0;">
+              Most recently Senior Web Application Developer at <strong style="color:var(--text-light);">Paperly (Perth, Australia · remote)</strong>, owning critical school operations modules used daily by thousands of teachers and parents across <strong style="color:var(--text-light);">250+ Australian schools</strong>. Proven track record of architecting scalable schemas, authoring clean REST APIs, writing maintainable frontend interfaces with Vue.js and React, and maintaining high reliability on live production systems.
+            </p>
+          </section>
+
+          <!-- Professional Experience -->
+          <section class="cv-block">
+            <h2 class="cv-block-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              Professional Experience
+            </h2>
+
+            <!-- Job 01: Paperly -->
+            <article class="cv-timeline-item">
+              <div class="cv-timeline-dot"></div>
+              <div class="cv-timeline-header">
+                <h3 class="cv-timeline-role">Senior Web Application Developer</h3>
+                <span class="cv-timeline-badge">Jul 2022 — Aug 2026 &bull; 4 Years</span>
+              </div>
+              <p class="cv-timeline-company">Paperly &bull; Perth, Australia (Remote)</p>
+              <p class="cv-timeline-summary">
+                Led full-stack feature engineering on an established multi-school Australian EdTech platform trusted daily by thousands of educators, parents, and administrative staff. Owned production deployments, database migrations, and cross-system integrations while collaborating asynchronously with the Perth product team.
+              </p>
+              <ul class="cv-bullets">
+                <li>Architected and shipped excursion management, sports coordination, music lesson scheduling, parent-teacher interviews, and assessment calendars with digital parent consent workflows.</li>
+                <li>Built a dynamic multi-step form builder with conditional field logic, role-based access control, and full audit logging — serving as the platform's core workflow engine.</li>
+                <li>Designed and maintained Laravel REST APIs and Eloquent MySQL schemas; synchronized data with major School Information Systems (Synergetic, TASS, Veracross, SEQTA, Wonde).</li>
+                <li>Conducted zero-downtime production deployments, database indexing, and performance tuning on high-concurrency peak usage days.</li>
+                <li>Paperly publicly reports <strong>250+ schools joined for 2026</strong> and beyond.</li>
+              </ul>
+              <div class="cv-tech-pills">
+                <span class="cv-tech-pill">Laravel</span>
+                <span class="cv-tech-pill">Vue.js</span>
+                <span class="cv-tech-pill">MySQL</span>
+                <span class="cv-tech-pill">REST APIs</span>
+                <span class="cv-tech-pill">SIS Sync</span>
+                <span class="cv-tech-pill">Redis</span>
+                <span class="cv-tech-pill">AWS S3</span>
+              </div>
+            </article>
+
+            <!-- Job 02: Logistic Infotech -->
+            <article class="cv-timeline-item">
+              <div class="cv-timeline-dot"></div>
+              <div class="cv-timeline-header">
+                <h3 class="cv-timeline-role">Web Application Developer</h3>
+                <span class="cv-timeline-badge">May 2017 — Jun 2022 &bull; 5 Years</span>
+              </div>
+              <p class="cv-timeline-company">Logistic Infotech Pvt. Ltd. &bull; Rajkot, India</p>
+              <p class="cv-timeline-summary">
+                Five years of full-stack client delivery across international platforms spanning on-demand logistics, SaaS, eCommerce, and booking systems for clients in Saudi Arabia, India, Australia, and the UK.
+              </p>
+              <ul class="cv-bullets">
+                <li>Architected and delivered <strong>Megathy</strong>: multi-vendor grocery and restaurant operations core (multi-store catalog, scheduled delivery slots, Payfort payments, live driver tracking) for Eastern Saudi Arabia — serving web and mobile clients.</li>
+                <li>Built <strong>Zimdle</strong>: private customer feedback SaaS with AJAX analytics dashboards, criteria scoring, automated PDF reports, Twilio SMS alerts, and Stripe subscription lifecycle (upgrades, cancellations, webhooks).</li>
+                <li>Integrated payment gateways (Stripe, Payfort, PayPal, BPOINT), SMS (Twilio), push notifications (FCM), real-time sockets (Socket.io), and OAuth2 authentication.</li>
+                <li>Mentored junior developers, ran code reviews, established coding standards, and managed direct technical communication with international stakeholders.</li>
+              </ul>
+              <div class="cv-tech-pills">
+                <span class="cv-tech-pill">Laravel</span>
+                <span class="cv-tech-pill">Vue.js</span>
+                <span class="cv-tech-pill">React</span>
+                <span class="cv-tech-pill">MySQL</span>
+                <span class="cv-tech-pill">Stripe</span>
+                <span class="cv-tech-pill">Payfort</span>
+                <span class="cv-tech-pill">Twilio</span>
+                <span class="cv-tech-pill">FCM</span>
+              </div>
+            </article>
+
+          </section>
+
+          <!-- Featured Project Architectures -->
+          <section class="cv-block">
+            <h2 class="cv-block-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              Selected Production &amp; Architecture Builds
+            </h2>
+
+            <!-- Project 1: Paperly -->
+            <div class="cv-project-card">
+              <div class="cv-project-card-head">
+                <h3 class="cv-project-card-title">Paperly — Australian EdTech SaaS</h3>
+                <a class="underlined-link" href="case-studies/paperly.html" style="font-size:12px;">Case Study &rarr;</a>
+              </div>
+              <p class="cv-project-card-desc">
+                Flagship production operations platform for 250+ Australian schools. Custom form builder, parent consent, excursion scheduling, and school information system sync.
+              </p>
+              <div class="cv-tech-pills">
+                <span class="cv-tech-pill">Laravel</span><span class="cv-tech-pill">Vue.js</span><span class="cv-tech-pill">MySQL</span><span class="cv-tech-pill">SIS Integrations</span>
+              </div>
+            </div>
+
+            <!-- Project 2: Megathy -->
+            <div class="cv-project-card">
+              <div class="cv-project-card-head">
+                <h3 class="cv-project-card-title">Megathy — Multi-Vendor Delivery Core</h3>
+                <a class="underlined-link" href="case-studies/megathy.html" style="font-size:12px;">Case Study &rarr;</a>
+              </div>
+              <p class="cv-project-card-desc">
+                Commercial on-demand grocery and restaurant logistics engine in Saudi Arabia. Delivery slot scheduling, Payfort payments, and unified APIs for web and mobile.
+              </p>
+              <div class="cv-tech-pills">
+                <span class="cv-tech-pill">Laravel</span><span class="cv-tech-pill">Vue.js</span><span class="cv-tech-pill">Payfort</span><span class="cv-tech-pill">Twilio</span><span class="cv-tech-pill">FCM</span>
+              </div>
+            </div>
+
+            <!-- Project 3: Zimdle -->
+            <div class="cv-project-card">
+              <div class="cv-project-card-head">
+                <h3 class="cv-project-card-title">Zimdle — Customer Feedback SaaS</h3>
+                <a class="underlined-link" href="case-studies/zimdle.html" style="font-size:12px;">Case Study &rarr;</a>
+              </div>
+              <p class="cv-project-card-desc">
+                Feedback analytics platform with multi-criteria scoring, interactive AJAX reporting, DomPDF exports, and full Stripe subscription lifecycle management.
+              </p>
+              <div class="cv-tech-pills">
+                <span class="cv-tech-pill">Laravel</span><span class="cv-tech-pill">Stripe Cashier</span><span class="cv-tech-pill">AJAX Analytics</span><span class="cv-tech-pill">DomPDF</span>
+              </div>
+            </div>
+
+            <!-- Project 4: Resident App (Hidden for now)
+            <div class="cv-project-card">
+              <div class="cv-project-card-head">
+                <h3 class="cv-project-card-title">Resident App — Multi-Tenant Community Ops</h3>
+                <a class="underlined-link" href="case-studies/resident-app.html" style="font-size:12px;">Case Study &rarr;</a>
+              </div>
+              <p class="cv-project-card-desc">
+                Independent PropTech platform unifying housing society notices, maintenance tickets, visitor QR verification, and automated dues billing across web and Expo mobile.
+              </p>
+              <div class="cv-tech-pills">
+                <span class="cv-tech-pill">Laravel 11</span><span class="cv-tech-pill">React</span><span class="cv-tech-pill">Expo</span><span class="cv-tech-pill">stancl/tenancy</span><span class="cv-tech-pill">Razorpay/Stripe</span>
+              </div>
+            </div>
+            -->
+
+            <!-- Project 4: Exception Tracker -->
+            <div class="cv-project-card">
+              <div class="cv-project-card-head">
+                <h3 class="cv-project-card-title">Exception Tracker — Observability Platform</h3>
+                <a class="underlined-link" href="case-studies/exception-tracker.html" style="font-size:12px;">Case Study &rarr;</a>
+              </div>
+              <p class="cv-project-card-desc">
+                High-throughput error triage SaaS with signature hashing, deduplication pipelines, synthetic uptime checks, Horizon queues, and official client SDKs.
+              </p>
+              <div class="cv-tech-pills">
+                <span class="cv-tech-pill">Laravel 11</span><span class="cv-tech-pill">Horizon</span><span class="cv-tech-pill">Redis</span><span class="cv-tech-pill">PostgreSQL</span><span class="cv-tech-pill">Stripe</span>
+              </div>
+            </div>
+
+          </section>
+
+          <!-- Peer Endorsements / Testimonials -->
+          <section class="cv-block">
+            <h2 class="cv-block-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              What Colleagues Say
+            </h2>
+
+            <div class="cv-rec-quote">
+              <p>"Jay is an experienced Laravel/Vue.js developer with a solution-focused mindset. He brings technical expertise and a thoughtful approach — highly responsive, and makes remote collaboration as smooth as it can be."</p>
+              <div class="cv-rec-meta">
+                <span class="cv-rec-author">Natalie Nguyen</span>
+                <span class="cv-rec-role">Digital Product Owner &bull; Paperly (Perth, Australia)</span>
+              </div>
+            </div>
+
+            <div class="cv-rec-quote">
+              <p>"Jay is a highly skilled and dependable Full-Stack Developer with strong expertise in Laravel and PHP, along with Vue.js, React, and React Native. He takes ownership from development through delivery and consistently delivers quality solutions on time."</p>
+              <div class="cv-rec-meta">
+                <span class="cv-rec-author">Nishita Patel</span>
+                <span class="cv-rec-role">Senior Mobile App Developer &bull; Logistic Infotech</span>
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <a class="underlined-link" href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener noreferrer">
+                View all recommendations on LinkedIn
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </div>
+          </section>
+
+          <!-- Hiring & Engagement Call-to-Action -->
+          <div class="cv-cta-box">
+            <div>
+              <div style="font: 700 10px var(--font-mono); text-transform:uppercase; letter-spacing:0.12em; color: var(--accent-terracotta); margin-bottom:6px; display:flex; align-items:center; gap:8px;">
+                <span class="status-dot"></span> OPEN FOR HIRE
+              </div>
+              <h3 style="font: 700 clamp(18px, 2vw, 22px) var(--font-display); letter-spacing:-0.03em; color: var(--text-light); margin:0 0 6px;">Available for remote full-time seats &amp; freelance projects.</h3>
+              <p style="font-size:13px; color:var(--text-light-muted); margin:0;">Based in Rajkot, India (IST) with established working overlap for AU, EU, and US engineering teams.</p>
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="cv-btn-primary" href="mailto:jay.kaneriya8@gmail.com?subject=Full-Time%20Role%20Inquiry%20%E2%80%94%20Jay%20Kaneriya">
+                Discuss an Opportunity
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+              <a class="cv-btn-secondary" href="Jay_Kaneriya_CV_2026.pdf" download>
+                Download PDF
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </div><!-- /.cv-doc-main -->
+
+      </div><!-- /.cv-doc-grid -->
+
+    </article><!-- /.cv-document -->
+
+  </div><!-- /.cv-page-wrapper -->
+</main>
+
+<!-- Rich Footer -->
+<footer class="rich-footer">
+  <div class="rich-footer-grid">
+    <div>
+      <p class="rich-footer-brand">Jay Kaneriya</p>
+      <p class="rich-footer-role">Senior Full-Stack Laravel/PHP Developer</p>
+      <p class="rich-footer-desc">9+ years shipping production SaaS, education and business systems. Available for remote full-time roles and freelance Laravel projects from Rajkot, India (IST) with worldwide team overlap.</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <div class="rich-footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Jay</a>
+        <a href="skills.html">Skills &amp; Tech</a>
+        <a href="projects.html">All Projects</a>
+        <a href="services.html">Services</a>
+        <a href="cv.html">Curriculum Vitae</a>
+        <a href="cv-ai.html">AI/ATS CV Version</a>
+        <a href="contact.html">Contact &amp; Hire</a>
+      </div>
+    </div>
+    <div>
+      <h4>Connect &amp; Hire</h4>
+      <div class="rich-footer-links">
+        <a href="https://www.linkedin.com/in/jaykaneriya/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/JayKaneriya" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.upwork.com/freelancers/~01b77240d87af81e14" target="_blank" rel="noopener noreferrer">Upwork</a>
+        <a href="https://www.fiverr.com/s/bk9dkYa" target="_blank" rel="noopener noreferrer">Fiverr</a>
+        <a href="mailto:jay.kaneriya8@gmail.com">Direct Email</a>
+        <a href="tel:+918530078687">+91 85300 78687</a>
+      </div>
     </div>
   </div>
+  <div class="rich-footer-bottom">
+    <span>© <span class="current-year">2026</span> JAY KANERIYA &bull; RAJKOT, GUJARAT, INDIA</span>
+    <span>DESIGNED TO BE DIFFERENT. BUILT TO WORK.</span>
+    <a href="#top">
+      BACK TO TOP
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+    </a>
+  </div>
+</footer>
 
-  <p class="note">Web CV · <a href="cv-doc.html" style="color:var(--accent)">Document / Word format</a> · For ATS / AI agents use Jay_Kaneriya_CV_AI.pdf</p>
-
-</div>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>
