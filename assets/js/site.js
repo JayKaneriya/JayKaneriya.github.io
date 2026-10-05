@@ -124,14 +124,15 @@
   }
 
   // ─── Scroll-Reveal (Intersection Observer) ─────────────────────────────────
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting || prefersReducedMotion) {
         entry.target.classList.add('is-visible');
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+  }, { threshold: 0.02, rootMargin: '0px 0px 80px 0px' });
 
   $$('.reveal').forEach(el => revealObserver.observe(el));
 
